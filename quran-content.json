@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "contents": [
+    {
+      "id": "mokhtasar_fa",
+      "type": "tafsir",
+      "name": "المختصر في التفسير (فارسی)",
+      "fileName": "mokhtasar_fa.db",
+      "sizeMB": 4.0
+    },
+    {
+      "id": "tafsir_noor",
+      "type": "tafsir",
+      "name": "تفسیر نور",
+      "fileName": "noor.db",
+      "sizeMB": 6.6
+    },
+    {
+      "id": "tafsir_anwar",
+      "type": "tafsir",
+      "name": "تفسیر انوار",
+      "fileName": "anwar.db",
+      "sizeMB": 13.6
+    },
+    {
+      "id": "tafsir_rastin",
+      "type": "tafsir",
+      "name": "تفسیر راستین",
+      "fileName": "rastin.db",
+      "sizeMB": 55.3
+    }
+  ]
+}

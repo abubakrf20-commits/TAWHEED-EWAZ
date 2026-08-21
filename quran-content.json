@@ -1,0 +1,148 @@
+{
+  "contents": [
+    {
+      "id": "mokhtasar_fa",
+      "type": "tafsir",
+      "name": "المختصر فی التفسیر (فارسی)",
+      "fileName": "mokhtasar_fa.db",
+      "compressed": true,
+      "sizeMB": 0.8
+    },
+    {
+      "id": "tafsir_noor",
+      "type": "tafsir",
+      "name": "تفسیر نور",
+      "fileName": "noor.db",
+      "compressed": true,
+      "sizeMB": 1.5
+    },
+    {
+      "id": "tafsir_anwar",
+      "type": "tafsir",
+      "name": "تفسیر انوار",
+      "fileName": "anwar.db",
+      "compressed": true,
+      "sizeMB": 2.5
+    },
+    {
+      "id": "tafsir_rastin",
+      "type": "tafsir",
+      "name": "تفسیر راستین",
+      "fileName": "rastin.db",
+      "compressed": true,
+      "sizeMB": 2.7
+    },
+    {
+      "id": "persian_translation",
+      "type": "translation",
+      "name": "ترجمهٔ فارسی",
+      "fileName": "persian_translation.json",
+      "compressed": true,
+      "sizeMB": 0.4
+    },
+    {
+      "id": "safwa_tafasir",
+      "type": "tafsir",
+      "name": "صفوة التفاسير - الصابوني",
+      "fileName": "safwa_tafasir.db",
+      "compressed": true,
+      "sizeMB": 0.47
+    },
+    {
+      "id": "fath_qadir",
+      "type": "tafsir",
+      "name": "فتح القدير - الشوكاني",
+      "fileName": "fath_qadir.db",
+      "compressed": true,
+      "sizeMB": 4.42
+    },
+    {
+      "id": "mokhtasar_ibn_kathir",
+      "type": "tafsir",
+      "name": "مختصر تفسير ابن كثير - الصابوني",
+      "fileName": "mokhtasar_ibn_kathir.db",
+      "compressed": true,
+      "sizeMB": 1.86
+    },
+    {
+      "id": "baghawi",
+      "type": "tafsir",
+      "name": "معالم التنزيل - البغوي",
+      "fileName": "baghawi.db",
+      "compressed": true,
+      "sizeMB": 2.62
+    },
+    {
+      "id": "asbab_nuzul",
+      "type": "tafsir",
+      "name": "أسباب النزول - الواحدي",
+      "fileName": "asbab_nuzul.db",
+      "compressed": true,
+      "sizeMB": 0.25
+    },
+    {
+      "id": "adwa_albayan",
+      "type": "tafsir",
+      "name": "أضواء البيان - الشنقيطي",
+      "fileName": "adwa_albayan.db",
+      "compressed": true,
+      "sizeMB": 2.22
+    },
+    {
+      "id": "baydawi",
+      "type": "tafsir",
+      "name": "أنوار التنزيل - البيضاوي",
+      "fileName": "baydawi.db",
+      "compressed": true,
+      "sizeMB": 2.14
+    },
+    {
+      "id": "irab_alquran",
+      "type": "tafsir",
+      "name": "إعراب القرآن",
+      "fileName": "irab_alquran.db",
+      "compressed": true,
+      "sizeMB": 1.52
+    },
+    {
+      "id": "tasheel",
+      "type": "tafsir",
+      "name": "التسهيل لعلوم التنزيل - ابن جزي",
+      "fileName": "tasheel.db",
+      "compressed": true,
+      "sizeMB": 1.09
+    },
+    {
+      "id": "tahrir_ashur",
+      "type": "tafsir",
+      "name": "تحرير المعنى - ابن عاشور",
+      "fileName": "tahrir_ashur.db",
+      "compressed": true,
+      "sizeMB": 3.67
+    },
+    {
+      "id": "jalalain",
+      "type": "tafsir",
+      "name": "تفسير الجلالين - المحلي والسيوطي",
+      "fileName": "jalalain.db",
+      "compressed": true,
+      "sizeMB": 0.79
+    },
+    {
+      "id": "ibn_kathir",
+      "type": "tafsir",
+      "name": "تفسير القرآن العظيم - ابن كثير",
+      "fileName": "ibn_kathir.db",
+      "compressed": true,
+      "sizeMB": 4.27
+    },
+    {
+      "id": "tabari",
+      "type": "tafsir",
+      "name": "جامع البيان - الطبري",
+      "fileName": "tabari.db",
+      "compressed": true,
+      "sizeMB": 2.37
+    }
+  ]
+}

@@ -6,39 +6,44 @@
       "name": "المختصر فی التفسیر (فارسی)",
       "fileName": "mokhtasar_fa.db",
       "compressed": true,
-      "sizeMB": 0.8
+      "sizeMB": 0.8,
+      "lang": "fa"
     },
     {
       "id": "tafsir_noor",
       "type": "tafsir",
-      "name": "تفسیر نور",
+      "name": "تفسیر نور — مصطفی خرمدل",
       "fileName": "noor.db",
       "compressed": true,
-      "sizeMB": 1.5
+      "sizeMB": 1.5,
+      "lang": "fa"
     },
     {
       "id": "tafsir_anwar",
       "type": "tafsir",
-      "name": "تفسیر انوار",
+      "name": "انوار القرآن — عبدالرئوف مخلص",
       "fileName": "anwar.db",
       "compressed": true,
-      "sizeMB": 2.5
+      "sizeMB": 2.5,
+      "lang": "fa"
     },
     {
       "id": "tafsir_rastin",
       "type": "tafsir",
-      "name": "تفسیر راستین",
+      "name": "تفسیر راستین — السعدی",
       "fileName": "rastin.db",
       "compressed": true,
-      "sizeMB": 2.7
+      "sizeMB": 2.7,
+      "lang": "fa"
     },
     {
       "id": "persian_translation",
       "type": "translation",
-      "name": "ترجمهٔ فارسی",
+      "name": "ترجمهٔ فارسی — محمد گل گمشادزهی",
       "fileName": "persian_translation.json",
       "compressed": true,
-      "sizeMB": 0.4
+      "sizeMB": 0.4,
+      "lang": "fa"
     },
     {
       "id": "safwa_tafasir",
@@ -46,7 +51,8 @@
       "name": "صفوة التفاسير - الصابوني",
       "fileName": "safwa_tafasir.db",
       "compressed": true,
-      "sizeMB": 0.47
+      "sizeMB": 0.47,
+      "lang": "ar"
     },
     {
       "id": "fath_qadir",
@@ -54,7 +60,8 @@
       "name": "فتح القدير - الشوكاني",
       "fileName": "fath_qadir.db",
       "compressed": true,
-      "sizeMB": 4.42
+      "sizeMB": 4.42,
+      "lang": "ar"
     },
     {
       "id": "mokhtasar_ibn_kathir",
@@ -62,7 +69,8 @@
       "name": "مختصر تفسير ابن كثير - الصابوني",
       "fileName": "mokhtasar_ibn_kathir.db",
       "compressed": true,
-      "sizeMB": 1.86
+      "sizeMB": 1.86,
+      "lang": "ar"
     },
     {
       "id": "baghawi",
@@ -70,7 +78,8 @@
       "name": "معالم التنزيل - البغوي",
       "fileName": "baghawi.db",
       "compressed": true,
-      "sizeMB": 2.62
+      "sizeMB": 2.62,
+      "lang": "ar"
     },
     {
       "id": "asbab_nuzul",
@@ -78,7 +87,8 @@
       "name": "أسباب النزول - الواحدي",
       "fileName": "asbab_nuzul.db",
       "compressed": true,
-      "sizeMB": 0.25
+      "sizeMB": 0.25,
+      "lang": "ar"
     },
     {
       "id": "adwa_albayan",
@@ -86,7 +96,8 @@
       "name": "أضواء البيان - الشنقيطي",
       "fileName": "adwa_albayan.db",
       "compressed": true,
-      "sizeMB": 2.22
+      "sizeMB": 2.22,
+      "lang": "ar"
     },
     {
       "id": "baydawi",
@@ -94,7 +105,8 @@
       "name": "أنوار التنزيل - البيضاوي",
       "fileName": "baydawi.db",
       "compressed": true,
-      "sizeMB": 2.14
+      "sizeMB": 2.14,
+      "lang": "ar"
     },
     {
       "id": "irab_alquran",
@@ -102,7 +114,8 @@
       "name": "إعراب القرآن",
       "fileName": "irab_alquran.db",
       "compressed": true,
-      "sizeMB": 1.52
+      "sizeMB": 1.52,
+      "lang": "ar"
     },
     {
       "id": "tasheel",
@@ -110,7 +123,8 @@
       "name": "التسهيل لعلوم التنزيل - ابن جزي",
       "fileName": "tasheel.db",
       "compressed": true,
-      "sizeMB": 1.09
+      "sizeMB": 1.09,
+      "lang": "ar"
     },
     {
       "id": "tahrir_ashur",
@@ -118,7 +132,8 @@
       "name": "تحرير المعنى - ابن عاشور",
       "fileName": "tahrir_ashur.db",
       "compressed": true,
-      "sizeMB": 3.67
+      "sizeMB": 3.67,
+      "lang": "ar"
     },
     {
       "id": "jalalain",
@@ -126,7 +141,8 @@
       "name": "تفسير الجلالين - المحلي والسيوطي",
       "fileName": "jalalain.db",
       "compressed": true,
-      "sizeMB": 0.79
+      "sizeMB": 0.79,
+      "lang": "ar"
     },
     {
       "id": "ibn_kathir",
@@ -134,7 +150,8 @@
       "name": "تفسير القرآن العظيم - ابن كثير",
       "fileName": "ibn_kathir.db",
       "compressed": true,
-      "sizeMB": 4.27
+      "sizeMB": 4.27,
+      "lang": "ar"
     },
     {
       "id": "tabari",
@@ -142,7 +159,8 @@
       "name": "جامع البيان - الطبري",
       "fileName": "tabari.db",
       "compressed": true,
-      "sizeMB": 2.37
+      "sizeMB": 2.37,
+      "lang": "ar"
     }
   ]
 }

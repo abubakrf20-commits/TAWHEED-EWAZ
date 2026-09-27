@@ -1,0 +1,10 @@
+{
+  "revision": 2000010013,
+  "versionCode": 2000010013,
+  "versionName": "1.7.1",
+  "notes": "• بهبودهای کلی و رفع اشکالات\n• بروزرسانی محتوا و داده‌ها",
+  "apkUrl": "https://raw.githubusercontent.com/abubakrf20-commits/TAWHEED-EWAZ/main/releases/app-release.apk",
+  "apkSha256": "99384fb6eff87d574808d67f2ffc14edbde6bb5b9e287abb77382088a865d247",
+  "playUrl": "https://play.google.com/store/apps/details?id=com.islamic.tawheeed",
+  "mandatory": false
+}

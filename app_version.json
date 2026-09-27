@@ -1,8 +1,8 @@
 {
-  "version": "1.6.1",
-  "buildNumber": 4008,
+  "version": "1.7.1",
+  "buildNumber": 10013,
   "apkUrl": "https://raw.githubusercontent.com/abubakrf20-commits/TAWHEED-EWAZ/main/releases/app-release.apk",
-  "changelog": "• بهبود قبله‌نما و رفع باگ‌ها\n• بروزرسانی مصحف",
+  "changelog": "• بهبودهای کلی و رفع اشکالات\n• بروزرسانی محتوا و داده‌ها",
   "mandatory": false,
-  "fileSize": "57 MB"
+  "fileSize": "59 MB"
 }

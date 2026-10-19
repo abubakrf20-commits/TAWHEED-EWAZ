@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light dark;
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --ink: #231f1b;
+  --muted: #6b6259;
+  --line: #e7ded2;
+  --accent: #8a6a3f;
+  --accent-soft: #f3eadc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14110e;
+    --card: #1e1a16;
+    --ink: #f2ece3;
+    --muted: #b3a99c;
+    --line: #332c25;
+    --accent: #d8b57c;
+    --accent-soft: #2a2118;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Vazirmatn, "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif;
+  line-height: 1.95;
+  font-size: 16px;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+
+header.site {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+}
+
+header.site a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+header.site .brand {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.6;
+  margin: 8px 0 4px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 34px 0 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+h3 {
+  font-size: 1.03rem;
+  margin: 22px 0 6px;
+}
+
+p, li { color: var(--ink); }
+
+.meta {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: 20px;
+}
+
+a { color: var(--accent); }
+
+ul { padding-right: 22px; }
+
+li { margin: 6px 0; }
+
+code {
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-family: inherit;
+  direction: ltr;
+  display: inline-block;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 18px;
+}
+
+.links {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.links a {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.links a span {
+  display: block;
+  font-weight: 400;
+  font-size: .88rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+footer a { color: var(--accent); }
+
+@media (max-width: 480px) {
+  main { padding: 22px 14px 56px; }
+  h1 { font-size: 1.4rem; }
+}

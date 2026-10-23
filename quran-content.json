@@ -161,6 +161,42 @@
       "compressed": true,
       "sizeMB": 2.37,
       "lang": "ar"
+    },
+    {
+      "id": "kurd_tafsir_rebar",
+      "type": "tafsir",
+      "name": "تفسیر کوردی - ڕێبەر",
+      "fileName": "kurd-tafsir-rebar.db",
+      "compressed": true,
+      "sizeMB": 1.53,
+      "lang": "ku"
+    },
+    {
+      "id": "kurdish_mokhtasar",
+      "type": "tafsir",
+      "name": "تفسیر کوردی - مختصر",
+      "fileName": "kurdish-mokhtasar.db",
+      "compressed": true,
+      "sizeMB": 0.89,
+      "lang": "ku"
+    },
+    {
+      "id": "ku_burhan_muhammad_simple",
+      "type": "translation",
+      "name": "ترجمهٔ کوردی - برهان محمد",
+      "fileName": "ku-burhan-muhammad-simple.json",
+      "compressed": true,
+      "sizeMB": 0.56,
+      "lang": "ku"
+    },
+    {
+      "id": "muhammad_saleh_bamoki_simple",
+      "type": "translation",
+      "name": "ترجمهٔ کوردی - محمد صالح باموکی",
+      "fileName": "muhammad-saleh-bamoki-simple.json",
+      "compressed": true,
+      "sizeMB": 0.41,
+      "lang": "ku"
     }
   ]
 }

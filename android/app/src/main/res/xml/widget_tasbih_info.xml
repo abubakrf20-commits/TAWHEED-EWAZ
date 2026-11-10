@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No OS polling (spec: updatePeriodMillis=0). The card re-renders on taps
+     (a broadcast receiver, not an activity), on app snapshots, at midnight for
+     the daily reset, and from the 15-minute WorkManager backstop.
+
+     `initialLayout` is a static placeholder — the previous one was the clock
+     layout, so a freshly placed tasbih card briefly showed a clock. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="190dp"
+    android:minHeight="190dp"
+    android:minResizeWidth="120dp"
+    android:minResizeHeight="120dp"
+    android:maxResizeWidth="400dp"
+    android:maxResizeHeight="400dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_placeholder_tasbih"
+    android:label="توحید — تسبیح"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

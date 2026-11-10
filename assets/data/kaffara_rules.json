@@ -1,0 +1,1486 @@
+{
+  "version": 3,
+  "note": "«کفاره و فدیه» بر پایهٔ مذاهب چهارگانهٔ اهل سنت (حنفی، مالکی، شافعی، حنبلی). هر قانون یک «خلاصه»ی مشترک، گام‌ها/گزینه‌ها و شرایط دارد؛ آنچه در هر مذهب فرق می‌کند فقط در توضیح همان مذهب آمده است. اندازه‌گیری غذایی: جمهور هر مُدّ ≈ ۷۵۰ گرم؛ حنفی هر نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم (یا یک صاع خرما/جو). برنامه هیچ حکمی صادر نمی‌کند؛ اعدادِ زیر صرفاً مضاعفِ مقدارِ منبع در ورودیِ کاربرند و قیمت را خود کاربر وارد می‌کند.",
+  "rules": [
+    {
+      "id": "fidya-fast",
+      "titleFa": "فدیهٔ روزه",
+      "category": "fidya_fast",
+      "summaryFa": "فدیه بدلِ روزه است برای کسی که هرگز نمی‌تواند روزه بگیرد — پیرِ فرتوت یا بیمارِ لاعلاج؛ به‌ازای هر روزِ قضا‌نشده، خوراکِ یک نیازمند یا بهای آن. بیماریِ گذرا فدیه ندارد و فقط قضا می‌خواهد.",
+      "stepsMode": "",
+      "steps": [],
+      "conditions": [
+        "برای ناتوانیِ پایدار است، نه بیماریِ چندروزه.",
+        "مقدار: جمهور یک مُدّ ≈ ۷۵۰ گرم؛ حنفی نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+        "خوراک دادن یا پرداختِ بهای آن، هر دو جایز است.",
+        "اگر بعدها توانِ روزه پیدا شد، فدیهٔ پرداخته‌شده کافی است."
+      ],
+      "ijma": "ittifaq",
+      "reviewed": true,
+      "sources": [
+        "القرآن — البقرة ۲:۱۸۴",
+        "صحیح البخاری — كتاب الصوم، باب من لم یطق الصيام",
+        "الموسوعة الفقهیة الکویتیة — مادة «الفدیة»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر جمهور: به‌ازای هر روز، یک مُدّ ≈ ۷۵۰ گرم خوراکِ یک نیازمند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "food_weight",
+              "labelFa": "غذای معمولی (یک مُدّ) برای هر روز",
+              "quantityPerUnit": 750,
+              "perInput": "daysCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: یک مُدّ ≈ ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر جمهور: به‌ازای هر روز، یک مُدّ ≈ ۷۵۰ گرم خوراکِ یک نیازمند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "food_weight",
+              "labelFa": "غذای معمولی (یک مُدّ) برای هر روز",
+              "quantityPerUnit": 750,
+              "perInput": "daysCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: یک مُدّ ≈ ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر جمهور: به‌ازای هر روز، یک مُدّ ≈ ۷۵۰ گرم خوراکِ یک نیازمند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "food_weight",
+              "labelFa": "غذای معمولی (یک مُدّ) برای هر روز",
+              "quantityPerUnit": 750,
+              "perInput": "daysCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: یک مُدّ ≈ ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: به‌ازای هر روز، نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم (یا یک صاع خرما/جو).",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "food_weight",
+              "labelFa": "نیم‌صاع گندم برای هر روز",
+              "quantityPerUnit": 2040,
+              "perInput": "daysCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+              "mealGrams": 2040
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "kaffara-fast",
+      "titleFa": "کفارهٔ روزه",
+      "category": "kaffara_fast",
+      "summaryFa": "کفارهٔ آمیزشِ عمدی در روزِ رمضان: افزون بر قضا، سه گزینه دارد — آزادکردن بنده، شصت روز روزهٔ پیاپی، یا خوراک شصت نیازمند. لزومِ ترتیب یا آزادیِ انتخاب میان این سه، دیدگاه مذهب است.",
+      "stepsMode": "order",
+      "steps": [
+        "آزاد کردن بندهٔ مؤمن — امروز مصداق ندارد.",
+        "شصت روز روزهٔ پیاپی، بدون افطارِ عمدی در میان.",
+        "خوراک شصت نیازمند، هر یک یک مُدّ (حنفی: نیم‌صاع گندم)."
+      ],
+      "conditions": [
+        "فقط آمیزشِ عمدی؛ خوردن و آشامیدنِ عمدی قضا دارد و کفاره ندارد.",
+        "این کفاره بر زنی که عمداً مشارکت کرده نیز واجب است.",
+        "تکرار در یک روز، به مشهور یک کفاره دارد.",
+        "روزه باید پیاپی باشد؛ افطارِ عمدی آن را از سر می‌گیرد."
+      ],
+      "ijma": "ittifaq",
+      "reviewed": true,
+      "sources": [
+        "صحیح البخاری و صحیح مسلم — حدیث الرجل الذي أتى أهله في رمضان",
+        "القرآن — النساء ۴:۹۲ / المائدة ۵ (کفارة) / المجادلة ۵۸:۳-۴",
+        "الموسوعة الفقهیة الکویتیة — مادة «کفارة الإفطار في رمضان»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر جمهور: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست؛ به گزینهٔ بعد بروید."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ شصت روزِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "اگر یک روز افطار شود، از سر گرفته می‌شود."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ شصت روزِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "اگر یک روز افطار شود، از سر گرفته می‌شود."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ شصت روزِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "اگر یک روز افطار شود، از سر گرفته می‌شود."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: هر نیازمند نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم؛ میان سه گزینه آزاد است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ شصت روزِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "اگر یک روز افطار شود، از سر گرفته می‌شود."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر نیم‌صاع گندم)",
+              "quantityPerUnit": 122400,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: ۶۰ × ۲٫۰۴ کیلوگرم.",
+              "mealGrams": 2040
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "kaffara-oath",
+      "titleFa": "کفارهٔ سوگند",
+      "category": "kaffara_oath",
+      "summaryFa": "کفارهٔ شکستنِ سوگندِ به خدا: خوراک یا پوشاکِ ده نیازمند، یا آزادکردن بنده؛ اگر هیچ‌یک در توان نبود، سه روز روزه. آیهٔ سورهٔ مائده میان این گزینه‌ها انتخاب آزاد گذاشته است.",
+      "stepsMode": "options",
+      "steps": [
+        "خوراک ده نیازمند، هر یک یک مُدّ (حنفی: نیم‌صاع گندم).",
+        "پوشاک ده نیازمند.",
+        "آزاد کردن بنده — امروز مصداق ندارد.",
+        "اگر هیچ‌یک در توان نبود: سه روز روزه."
+      ],
+      "conditions": [
+        "سوگند باید به نام خدا باشد و عمداً شکسته شود.",
+        "اطعام و پوشاک پیش از روزه‌اند؛ روزه فقط هنگام ناتوانی.",
+        "برای هر سوگندِ شکسته، یک کفاره جدا.",
+        "کفارهٔ سوگند با کفارهٔ نذر یکسان است."
+      ],
+      "ijma": "ittifaq",
+      "reviewed": true,
+      "sources": [
+        "القرآن — المائدة ۵:۸۹",
+        "سنن أبی داود — كتاب الأيمان والنذور، باب كفارة اليمين",
+        "الموسوعة الفقهیة الکویتیة — مادة «کفارة الیمین»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر شافعی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم یا یک دست لباس.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند سوگند شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست؛ به گزینهٔ بعد بروید."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز (چون وسع اطعام نبود)",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم یا یک دست لباس.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند سوگند شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز (چون وسع اطعام نبود)",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم یا یک دست لباس.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند سوگند شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز (چون وسع اطعام نبود)",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: هر نیازمند نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم یا یک صاع خرما/جو.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند سوگند شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر نیم‌صاع گندم)",
+              "quantityPerUnit": 20400,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: ۱۰ × ۲٫۰۴ کیلوگرم.",
+              "mealGrams": 2040
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز (چون وسع اطعام نبود)",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "kaffara-zihar",
+      "titleFa": "کفارهٔ ظهار",
+      "category": "kaffara_zihar",
+      "summaryFa": "ظهار: آن‌که به همسرش بگوید «تو بر من چون پشتِ مادرم»، تا کفاره نگذارد حقِ آمیزش ندارد: آزادکردن بنده، یا دو ماه روزهٔ پیوسته، یا خوراک شصت نیازمند.",
+      "stepsMode": "order",
+      "steps": [
+        "آزاد کردن بندهٔ مؤمن — امروز مصداق ندارد.",
+        "دو ماه روزهٔ پیوسته (حدود شصت روز).",
+        "خوراک شصت نیازمند، هر یک یک مُدّ (حنفی: نیم‌صاع گندم)."
+      ],
+      "conditions": [
+        "کفاره پیش از هر تماسی واجب است.",
+        "قطعِ عمدیِ روزه‌ها، شمردن را از سر می‌برد.",
+        "بازگشت از ظهار (عزمِ آمیزش) سبب وجوب کفاره است.",
+        "مقدار غذا: جمهور یک مُدّ ≈ ۷۵۰ گرم؛ حنفی نیم‌صاع ≈ ۲٫۰۴ کیلوگرم."
+      ],
+      "ijma": "ittifaq",
+      "reviewed": true,
+      "sources": [
+        "القرآن — المجادلة ۵۸:۳-۴",
+        "صحیح البخاری و صحیح مسلم — کتاب الظهار",
+        "الموسوعة الفقهیة الکویتیة — مادة «کفارة الظهار»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر شافعی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار ظهار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماهِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "دو ماهِ پیاپی (تقریباً ۶۰ روز)."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار ظهار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماهِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "دو ماهِ پیاپی (تقریباً ۶۰ روز)."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: هر نیازمند یک مُدّ ≈ ۷۵۰ گرم؛ ترتیبِ سه گزینه واجب است.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار ظهار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماهِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "دو ماهِ پیاپی (تقریباً ۶۰ روز)."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 45000,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۶۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: هر نیازمند نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند بار ظهار رخ داد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماهِ متوالی",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "دو ماهِ پیاپی (تقریباً ۶۰ روز)."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام شصت فقیر (هر فقیر نیم‌صاع گندم)",
+              "quantityPerUnit": 122400,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: ۶۰ × ۲٫۰۴ کیلوگرم.",
+              "mealGrams": 2040
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "fidya-deceased",
+      "titleFa": "فدیهٔ میت",
+      "category": "fidya_deceased",
+      "summaryFa": "روزه‌های قضا‌نشدهٔ مرده: حنفی اطعام از ترکه را به‌ازای هر روز واجب می‌داند؛ شافعی، مالکی و حنبلی اطعام را نمی‌پذیرند و قضای ولیّ را راهِ وفا می‌دانند، مگر آنکه میت وصیت کرده باشد.",
+      "stepsMode": "",
+      "steps": [],
+      "conditions": [
+        "حنفی: از ترکه، به‌ازای هر روز نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+        "جمهور: ولیّ میت روزه می‌گیرد؛ اطعام تنها با وصیتِ میت.",
+        "اگر میت وصیت نکرده و ولیّ هم قضا نگیرد، گناه بر میت نمی‌ماند."
+      ],
+      "ijma": "ikhtilaf",
+      "reviewed": true,
+      "sources": [
+        "صحیح البخاری و صحیح مسلم — حدیث المرأة التي ماتت أختها و عليها صوم",
+        "الموسوعة الفقهیة الکویتیة — مادة «صوم الميت» و «الفدیة عن الميت»"
+      ],
+      "madhhabVariants": {
+        "hanafi": {
+          "description": "نظر حنفی: اطعام از ترکه واجب است — هر روز نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده باقی‌ماند",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "food_weight",
+              "labelFa": "نیم‌صاع گندم (از ترکه) برای هر روز",
+              "quantityPerUnit": 2040,
+              "perInput": "daysCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: اطعام از ترکهٔ میت.",
+              "mealGrams": 2040
+            }
+          ]
+        },
+        "shafi": {
+          "description": "نظر شافعی: فدیه پذیرفته نیست؛ ولیّ روزه‌های میت را قضا می‌کند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "قضا توسط وارث (اطعام پذیرفته نیست)",
+              "quantityPerUnit": 1,
+              "perInput": "daysCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "نظر جمهور (شافعی، مالکی، حنبلی): قضا واجب است، فدیه نه."
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: فدیه پذیرفته نیست؛ ولیّ روزه‌های میت را قضا می‌کند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "قضا توسط وارث (اطعام پذیرفته نیست)",
+              "quantityPerUnit": 1,
+              "perInput": "daysCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "نظر جمهور (شافعی، مالکی، حنبلی): قضا واجب است، فدیه نه."
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: فدیه پذیرفته نیست؛ ولیّ روزه‌های میت را قضا می‌کند.",
+          "inputs": [
+            {
+              "key": "daysCount",
+              "labelFa": "چند روز قضا نشده",
+              "type": "days",
+              "unit": "روز",
+              "min": 1,
+              "max": 20000,
+              "default": 1,
+              "required": true
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "قضا توسط وارث (اطعام پذیرفته نیست)",
+              "quantityPerUnit": 1,
+              "perInput": "daysCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "نظر جمهور (شافعی، مالکی، حنبلی): قضا واجب است، فدیه نه."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nadhr",
+      "titleFa": "کفارهٔ نذر",
+      "category": "nadhr",
+      "summaryFa": "شکستنِ نذرِ مشروع (نذرِ روزه، صدقه و مانند آن): کفاره‌اش مانند کفارهٔ سوگند است — خوراک یا پوشاکِ ده نیازمند، یا بنده، یا سه روز روزه.",
+      "stepsMode": "options",
+      "steps": [
+        "خوراک ده نیازمند، هر یک یک مُدّ (حنفی: نیم‌صاع گندم).",
+        "پوشاک ده نیازمند.",
+        "آزاد کردن بنده — امروز مصداق ندارد.",
+        "اگر هیچ‌یک در توان نبود: سه روز روزه."
+      ],
+      "conditions": [
+        "نذرِ گناه منعقد نمی‌شود و کفاره ندارد.",
+        "تا وقتی انجامِ خودِ منذور ممکن است، آن بر کفاره مقدم است.",
+        "برای هر نذرِ شکسته، یک کفاره جدا."
+      ],
+      "ijma": "ittifaq",
+      "reviewed": true,
+      "sources": [
+        "القرآن — البقرة ۲:۲۷۰ / الانسان ۷۶:۷",
+        "صحیح مسلم — كتاب النذر والقسم",
+        "الموسوعة الفقهیة الکویتیة — مادة «النذر» و «کفارة الیمین»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر شافعی: مانند کفارهٔ سوگند — هر نیازمند یک مُدّ ≈ ۷۵۰ گرم.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند نذر شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: مانند کفارهٔ سوگند — هر نیازمند یک مُدّ ≈ ۷۵۰ گرم.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند نذر شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: مانند کفارهٔ سوگند — هر نیازمند یک مُدّ ≈ ۷۵۰ گرم.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند نذر شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر یک مُدّ)",
+              "quantityPerUnit": 7500,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر جمهور: ۱۰ × ۷۵۰ گرم.",
+              "mealGrams": 750
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: هر نیازمند نیم‌صاع گندم ≈ ۲٫۰۴ کیلوگرم.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند نذر شکسته شد",
+              "type": "count",
+              "unit": "بار",
+              "min": 1,
+              "max": 1000,
+              "default": 1,
+              "required": true
+            },
+            {
+              "key": "pricePerKgOfFood",
+              "labelFa": "قیمت هر کیلوگرم",
+              "type": "price",
+              "unit": "",
+              "min": 0,
+              "max": 100000000,
+              "default": 0,
+              "required": true,
+              "placeholder": "وارد کنید"
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در عصر حاضر میسور نیست."
+            },
+            {
+              "type": "food_weight",
+              "labelFa": "اطعام ده فقیر (هر فقیر نیم‌صاع گندم)",
+              "quantityPerUnit": 20400,
+              "perInput": "timesCount",
+              "unit": "g",
+              "priceInput": "pricePerKgOfFood",
+              "notes": "نظر حنفی: ۱۰ × ۲٫۰۴ کیلوگرم.",
+              "mealGrams": 2040
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ سه روز",
+              "quantityPerUnit": 3,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "تنها زمانی که توان اطعام/کسوت نباشد."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "kaffara-qatl-khata",
+      "titleFa": "کفارهٔ قتل خطا",
+      "category": "kaffara_qatl_khata",
+      "summaryFa": "کفارهٔ کشتن ناخواسته در آیهٔ ۹۲ سورهٔ نساء: آزاد کردن یک بندهٔ مؤمن، همراه با پرداخت دیه به اولیای مقتول. اگر آزادکردن ممکن نباشد، دو ماه روزهٔ پیاپی. دیه تکلیفی جدا از کفاره است و بر عاقله است، نه بر کسی که کفاره می‌دهد.",
+      "stepsMode": "order",
+      "steps": [
+        "آزاد کردن یک بندهٔ مؤمن — امروز مصداق عادی ندارد.",
+        "پرداخت دیهٔ قتل خطا به اولیای مقتول؛ این تکلیف جدا از کفاره است.",
+        "اگر آزادکردن ممکن نبود: دو ماه روزهٔ پیاپی (شهرین متتابعین)."
+      ],
+      "conditions": [
+        "قتل باید خطایی باشد؛ قتل عمد و شبه‌عمد حکم دیگری دارد و با این صفحه سنجیده نمی‌شود.",
+        "کفاره بر خود قاتل است؛ دیه بر عاقلهٔ او.",
+        "دو ماه باید پیاپی باشد؛ اگر بی‌عذر شکسته شود، از آغاز می‌شود.",
+        "پرداخت دیه کفاره را ساقط نمی‌کند و کفاره جای دیه را نمی‌گیرد."
+      ],
+      "ijma": "jumhur",
+      "reviewed": true,
+      "sources": [
+        "القرآن — النساء ۴:۹۲",
+        "صحیح مسلم — كتاب القسامة",
+        "الموسوعة الفقهیة الکویتیة — مادة «کفارة القتل»"
+      ],
+      "madhhabVariants": {
+        "shafi": {
+          "description": "نظر شافعی: ترتیب واجب است؛ نخست آزادکردن بندهٔ مؤمن و تنها در ناتوانی، دو ماه روزهٔ پیاپی.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند مورد",
+              "type": "count",
+              "unit": "",
+              "min": 1,
+              "max": 100,
+              "default": 1
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در صورت توانایی؛ امروز مصداق عادی ندارد."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماه پیاپی (در ناتوانی از آزادکردن)",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "شهرین متتابعین."
+            }
+          ]
+        },
+        "maliki": {
+          "description": "نظر مالکی: ترتیب واجب است؛ آزادکردن بندهٔ مؤمن، و در ناتوانی دو ماه روزهٔ پیاپی.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند مورد",
+              "type": "count",
+              "unit": "",
+              "min": 1,
+              "max": 100,
+              "default": 1
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در صورت توانایی؛ امروز مصداق عادی ندارد."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماه پیاپی (در ناتوانی از آزادکردن)",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "شهرین متتابعین."
+            }
+          ]
+        },
+        "hanbali": {
+          "description": "نظر حنبلی: آزادکردن بندهٔ مؤمن واجب است و روزهٔ دو ماه تنها در ناتوانی از آن.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند مورد",
+              "type": "count",
+              "unit": "",
+              "min": 1,
+              "max": 100,
+              "default": 1
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "در صورت توانایی؛ امروز مصداق عادی ندارد."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماه پیاپی (در ناتوانی از آزادکردن)",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "شهرین متتابعین."
+            }
+          ]
+        },
+        "hanafi": {
+          "description": "نظر حنفی: میان آزادکردن بنده و دو ماه روزه مخیر است، هرچند توان آزادکردن داشته باشد.",
+          "inputs": [
+            {
+              "key": "timesCount",
+              "labelFa": "چند مورد",
+              "type": "count",
+              "unit": "",
+              "min": 1,
+              "max": 100,
+              "default": 1
+            }
+          ],
+          "components": [
+            {
+              "type": "other",
+              "labelFa": "آزاد کردن بندهٔ مؤمن",
+              "quantityPerUnit": 1,
+              "perInput": "timesCount",
+              "unit": "",
+              "priceInput": "",
+              "notes": "یک سوی تخییر؛ امروز مصداق عادی ندارد."
+            },
+            {
+              "type": "fasting_days",
+              "labelFa": "روزهٔ دو ماه پیاپی (سوی دیگر تخییر)",
+              "quantityPerUnit": 60,
+              "perInput": "timesCount",
+              "unit": "روز",
+              "priceInput": "",
+              "notes": "شهرین متتابعین."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

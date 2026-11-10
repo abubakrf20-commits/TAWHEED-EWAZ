@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The tasbih widget's PLACEHOLDER — same rules as
+     widget_placeholder_prayer.xml: framework views only, nothing that ticks,
+     nothing that registers a receiver. The old placeholder was the clock
+     layout, so a freshly placed tasbih card briefly showed a clock. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="monospace"
+        android:includeFontPadding="false"
+        android:text="٠"
+        android:textColor="#66FFFFFF"
+        android:textSize="44sp"
+        android:textStyle="bold" />
+</FrameLayout>

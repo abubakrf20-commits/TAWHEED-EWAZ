@@ -1,0 +1,1248 @@
+{
+  "version": 4,
+  "categories": [
+    {
+      "id": "yaqeen",
+      "tracks": [
+        {
+          "id": "yaqeen-01",
+          "title": "معرفت شناسی",
+          "file": "yaqeen/1. معرفت شناسی.opus",
+          "sizeBytes": 6712688
+        },
+        {
+          "id": "yaqeen-02",
+          "title": "اثبات وجود خدا (امکان و وجوب)",
+          "file": "yaqeen/2. اثبات وجود خدا (امکان و وجوب).opus",
+          "sizeBytes": 8514799
+        },
+        {
+          "id": "yaqeen-03",
+          "title": "اثبات وجود خدا (برهان نظم)",
+          "file": "yaqeen/3. اثبات وجود خدا (برهان نظم).opus",
+          "sizeBytes": 7021989
+        },
+        {
+          "id": "yaqeen-04",
+          "title": "نقد برهان شر مساله ی شُرور در جهان",
+          "file": "yaqeen/4_نقد برهان شر مساله ی شُرور در جهان.opus",
+          "sizeBytes": 10126713
+        },
+        {
+          "id": "yaqeen-05",
+          "title": "پیدایش ادیان- نقد دیدگاه های نادرست",
+          "file": "yaqeen/5_پیدایش ادیان- نقد دیدگاه های نادرست.opus",
+          "sizeBytes": 13498642
+        },
+        {
+          "id": "yaqeen-06",
+          "title": "کارکردهای ارزشمند دین در جامعه",
+          "file": "yaqeen/6. کارکردهای ارزشمند دین در جامعه.opus",
+          "sizeBytes": 12035282
+        },
+        {
+          "id": "yaqeen-07",
+          "title": "اثبات صداقت رسول اکرم(ص)",
+          "file": "yaqeen/7. اثبات صداقت رسول اکرم(ص).opus",
+          "sizeBytes": 6501185
+        },
+        {
+          "id": "yaqeen-08",
+          "title": "اثبات نبوّت رسول اکرم(ص)",
+          "file": "yaqeen/8. اثبات نبوّت رسول اکرم(ص).opus",
+          "sizeBytes": 9587891
+        },
+        {
+          "id": "yaqeen-09",
+          "title": "دفاع از ساحت پیامبر(ص)",
+          "file": "yaqeen/9. دفاع از ساحت پیامبر(ص).opus",
+          "sizeBytes": 9098158
+        },
+        {
+          "id": "yaqeen-10",
+          "title": "اثبات الهی بودن قرآن - منشاء قرآن",
+          "file": "yaqeen/10. اثبات الهی بودن قرآن - منشاء قرآن.opus",
+          "sizeBytes": 6603530
+        },
+        {
+          "id": "yaqeen-11",
+          "title": "اثبات الهی بودن قرآن-اعجاز علمی",
+          "file": "yaqeen/11. اثبات الهی بودن قرآن-اعجاز علمی.opus",
+          "sizeBytes": 6371201
+        },
+        {
+          "id": "yaqeen-12",
+          "title": "اثبات الهی بودن قرآن(تحدی)",
+          "file": "yaqeen/12. اثبات الهی بودن قرآن(تحدی).opus",
+          "sizeBytes": 7447843
+        },
+        {
+          "id": "yaqeen-13",
+          "title": "قرآن و علم",
+          "file": "yaqeen/13. قرآن و علم.opus",
+          "sizeBytes": 7526868
+        },
+        {
+          "id": "yaqeen-14",
+          "title": "ادعای تناقض در قرآن",
+          "file": "yaqeen/14. ادعای تناقض در قرآن.opus",
+          "sizeBytes": 6582061
+        },
+        {
+          "id": "yaqeen-15",
+          "title": "دین و علم",
+          "file": "yaqeen/15. دین و علم.opus",
+          "sizeBytes": 7592061
+        },
+        {
+          "id": "yaqeen-16",
+          "title": "اسلام و حقوق بشر",
+          "file": "yaqeen/16. اسلام و حقوق بشر.opus",
+          "sizeBytes": 7491451
+        },
+        {
+          "id": "yaqeen-17",
+          "title": "اسلام پذیری ایرانیان",
+          "file": "yaqeen/17. اسلام پذیری ایرانیان.opus",
+          "sizeBytes": 6667977
+        },
+        {
+          "id": "yaqeen-18",
+          "title": "اسلام و ملیت",
+          "file": "yaqeen/18. اسلام و ملیت.opus",
+          "sizeBytes": 6939190
+        },
+        {
+          "id": "yaqeen-19",
+          "title": "اسلام و خشونت",
+          "file": "yaqeen/19. اسلام و خشونت.opus",
+          "sizeBytes": 15298272
+        },
+        {
+          "id": "yaqeen-20",
+          "title": "جبر و اختیار",
+          "file": "yaqeen/20. جبر و اختیار.opus",
+          "sizeBytes": 6819695
+        },
+        {
+          "id": "yaqeen-21",
+          "title": "حقوق زن در اسلام",
+          "file": "yaqeen/21. حقوق زن در اسلام.opus",
+          "sizeBytes": 8283527
+        },
+        {
+          "id": "yaqeen-22",
+          "title": "آشنایی با مغالطات",
+          "file": "yaqeen/22. آشنایی با مغالطات.opus",
+          "sizeBytes": 7004099
+        },
+        {
+          "id": "yaqeen-23",
+          "title": "چگونگی بحث با مخالفان",
+          "file": "yaqeen/23. چگونگی بحث با مخالفان.opus",
+          "sizeBytes": 13691231
+        }
+      ]
+    },
+    {
+      "id": "anasheed",
+      "tracks": [
+        {
+          "id": "an-ar-01",
+          "title": "ابوبکر الصدیق",
+          "file": "عربی نشید/ابوبکر الصدیق.opus",
+          "sizeBytes": 991666
+        },
+        {
+          "id": "an-ar-02",
+          "title": "ابوح بشوق",
+          "file": "عربی نشید/ابوح بشوق.opus",
+          "sizeBytes": 284097
+        },
+        {
+          "id": "an-ar-03",
+          "title": "اخی سوف تبکی علیک العیون",
+          "file": "عربی نشید/اخی سوف تبکی علیک العیون.opus",
+          "sizeBytes": 818461
+        },
+        {
+          "id": "an-ar-04",
+          "title": "آخي لا تشكو المذلة",
+          "file": "عربی نشید/آخي لا تشكو المذلة.opus",
+          "sizeBytes": 751030
+        },
+        {
+          "id": "an-ar-05",
+          "title": "اعداؤك ولو للعدم",
+          "file": "عربی نشید/اعداؤك ولو للعدم.opus",
+          "sizeBytes": 1293239
+        },
+        {
+          "id": "an-ar-06",
+          "title": "الفكر يا إنسان لو أطلقته",
+          "file": "عربی نشید/الفكر يا إنسان لو أطلقته .opus",
+          "sizeBytes": 1165825
+        },
+        {
+          "id": "an-ar-07",
+          "title": "إلهي",
+          "file": "عربی نشید/إلهي  .opus",
+          "sizeBytes": 551061
+        },
+        {
+          "id": "an-ar-08",
+          "title": "الى الله نمضي",
+          "file": "عربی نشید/الى الله نمضي.opus",
+          "sizeBytes": 765642
+        },
+        {
+          "id": "an-ar-09",
+          "title": "الیک و الا",
+          "file": "عربی نشید/الیک و الا.opus",
+          "sizeBytes": 656571
+        },
+        {
+          "id": "an-ar-10",
+          "title": "أنشودة هجر اللذائذ",
+          "file": "عربی نشید/أنشودة هجر اللذائذ .opus",
+          "sizeBytes": 1235615
+        },
+        {
+          "id": "an-ar-11",
+          "title": "إني أخاف الله رب العالمين ..",
+          "file": "عربی نشید/إني أخاف الله رب العالمين .. .opus",
+          "sizeBytes": 1300403
+        },
+        {
+          "id": "an-ar-12",
+          "title": "انی ذکرتک",
+          "file": "عربی نشید/انی ذکرتک.opus",
+          "sizeBytes": 705159
+        },
+        {
+          "id": "an-ar-13",
+          "title": "أكرم بآل محمد",
+          "file": "عربی نشید/أكرم بآل محمد.opus",
+          "sizeBytes": 1354965
+        },
+        {
+          "id": "an-ar-14",
+          "title": "بك أستجير ومن يجير سواك",
+          "file": "عربی نشید/بك أستجير ومن يجير سواك .opus",
+          "sizeBytes": 2818305
+        },
+        {
+          "id": "an-ar-15",
+          "title": "ذكِّرينا يا بقايا الأمسِ فينا",
+          "file": "عربی نشید/ذكِّرينا يا بقايا الأمسِ فينا.opus",
+          "sizeBytes": 714557
+        },
+        {
+          "id": "an-ar-16",
+          "title": "رب بالسبع المثانی",
+          "file": "عربی نشید/رب بالسبع المثانی.opus",
+          "sizeBytes": 854492
+        },
+        {
+          "id": "an-ar-17",
+          "title": "زمن جميل كان فيه سمونا",
+          "file": "عربی نشید/زمن جميل كان فيه سمونا.opus",
+          "sizeBytes": 919320
+        },
+        {
+          "id": "an-ar-18",
+          "title": "سوف يمضي بنا مركب للوداع",
+          "file": "عربی نشید/سوف يمضي بنا مركب للوداع.opus",
+          "sizeBytes": 1149620
+        },
+        {
+          "id": "an-ar-19",
+          "title": "طالب العلم",
+          "file": "عربی نشید/طالب العلم.opus",
+          "sizeBytes": 794563
+        },
+        {
+          "id": "an-ar-20",
+          "title": "عثمان",
+          "file": "عربی نشید/عثمان.opus",
+          "sizeBytes": 416527
+        },
+        {
+          "id": "an-ar-21",
+          "title": "فيّ حبٌ",
+          "file": "عربی نشید/فيّ حبٌ .opus",
+          "sizeBytes": 599745
+        },
+        {
+          "id": "an-ar-22",
+          "title": "لاتأسفن على الدنيا ومافيها",
+          "file": "عربی نشید/لاتأسفن على الدنيا ومافيها.opus",
+          "sizeBytes": 1554149
+        },
+        {
+          "id": "an-ar-23",
+          "title": "ليس الغريب",
+          "file": "عربی نشید/ليس الغريب .opus",
+          "sizeBytes": 1994301
+        },
+        {
+          "id": "an-ar-24",
+          "title": "من نوره ومن ضياه",
+          "file": "عربی نشید/من نوره ومن ضياه .opus",
+          "sizeBytes": 358754
+        },
+        {
+          "id": "an-ar-25",
+          "title": "هاجر اللذائذ",
+          "file": "عربی نشید/هاجر اللذائذ .opus",
+          "sizeBytes": 1235615
+        },
+        {
+          "id": "an-ar-26",
+          "title": "يا اخوتي ماذا نقول ام حزننا جلب البكاء",
+          "file": "عربی نشید/يا اخوتي ماذا نقول ام حزننا جلب البكاء .opus",
+          "sizeBytes": 1585080
+        },
+        {
+          "id": "an-ar-27",
+          "title": "يا خير الخلق",
+          "file": "عربی نشید/يا خير الخلق.opus",
+          "sizeBytes": 1048305
+        },
+        {
+          "id": "an-ar-28",
+          "title": "یمه یا نبع الحنان",
+          "file": "عربی نشید/یمه یا نبع الحنان.opus",
+          "sizeBytes": 538552
+        },
+        {
+          "id": "an-ar-29",
+          "title": "يوما سنفنى كلنا مامن مفر",
+          "file": "عربی نشید/يوما سنفنى كلنا مامن مفر .opus",
+          "sizeBytes": 789102
+        },
+        {
+          "id": "an-fa-01",
+          "title": "جوان تا کی چنین",
+          "file": "فارسی نشید/جوان تا کی چنین.opus",
+          "sizeBytes": 971315
+        },
+        {
+          "id": "an-fa-02",
+          "title": "عطر قرآن عطر ایمان",
+          "file": "فارسی نشید/عطر قرآن عطر ایمان.opus",
+          "sizeBytes": 1069394
+        },
+        {
+          "id": "an-fa-03",
+          "title": "غریبی_غربت_شام_و_یمن_نیست",
+          "file": "فارسی نشید/غریبی_غربت_شام_و_یمن_نیست.opus",
+          "sizeBytes": 1088647
+        },
+        {
+          "id": "an-fa-04",
+          "title": "گفتم منم اهل خطا",
+          "file": "فارسی نشید/گفتم منم اهل خطا.opus",
+          "sizeBytes": 325743
+        },
+        {
+          "id": "an-fa-05",
+          "title": "مومنین بپا خیزید",
+          "file": "فارسی نشید/مومنین بپا خیزید.opus",
+          "sizeBytes": 1542757
+        },
+        {
+          "id": "an-fa-06",
+          "title": "چرا ای بنده ی عاصی",
+          "file": "فارسی نشید/چرا ای بنده ی عاصی.opus",
+          "sizeBytes": 1263468
+        },
+        {
+          "id": "an-fa-07",
+          "title": "دل غافل بکن توبه",
+          "file": "فارسی نشید/دل غافل بکن توبه.opus",
+          "sizeBytes": 1420994
+        },
+        {
+          "id": "an-fa-08",
+          "title": "سرود زیبای قرآن درمان دلها",
+          "file": "فارسی نشید/سرود زیبای قرآن درمان دلها .opus",
+          "sizeBytes": 931643
+        },
+        {
+          "id": "an-fa-09",
+          "title": "سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت",
+          "file": "فارسی نشید/سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت.opus",
+          "sizeBytes": 1077883
+        },
+        {
+          "id": "an-fa-10",
+          "title": "مرا با خودت تا ثریا ببر",
+          "file": "فارسی نشید/مرا با خودت تا ثریا ببر.opus",
+          "sizeBytes": 873870
+        },
+        {
+          "id": "an-fa-11",
+          "title": "و من مگر چیستم ای خدا؟",
+          "file": "فارسی نشید/و من مگر چیستم ای خدا؟ .opus",
+          "sizeBytes": 597536
+        }
+      ],
+      "speakers": [
+        {
+          "id": "arabic",
+          "title": "عربی",
+          "tracks": [
+            {
+              "id": "an-ar-01",
+              "title": "ابوبکر الصدیق",
+              "file": "عربی نشید/ابوبکر الصدیق.opus",
+              "sizeBytes": 991666
+            },
+            {
+              "id": "an-ar-02",
+              "title": "ابوح بشوق",
+              "file": "عربی نشید/ابوح بشوق.opus",
+              "sizeBytes": 284097
+            },
+            {
+              "id": "an-ar-03",
+              "title": "اخی سوف تبکی علیک العیون",
+              "file": "عربی نشید/اخی سوف تبکی علیک العیون.opus",
+              "sizeBytes": 818461
+            },
+            {
+              "id": "an-ar-04",
+              "title": "آخي لا تشكو المذلة",
+              "file": "عربی نشید/آخي لا تشكو المذلة.opus",
+              "sizeBytes": 751030
+            },
+            {
+              "id": "an-ar-05",
+              "title": "اعداؤك ولو للعدم",
+              "file": "عربی نشید/اعداؤك ولو للعدم.opus",
+              "sizeBytes": 1293239
+            },
+            {
+              "id": "an-ar-06",
+              "title": "الفكر يا إنسان لو أطلقته",
+              "file": "عربی نشید/الفكر يا إنسان لو أطلقته .opus",
+              "sizeBytes": 1165825
+            },
+            {
+              "id": "an-ar-07",
+              "title": "إلهي",
+              "file": "عربی نشید/إلهي  .opus",
+              "sizeBytes": 551061
+            },
+            {
+              "id": "an-ar-08",
+              "title": "الى الله نمضي",
+              "file": "عربی نشید/الى الله نمضي.opus",
+              "sizeBytes": 765642
+            },
+            {
+              "id": "an-ar-09",
+              "title": "الیک و الا",
+              "file": "عربی نشید/الیک و الا.opus",
+              "sizeBytes": 656571
+            },
+            {
+              "id": "an-ar-10",
+              "title": "أنشودة هجر اللذائذ",
+              "file": "عربی نشید/أنشودة هجر اللذائذ .opus",
+              "sizeBytes": 1235615
+            },
+            {
+              "id": "an-ar-11",
+              "title": "إني أخاف الله رب العالمين ..",
+              "file": "عربی نشید/إني أخاف الله رب العالمين .. .opus",
+              "sizeBytes": 1300403
+            },
+            {
+              "id": "an-ar-12",
+              "title": "انی ذکرتک",
+              "file": "عربی نشید/انی ذکرتک.opus",
+              "sizeBytes": 705159
+            },
+            {
+              "id": "an-ar-13",
+              "title": "أكرم بآل محمد",
+              "file": "عربی نشید/أكرم بآل محمد.opus",
+              "sizeBytes": 1354965
+            },
+            {
+              "id": "an-ar-14",
+              "title": "بك أستجير ومن يجير سواك",
+              "file": "عربی نشید/بك أستجير ومن يجير سواك .opus",
+              "sizeBytes": 2818305
+            },
+            {
+              "id": "an-ar-15",
+              "title": "ذكِّرينا يا بقايا الأمسِ فينا",
+              "file": "عربی نشید/ذكِّرينا يا بقايا الأمسِ فينا.opus",
+              "sizeBytes": 714557
+            },
+            {
+              "id": "an-ar-16",
+              "title": "رب بالسبع المثانی",
+              "file": "عربی نشید/رب بالسبع المثانی.opus",
+              "sizeBytes": 854492
+            },
+            {
+              "id": "an-ar-17",
+              "title": "زمن جميل كان فيه سمونا",
+              "file": "عربی نشید/زمن جميل كان فيه سمونا.opus",
+              "sizeBytes": 919320
+            },
+            {
+              "id": "an-ar-18",
+              "title": "سوف يمضي بنا مركب للوداع",
+              "file": "عربی نشید/سوف يمضي بنا مركب للوداع.opus",
+              "sizeBytes": 1149620
+            },
+            {
+              "id": "an-ar-19",
+              "title": "طالب العلم",
+              "file": "عربی نشید/طالب العلم.opus",
+              "sizeBytes": 794563
+            },
+            {
+              "id": "an-ar-20",
+              "title": "عثمان",
+              "file": "عربی نشید/عثمان.opus",
+              "sizeBytes": 416527
+            },
+            {
+              "id": "an-ar-21",
+              "title": "فيّ حبٌ",
+              "file": "عربی نشید/فيّ حبٌ .opus",
+              "sizeBytes": 599745
+            },
+            {
+              "id": "an-ar-22",
+              "title": "لاتأسفن على الدنيا ومافيها",
+              "file": "عربی نشید/لاتأسفن على الدنيا ومافيها.opus",
+              "sizeBytes": 1554149
+            },
+            {
+              "id": "an-ar-23",
+              "title": "ليس الغريب",
+              "file": "عربی نشید/ليس الغريب .opus",
+              "sizeBytes": 1994301
+            },
+            {
+              "id": "an-ar-24",
+              "title": "من نوره ومن ضياه",
+              "file": "عربی نشید/من نوره ومن ضياه .opus",
+              "sizeBytes": 358754
+            },
+            {
+              "id": "an-ar-25",
+              "title": "هاجر اللذائذ",
+              "file": "عربی نشید/هاجر اللذائذ .opus",
+              "sizeBytes": 1235615
+            },
+            {
+              "id": "an-ar-26",
+              "title": "يا اخوتي ماذا نقول ام حزننا جلب البكاء",
+              "file": "عربی نشید/يا اخوتي ماذا نقول ام حزننا جلب البكاء .opus",
+              "sizeBytes": 1585080
+            },
+            {
+              "id": "an-ar-27",
+              "title": "يا خير الخلق",
+              "file": "عربی نشید/يا خير الخلق.opus",
+              "sizeBytes": 1048305
+            },
+            {
+              "id": "an-ar-28",
+              "title": "یمه یا نبع الحنان",
+              "file": "عربی نشید/یمه یا نبع الحنان.opus",
+              "sizeBytes": 538552
+            },
+            {
+              "id": "an-ar-29",
+              "title": "يوما سنفنى كلنا مامن مفر",
+              "file": "عربی نشید/يوما سنفنى كلنا مامن مفر .opus",
+              "sizeBytes": 789102
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "title": "فارسی",
+          "tracks": [
+            {
+              "id": "an-fa-01",
+              "title": "جوان تا کی چنین",
+              "file": "فارسی نشید/جوان تا کی چنین.opus",
+              "sizeBytes": 971315
+            },
+            {
+              "id": "an-fa-02",
+              "title": "عطر قرآن عطر ایمان",
+              "file": "فارسی نشید/عطر قرآن عطر ایمان.opus",
+              "sizeBytes": 1069394
+            },
+            {
+              "id": "an-fa-03",
+              "title": "غریبی_غربت_شام_و_یمن_نیست",
+              "file": "فارسی نشید/غریبی_غربت_شام_و_یمن_نیست.opus",
+              "sizeBytes": 1088647
+            },
+            {
+              "id": "an-fa-04",
+              "title": "گفتم منم اهل خطا",
+              "file": "فارسی نشید/گفتم منم اهل خطا.opus",
+              "sizeBytes": 325743
+            },
+            {
+              "id": "an-fa-05",
+              "title": "مومنین بپا خیزید",
+              "file": "فارسی نشید/مومنین بپا خیزید.opus",
+              "sizeBytes": 1542757
+            },
+            {
+              "id": "an-fa-06",
+              "title": "چرا ای بنده ی عاصی",
+              "file": "فارسی نشید/چرا ای بنده ی عاصی.opus",
+              "sizeBytes": 1263468
+            },
+            {
+              "id": "an-fa-07",
+              "title": "دل غافل بکن توبه",
+              "file": "فارسی نشید/دل غافل بکن توبه.opus",
+              "sizeBytes": 1420994
+            },
+            {
+              "id": "an-fa-08",
+              "title": "سرود زیبای قرآن درمان دلها",
+              "file": "فارسی نشید/سرود زیبای قرآن درمان دلها .opus",
+              "sizeBytes": 931643
+            },
+            {
+              "id": "an-fa-09",
+              "title": "سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت",
+              "file": "فارسی نشید/سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت.opus",
+              "sizeBytes": 1077883
+            },
+            {
+              "id": "an-fa-10",
+              "title": "مرا با خودت تا ثریا ببر",
+              "file": "فارسی نشید/مرا با خودت تا ثریا ببر.opus",
+              "sizeBytes": 873870
+            },
+            {
+              "id": "an-fa-11",
+              "title": "و من مگر چیستم ای خدا؟",
+              "file": "فارسی نشید/و من مگر چیستم ای خدا؟ .opus",
+              "sizeBytes": 597536
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lectures",
+      "tracks": [
+        {
+          "id": "lec-01",
+          "title": "احکام خدا شناسی و خدا پرستی",
+          "file": "sokhanrani/ziaei/احکام خدا شناسی و خدا پرستی.opus",
+          "sizeBytes": 7715552
+        },
+        {
+          "id": "lec-02",
+          "title": "احکام سرفطر - عروسی - بد حسابی",
+          "file": "sokhanrani/ziaei/احکام سرفطر - عروسی - بد حسابی.opus",
+          "sizeBytes": 7882301
+        },
+        {
+          "id": "lec-03",
+          "title": "آخرین شر (دجال)",
+          "file": "sokhanrani/ziaei/آخرین شر (دجال).opus",
+          "sizeBytes": 7340841
+        },
+        {
+          "id": "lec-04",
+          "title": "آزمون الهی و حقیقت صبر",
+          "file": "sokhanrani/ziaei/آزمون الهی و حقیقت صبر.opus",
+          "sizeBytes": 7651101
+        },
+        {
+          "id": "lec-05",
+          "title": "اسلام و مسئولیت های شرعی",
+          "file": "sokhanrani/ziaei/اسلام و مسئولیت های شرعی.opus",
+          "sizeBytes": 5026529
+        },
+        {
+          "id": "lec-06",
+          "title": "اصطلاحات حق و ایمان",
+          "file": "sokhanrani/ziaei/اصطلاحات حق و ایمان.opus",
+          "sizeBytes": 4824082
+        },
+        {
+          "id": "lec-07",
+          "title": "اهمیت ماه مبارک رجب و دیگر ماه های حرام",
+          "file": "sokhanrani/ziaei/اهمیت ماه مبارک رجب و دیگر ماه های حرام.opus",
+          "sizeBytes": 8281747
+        },
+        {
+          "id": "lec-08",
+          "title": "اهمیت نماز",
+          "file": "sokhanrani/ziaei/اهمیت نماز.opus",
+          "sizeBytes": 5863266
+        },
+        {
+          "id": "lec-09",
+          "title": "پایان یاجوج و ماجوج - هاروت و ماروت",
+          "file": "sokhanrani/ziaei/پایان یاجوج و ماجوج - هاروت و ماروت.opus",
+          "sizeBytes": 6452580
+        },
+        {
+          "id": "lec-10",
+          "title": "تفاوت شرق اسلامی و غرب غیر اسلامی",
+          "file": "sokhanrani/ziaei/تفاوت شرق اسلامی و غرب غیر اسلامی.opus",
+          "sizeBytes": 5952603
+        },
+        {
+          "id": "lec-11",
+          "title": "تکالیف شرعی",
+          "file": "sokhanrani/ziaei/تکالیف شرعی.opus",
+          "sizeBytes": 5218077
+        },
+        {
+          "id": "lec-12",
+          "title": "توحید و یکتاپرستی",
+          "file": "sokhanrani/ziaei/توحید و یکتاپرستی.opus",
+          "sizeBytes": 7715551
+        },
+        {
+          "id": "lec-13",
+          "title": "توفیق پذیرش",
+          "file": "sokhanrani/ziaei/توفیق پذیرش.opus",
+          "sizeBytes": 3354231
+        },
+        {
+          "id": "lec-14",
+          "title": "چرا جوانان از اسلام فاصله گرفتند",
+          "file": "sokhanrani/ziaei/چرا جوانان از اسلام فاصله گرفتند.opus",
+          "sizeBytes": 6419069
+        },
+        {
+          "id": "lec-15",
+          "title": "حالت روح وجسم انسان پس از مرگ",
+          "file": "sokhanrani/ziaei/حالت روح وجسم انسان پس از مرگ.opus",
+          "sizeBytes": 4138269
+        },
+        {
+          "id": "lec-16",
+          "title": "حج در جوانی - اتحاد امت ...",
+          "file": "sokhanrani/ziaei/حج در جوانی - اتحاد امت ....opus",
+          "sizeBytes": 7604435
+        },
+        {
+          "id": "lec-17",
+          "title": "حقوق مرد و زن در اسلام",
+          "file": "sokhanrani/ziaei/حقوق مرد و زن در اسلام.opus",
+          "sizeBytes": 9422847
+        },
+        {
+          "id": "lec-18",
+          "title": "حقوق مردم و پایبندی به عدالت د...",
+          "file": "sokhanrani/ziaei/حقوق مردم و پایبندی به عدالت د....opus",
+          "sizeBytes": 7548715
+        },
+        {
+          "id": "lec-19",
+          "title": "درجات کفر و ایمان و اهمیت نیت در عبادات",
+          "file": "sokhanrani/ziaei/درجات کفر و ایمان و اهمیت نیت در عبادات.opus",
+          "sizeBytes": 7333783
+        },
+        {
+          "id": "lec-20",
+          "title": "دنیای سیاست در شرق و غرب",
+          "file": "sokhanrani/ziaei/دنیای سیاست در شرق و غرب.opus",
+          "sizeBytes": 15844410
+        },
+        {
+          "id": "lec-21",
+          "title": "ذو القرنین - یاجوج و ماجوج",
+          "file": "sokhanrani/ziaei/ذو القرنین - یاجوج و ماجوج.opus",
+          "sizeBytes": 7594548
+        },
+        {
+          "id": "lec-22",
+          "title": "رابطه انسان با شیطان",
+          "file": "sokhanrani/ziaei/رابطه انسان با شیطان.opus",
+          "sizeBytes": 4485249
+        },
+        {
+          "id": "lec-23",
+          "title": "روز حساب",
+          "file": "sokhanrani/ziaei/روز حساب.opus",
+          "sizeBytes": 6548884
+        },
+        {
+          "id": "lec-24",
+          "title": "سحر و جادوگری - مفهوم غیب",
+          "file": "sokhanrani/ziaei/سحر و جادوگری - مفهوم غیب.opus",
+          "sizeBytes": 9711470
+        },
+        {
+          "id": "lec-25",
+          "title": "سعادت ابدی",
+          "file": "sokhanrani/ziaei/سعادت ابدی.opus",
+          "sizeBytes": 1514351
+        },
+        {
+          "id": "lec-26",
+          "title": "سیرت رسول الله - سوء قصدها",
+          "file": "sokhanrani/ziaei/سیرت رسول الله - سوء قصدها.opus",
+          "sizeBytes": 8121063
+        },
+        {
+          "id": "lec-27",
+          "title": "شب اول قبر و عذاب قبر",
+          "file": "sokhanrani/ziaei/شب اول قبر و عذاب قبر.opus",
+          "sizeBytes": 5951662
+        },
+        {
+          "id": "lec-28",
+          "title": "شبهات پیرامون قرآن - افراط ...",
+          "file": "sokhanrani/ziaei/شبهات پیرامون قرآن - افراط ... .opus",
+          "sizeBytes": 4391953
+        },
+        {
+          "id": "lec-29",
+          "title": "شروط پذیرش اعمال خیر و ...",
+          "file": "sokhanrani/ziaei/شروط پذیرش اعمال خیر و ....opus",
+          "sizeBytes": 11240083
+        },
+        {
+          "id": "lec-30",
+          "title": "عقیده و عمل در اسلام",
+          "file": "sokhanrani/ziaei/عقیده و عمل در اسلام.opus",
+          "sizeBytes": 5231799
+        },
+        {
+          "id": "lec-31",
+          "title": "علل بی توجهی مردم به دین",
+          "file": "sokhanrani/ziaei/علل بی توجهی مردم به دین.opus",
+          "sizeBytes": 5386713
+        },
+        {
+          "id": "lec-32",
+          "title": "عیسی مسیح در آخر الزمان",
+          "file": "sokhanrani/ziaei/عیسی مسیح در آخر الزمان.opus",
+          "sizeBytes": 7692088
+        },
+        {
+          "id": "lec-33",
+          "title": "غیب و پیشگویی",
+          "file": "sokhanrani/ziaei/غیب و پیشگویی.opus",
+          "sizeBytes": 5721033
+        },
+        {
+          "id": "lec-34",
+          "title": "فلسفه تکالیف شرعی و ارزش سختی در عبادت",
+          "file": "sokhanrani/ziaei/فلسفه تکالیف شرعی و ارزش سختی در عبادت.opus",
+          "sizeBytes": 6684035
+        },
+        {
+          "id": "lec-35",
+          "title": "فلسفه چند همسری",
+          "file": "sokhanrani/ziaei/فلسفه چند همسری.opus",
+          "sizeBytes": 5639853
+        },
+        {
+          "id": "lec-36",
+          "title": "مرتبه ی اسلام و فلسفه عبادت",
+          "file": "sokhanrani/ziaei/مرتبه ی اسلام و فلسفه عبادت.opus",
+          "sizeBytes": 8048727
+        },
+        {
+          "id": "lec-37",
+          "title": "مساجد در طول تاریخ",
+          "file": "sokhanrani/ziaei/مساجد در طول تاریخ.opus",
+          "sizeBytes": 7118623
+        },
+        {
+          "id": "lec-38",
+          "title": "مسؤولیت والدین در تربیت دینی فرزندان",
+          "file": "sokhanrani/ziaei/مسؤولیت والدین در تربیت دینی فرزندان.opus",
+          "sizeBytes": 7590909
+        },
+        {
+          "id": "lec-39",
+          "title": "نماز",
+          "file": "sokhanrani/ziaei/نماز.opus",
+          "sizeBytes": 5155552
+        },
+        {
+          "id": "lec-40",
+          "title": "نوروز و چهارشنبه سوری",
+          "file": "sokhanrani/ziaei/نوروز و چهارشنبه سوری.opus",
+          "sizeBytes": 5089715
+        },
+        {
+          "id": "lec-41",
+          "title": "وظایف عملی اسلامی",
+          "file": "sokhanrani/ziaei/وظایف عملی اسلامی.opus",
+          "sizeBytes": 12864090
+        },
+        {
+          "id": "lec-gd-01",
+          "title": "مقدمه و تذکر پیرامون موضوع بحث‌های شب‌های رمضان",
+          "file": "sokhanrani/rahemi/01 - مقدمه و تذکر پیرامون موضوع بحث‌های شب‌های رمضان.opus",
+          "sizeBytes": 5619787
+        },
+        {
+          "id": "lec-gd-02",
+          "title": "اهداف کلی از بحث پیرامون سیرت رسول الله ﷺ",
+          "file": "sokhanrani/rahemi/02 - اهداف کلی از بحث پیرامون سیرت رسول الله ﷺ.opus",
+          "sizeBytes": 7647243
+        },
+        {
+          "id": "lec-gd-03",
+          "title": "تعامل رسول الله ﷺ با الله عزوجل",
+          "file": "sokhanrani/rahemi/03 - تعامل رسول الله ﷺ با الله عزوجل.opus",
+          "sizeBytes": 7088105
+        },
+        {
+          "id": "lec-gd-04",
+          "title": "آیا رسول الله ﷺ عالم الغیب بودند",
+          "file": "sokhanrani/rahemi/04 - آیا رسول الله ﷺ عالم الغیب بودند.opus",
+          "sizeBytes": 6303275
+        },
+        {
+          "id": "lec-gd-05",
+          "title": "پاسخ به شبهه کفر صحابه",
+          "file": "sokhanrani/rahemi/05 - پاسخ به شبهه کفر صحابه.opus",
+          "sizeBytes": 7086950
+        },
+        {
+          "id": "lec-gd-06",
+          "title": "مسابقه در انجام عبادات، تربیت ایمانی، قرآن در ترتیب نزول سوره‌ها",
+          "file": "sokhanrani/rahemi/06 - مسابقه در انجام عبادات، تربیت ایمانی، قرآن در ترتیب نزول سوره‌ها.opus",
+          "sizeBytes": 6655225
+        },
+        {
+          "id": "misc-01",
+          "title": "خدا_بنده‌های_خوب_خودش_را_امتحان_می‌کند!❤️_مولانا_بهزاد_فقهی",
+          "file": "sokhanrani/خدا_بنده‌های_خوب_خودش_را_امتحان_می‌کند!❤️_مولانا_بهزاد_فقهی.opus",
+          "sizeBytes": 2872433
+        }
+      ],
+      "speakers": [
+        {
+          "id": "ziaei",
+          "title": "شیخ ضیایی",
+          "tracks": [
+            {
+              "id": "lec-01",
+              "title": "احکام خدا شناسی و خدا پرستی",
+              "file": "sokhanrani/ziaei/احکام خدا شناسی و خدا پرستی.opus",
+              "sizeBytes": 7715552
+            },
+            {
+              "id": "lec-02",
+              "title": "احکام سرفطر - عروسی - بد حسابی",
+              "file": "sokhanrani/ziaei/احکام سرفطر - عروسی - بد حسابی.opus",
+              "sizeBytes": 7882301
+            },
+            {
+              "id": "lec-03",
+              "title": "آخرین شر (دجال)",
+              "file": "sokhanrani/ziaei/آخرین شر (دجال).opus",
+              "sizeBytes": 7340841
+            },
+            {
+              "id": "lec-04",
+              "title": "آزمون الهی و حقیقت صبر",
+              "file": "sokhanrani/ziaei/آزمون الهی و حقیقت صبر.opus",
+              "sizeBytes": 7651101
+            },
+            {
+              "id": "lec-05",
+              "title": "اسلام و مسئولیت های شرعی",
+              "file": "sokhanrani/ziaei/اسلام و مسئولیت های شرعی.opus",
+              "sizeBytes": 5026529
+            },
+            {
+              "id": "lec-06",
+              "title": "اصطلاحات حق و ایمان",
+              "file": "sokhanrani/ziaei/اصطلاحات حق و ایمان.opus",
+              "sizeBytes": 4824082
+            },
+            {
+              "id": "lec-07",
+              "title": "اهمیت ماه مبارک رجب و دیگر ماه های حرام",
+              "file": "sokhanrani/ziaei/اهمیت ماه مبارک رجب و دیگر ماه های حرام.opus",
+              "sizeBytes": 8281747
+            },
+            {
+              "id": "lec-08",
+              "title": "اهمیت نماز",
+              "file": "sokhanrani/ziaei/اهمیت نماز.opus",
+              "sizeBytes": 5863266
+            },
+            {
+              "id": "lec-09",
+              "title": "پایان یاجوج و ماجوج - هاروت و ماروت",
+              "file": "sokhanrani/ziaei/پایان یاجوج و ماجوج - هاروت و ماروت.opus",
+              "sizeBytes": 6452580
+            },
+            {
+              "id": "lec-10",
+              "title": "تفاوت شرق اسلامی و غرب غیر اسلامی",
+              "file": "sokhanrani/ziaei/تفاوت شرق اسلامی و غرب غیر اسلامی.opus",
+              "sizeBytes": 5952603
+            },
+            {
+              "id": "lec-11",
+              "title": "تکالیف شرعی",
+              "file": "sokhanrani/ziaei/تکالیف شرعی.opus",
+              "sizeBytes": 5218077
+            },
+            {
+              "id": "lec-12",
+              "title": "توحید و یکتاپرستی",
+              "file": "sokhanrani/ziaei/توحید و یکتاپرستی.opus",
+              "sizeBytes": 7715551
+            },
+            {
+              "id": "lec-13",
+              "title": "توفیق پذیرش",
+              "file": "sokhanrani/ziaei/توفیق پذیرش.opus",
+              "sizeBytes": 3354231
+            },
+            {
+              "id": "lec-14",
+              "title": "چرا جوانان از اسلام فاصله گرفتند",
+              "file": "sokhanrani/ziaei/چرا جوانان از اسلام فاصله گرفتند.opus",
+              "sizeBytes": 6419069
+            },
+            {
+              "id": "lec-15",
+              "title": "حالت روح وجسم انسان پس از مرگ",
+              "file": "sokhanrani/ziaei/حالت روح وجسم انسان پس از مرگ.opus",
+              "sizeBytes": 4138269
+            },
+            {
+              "id": "lec-16",
+              "title": "حج در جوانی - اتحاد امت ...",
+              "file": "sokhanrani/ziaei/حج در جوانی - اتحاد امت ....opus",
+              "sizeBytes": 7604435
+            },
+            {
+              "id": "lec-17",
+              "title": "حقوق مرد و زن در اسلام",
+              "file": "sokhanrani/ziaei/حقوق مرد و زن در اسلام.opus",
+              "sizeBytes": 9422847
+            },
+            {
+              "id": "lec-18",
+              "title": "حقوق مردم و پایبندی به عدالت د...",
+              "file": "sokhanrani/ziaei/حقوق مردم و پایبندی به عدالت د....opus",
+              "sizeBytes": 7548715
+            },
+            {
+              "id": "lec-19",
+              "title": "درجات کفر و ایمان و اهمیت نیت در عبادات",
+              "file": "sokhanrani/ziaei/درجات کفر و ایمان و اهمیت نیت در عبادات.opus",
+              "sizeBytes": 7333783
+            },
+            {
+              "id": "lec-20",
+              "title": "دنیای سیاست در شرق و غرب",
+              "file": "sokhanrani/ziaei/دنیای سیاست در شرق و غرب.opus",
+              "sizeBytes": 15844410
+            },
+            {
+              "id": "lec-21",
+              "title": "ذو القرنین - یاجوج و ماجوج",
+              "file": "sokhanrani/ziaei/ذو القرنین - یاجوج و ماجوج.opus",
+              "sizeBytes": 7594548
+            },
+            {
+              "id": "lec-22",
+              "title": "رابطه انسان با شیطان",
+              "file": "sokhanrani/ziaei/رابطه انسان با شیطان.opus",
+              "sizeBytes": 4485249
+            },
+            {
+              "id": "lec-23",
+              "title": "روز حساب",
+              "file": "sokhanrani/ziaei/روز حساب.opus",
+              "sizeBytes": 6548884
+            },
+            {
+              "id": "lec-24",
+              "title": "سحر و جادوگری - مفهوم غیب",
+              "file": "sokhanrani/ziaei/سحر و جادوگری - مفهوم غیب.opus",
+              "sizeBytes": 9711470
+            },
+            {
+              "id": "lec-25",
+              "title": "سعادت ابدی",
+              "file": "sokhanrani/ziaei/سعادت ابدی.opus",
+              "sizeBytes": 1514351
+            },
+            {
+              "id": "lec-26",
+              "title": "سیرت رسول الله - سوء قصدها",
+              "file": "sokhanrani/ziaei/سیرت رسول الله - سوء قصدها.opus",
+              "sizeBytes": 8121063
+            },
+            {
+              "id": "lec-27",
+              "title": "شب اول قبر و عذاب قبر",
+              "file": "sokhanrani/ziaei/شب اول قبر و عذاب قبر.opus",
+              "sizeBytes": 5951662
+            },
+            {
+              "id": "lec-28",
+              "title": "شبهات پیرامون قرآن - افراط ...",
+              "file": "sokhanrani/ziaei/شبهات پیرامون قرآن - افراط ... .opus",
+              "sizeBytes": 4391953
+            },
+            {
+              "id": "lec-29",
+              "title": "شروط پذیرش اعمال خیر و ...",
+              "file": "sokhanrani/ziaei/شروط پذیرش اعمال خیر و ....opus",
+              "sizeBytes": 11240083
+            },
+            {
+              "id": "lec-30",
+              "title": "عقیده و عمل در اسلام",
+              "file": "sokhanrani/ziaei/عقیده و عمل در اسلام.opus",
+              "sizeBytes": 5231799
+            },
+            {
+              "id": "lec-31",
+              "title": "علل بی توجهی مردم به دین",
+              "file": "sokhanrani/ziaei/علل بی توجهی مردم به دین.opus",
+              "sizeBytes": 5386713
+            },
+            {
+              "id": "lec-32",
+              "title": "عیسی مسیح در آخر الزمان",
+              "file": "sokhanrani/ziaei/عیسی مسیح در آخر الزمان.opus",
+              "sizeBytes": 7692088
+            },
+            {
+              "id": "lec-33",
+              "title": "غیب و پیشگویی",
+              "file": "sokhanrani/ziaei/غیب و پیشگویی.opus",
+              "sizeBytes": 5721033
+            },
+            {
+              "id": "lec-34",
+              "title": "فلسفه تکالیف شرعی و ارزش سختی در عبادت",
+              "file": "sokhanrani/ziaei/فلسفه تکالیف شرعی و ارزش سختی در عبادت.opus",
+              "sizeBytes": 6684035
+            },
+            {
+              "id": "lec-35",
+              "title": "فلسفه چند همسری",
+              "file": "sokhanrani/ziaei/فلسفه چند همسری.opus",
+              "sizeBytes": 5639853
+            },
+            {
+              "id": "lec-36",
+              "title": "مرتبه ی اسلام و فلسفه عبادت",
+              "file": "sokhanrani/ziaei/مرتبه ی اسلام و فلسفه عبادت.opus",
+              "sizeBytes": 8048727
+            },
+            {
+              "id": "lec-37",
+              "title": "مساجد در طول تاریخ",
+              "file": "sokhanrani/ziaei/مساجد در طول تاریخ.opus",
+              "sizeBytes": 7118623
+            },
+            {
+              "id": "lec-38",
+              "title": "مسؤولیت والدین در تربیت دینی فرزندان",
+              "file": "sokhanrani/ziaei/مسؤولیت والدین در تربیت دینی فرزندان.opus",
+              "sizeBytes": 7590909
+            },
+            {
+              "id": "lec-39",
+              "title": "نماز",
+              "file": "sokhanrani/ziaei/نماز.opus",
+              "sizeBytes": 5155552
+            },
+            {
+              "id": "lec-40",
+              "title": "نوروز و چهارشنبه سوری",
+              "file": "sokhanrani/ziaei/نوروز و چهارشنبه سوری.opus",
+              "sizeBytes": 5089715
+            },
+            {
+              "id": "lec-41",
+              "title": "وظایف عملی اسلامی",
+              "file": "sokhanrani/ziaei/وظایف عملی اسلامی.opus",
+              "sizeBytes": 12864090
+            }
+          ]
+        },
+        {
+          "id": "goudarzi",
+          "title": "شیخ محمد رحیمی",
+          "tracks": [
+            {
+              "id": "lec-gd-01",
+              "title": "مقدمه و تذکر پیرامون موضوع بحث‌های شب‌های رمضان",
+              "file": "sokhanrani/rahemi/01 - مقدمه و تذکر پیرامون موضوع بحث‌های شب‌های رمضان.opus",
+              "sizeBytes": 5619787
+            },
+            {
+              "id": "lec-gd-02",
+              "title": "اهداف کلی از بحث پیرامون سیرت رسول الله ﷺ",
+              "file": "sokhanrani/rahemi/02 - اهداف کلی از بحث پیرامون سیرت رسول الله ﷺ.opus",
+              "sizeBytes": 7647243
+            },
+            {
+              "id": "lec-gd-03",
+              "title": "تعامل رسول الله ﷺ با الله عزوجل",
+              "file": "sokhanrani/rahemi/03 - تعامل رسول الله ﷺ با الله عزوجل.opus",
+              "sizeBytes": 7088105
+            },
+            {
+              "id": "lec-gd-04",
+              "title": "آیا رسول الله ﷺ عالم الغیب بودند",
+              "file": "sokhanrani/rahemi/04 - آیا رسول الله ﷺ عالم الغیب بودند.opus",
+              "sizeBytes": 6303275
+            },
+            {
+              "id": "lec-gd-05",
+              "title": "پاسخ به شبهه کفر صحابه",
+              "file": "sokhanrani/rahemi/05 - پاسخ به شبهه کفر صحابه.opus",
+              "sizeBytes": 7086950
+            },
+            {
+              "id": "lec-gd-06",
+              "title": "مسابقه در انجام عبادات، تربیت ایمانی، قرآن در ترتیب نزول سوره‌ها",
+              "file": "sokhanrani/rahemi/06 - مسابقه در انجام عبادات، تربیت ایمانی، قرآن در ترتیب نزول سوره‌ها.opus",
+              "sizeBytes": 6655225
+            }
+          ]
+        },
+        {
+          "id": "misc",
+          "title": "متفرقه",
+          "tracks": [
+            {
+              "id": "misc-01",
+              "title": "خدا_بنده‌های_خوب_خودش_را_امتحان_می‌کند!❤️_مولانا_بهزاد_فقهی",
+              "file": "sokhanrani/خدا_بنده‌های_خوب_خودش_را_امتحان_می‌کند!❤️_مولانا_بهزاد_فقهی.opus",
+              "sizeBytes": 2872433
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

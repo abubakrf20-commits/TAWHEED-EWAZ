@@ -1,0 +1,14 @@
+{
+  "name": "tawheeed-mushaf-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build tools for the optional KFQC mushaf download package",
+  "scripts": {
+    "build": "node build_mushaf_package.mjs --zip",
+    "build:br": "node build_mushaf_package.mjs --mode br --input ../../../../hafs/kfqc/svg-br --zip"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "sharp": "^0.33.5"
+  }
+}

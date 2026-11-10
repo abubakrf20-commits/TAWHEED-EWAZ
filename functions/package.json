@@ -1,0 +1,13 @@
+{
+  "name": "tawheed-functions",
+  "description": "Cloud Functions برای توحید — ارسال اعلان پوش از admin/outbox به همهٔ کاربران",
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "private": true
+}

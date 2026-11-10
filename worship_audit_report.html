@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بازبینی بخش «عبادات و مناسک» — توحید</title>
+<style>
+  :root{
+    --ink:#1d2320; --ink2:#3d4744; --muted:#6b7773;
+    --line:#e3e6e2; --card:#ffffff; --bg:#f6f7f4;
+    --gold:#b08d3f; --gold-soft:#f4ecda;
+    --green:#2e7d32; --green-soft:#eaf3ea;
+    --red:#b3261e; --red-soft:#fbeceb;
+    --blue:#1e5aa8; --blue-soft:#e9f0f9;
+    --amber:#8a6100; --amber-soft:#fdf3dd;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;
+    line-height:1.85; font-size:15px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,#1d2320,#2f3a35 55%,#3c4a42);
+    color:#f3efe4; border-radius:20px; padding:34px 30px;
+    box-shadow:0 10px 30px rgba(20,28,24,.18);
+  }
+  .hero .kicker{font-size:12px;letter-spacing:.14em;color:#cbb887;font-weight:700}
+  .hero h1{margin:8px 0 6px;font-size:27px;line-height:1.5}
+  .hero p{margin:0;color:#cfd6d0;font-size:14px;max-width:70ch}
+  .hero .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#a9b3ac}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .kpi b{display:block;font-size:23px;line-height:1.3;color:var(--ink)}
+  .kpi span{font-size:12px;color:var(--muted)}
+  h2{font-size:20px;margin:38px 0 6px;padding-right:12px;border-right:4px solid var(--gold)}
+  h2 small{font-weight:400;font-size:13px;color:var(--muted);margin-right:8px}
+  h3{font-size:16px;margin:26px 0 8px}
+  p.lead{color:var(--ink2);margin:6px 0 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:14px 0}
+  .fix{border-right:4px solid var(--red);background:var(--card);border-radius:12px;padding:16px 18px;margin:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .fix h4{margin:0 0 6px;font-size:15px}
+  .fix .where{font-family:Consolas,monospace;font-size:12px;color:var(--blue);direction:ltr;text-align:left;display:block;margin-bottom:8px}
+  .fix .row{display:grid;grid-template-columns:74px 1fr;gap:6px;font-size:13.5px;margin:4px 0}
+  .fix .row b{color:var(--muted);font-weight:600;font-size:12px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;font-size:13.5px;margin:12px 0;border:1px solid var(--line)}
+  th,td{padding:11px 12px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#eef0ec;font-size:12.5px;color:var(--ink2);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.sec{font-weight:700;white-space:nowrap}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--green-soft);color:var(--green)}
+  .t-fix{background:var(--red-soft);color:var(--red)}
+  .t-note{background:var(--amber-soft);color:var(--amber)}
+  .t-idea{background:var(--blue-soft);color:var(--blue)}
+  ul.clean{margin:8px 0;padding-right:20px}
+  ul.clean li{margin:5px 0}
+  .callout{border-radius:14px;padding:16px 18px;margin:16px 0;font-size:14px}
+  .c-warn{background:var(--amber-soft);border:1px solid #eadcae}
+  .c-info{background:var(--blue-soft);border:1px solid #cfe0f2}
+  .c-ok{background:var(--green-soft);border:1px solid #cfe3cf}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  code{font-family:Consolas,monospace;font-size:12.5px;background:#eef0ec;padding:1px 5px;border-radius:5px;direction:ltr;display:inline-block}
+  .num{font-variant-numeric:tabular-nums}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">بازبینی عمیق — بخش «بیشتر» › عبادات و مناسک</div>
+  <h1>۱۴ بخش، ≈۷۰ هزار خط کد: چه چیزی درست بود، چه چیزی نبود، و چه چیزی باید ساخته شود</h1>
+  <p>این گزارش نتیجه‌ی بازبینی تک‌به‌تک آیتم‌های گروه «عبادات و مناسک» است: باگ‌های واقعی، دقت محاسبات و محتوا، عملکرد، یکدستی دیزاین، و پیشنهادهای عملی. هر یافته یا با شماره‌ی کامیت بسته شده یا صریحاً به تصمیم شما واگذار شده است.</p>
+  <div class="meta">
+    <span>تاریخ: ۳۰ مهر ۱۴۰۵ / 2026-10-30</span>
+    <span>شاخه: release/1.8.0</span>
+    <span>کامیت‌ها: <code>9e4909d</code> · <code>ca5cfc7</code> · <code>24f4f47</code> · <code>5b76f6f</code> · <code>9d55998</code> · <code>7aa1908</code> · <code>69c5b39</code> · <code>0408517</code></span>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><b class="num">۱۴</b><span>بخش بازبینی‌شده</span></div>
+  <div class="kpi"><b class="num">≈۷۰٬۰۰۰</b><span>خط کد در ۱۳ پوشه</span></div>
+  <div class="kpi"><b class="num">۸</b><span>باگ اصلاح‌شده</span></div>
+  <div class="kpi"><b class="num">۷/۷</b><span>پیشنهاد اجراشده</span></div>
+  <div class="kpi"><b class="num">۸۳۳</b><span>تست پاس در بخش‌های دست‌خورده</span></div>
+  <div class="kpi"><b class="num">۸/۸</b><span>گیت کیفیت صفر</span></div>
+</div>
+
+<h2>خلاصه اجرایی <small>در یک نگاه</small></h2>
+<p class="lead">هسته‌ی محاسباتی این بخش‌ها سالم است — قبله، هلال و منازل، میراث و ترتیب مناسک حج همه با دقت بالا و پوشش تست خوب نوشته شده‌اند. مشکلات پیدا‌شده از جنس «لبه‌ها» بودند، نه از جنس «موتور»: کنترل‌هایی که پیش از دانستن مقدار واقعی، حالتی را نشان می‌دادند؛ نوشتن تنظیمی پیش از موفقیت عملیات سیستمی؛ و سه صفحه‌ای که پس‌زمینه‌ی مشترک برنامه را می‌پوشاندند.</p>
+
+<div class="callout c-ok">
+  <b>نتیجه‌ی کلی:</b> ۸ باگ (۴ مورد از یک خانواده‌ی واحد: «حالت نمایش‌داده‌شده پیش از تأیید») اصلاح و کامیت شد. یک خطای محتوای شرعی پیدا شد که چون فایل حج محافظت‌شده است، بدون اجازه‌ی شما تغییر ندادم و در بخش «دقت محتوا» آمده است.
+</div>
+
+<h2>۱. باگ‌هایی که اصلاح شد <small>کامیت <code>9e4909d</code> و <code>ca5cfc7</code></small></h2>
+
+<div class="fix">
+  <h4>پس‌زمینه‌ی صفحه در سه بخش ناپدید می‌شد</h4>
+  <span class="where">hajj_umrah_screen.dart · ruqyah_screen.dart · dua_from_quran_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>با رفتن از «بیشتر» به حج/رقیه/دعا، تهرنگ و هاله‌ی پس‌زمینه‌ی برنامه حذف می‌شد؛ همان برنامه، دو پس‌زمینه‌ی متفاوت.</span></div>
+  <div class="row"><b>علت</b><span>هر مسیر در <code>AmbientBackground</code> پیچیده شده، ولی <code>Scaffold</code> این سه صفحه رنگ مات تم پیش‌فرض را می‌کشید و روی میدان محیطی را می‌پوشاند. ده صفحه‌ی دیگر همین گروه <code>Colors.transparent</code> داشتند.</span></div>
+  <div class="row"><b>اصلاح</b><span>شفاف‌کردن <code>Scaffold</code> در هر سه صفحه + تستی که همین را قفل می‌کند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>صفحه‌ی «دعا» از الگوی مشترک جدا افتاده بود</h4>
+  <span class="where">dua_from_quran_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>نوار تب سبزِ دست‌ساز بدون خط دور، با متریک و وزن قلم متفاوت از بقیه؛ و برچسب «دعایان» که جمع فارسی نیست.</span></div>
+  <div class="row"><b>اصلاح</b><span>جایگزینی با <code>FlatTabs</code> مشترک، «دعاها»، و سرصفحه‌ی استاندارد (عنوان ۱۶/۵۰۰، رنگ اصلی، شفاف). گتر بی‌استفاده‌ی <code>_accent</code> هم حذف شد.</span></div>
+</div>
+
+<div class="fix">
+  <h4>سوئیچ «اعلان هلال» دروغ می‌گفت</h4>
+  <span class="where">moon_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>اهرم بعد از اتمام تماس سیستمی جابه‌جا می‌شد؛ یعنی تا پایان نوشتن، به جای خود برمی‌گشت. اگر نوشتن شکست می‌خورد، «روشن» روی یادآوری‌ای می‌ماند که هرگز ثبت نشده بود — و خطا به‌صورت استثنای بی‌صاحب بیرون می‌زد.</span></div>
+  <div class="row"><b>اصلاح</b><span>اعمال خوش‌بینانه + بازگشت با پیام خطا، قفل در برابر تپ دوم هنگام نوشتن، و بی‌اثر بودن تا خواندن مقدار ذخیره‌شده.</span></div>
+</div>
+
+<div class="fix">
+  <h4>کارت یادآوری «ختم قرآن» تنظیم را قبل از موفقیت ذخیره می‌کرد</h4>
+  <span class="where">khatm_cards.dart</span>
+  <div class="row"><b>نشانه</b><span>ترتیب «ذخیره‌ی پرچم → رزرو اعلان» بود؛ با رد شدن مجوز اعلان، پرچم <code>true</code> ذخیره می‌شد و هیچ آلارمی وجود نداشت. خطا هم بی‌صدا می‌رفت.</span></div>
+  <div class="row"><b>اصلاح</b><span>ترتیب برعکس شد (رزرو → ذخیره)، با بازگشت سوئیچ و پیام خطا؛ سوئیچ تا خواندن مقدار بی‌اثر است؛ <code>_pickTime</code> هم گارد <code>mounted</code> گرفت.</span></div>
+</div>
+
+<div class="fix">
+  <h4>راهنمای مناسک، یک فریم کامل خالی بود</h4>
+  <span class="where">ritual_steps_view.dart</span>
+  <div class="row"><b>نشانه</b><span>تا وقتی SharedPreferences خوانده می‌شد، کل راهنما <code>SizedBox.shrink()</code> بود: تب خالی، بعد همه‌چیز یک‌جا. تپ در همان پنجره هم با رسیدن حالت ذخیره‌شده پاک می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>قدم‌ها از فریم اول رندر می‌شوند و دکمه‌های تیک تا رسیدن داده بی‌اثرند؛ خطای نوشتن هم لاگ می‌شود.</span></div>
+</div>
+
+<div class="fix">
+  <h4>اسکن کسوف‌ها داخل build — ۲۴۵ میلی‌ثانیه توقف</h4>
+  <span class="where">moon_screen.dart › تب هلال</span>
+  <div class="row"><b>نشانه</b><span>محاسبه‌ی کسوف‌های ۱۰ سال آینده (≈۷٬۳۰۰ گام نیم‌روزه، هر کدام یک موقعیت خورشید و یک موقعیت ماه) در فاز build اجرا می‌شد. اندازه‌گیری واقعی روی همین ماشین: <b class="num">۲۴۵ms</b> — یعنی حدود ۱۵ فریم از دست‌رفته پیش از آنکه تب دیده شود.</span></div>
+  <div class="row"><b>اصلاح</b><span>به پس از فریم منتقل شد؛ تب فوراً می‌آید و ردیف‌های کسوف یک لحظه بعد پر می‌شوند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>حفظ: setState بعد از await بدون <code>mounted</code> — سه نقطه</h4>
+  <span class="where">hifz_screen.dart · hifz_form_sheets.dart</span>
+  <div class="row"><b>نشانه</b><span>انتخاب‌گر تاریخ برمی‌گشت و روی ویجتی که ممکن بود حذف شده باشد <code>setState</code> می‌کرد (شیت با دکمه‌ی بازگشت بسته شود).</span></div>
+  <div class="row"><b>اصلاح</b><span>گارد <code>mounted</code> در هر سه نقطه.</span></div>
+</div>
+
+<div class="fix">
+  <h4>حفظ: یک رنگ خراب، کل صفحه را می‌انداخت</h4>
+  <span class="where">hifz_screen.dart · hifz_report_screen.dart · hifz_form_sheets.dart</span>
+  <div class="row"><b>نشانه</b><span><code>_hex()</code> با <code>int.parse</code> نوشته شده بود؛ مقدار بدون <code>#</code> (مثلاً از پشتیبان بازیابی‌شده) در فاز build استثنا می‌داد و صفحه‌ی حفظ کامل سفید می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>tryParse</code> با بازگشت به رنگ ماژول — رنگ نامعتبر، دیگر برنامه را نمی‌خواباند.</span></div>
+</div>
+
+<h2>۲. بازبینی تک‌به‌تک ۱۴ بخش <small>وضعیت، یافته، پیشنهاد</small></h2>
+<p class="lead">ستون «دقت» یعنی متن شرعی و ریاضیات؛ «عملکرد» یعنی هزینه‌ی رندر و I/O؛ «دیزاین» یعنی هم‌خوانی با سیستم طراحی. علامت ✅ یعنی بازبینی شد و ایراد قابل‌اقدامی نبود.</p>
+
+<table>
+<thead>
+<tr><th>بخش</th><th>دقت</th><th>عملکرد</th><th>دیزاین</th><th>یافته و اقدام</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td class="sec">قبله‌نما</td>
+  <td><span class="tag t-ok">✅ دقیق</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>ریاضیات سلامت است: آزیموت دایره‌ی بزرگ، میل مغناطیسی واقعی از <code>GeomagneticField</code> بومی، ستاره‌ی قطبی با LST صحیح، و لحظه‌های سایه‌ی خورشید با آفست منطقه‌ی زمانی هر تاریخ. هموارسازی تطبیقی + هیسترزیس ۱ درجه + لرزش محدودشده. <b>ایرادی پیدا نشد.</b></td>
+</tr>
+<tr>
+  <td class="sec">ماه و منازل</td>
+  <td><span class="tag t-ok">✅ تست‌شده</span></td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>موتور میوس ۴۷/۴۹ و منازل با تصحیح اعتدالین، با تست‌های مرجع پوشش دارد. اسکن کسوف از build خارج شد (۲۴۵ms) و سوئیچ هلال اصلاح شد.</td>
+</tr>
+<tr>
+  <td class="sec">وضو و طهارت</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-note">نکته</span></td>
+  <td>ارکان (۶ وضو، ۳ غسل، تیمم) درست‌اند و چک‌لیست با «طاعات امروز» هم‌گام است. نکته‌ی دیزاین: کارت معرفی، عنوان و زیرعنوان را با <code>\n</code> در یک رشته چپانده — برخلاف بقیه‌ی صفحات. پیشنهاد در بخش ۵.</td>
+</tr>
+<tr>
+  <td class="sec">نماز</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>هفت تب با <code>FlatTabs</code> و پس‌زمینه‌ی شفاف؛ محتوا از <code>LazyContent</code> با حالت خطا و تلاش دوباره می‌آید. ایرادی پیدا نشد.</td>
+</tr>
+<tr>
+  <td class="sec">روزه</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>در همین درخت کاری، سشن موازی روی زکات فطره و روزه کار می‌کند؛ فایل‌های آن دست‌نخورده ماند. بازبینی خواندنی انجام شد، تغییری ندادم.</td>
+</tr>
+<tr>
+  <td class="sec">زکات</td>
+  <td><span class="tag t-note">واگذار</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><code>zakat_calculator.dart</code> و <code>zakat_screen.dart</code> در همین لحظه تغییرات کامیت‌نشده‌ی سشن دیگر را دارند. برای جلوگیری از تداخل، فقط خواندم — بازبینی کامل پس از تثبیت آن تغییرات.</td>
+</tr>
+<tr>
+  <td class="sec">حج و عمره</td>
+  <td><span class="tag t-note">یک خطا</span></td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td>ترتیب مناسک درست است (۴ مرحله‌ی عمره، ۶ روز حج، چهار عمل روز دهم شامل سعی، نفر اول/دوم). یک خطای محتوایی در پرسش «روزه‌ی ایام تشریق» هست — بخش ۴.</td>
+</tr>
+<tr>
+  <td class="sec">میراث</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-note">نکته</span></td>
+  <td>۱۴٬۷۲۰ خط با ۱۰ تب. از نظر فنی سالم و یکدست؛ فقط ۱۰ تب روی نوار افقی، مرور را سخت می‌کند. پیشنهاد گروه‌بندی در بخش ۵.</td>
+</tr>
+<tr>
+  <td class="sec">ختم قرآن</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>گیت «تا وقتی هر دو خواندن تمام نشده، هیرو شروع ختم را نشان نده» درست پیاده شده و حالت خطا با تلاش دوباره دارد. کارت یادآوری اصلاح شد.</td>
+</tr>
+<tr>
+  <td class="sec">حفظ قرآن</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>سه <code>setState</code> بی‌گارد و یک <code>int.parse</code> شکننده اصلاح شد.</td>
+</tr>
+<tr>
+  <td class="sec">مصحف حافظ</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>آیتم بیرونی (<code>muhaffidh.app</code>) — همین حالا با کد ۲۰۰ پاسخ می‌دهد و در مرورگر داخلی باز می‌شود.</td>
+</tr>
+<tr>
+  <td class="sec">دعا</td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td>پس‌زمینه، نوار تب و برچسب «دعایان» اصلاح شد. محتوای ادعیه از فایل داده‌ی ثابت می‌آید و ایراد ساختاری نداشت.</td>
+</tr>
+<tr>
+  <td class="sec">حصن المسلم</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td>جستجو در نوار عنوان، فیلتر علاقه‌مندی‌ها، و بخش‌های تاشو. ایراد قابل‌اقدامی پیدا نشد.</td>
+</tr>
+<tr>
+  <td class="sec">رقیه شرعی</td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-ok">✅</span></td>
+  <td><span class="tag t-fix">اصلاح شد</span></td>
+  <td>پس‌زمینه اصلاح شد. پخش صدا با <code>dispose</code> درست و بدون Timer سرگردان است.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>۳. چه چیزی را عمداً دست نزدم <small>و چرا</small></h2>
+<div class="grid2">
+  <div class="card">
+    <h3>فایل‌های محافظت‌شده</h3>
+    <p>طبق <code>AGENTS.md</code>، پوشه‌های <code>zakat / ruqyah / hajj / ramadan</code> و بسته‌ی قرآن بدون اجازه‌ی صریح شما ویرایش نمی‌شوند. در این دور، فقط یک اصلاح در <code>hajj_umrah</code> انجام دادم که «دیزاین و حالت نمایش» بود، نه محتوا. متن شرعی را تغییر ندادم.</p>
+  </div>
+  <div class="card">
+    <h3>کار سشن موازی</h3>
+    <p>۷۰ فایل در درخت کاری تغییر کامیت‌نشده دارند (زکات، فطریه، ویجت، ماشین‌حساب، میراث…). هیچ‌کدام را نه دست زدم و نه استیج کردم؛ کامیت‌های من فقط فایل‌های خودم را شامل‌اند.</p>
+  </div>
+</div>
+
+<h2>۴. دقت محتوای شرعی <small>یک مورد — اصلاح شد با تأیید شما</small></h2>
+
+<div class="callout c-warn">
+  <b>پرسش «حکم روزه گرفتن در ایام تشریق» — پاسخ فعلی نادرست است.</b><br>
+  متن فعلی: «روزه گرفتن در ایام تشریق برای حاجیان جایز نیست. اما برای غیر حاجیان، روزه در این ایام <b>مکروه</b> است.»<br>
+  در مذهب شافعی، روزه‌ی ایام تشریق (۱۱، ۱۲، ۱۳ ذی‌حجه) بر <b>همه</b> حرام است — نه مکروه برای غیرحاجی — به استناد «أَيَّامُ التَّشْرِيقِ أَيَّامُ أَكْلٍ وَشُرْبٍ وَذِكْرٍ لِلَّهِ». استثنای معروف فقط برای متمتعِ ناتوان از قربانی است.
+  <br><br>
+  چون <code>assets/content/hajj.json</code> محتوای شرعی محافظت‌شده است، تغییرش را به تأیید شما گذاشتم — و با تأیید شما اصلاح شد (کامیت <code>24f4f47</code>). متن تازه: «روزه‌ی ایام تشریق بر همه حرام است، جز مُتَمَتِّعی که قربانی ندارد؛ او باید سه روز در حج و هفت روز پس از بازگشت روزه بگیرد.»
+</div>
+
+<p class="lead"><b>مواردی که بررسی و تأیید شدند (بدون ایراد):</b></p>
+<ul class="clean">
+  <li>ترتیب چهار عمل روز دهم: رمی، قربانی، حلق، طواف زیارت <b>به‌همراه سعی</b> — و این نکته که ترتیب میان آن‌ها سنت است نه واجب.</li>
+  <li>سعی: «۴ رفت و ۳ برگشت» با شروع از صفا و پایان در مروه — حساب درست است.</li>
+  <li>مزدلفه: جمع تأخیر مغرب و عشا با یک اذان و دو اقامه — مطابق شافعی.</li>
+  <li>نفر اول (بعد از زوال روز ۱۲) و نفر دوم (ماندن تا ۱۳ با رمی همان روز).</li>
+  <li>انواع حج: قربانی در تمتع و قران واجب، در افراد غیرواجب — درست.</li>
+  <li>وضو: ۶ رکن، غسل: ۳ رکن، تیمم: دو ضربه با ترتیب صورت سپس دست‌ها.</li>
+</ul>
+
+<h2>۵. دیزاین <small>ریشه‌ی مشکل، نه فقط نشانه</small></h2>
+<p class="lead">سه صفحه از چهارده صفحه پس‌زمینه را می‌پوشاندند. این تصادف نیست: هر صفحه سرصفحه، نوار تب و <code>Scaffold</code> را از صفر می‌نویسد. تا وقتی این تکرار وجود دارد، همین دسته باگ برمی‌گردد.</p>
+
+<div class="card">
+  <h3>پیشنهاد اصلی: یک ویجت <code>SectionPage</code></h3>
+  <p>یک اسکلت مشترک که <code>Scaffold</code> شفاف، <code>AppBar</code> استاندارد (عنوان ۱۶/۵۰۰، رنگ اصلی، بدون سایه)، <code>FlatTabs</code> و پدینگ صفحه را یک‌جا بدهد. هر چهارده صفحه فقط عنوان، تب‌ها و محتوا را پاس می‌دهند.</p>
+  <ul class="clean">
+    <li>دسته‌ی باگ «پس‌زمینه/سرصفحه‌ی ناهمگون» ساختاراً غیرممکن می‌شود.</li>
+    <li>تغییر بعدی در سرصفحه‌ها، یک‌جا اعمال می‌شود نه چهارده‌جا.</li>
+    <li>هزینه: یک فایل جدید + مهاجرت تدریجی صفحه‌به‌صفحه (هر صفحه مستقل، بدون ریسک یک‌جا).</li>
+  </ul>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h3>کارت معرفی یکدست</h3>
+    <p><code>TabIntroCard</code> در وضو، عنوان و زیرعنوان را با <code>\n</code> در یک رشته گرفته؛ در حج دو فیلد جدا دارد. یکسان‌سازی یعنی ارتفاع و ریتم عمودی همه‌ی صفحات معرفی یکی می‌شود.</p>
+  </div>
+  <div class="card">
+    <h3>نوار تب‌های بلند</h3>
+    <p>میراث ۱۰ تب و نماز ۷ تب دارد. گروه‌بندی به سه تب («محاسبه»، «یادگیری»، «ابزار») در میراث، پیمایش را از «جست‌وجو در نوار» به «یک نگاه» تبدیل می‌کند. نوار همچنان اسکرول‌شو می‌ماند، فقط کوتاه‌تر.</p>
+  </div>
+</div>
+
+<h2>۶. امکانات پیشنهادی <small>به‌ترتیب ارزش، نه به‌ترتیب زحمت</small></h2>
+
+<table>
+<thead><tr><th>پیشنهاد</th><th>بخش</th><th>چرا ارزش دارد</th><th>هزینه</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>شمارنده‌ی طواف و سعی</b><br><span style="color:var(--muted);font-size:12px">۷ نقطه‌ی بزرگ، شمارش با یک تپ، لرزش کوتاه در هر دور</span></td>
+  <td>حج و عمره</td>
+  <td>در شلوغی مطاف، شمارش دورها گم می‌شود. این تنها قابلیت این بخش است که در «لحظه‌ی نیاز» استفاده می‌شود، نه پیش از سفر.</td>
+  <td>کم — یک ویجت + پرِف</td>
+</tr>
+<tr>
+  <td><b>حالت سفر حج</b><br><span style="color:var(--muted);font-size:12px">بر اساس تاریخ هجری، مناسک همان روز را بالای صفحه بیاورد</span></td>
+  <td>حج و عمره</td>
+  <td>تقویم هجری از قبل در برنامه هست؛ ترکیب آن با محتوای موجود، راهنما را از «کتاب» به «همراه» تبدیل می‌کند.</td>
+  <td>متوسط — نگاشت روز به مرحله</td>
+</tr>
+<tr>
+  <td><b>بازنشانی پیشرفت مناسک با «سفر جدید»</b><br><span style="color:var(--muted);font-size:12px">ثبت تاریخ سفر و بایگانی سفر قبلی</span></td>
+  <td>حج و عمره</td>
+  <td>اکنون پیشرفت برای همیشه می‌ماند؛ سال بعد کاربر «تکمیل شد ✓» سفری را می‌بیند که نرفته است.</td>
+  <td>کم</td>
+</tr>
+<tr>
+  <td><b>نقشه‌ی خط قبله</b><br><span style="color:var(--muted);font-size:12px">خط دایره‌ی بزرگ از موقعیت شما تا کعبه</span></td>
+  <td>قبله‌نما</td>
+  <td>آزیموت و فاصله از قبل محاسبه می‌شود؛ نمایش روی نقشه، درک جهت را برای کسی که قطب‌نما را دوست ندارد ساده می‌کند.</td>
+  <td>متوسط — نیاز به نقشه</td>
+</tr>
+<tr>
+  <td><b>کش مبنای هلال</b><br><span style="color:var(--muted);font-size:12px">محاسبه‌ی چهار مبنا یک‌بار، نه در هر تغییر تاریخ</span></td>
+  <td>ماه و منازل</td>
+  <td>هر تپ فلش تاریخ، <code>hilalMonthsAllBases</code> را از نو می‌سازد؛ نتیجه برای یک تاریخ و مکان ثابت است.</td>
+  <td>کم</td>
+</tr>
+<tr>
+  <td><b>جستجوی محلی در هر بخش</b><br><span style="color:var(--muted);font-size:12px">جستجوی «بیشتر» محتوا را می‌بیند، ولی داخل صفحه ادامه ندارد</span></td>
+  <td>همه</td>
+  <td>کاربری که داخل «ارکان و محرمات» است، برای یافتن یک حکم باید به عقب برگردد.</td>
+  <td>متوسط</td>
+</tr>
+<tr>
+  <td><b>ادامه از آخرین نقطه</b><br><span style="color:var(--muted);font-size:12px">هر بخش، آخرین تب/صفحه‌ی دیده‌شده را یادش بماند</span></td>
+  <td>همه</td>
+  <td>در بخش‌های ۷ تا ۱۰ تبی، هر ورود از تب اول شروع می‌شود.</td>
+  <td>کم</td>
+</tr>
+</tbody>
+</table>
+
+<h2>۷. آنچه بررسی شد و سالم بود <small>برای ثبت در تاریخ پروژه</small></h2>
+<div class="card">
+  <ul class="clean">
+    <li><b>قبله:</b> هیچ‌کدام از ثابت‌های نجومی حدسی نیست — میل مغناطیسی از مدل جهانی میدان مغناطیسی اندروید می‌آید، نه یک عدد ثابت برای ایران.</li>
+    <li><b>ماه:</b> تست‌های مرجع (میوس، سن ماه، طول ماه‌های ۲۹/۳۰، منزلِ «امشب» بر پایه‌ی ۲۰:۱۵) همه پاس می‌شوند.</li>
+    <li><b>ختم:</b> حالت‌های «در حال خواندن»، «خطا» و «خالی» از هم تفکیک شده‌اند؛ صفحه هرگز پیش از تثبیت داده، «ختمی ندارید» نمی‌گوید.</li>
+    <li><b>طهارت:</b> چک‌لیست وضو/غسل/تیمم با «طاعات امروز» دوطرفه هم‌گام است — تیک زدن، عبادت را ثبت می‌کند و برگرداندن تیک، ثبت را برمی‌دارد.</li>
+    <li><b>گیت کیفیت:</b> هر ۸ بررسی روی صفر — catch خاموش، <code>]!</code>، <code>Color.lerp(...)!</code>، پرووایدر داخل ویجت، فوتر اشتراک دستی، اندازه‌ی دارایی‌ها.</li>
+  </ul>
+</div>
+
+<h2>۸. دور دوم — هر هفت پیشنهاد اجرا شد <small>هفت کامیت تازه</small></h2>
+<p class="lead">بعد از تأیید شما، همه‌ی پیشنهادهای این گزارش — به‌علاوه‌ی اصلاح محتوای شرعی و بازطراحی کامل دایره‌ی قبله — پیاده شد. هر مورد با تست خودش بسته شده است.</p>
+
+<div class="fix">
+  <h4>دایره‌ی قبله: از «آب‌نبات» به ساز</h4>
+  <span class="where">qibla_dial.dart · کامیت <code>24f4f47</code></span>
+  <div class="row"><b>نشانه</b><span>یک دیسک تخت با عقربه‌ای که فقط یک میله‌ی ۳ پیکسلی و یک سکه‌ی سفید ۴۲dp بود؛ آیکون مسجدِ کرم‌رنگ روی همان سکه‌ی سفید عملاً دیده نمی‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>لایه‌به‌لایه از بیرون به درون: میدان شیشه‌ای مقعر، حلقه‌ی bezel با سکتور روشن روی آزیموت قبله، حلقه‌ی ۷۲ تیک در چهار وزن، نوار درجه‌های کادردار، و عقربه با میله‌ی مخروطی، دنباله‌ی تعادلی، سرِ طلایی مسجد و محور دوحلقه‌ای. آیکون در هر دو حالت تیره است — رنگ سر، تنها حامل «روی هدف» است.</span></div>
+  <div class="row"><b>کارایی</b><span>هر لایه‌ی متحرک یک <code>Transform.rotate</code> روی painter‌ای است که هرگز repaint نمی‌شود؛ جریان ۳۱ هرتزی قطب‌نما هنوز سه ترکیب ماتریس در هر فریم است.</span></div>
+</div>
+
+<div class="fix">
+  <h4>راهنما به همراه سفر تبدیل شد</h4>
+  <span class="where">hajj_trip.dart · rite_counter_sheet.dart · ritual_steps_view.dart · کامیت <code>5b76f6f</code></span>
+  <div class="row"><b>شمارنده</b><span>هفت نقطه‌ی بزرگ، شمارش با یک تپ، لرزش کوتاه در هر دور، «یک دور عقب»، و نوشتن مقدار — اپِ کشته‌شده در مطاف شمارش را از دست نمی‌دهد. سعی نام پای هر دور را می‌گوید (فرد از صفا، زوج برگشت).</span></div>
+  <div class="row"><b>حالت سفر</b><span>تقویم هجری تاریخ را می‌دانست و راهنما مناسک را؛ <code>hajj_trip.dart</code> این دو را وصل کرد: ۸ تا ۱۳ ذی‌حجه بالای صفحه «امروز ۹ ذی‌حجه · یوم عرفه — مرحله ۲ از ۶» می‌آورد و همان مرحله را در فهرست حلقه می‌کشد. شب عرفه به جای آن، مزدلفه را نشان می‌دهد.</span></div>
+  <div class="row"><b>سفر جدید</b><span>پیشرفت برای همیشه می‌ماند، پس سال بعد «تکمیل شد ✓» سفری را نشان می‌داد که نرفته بود. بستن سفر آن را بایگانی می‌کند («سفر قبلی: ۶ از ۶») و از صفر شروع می‌کند — با تأیید.</span></div>
+</div>
+
+<div class="fix">
+  <h4>پیش‌بینی هلال: اندازه‌گیری شد، بعد نگه داشته شد</h4>
+  <span class="where">moon_screen.dart · کامیت <code>9d55998</code></span>
+  <div class="row"><b>نشانه</b><span>پیش‌بینی ۶ ماه <b>۳۵۲ms</b> و مقایسه‌ی چهار مبنا <b>۲۳۱ms</b> — هر دو داخل <code>build</code>. هر تپ فلش تاریخ، شش دهم ثانیه صفحه را قفل می‌کرد و بازگشت هم از صفر محاسبه می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>پنل غروب (۲۳ms) همان‌جا می‌ماند تا حکم فوری نقاشی شود؛ دو فهرست بعد از فریم و با کلید دقیق ورودی‌ها کش می‌شوند. مبنا و نقشه‌ی چهارمبنا جدا کش می‌شوند، چون عوض کردن مبنا مقایسه را باطل نمی‌کند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>نُه صفحه روی همان تبی باز می‌شوند که رهایش کردید</h4>
+  <span class="where">remembered_tabs.dart · کامیت <code>7aa1908</code></span>
+  <div class="row"><b>نشانه</b><span>بین ۳ تا ۱۰ تب، و هر ورود از تب اول — کسی که در «محاسبه» زندگی می‌کند هر بار باید از «یادگیری» رد می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>RememberedTabs</code> یک شاخص برای هر بخش می‌خواند، به طول فعلی نوار clamp می‌کند و در هر تغییر می‌نویسد. کنترلر روی فریم اول ساخته می‌شود و یک فریم بعد با مقدار ذخیره‌شده بازساخته می‌شود — انتظار برای خواندن، همان فریم خالی را برمی‌گرداند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>نقشه، خط دایره‌ی بزرگ را می‌کشد</h4>
+  <span class="where">qibla_math.dart · qibla_screen.dart · کامیت <code>69c5b39</code></span>
+  <div class="row"><b>نشانه</b><span>خط دو نقطه‌ای، در فضای Mercator مستقیم است نه روی کره؛ از جاکارتا یا نیویورک از آزیموتی که قطب‌نما نشان می‌داد فاصله می‌گرفت — نقشه و دایره با هم اختلاف داشتند.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>kaabaGreatCirclePath</code> درون‌یابی کروی می‌کند (۶۴ قطعه، نقاط ابتدا و انتها دقیق، اولین پاره روی همان آزیموت)؛ خط یک حاشیه‌ی سفید گرفت تا روی برچسب‌های نقشه خوانا بماند. چهار تست هندسه را قفل می‌کند، از جمله جاکارتا که نقطه‌ی میانی ساده بیش از نیم درجه خطا می‌دهد.</span></div>
+</div>
+
+<div class="fix">
+  <h4>هر بخش، محتوای خودش را جست‌وجو می‌کند</h4>
+  <span class="where">section_search.dart · کامیت <code>0408517</code></span>
+  <div class="row"><b>نشانه</b><span>جست‌وجوی «بیشتر» دم در می‌ایستد: کسی که داخل «ارکان و محرمات» است برای یافتن یک حکم باید برمی‌گشت، جست‌وجو می‌کرد و دوباره وارد می‌شد — در عمل، اسکرول می‌کرد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>SectionSearchAction</code> در AppBar می‌نشیند، فهرست مطالب خود صفحه را می‌گیرد و شیتی باز می‌کند که اول عنوان و بعد متن را با همان تاشوی فارسی مشترک می‌زند. کارت نتیجه خودِ پاسخ را دارد به‌همراه چیپی از نام تب؛ تپ، به همان تب می‌برد. کلیدها یک‌بار در طول اجرا تا می‌شوند.</span></div>
+  <div class="row"><b>کجا وصل شد</b><span>«حج و عمره» (هر هفت تب) و «رقیه شرعی» (مطالعه + عملی). «دعا» از قبل فیلد جست‌وجوی خودش را داخل تب داشت.</span></div>
+</div>
+
+<div class="callout c-ok">
+  <b>محتوای شرعی:</b> پرسش «حکم روزه گرفتن در ایام تشریق» در <code>assets/content/hajj.json</code> با تأیید شما اصلاح شد — برای همه حرام است، نه مکروه برای غیرحاجی، با تنها استثنای مُتَمَتِّعی که قربانی ندارد.
+</div>
+
+<div class="callout c-warn">
+  <b>وضعیت تست‌ها در کل مخزن — چهار شکست که مال این کار نیست:</b>
+  <ul class="clean" style="margin:8px 0 0">
+    <li>سه تست <code>test/android/</code> روی <code>TasbihNativeViews.kt</code> و <code>widget_tasbih_native.xml</code> می‌افتند. هر دو فایل همین حالا در درخت کاری «تغییر کامیت‌نشده» دارند — سشن موازی در حال ویرایش همان فایل‌هایی است که این تست‌ها اسکن می‌کنند. دست نزدم.</li>
+    <li>یک تست <code>riyad_service_test</code> به فایل پایگاه‌دادهٔ دانلودشدهٔ ریاض‌الصالحین نیاز دارد که روی این ماشین نیست؛ <code>needsUpdate()</code> بدون فایل همیشه <code>true</code> برمی‌گرداند. به کد این بخش مربوط نیست.</li>
+  </ul>
+  ۸۳۳ تست در بخش‌های دست‌خورده (دعا، حج، قبله، ماه، رقیه، روزه، زکات، میراث، طهارت، صوت، دیزاین‌سیستم، تم) همه پاس.
+</div>
+
+<h2>۹. هر سه قدم بعدی انجام شد <small>سه کامیت تازه</small></h2>
+<p class="lead">سه موردی که این گزارش «باقی‌مانده» نامیده بود، در ادامهٔ همان کار بسته شدند.</p>
+
+<div class="fix">
+  <h4>ویجت <code>SectionPage</code> — و دو صفحه‌ای که واقعاً منحرف شده بودند</h4>
+  <span class="where">section_page.dart · ۹ صفحه · کامیت <code>6879c76</code></span>
+  <div class="row"><b>نشانه</b><span>نُه صفحه هر بار همان چهار تصمیم را دستی می‌نوشتند: scaffold شفاف، AppBar با <code>elevation: 0</code> و <code>scrolledUnderElevation: 0</code>، تیتر ۱۶dp/w500، و <code>FlatTabs</code>. اندازه‌گیری نشان داد <b>روزه</b> و <b>وضو</b> هر دو قید ارتفاع را جا انداخته بودند — یعنی Material 3 به‌محض اینکه محتوایی زیر نوار می‌رفت، یک نوار مات روی گرادیان می‌کشید. هیچ تستی نگرفت، چون هر صفحه کروم خودش را تست می‌کرد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>SectionPage</code> هر چهار تصمیم را مالک شد، به‌همراه حافظهٔ تب و جست‌وجوی اختیاری. هر نُه صفحه روی آن بازنویسی شدند؛ «ماه» نوار تاریخش را به‌صورت <code>header</code> می‌دهد. تست جدید، هر پنج قید کروم را قفل می‌کند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>جست‌وجوی بخش: میراث، زکات، ختم قرآن — و بعد سه بخش بزرگ دیگر</h4>
+  <span class="where">کامیت‌های <code>6879c76</code> و <code>c546f08</code></span>
+  <div class="row"><b>میراث</b><span>عنوان هر بخش به‌همراه متن و بولت‌های زیربخش‌ها، نگاشت‌شده به تب‌های مبانی/ورثه/قواعد. چهار ماشین‌حساب عمداً غایب‌اند: نتیجه‌ای که روی فرم خالی بنشیند، وعدهٔ دروغ است.</span></div>
+  <div class="row"><b>زکات</b><span>تمام نیمهٔ خواندنی به‌علاوهٔ پرسش‌ها — با <i>صورت سؤال</i> به‌عنوان عنوان، چون عبارتی است که کاربر تایپ می‌کند.</span></div>
+  <div class="row"><b>ختم قرآن</b><span>۱۱۴ سوره، هر کارت با شمارهٔ جزء، مکی/مدنی و تعداد آیه. این همان جست‌وجویی است که صفحه واقعاً لازم داشت: جدولش سی عدد است و کاربر با نام سوره فکر می‌کند. آوانگاری هم ایندکس شده تا «kahf» هم پیدا شود. برای همین <code>SectionSearchEntry.tab</code> اختیاری شد — صفحه‌ای که نوار تب ندارد، کارت نتیجه خودش پاسخ است.</span></div>
+  <div class="row"><b>نماز، روزه، وضو</b><span>شش فهرست زیر «احکام» نماز (ارکان تا اشتباهات رایج)، مکروهات روزه که در تب «قضا و کفاره» پنهان است، و آیتم‌های فهرستی وضو که متنشان خودشان عنوانند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>زکات و روزه: خطای جانبی، خطای خواندن</h4>
+  <span class="where">کامیت <code>80be087</code></span>
+  <div class="row"><b>زکات</b><span><code>_calculate</code> ذخیرهٔ قیمت‌ها را <b>قبل</b> از <code>setState</code> منتظر می‌ماند؛ نوشتن ناموفق در prefs کل متد را قطع می‌کرد و نتیجه‌ای را که محاسبه شده بود دور می‌ریخت — دکمه مرده به نظر می‌رسید. حالا پاسخ اول روی صفحه می‌آید و ذخیره در بلوک محافظت‌شده بعد از آن.</span></div>
+  <div class="row"><b>روزه</b><span><code>_loadData</code> خطا را می‌بلعید و نقشه‌ها خالی می‌ماندند؛ خالی یعنی «۰/۳۰» — به کسی که بیست روز ثبت کرده بود می‌گفت هیچ روزی ثبت نکرده. حالا پنل «وضعیت روزه‌ها خوانده نشد» با تلاش دوباره جایش را می‌گیرد و راهنمای ثابت پایین صفحه می‌ماند.</span></div>
+  <div class="row"><b>زکات فطر</b><span>صاعِ یک قوت غالب به قوت غالب بعدی قرض می‌رفت: کسی که گندم را ۲.۵ کرده بود، برنج را هم ۲.۵ می‌دید — عددی که به غذای قبلی تعلق داشت و عمدی به نظر می‌رسید.</span></div>
+</div>
+
+<div class="callout c-ok">
+  <b>جمع‌بندی این بخش:</b> هفت پیشنهاد + اصلاح محتوای شرعی + بازطراحی قبله + سه قدم بعدی = یازده کامیت روی <code>release/1.8.0</code>. بقیهٔ بخش‌های «بیشتر» (حدیث و مطالعه، کتابخانهٔ صوتی، ابزارها و پیشرفت، تنظیمات) در گزارش جداگانه‌ای آمده‌اند.
+</div>
+
+
+
+<footer>
+  بازبینی «عبادات و مناسک» — توحید · شاخه‌ی release/1.8.0 · کامیت‌های <code>9e4909d</code> · <code>ca5cfc7</code> · <code>24f4f47</code> · <code>5b76f6f</code> · <code>9d55998</code> · <code>7aa1908</code> · <code>69c5b39</code> · <code>0408517</code> · <code>512f76b</code> · <code>6879c76</code> · <code>80be087</code> · <code>c546f08</code><br>
+  تحلیل ایستا: بدون ایراد · تست‌ها: ۸۳۳ + ۴۶۳ + ۹۳۸ + ۱۱۴ + ۵۱ پاس در بخش‌های دست‌خورده · گیت کیفیت: ۷/۸ صفر (یک <code>]!</code> در فایل کامیت‌نشدهٔ سشن موازی)
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">توحید</string>
+    <string name="widget_tasbih_desc">تسبیح دیجیتال</string>
+    <string name="widget_prayer_info_desc">اوقات شرعی، ساعت زنده و تقویم شمسی و قمری</string>
+    <string name="widget_prayer_info_vertical_desc">اوقات شرعی به‌صورت پنج ردیف عمودی، همراه با ساعت زنده و تقویم</string>
+    <string name="widget_tasbih_info_desc">شمارنده ذکر با اذکار گوناگون و نوار پیشرفت</string>
+</resources>

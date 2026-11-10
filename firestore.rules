@@ -1,0 +1,113 @@
+// قوانین امنیتی Firestore برای «توحید».
+//
+// نحوهٔ اعمال: از کنسول Firebase → Firestore → Rules، یا دستور:
+//   firebase deploy --only firestore:rules
+//
+// مدل امنیتی:
+//   - ارسال پیشنهاد برای همه باز است (فیلدها اعتبارسنجی می‌شوند).
+//   - خواندن پیام‌های اطلاع‌رسانی برای همه باز است؛ نوشتن آن‌ها فقط مدیر.
+//   - مدیریت پیشنهادها، اعلان پوش و لیست مدیران فقط برای مدیران.
+//   - «مدیر» یعنی کاربری که uid او در فیلد `adminUids` سند `config/app` است.
+//   - پشتیبان‌گیری ابری هر کاربر فقط برای همان کاربر.
+//
+// ── App Check (پایدار شدن مورد باز واحد ۸) ────────────────────────────────
+// برنامه اکنون در `firebase_core_init.dart` هر فراخوانی Firebase را با
+// App Check تأیید می‌کند (در بیلد ریلیس: Play Integrity؛ در توسعه: debug).
+// راه‌اندازی تدریجی سمت سرور (کنسول Firebase → App Check → Applications):
+//   ۱. فعلاً حالت Monitor — آمار درخواست‌های بدون تأیید را ببینید.
+//   ۲. وقتی سهم درخواست‌های تأییدشدهٔ ریلیس به ~۱۰۰٪ رسید، Enforcement را
+//      برای Firestore (و در صورت تمایل Storage) روشن کنید.
+//   ۳. پس از روشن‌کردن Enforcement، خط `&& request.app != null` را در
+//      قاعدهٔ «ارسال پیشنهاد» از حالت کامنت خارج کنید تا نوشتن ناشناسِ
+//      اسکریپتی بسته شود. تا پیش از آن این شرط نباید فعال شود — وگرنه همهٔ
+//      کلاینت‌های بدون توکن App Check رد می‌شوند.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // نکتهٔ مهم برای عیب‌یابی «انتشار ناموفق بود»: اگر این تابع روی سندِ
+    // گمشده یا فیلدِ ناموجود خطا بدهد، خطای قاعده به سمت کلاینت می‌رسد و
+    // `permission-denied` دیده می‌شود — دقیقاً همان پیام مبهمی که گزارش شده
+    // بود. با بررسی وجودِ سند و فیلد، رد شدن صریح و قابل‌تشخیص می‌شود.
+    function isAdmin() {
+      // `exists(path)` is the documented static form; a `get()` result has no
+      // `.exists()` member — calling it throws "Function not found" and turns
+      // every isAdmin() rule into a deny. Two reads stay under the request cap.
+      return request.auth != null
+        && exists(/databases/$(database)/documents/config/app)
+        && get(/databases/$(database)/documents/config/app).data.adminUids is list
+        && get(/databases/$(database)/documents/config/app).data.adminUids.hasAny([request.auth.uid]);
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // کلیدهای مجاز سند پیشنهاد — هر چیز دیگری رد می‌شود.
+    function suggestionKeys() {
+      return ['text', 'category', 'deviceTag', 'name', 'createdAt', 'isPublic'];
+    }
+
+    function isValidSuggestion() {
+      return request.resource.data.keys().hasOnly(suggestionKeys())
+        && request.resource.data.keys().hasAll(['text', 'category', 'deviceTag'])
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 1
+        && request.resource.data.text.size() <= 2000
+        && request.resource.data.category is string
+        && request.resource.data.category in [
+          'suggestion', 'complaint', 'bug', 'other'
+        ]
+        && request.resource.data.deviceTag is string
+        && request.resource.data.deviceTag.size() <= 64
+        // «نام» اختیاری است، ولی اگر باشد باید کوتاه و رشته باشد.
+        && (!('name' in request.resource.data)
+            || (request.resource.data.name is string
+                && request.resource.data.name.size() <= 100))
+        && (!('isPublic' in request.resource.data)
+            || request.resource.data.isPublic is bool)
+        && (!('createdAt' in request.resource.data)
+            || request.resource.data.createdAt is timestamp);
+    }
+
+    function isValidAnnouncement() {
+      return request.resource.data.title is string
+        && request.resource.data.title.size() >= 1
+        && request.resource.data.title.size() <= 80
+        && request.resource.data.body is string
+        && request.resource.data.body.size() >= 1
+        && request.resource.data.body.size() <= 2000;
+    }
+
+    // پیکربندی برنامه؛ فهرست مدیران اینجا نگهداری می‌شود.
+    match /config/{doc} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    match /suggestions/{suggestionId} {
+      allow create: if isValidSuggestion();
+      // پیشنهادِ عمومی برای همه خواندنی است؛ پیشنهادهای شخصی (هنوز منتشرنشده)
+      // و مدیریت فقط برای مدیر است.
+      allow read: if resource.data.isPublic == true || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+
+    // پیام‌های اطلاع‌رسانی مدیر — خواندن برای همه، نوشتن فقط مدیر.
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidAnnouncement();
+      allow update, delete: if isAdmin();
+    }
+
+    // صندوق خروجی اعلان پوش؛ داشبورد مدیر می‌نویسد، Cloud Function
+    // وضعیت را با SDK مدیر به‌روزرسانی می‌کند (از این قوانین مستثنا است).
+    match /admin/outbox/{docId} {
+      allow create, read, update, delete: if isAdmin();
+    }
+
+    // پشتیبان‌گیری ابری هر کاربر — فقط صاحب حساب.
+    match /users/{userId}/backups/{backupId} {
+      allow read, write, delete: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}

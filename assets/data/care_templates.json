@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "note": "پیشنهادی؛ طبق دفترچهٔ خودرو یا راهنمای سازنده تنظیم کنید.",
+  "carDefaults": [
+    {
+      "key": "engine_oil",
+      "titleFa": "روغن موتور",
+      "iconKey": "oil",
+      "scheduleType": "both",
+      "intervalKm": 5000,
+      "intervalDays": 180,
+      "note": "با فیلتر روغن هم‌زمان تعویض شود.",
+      "reviewed": false
+    },
+    {
+      "key": "oil_filter",
+      "titleFa": "فیلتر روغن",
+      "iconKey": "filter",
+      "scheduleType": "both",
+      "intervalKm": 5000,
+      "intervalDays": 180,
+      "note": "همراه روغن موتور.",
+      "reviewed": false
+    },
+    {
+      "key": "air_filter",
+      "titleFa": "فیلتر هوا",
+      "iconKey": "filter",
+      "scheduleType": "both",
+      "intervalKm": 15000,
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "cabin_filter",
+      "titleFa": "فیلتر کابین",
+      "iconKey": "filter",
+      "scheduleType": "both",
+      "intervalKm": 10000,
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "front_brake_pads",
+      "titleFa": "لنت ترمز جلو",
+      "iconKey": "brake",
+      "scheduleType": "distance",
+      "intervalKm": 30000,
+      "reviewed": false
+    },
+    {
+      "key": "rear_brake_pads",
+      "titleFa": "لنت ترمز عقب",
+      "iconKey": "brake",
+      "scheduleType": "distance",
+      "intervalKm": 50000,
+      "reviewed": false
+    },
+    {
+      "key": "timing_belt",
+      "titleFa": "تسمه تایم",
+      "iconKey": "belt",
+      "scheduleType": "both",
+      "intervalKm": 60000,
+      "intervalDays": 1460,
+      "reviewed": false
+    },
+    {
+      "key": "tire_rotation",
+      "titleFa": "جابه‌جایی لاستیک",
+      "iconKey": "tire",
+      "scheduleType": "distance",
+      "intervalKm": 10000,
+      "reviewed": false
+    },
+    {
+      "key": "tire_replacement",
+      "titleFa": "تعویض لاستیک",
+      "iconKey": "tire",
+      "scheduleType": "both",
+      "intervalKm": 40000,
+      "intervalDays": 1825,
+      "reviewed": false
+    },
+    {
+      "key": "battery",
+      "titleFa": "باتری",
+      "iconKey": "battery",
+      "scheduleType": "time",
+      "intervalDays": 1095,
+      "reviewed": false
+    },
+    {
+      "key": "coolant",
+      "titleFa": "آنتی فریز",
+      "iconKey": "coolant",
+      "scheduleType": "time",
+      "intervalDays": 730,
+      "reviewed": false
+    },
+    {
+      "key": "cooler_oil",
+      "titleFa": "روغن کولر و گیربکس",
+      "iconKey": "oil",
+      "scheduleType": "both",
+      "intervalKm": 60000,
+      "intervalDays": 730,
+      "note": "روغن گیبرکس یا کولر خودرو.",
+      "reviewed": false
+    },
+    {
+      "key": "brake_disc",
+      "titleFa": "دیسک ترمز",
+      "iconKey": "brake",
+      "scheduleType": "distance",
+      "intervalKm": 80000,
+      "note": "دیسک‌ها در هنگام تعویض لنت بازرسی شوند.",
+      "reviewed": false
+    },
+    {
+      "key": "wheel_alignment",
+      "titleFa": "جلوبندی و ترازاقش",
+      "iconKey": "tire",
+      "scheduleType": "distance",
+      "intervalKm": 15000,
+      "note": "اگر خودرو به یک طرف کشیده می‌شود، زودتر انجام شود.",
+      "reviewed": false
+    },
+    {
+      "key": "hydraulic_oil",
+      "titleFa": "روغن هیدرولیک و استرنگ",
+      "iconKey": "oil",
+      "scheduleType": "both",
+      "intervalKm": 40000,
+      "intervalDays": 730,
+      "note": "روغن هیدرولیک استرنگ وفرو.",
+      "reviewed": false
+    },
+    {
+      "key": "clutch",
+      "titleFa": "دنده",
+      "iconKey": "belt",
+      "scheduleType": "distance",
+      "intervalKm": 100000,
+      "note": "کلتش دنده در اثر فرسودگی بررسی شود.",
+      "reviewed": false
+    },
+    {
+      "key": "clutch_plate",
+      "titleFa": "صفحه کلچ",
+      "iconKey": "brake",
+      "scheduleType": "distance",
+      "intervalKm": 100000,
+      "note": "صفحه کلچ در هنگام تعویض دنده بازرسی شود.",
+      "reviewed": false
+    },
+    {
+      "key": "third_party_insurance",
+      "titleFa": "بیمه شخص ثالث",
+      "iconKey": "shield",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "body_insurance",
+      "titleFa": "بیمه بدنه",
+      "iconKey": "shield",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "technical_inspection",
+      "titleFa": "معاینه فنی",
+      "iconKey": "check",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "annual_tax",
+      "titleFa": "عوارض و مالیات سالانه",
+      "iconKey": "receipt",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "car_wash",
+      "titleFa": "شستن ماشین",
+      "iconKey": "car_wash",
+      "scheduleType": "both",
+      "intervalKm": 1000,
+      "intervalDays": 15,
+      "note": "شستشو و تمیزسازی داخلی و خارجی خودرو.",
+      "reviewed": false
+    }
+  ],
+  "homeDefaults": [
+    {
+      "key": "boiler_service",
+      "titleFa": "سرویس پکیج و شوفاژ",
+      "iconKey": "boiler",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "window": {
+        "startMonth": 7,
+        "startDay": 1,
+        "endMonth": 7,
+        "endDay": 30
+      },
+      "note": "پیش از آبان.",
+      "reviewed": false
+    },
+    {
+      "key": "cooler_service",
+      "titleFa": "سرویس کولر",
+      "iconKey": "cooler",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "window": {
+        "startMonth": 2,
+        "startDay": 1,
+        "endMonth": 2,
+        "endDay": 31
+      },
+      "reviewed": false
+    },
+    {
+      "key": "water_filter",
+      "titleFa": "فیلتر تصفیهٔ آب",
+      "iconKey": "filter",
+      "scheduleType": "time",
+      "intervalDays": 180,
+      "reviewed": false
+    },
+    {
+      "key": "hood_filter",
+      "titleFa": "فیلتر هود",
+      "iconKey": "filter",
+      "scheduleType": "time",
+      "intervalDays": 90,
+      "reviewed": false
+    },
+    {
+      "key": "fire_extinguisher",
+      "titleFa": "شارژ کپسول آتش‌نشانی",
+      "iconKey": "fire",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "detector_battery",
+      "titleFa": "باتری دتکتور دود",
+      "iconKey": "battery",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "reviewed": false
+    },
+    {
+      "key": "chimney_cleaning",
+      "titleFa": "تمیزکاری دودکش",
+      "iconKey": "chimney",
+      "scheduleType": "time",
+      "intervalDays": 365,
+      "window": {
+        "startMonth": 8,
+        "startDay": 1,
+        "endMonth": 9,
+        "endDay": 30
+      },
+      "note": "فصل پاییز.",
+      "reviewed": false
+    }
+  ],
+  "homeSeasonPacks": [
+    {
+      "key": "winter",
+      "titleFa": "آماده‌سازی زمستان",
+      "iconKey": "snow",
+      "templateKeys": [
+        "boiler_service",
+        "chimney_cleaning",
+        "fire_extinguisher",
+        "detector_battery"
+      ]
+    },
+    {
+      "key": "summer",
+      "titleFa": "آماده‌سازی تابستان",
+      "iconKey": "sun",
+      "templateKeys": [
+        "cooler_service",
+        "hood_filter",
+        "water_filter",
+        "fire_extinguisher"
+      ]
+    }
+  ]
+}

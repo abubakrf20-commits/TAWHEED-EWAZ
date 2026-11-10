@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The prayer card's live clock leaf, PERSIAN digits.
+
+  Identical to widget_prayer_clock.xml except android:textLocale="fa": ICU
+  formats the clock with ۰-۹ for the fa locale. RemoteViews cannot change a
+  view's locale at runtime, so the digit setting picks the variant when the
+  leaf is built (PrayerRemoteLeaves).
+
+  Both format attributes are "HH:mm" (the 24-hour variant). See the header of
+  widget_prayer_clock.xml: the patterns are inflate-time, never reflection
+  setters, because a host-supplied TextClock subclass rejects
+  setFormat12Hour(String). The 12-hour fa variant is
+  widget_prayer_clock_fa_12.xml.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextClock
+        android:id="@+id/prayer_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="ساعت"
+        android:fontFamily="@font/calibri"
+        android:fontFeatureSettings="tnum"
+        android:format12Hour="HH:mm"
+        android:format24Hour="HH:mm"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textLocale="fa"
+        android:textStyle="bold" />
+</FrameLayout>

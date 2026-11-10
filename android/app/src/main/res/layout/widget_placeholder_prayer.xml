@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The prayer widget's PLACEHOLDER — what the launcher shows for the few
+     frames between «widget placed» and the first Glance composition.
+
+     It must be a plain, static, framework-only layout. The previous
+     `initialLayout` pointed at `widget_live_clock.xml`, i.e. at
+     `LatinClockView`: a custom view that starts a Handler tick and registers a
+     broadcast receiver the moment it attaches. That inflated inside the
+     LAUNCHER's process before our app had ever rendered, which is both the
+     «couldn't load widget» path on hosts that refuse a nested custom view and,
+     when it did work, a permanent ticker and receiver left behind in the
+     launcher. Nothing here ticks, binds, or allocates. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="monospace"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.08"
+        android:text="••:••"
+        android:textColor="#66FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+</FrameLayout>

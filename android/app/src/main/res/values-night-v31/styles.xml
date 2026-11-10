@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark-mode devices resolve styles.xml from values-night/, which has no
+         v31 qualifier — without this file the API 31+ system splash would fall
+         back to the stock icon-on-white look for every user in dark mode.
+         Keep in sync with values-v31: the splash field is fixed, so night gets
+         the same ramp, the same empty icon and the same bars. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon_none</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/splash_field_bottom</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

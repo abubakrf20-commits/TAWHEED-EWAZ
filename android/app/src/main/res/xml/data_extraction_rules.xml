@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <!-- Android 12+ (API 31+): mirrors backup_rules.xml. Cloud backup keeps
+         user data (settings, notes, trackers) under the 25MB quota;
+         device-to-device transfer additionally carries custom azans.
+         Everything regenerable (QCF4, audio, hadith DBs, local ZIPs,
+         DB snapshots) is excluded in both.
+
+         See backup_rules.xml for why `database_diagnostics/` and
+         FlutterSecureStorage.xml are excluded. -->
+    <cloud-backup>
+        <include domain="sharedpref" path="."/>
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml"/>
+        <!-- Firebase Auth's credential store (refresh token). Keep it out of
+             the cloud — see backup_rules.xml for the AAR evidence. -->
+        <exclude domain="sharedpref" path="com.google.firebase.auth.api.Store.[DEFAULT].xml"/>
+        <include domain="database" path="."/>
+        <!-- file root included (covers app.sqlite* which lives here, NOT in
+             the database dir) with the heavies excluded; AAPT requires every
+             exclude to sit under an included path. -->
+        <include domain="file" path="."/>
+        <exclude domain="file" path="backups"/>
+        <exclude domain="file" path="app_data"/>
+        <exclude domain="file" path="database_diagnostics"/>
+        <!-- On-device diagnostics log — see backup_rules.xml. -->
+        <exclude domain="file" path="tawheed_log.txt"/>
+        <exclude domain="file" path="trayheed_log.txt"/>
+        <exclude domain="file" path="quran_content"/>
+        <exclude domain="file" path="quran_audio"/>
+        <exclude domain="file" path="quran_audio_cache"/>
+        <exclude domain="file" path="quran_search.db"/>
+        <exclude domain="file" path="hadith.db"/>
+        <exclude domain="file" path="mokhtasar.db"/>
+        <exclude domain="file" path="app.sqlite.backup"/>
+        <exclude domain="file" path="app.sqlite.backup.1"/>
+        <exclude domain="file" path="app.sqlite.backup.2"/>
+        <exclude domain="file" path="app.sqlite.restore.tmp"/>
+    </cloud-backup>
+    <device-transfer>
+        <include domain="sharedpref" path="."/>
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml"/>
+        <!-- A transferred refresh token would follow the device, not the
+             person; the new device signs in again instead. -->
+        <exclude domain="sharedpref" path="com.google.firebase.auth.api.Store.[DEFAULT].xml"/>
+        <include domain="database" path="."/>
+        <include domain="file" path="."/>
+        <exclude domain="file" path="backups"/>
+        <exclude domain="file" path="app_data"/>
+        <exclude domain="file" path="database_diagnostics"/>
+        <!-- On-device diagnostics log — see backup_rules.xml. -->
+        <exclude domain="file" path="tawheed_log.txt"/>
+        <exclude domain="file" path="trayheed_log.txt"/>
+        <exclude domain="file" path="quran_content"/>
+        <exclude domain="file" path="quran_audio"/>
+        <exclude domain="file" path="quran_audio_cache"/>
+        <exclude domain="file" path="quran_search.db"/>
+        <exclude domain="file" path="hadith.db"/>
+        <exclude domain="file" path="mokhtasar.db"/>
+        <exclude domain="file" path="app.sqlite.backup"/>
+        <exclude domain="file" path="app.sqlite.backup.1"/>
+        <exclude domain="file" path="app.sqlite.backup.2"/>
+        <exclude domain="file" path="app.sqlite.restore.tmp"/>
+    </device-transfer>
+</data-extraction-rules>

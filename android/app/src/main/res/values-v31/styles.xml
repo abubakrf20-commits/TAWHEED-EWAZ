@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ (API 31) shows a MANDATORY system splash window that no
+         app can cancel. What the app does decide is what it contains, and the
+         answer is now NOTHING: the icon points at a transparent placeholder
+         and the field is the same vertical ramp the Flutter splash paints, so
+         the system window and the first frame are the same picture and the
+         coin appears exactly once — on the real splash screen.
+
+         Earlier this carried @drawable/splash_icon_288 (the coin at 192dp
+         inside the mask's safe zone). On a device that reads as a second
+         splash: a mark of the OS's choosing, in a box of the OS's choosing,
+         before the app's own composition. Do not put a mark back here;
+         windowSplashScreenAnimatedIcon must stay a transparent drawable
+         (@null falls back to the launcher icon).
+
+         MainActivity still fades this window over 200ms once Flutter has
+         drawn, which is what keeps the status-bar area and the navigation bar
+         from cutting. This style fully replaces values/styles.xml's LaunchTheme
+         on API 31+. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon_none</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/splash_field_bottom</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

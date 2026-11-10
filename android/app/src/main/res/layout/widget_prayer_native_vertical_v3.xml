@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The prayer card, SECOND LAYOUT: the five prayers as five ROWS.
+
+  This is a new OPTION, not a change to the shipped card. The horizontal card
+  (widget_prayer_native_v4.xml) has its own layout id: `PrayerNativeViews.full()`
+  only enters the vertical path when `widget_prayer_layout == vertical`, and
+  with the key absent it runs exactly the horizontal card's code path.
+
+  WHY A SEPARATE LAYOUT ID — AND WHY IT IS _v3
+  ============================================
+  A launcher recycles an inflated widget tree when the new RemoteViews carries
+  the SAME layout id, applying only the setters to the view it already has.
+  That is the trap the horizontal card's v2 → v3 rename documented, and it
+  works in our favour here: because this file has its own id, switching the
+  option forces AppWidgetHostView to inflate a fresh tree, so the five row
+  containers and their setters can never be dropped onto the old capsule row.
+
+  v1 shipped 2026-11-07 with the four inter-row spacers nested INSIDE the row
+  containers. Inside a horizontal row a `match_parent` spacer is not air
+  between boxes — it eats the row's whole width, which pushed every time
+  label off the card («اوقات نمازها مخفی شدند») and left the boxes touching
+  («باکس‌ها بهم چسبیدند»). v2 moved them out to be siblings of the five rows
+  inside the vertical stack, the only place a vertical gap can exist.
+
+  v3 (2026-11-08) REMOVES the second «تا اقامه» pill. The user's brief:
+  «پایین دوتا بوکس تا اذان ظهر و تا اقامه ظهر هست … فقط یک بوکس باشد دو بوکس
+  جالب نیست» — one box that says «تا اذان ظهر» and, once the adhan passes,
+  «تا اقامه ظهر». The single remaining pill already switches its caption and
+  its chronometer target; the gold was only a separate SECOND box. Because
+  deleting a view is a structural change, the id changes again: on a launcher
+  that still holds an inflated v2 tree, reusing the id would leave the old gold
+  pill visible forever (nothing would ever set it GONE again).
+
+  THE SAME IDS ON PURPOSE
+  =======================
+  The five groups below reuse the horizontal card's ids —
+  `prayer_capsule_N`, `prayer_capsule_name_row_N`, `prayer_capsule_check_N`,
+  `prayer_capsule_name_N`, `prayer_capsule_time_N` — so the tap render
+  (`PrayerNativeViews.capsules` → `PrayerVerticalViews.capsules`) binds the
+  same state through the same setters, and a «خواندم» tap costs the same
+  partial merge on both cards. What differs is only the CONTAINER: a
+  horizontal `LinearLayout` (name row | spacer | time) instead of a vertical
+  one, which is what turns five boxes in a row into five rows in a column.
+
+  NO FIXED dp SIZES
+  =================
+  Every text size, padding, check bitmap and the progress bitmap are set from
+  code by PrayerVerticalViews from PrayerVerticalBudget + the cell the launcher
+  granted. The literals in this file are placeholders the budget always
+  overwrites; a literal that survived would be a band drawn but never priced.
+
+  A plain <View> is NOT in RemoteViews' view whitelist (the launcher rejects
+  the whole layout with "Class not allowed to be inflated android.view.View"),
+  so the flexible spacer inside each row is a zero-content FrameLayout.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/prayer_native_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <ImageView
+        android:id="@+id/prayer_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/prayer_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Row 1: the weekday chip (start = right edge) | the city chip. The
+             same two-pill header the horizontal card carries, so the two
+             layouts read as one family. Hidden by the COMPACT tier, where the
+             cell only has room for the five rows themselves. -->
+        <LinearLayout
+            android:id="@+id/prayer_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/prayer_weekday_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/prayer_header_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:id="@+id/prayer_weekday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/calibri"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/prayer_city_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/prayer_city_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:id="@+id/prayer_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/calibri"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Row 2: the live clock, swapped in by PrayerRemoteLeaves.clock(). -->
+        <FrameLayout
+            android:id="@+id/prayer_clock_slot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Row 3: the one date line (shamsi • hijri • gregorian, the order
+             PrayerWidgetModel.dateLine joins them in). -->
+        <TextView
+            android:id="@+id/prayer_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1" />
+
+        <!-- Row 4: THE POINT OF THIS LAYOUT — five rows, one per prayer, with
+             a real gap between them. Weight 1 so the stack absorbs whatever
+             the priced bands leave; gravity center_vertical so a tall cell
+             spends the slack as air instead of stacking the rows at the top
+             edge. The `prayer_row_gap_N` spacers are SIBLINGS of the rows
+             (v1 nested them inside the horizontal rows, where they ate the
+             row's width and hid every time label). -->
+        <LinearLayout
+            android:id="@+id/prayer_row_stack"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/prayer_capsule_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/prayer_capsule_name_row_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/prayer_capsule_check_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/prayer_capsule_name_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/prayer_capsule_time_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/prayer_row_gap_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/prayer_capsule_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/prayer_capsule_name_row_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/prayer_capsule_check_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/prayer_capsule_name_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/prayer_capsule_time_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/prayer_row_gap_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/prayer_capsule_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/prayer_capsule_name_row_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/prayer_capsule_check_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/prayer_capsule_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/prayer_capsule_time_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/prayer_row_gap_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/prayer_capsule_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/prayer_capsule_name_row_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/prayer_capsule_check_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/prayer_capsule_name_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/prayer_capsule_time_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/prayer_row_gap_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/prayer_capsule_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/prayer_capsule_name_row_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/prayer_capsule_check_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/prayer_capsule_name_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/prayer_capsule_time_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Row 5: THE ONE countdown pill (v3). The bitmap owns the pill's
+             height, the overlay row centres caption + value as one unit.
+             PrayerVerticalViews rewrites both the caption and the chronometer
+             target from the same model, so before an adhan it reads «تا اذان
+             ظهر» and inside the iqamah window it reads «تا اقامه ظهر» — no
+             second box, and the fill turns gold in that phase. -->
+        <FrameLayout
+            android:id="@+id/prayer_countdown_pill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/prayer_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:id="@+id/prayer_countdown_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/prayer_countdown_prefix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/calibri"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+
+                <Chronometer
+                    android:id="@+id/prayer_countdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:countDown="true"
+                    android:fontFamily="@font/calibri"
+                    android:fontFeatureSettings="tnum"
+                    android:includeFontPadding="false"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/prayer_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

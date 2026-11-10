@@ -1,0 +1,342 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PERMISSIONS — Complete set for Android 10–15          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+
+    <!-- Network -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Read the active connection transport so the reader's «فقط با وای‌فای
+         دانلود شود» switch can actually gate downloads. Normal permission,
+         no runtime prompt. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Location (for prayer time calculation) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!-- Boot & Reboot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <!-- Exact Alarms (Android 12+) -->
+    <!-- Note: USE_EXACT_ALARM is intentionally NOT declared — it is restricted
+         by Play Store policy for non-alarm-clock apps. SCHEDULE_EXACT_ALARM is
+         requested at first launch so azan timing stays exact once granted. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+
+    <!-- Notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- Vibration -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Do Not Disturb (for silent mode before iqamah) -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
+    <!-- Foreground Service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+
+    <!-- Wake Lock (for alarm-triggered audio) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Modify audio settings: pin/restore the alarm-stream volume while the
+         azan plays so hardware volume keys act as a mute switch (and the azan
+         volume follows only the in-app setting). -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <!-- NOTE: REQUEST_IGNORE_BATTERY_OPTIMIZATIONS is intentionally NOT declared
+         (Play Store restricted). Users are guided via the in-app battery screen. -->
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PACKAGE VISIBILITY (Android 11+ / targetSdk 30+)         -->
+    <!-- Without these, url_launcher's canLaunchUrl() reports false  -->
+    <!-- for filtered schemes, which silently broke the emergency     -->
+    <!-- contact dialer (tel:) — «امکان تماس وجود ندارد» always — and  -->
+    <!-- the store rate button (market://) plus https/mailto links.    -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+            <data android:scheme="tel"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="mailto"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="market"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="http"/>
+        </intent>
+    </queries>
+
+    <application
+        android:label="توحید"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="false"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/data_extraction_rules">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- MAIN ACTIVITY                                      -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- FOREGROUND SERVICE — Adhan Audio Playback           -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <service
+            android:name=".AzanForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback">
+        </service>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- MEDIA SESSION — Quran lock-screen playback (audio_service) -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <service
+            android:name="com.ryanheise.audioservice.AudioService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.ryanheise.audioservice.MediaButtonReceiver"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- RECEIVERS — Exact Alarms & Boot                     -->
+        <!-- ═══════════════════════════════════════════════════ -->
+
+        <!-- Adhan alarm receiver -->
+        <receiver
+            android:name=".core.AdhanReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tawheeed.action.ADHAN_ALARM"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Reminder exact-alarm receiver (Doze-immune watchdog) -->
+        <receiver
+            android:name=".core.ReminderReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tawheeed.action.REMINDER_ALARM"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Silent mode receiver -->
+        <receiver
+            android:name=".core.SilentModeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tawheeed.action.SILENT_MODE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Boot receiver — reschedule alarms. Also re-arms on clock or
+             timezone changes: wall-clock alarms computed for the old zone
+             would otherwise fire hours off until the app is opened. -->
+        <receiver
+            android:name=".core.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <!-- Fired when the user grants or (Android 14) revokes the
+                     SCHEDULE_EXACT_ALARM permission outside the app; without
+                     this the next adhan would degrade to inexact (or vanish)
+                     until the app happened to be opened. -->
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Schedule refresh receiver -->
+        <receiver
+            android:name=".core.ScheduleRefreshReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tawheeed.action.REFRESH_SCHEDULE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Daily rollover receiver — self-healing daily reschedule -->
+        <receiver
+            android:name=".core.RolloverReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tawheeed.action.ROLLOVER"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- FLUTTER LOCAL NOTIFICATIONS (legacy compat)         -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- WIDGETS                                             -->
+        <!-- ═══════════════════════════════════════════════════ -->
+
+        <!-- The prayer card's TAP target. Not a broadcast: MIUI's freezer
+             (Greeze) drops a frozen app's widget broadcast outright, so a tap
+             on a prayer box did nothing at all once the app had been
+             backgrounded for a while (measured 2026-11-05: `notifyGreeze`,
+             then no `Start proc` and no receiver for 20 s). A
+             `PendingIntent.getActivity` cannot be dropped that way, and this
+             activity draws nothing — translucent theme, not touchable, not
+             focusable, no layout, no history. -->
+        <activity
+            android:name=".widget.PrayerMarkActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name=".widget.PrayerWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <!-- install -r force-stops the app and cancels every alarm;
+                     this pass re-arms the whole chain without waiting for the
+                     user to open the app (the tasbih receiver has had this
+                     since the native conversion). -->
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer_info"/>
+        </receiver>
+
+        <!-- The dedicated VERTICAL prayer card's provider. A second,
+             independently placeable provider so the horizontal and vertical
+             prayer widgets can live on the home screen at the same time. It is
+             a zero-override subclass of PrayerWidget and shares the same
+             receiver body; only its component (class) and provider metadata
+             differ. -->
+        <receiver
+            android:name=".widget.PrayerWidgetVertical"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer_info_vertical"/>
+        </receiver>
+
+        <!-- Pin-time palette picker for the prayer widgets (horizontal +
+             vertical). Launched by the system via android:configure; persists a
+             per-instance palette id and returns RESULT_OK so onUpdate repaints
+             the card. Never a launcher icon (no launcher intent-filter). -->
+        <activity
+            android:name=".widget.PrayerWidgetConfigureActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- FALLBACK tap target for the tasbih card. Taps are normally
+             broadcasts to TasbihGlanceWidgetReceiver (a receiver skips the
+             window, the activity record and the lifecycle, which is most of a
+             cold start). This activity stays registered for the launcher that
+             drops a frozen app's widget broadcast, and is selected by the
+             `widget_tap_delivery` pref — never by default. -->
+        <activity
+            android:name=".widget.TasbihActionActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name=".widget.TasbihGlanceWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <!-- install -r force-stops the app, which cancels the
+                     watchdog + midnight alarms; without this the tasbih's
+                     daily reset and 6 h self-heal stay dead until the user
+                     happens to open the app (the prayer receiver has had this
+                     since 1.7.x — the tasbih hole is what let stale counts
+                     survive updates). -->
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="com.tawheeed.TASBIH_INCREMENT"/>
+                <action android:name="com.tawheeed.TASBIH_RESET"/>
+                <action android:name="com.tawheeed.TASBIH_PREV_ZIKR"/>
+                <action android:name="com.tawheeed.TASBIH_NEXT_ZIKR"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_tasbih_info"/>
+        </receiver>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- FLUTTER EMBEDDING                                  -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2"/>
+
+    </application>
+</manifest>

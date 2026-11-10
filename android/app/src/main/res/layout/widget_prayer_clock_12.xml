@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The prayer card's live clock leaf, LATIN digits, 12-HOUR app setting.
+
+  One of four inflate-time variants (latin/fa x 12/24). The app's 12/24
+  setting used to travel through RemoteViews.setString("setFormat12Hour", ...),
+  which resolves the method against java.lang.String while TextClock declares
+  setFormat12Hour(CharSequence). On HyperOS the launcher substitutes its own
+  HomeMIUIWidgetTextClock and RemoteViews.getMethod threw ActionException,
+  i.e. «لا یمكن تحمیل التطبيق المصغّر» / "Problem loading widget" for the whole
+  prayer card (measured 2026-11-04).
+
+  Both format attributes carry "h:mm" so the app's choice wins whichever
+  12/24 mode the SYSTEM is in — no runtime setter, no null, no reflection.
+
+  Framework views only; the launcher inflates this inside its own process.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextClock
+        android:id="@+id/prayer_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="ساعت"
+        android:fontFamily="@font/calibri"
+        android:fontFeatureSettings="tnum"
+        android:format12Hour="h:mm"
+        android:format24Hour="h:mm"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textLocale="en_US"
+        android:textStyle="bold" />
+</FrameLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#C48A27</color>
+
+    <!-- The splash field is FIXED — it does not follow the app theme, the
+         time-of-day palette or dark mode. These are the stops of the same
+         top-to-bottom ramp the Flutter splash paints
+         (24150E → 4A3024 @34% → 7A5016 @70% → A8741F), which
+         res/drawable/launch_background.xml approximates with the three stops an
+         XML GradientDrawable can hold; splash_field_mid is that ramp read at
+         the vertical centre. splash_field_bottom is what the navigation bar
+         takes so the gesture area does not cut a line through the gold. -->
+    <color name="splash_field_top">#FF24150E</color>
+    <color name="splash_field_mid">#FF5F3E1E</color>
+    <color name="splash_field_bottom">#FFA8741F</color>
+</resources>

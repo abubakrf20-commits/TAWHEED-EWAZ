@@ -1,0 +1,36 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "tawheed-1f347",
+          "appId": "1:583312950736:android:9dfd34e95ceac7744865d5",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "tawheed-1f347",
+          "configurations": {
+            "android": "1:583312950736:android:9dfd34e95ceac7744865d5",
+            "web": "1:583312950736:web:cb2e5d25c41affc04865d5"
+          }
+        }
+      }
+    }
+  }
+}

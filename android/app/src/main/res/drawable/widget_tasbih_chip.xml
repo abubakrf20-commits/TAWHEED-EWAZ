@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The circle behind one footer button (prev / reset / next).
+
+     An oval, not a 14 dp rectangle: the approved design is three 44 dp
+     circles, and a rectangle with a 14 dp radius reads as a lozenge as soon as
+     the button is wider than it is tall. White on purpose — RemoteViews cannot
+     tint a view's foreground, but it can set a background tint list, so the
+     palette colour arrives at runtime and the shape stays a resource. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#FFFFFFFF" />
+</shape>

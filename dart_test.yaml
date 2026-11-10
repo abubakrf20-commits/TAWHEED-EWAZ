@@ -1,0 +1,21 @@
+# Declares the `network` tag used by the tests that talk to the real public
+# hosts: test/features/dorar_hadith/data/dorar_search_live_test.dart and
+# test/features/audio_library/audio_library_live_host_test.dart.
+#
+# Those two are the tripwires for "the site changed / the host died" — the
+# failure mode that is indistinguishable from a code bug from the outside — so
+# they stay in the default run (this machine is online) with a 4x timeout.
+#
+# Offline / CI run (also the gate command when the network is not trusted):
+#
+#   flutter test --exclude-tags network
+#
+# Do NOT add a top-level `exclude_tags: network` here: package:test *unions*
+# exclude selectors (test_core/lib/src/runner/configuration.dart:1033), so a
+# yaml exclusion can never be re-enabled from the command line and the two
+# tripwires would silently become dead code. Keep the exclusion on the CLI.
+tags:
+  network:
+    # Hits raw.githubusercontent.com / dorar.net / the audio host; skipped in
+    # offline runs via the tag above.
+    timeout: 4x

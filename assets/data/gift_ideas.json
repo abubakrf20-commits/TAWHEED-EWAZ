@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "note": "Offline gift catalogue for «صله رحم». Budget tiers are relative labels, not amounts. No prices, no brands, nothing forbidden, and every occasion is Islamic or ordinary family life — no birthdays, no non-Islamic festivals.",
+  "ideas": [
+    {
+      "id": "fresh-fruit",
+      "title": "میوهٔ تازهٔ فصل",
+      "tip": "ساده و همیشه به کار می‌آید؛ مقدارش را به اندازهٔ جمعیت خانه تنظیم کنید.",
+      "occasions": ["visit", "sick_visit", "hosting", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "dates-sweets",
+      "title": "خرما و شیرینی سنتی",
+      "tip": "برای پذیرایی همان روز یا بردن به خانهٔ میزبان مناسب است.",
+      "occasions": ["visit", "hosting", "feast", "ramadan"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "potted-plant",
+      "title": "گیاه گلدانی",
+      "tip": "گیاه کم‌آب‌بر مثل ساکولنت را انتخاب کنید تا نگهداری‌اش آسان باشد.",
+      "occasions": ["visit", "hosting", "newlywed", "feast"],
+      "budgets": ["economy", "medium", "special"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "handwritten-note",
+      "title": "یادداشت دست‌نویس",
+      "tip": "یک نامهٔ کوتاه با دست‌خط خودتان؛ بیشتر از هر چیزی در یاد می‌ماند.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "book",
+      "title": "کتاب",
+      "tip": "از علاقهٔ او بپرسید و همان موضوع را هدیه بدهید، نه کتابی که خودتان دوست دارید.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["economy", "medium", "special"],
+      "audiences": ["all", "young", "elder"]
+    },
+    {
+      "id": "seasonal-drink",
+      "title": "شربت و آبمیوهٔ طبیعی",
+      "tip": "در بطری شیشه‌ای تمیز بریزید تا هم مرتب باشد هم قابل نگهداری.",
+      "occasions": ["visit", "sick_visit", "hosting"],
+      "budgets": ["economy"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "home-cooked",
+      "title": "غذای خانگی",
+      "tip": "یک غذای ساده و بسته‌بندی‌شده؛ برای خانوادهٔ تازه‌بچه‌دار یا بیمار بسیار راهگشاست.",
+      "occasions": ["sick_visit", "new_baby", "visit"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "tea-set",
+      "title": "ست چای و دمنوش",
+      "tip": "چند دمنوش سادهٔ باب میل او را کنار هم بگذارید.",
+      "occasions": ["hosting", "newlywed", "feast", "ramadan"],
+      "budgets": ["medium", "special"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "prayer-mat",
+      "title": "سجاده",
+      "tip": "سجادهٔ ساده و سبک؛ اگر رنگ و اندازه را می‌دانید همان را بگیرید.",
+      "occasions": ["feast", "newlywed", "ramadan"],
+      "budgets": ["medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "misbaha",
+      "title": "تسبیح",
+      "tip": "یک تسبیح ساده و خوش‌دست؛ برای همراه داشتن مناسب است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "adhkar-book",
+      "title": "کتاب اذکار و دعا",
+      "tip": "نسخهٔ جیبی با خط درشت، برای خواندن روزانه راحت‌تر است.",
+      "occasions": ["feast", "visit"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "warm-socks",
+      "title": "جوراب گرم",
+      "tip": "در فصل سرد یک هدیهٔ کوچک و کاربردی است؛ جنس نخی را ترجیح دهید.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "scarf",
+      "title": "شال",
+      "tip": "رنگ را از سلیقهٔ خودش انتخاب کنید، نه از سلیقهٔ خودتان.",
+      "occasions": ["feast", "hosting"],
+      "budgets": ["medium", "special"],
+      "audiences": ["all", "young", "elder"]
+    },
+    {
+      "id": "coloring-book",
+      "title": "دفتر رنگ‌آمیزی و مدادرنگی",
+      "tip": "برای کودک، همراه با یک بستهٔ مداد رنگی نرم.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["child"]
+    },
+    {
+      "id": "kids-puzzle",
+      "title": "پازل کودکانه",
+      "tip": "تعداد قطعات را با سن کودک هماهنگ کنید.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["child"]
+    },
+    {
+      "id": "stationery",
+      "title": "لوازم‌التحریر",
+      "tip": "دفتر و مداد و پاک‌کن؛ برای شروع سال تحصیلی خیلی به کار می‌آید.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["child", "young"]
+    },
+    {
+      "id": "kids-story-book",
+      "title": "کتاب داستان کودک",
+      "tip": "کتاب مصور با خط درشت؛ اگر خودتان هم برایش بخوانید، هدیه کامل می‌شود.",
+      "occasions": ["visit", "feast", "new_baby"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["child"]
+    },
+    {
+      "id": "magnifier",
+      "title": "ذره‌بین خواندن",
+      "tip": "برای مطالعهٔ کتاب‌های ریزخط و برچسب داروها کاربردی است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["elder"]
+    },
+    {
+      "id": "light-stick",
+      "title": "عصای سبک",
+      "tip": "اگر خودش عصا ندارد؛ سبک و با دستهٔ راحت انتخاب کنید.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["elder"]
+    },
+    {
+      "id": "blanket",
+      "title": "پتوی سبک",
+      "tip": "پتوی نخی و سبک برای نشستن‌های طولانی، بهتر از پتوی سنگین است.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "photo-album",
+      "title": "آلبوم عکس خانوادگی",
+      "tip": "چند عکس قدیمی را چاپ کنید و در آلبوم بگذارید؛ خودش یک گفت‌وگوی کامل است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "sick-soup",
+      "title": "سوپ یا آش خانگی",
+      "tip": "در ظرف یک‌بارمصرف ببرید تا نگرانی شستن ظرف نباشد.",
+      "occasions": ["sick_visit"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "sick-fruit-basket",
+      "title": "سبد میوهٔ کوچک",
+      "tip": "میوه‌های نرم و آمادهٔ خوردن را انتخاب کنید.",
+      "occasions": ["sick_visit"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "sick-audiobook",
+      "title": "کتاب صوتی یا پادکست معرفی‌شده",
+      "tip": "برای کسی که در بستر است و حوصلهٔ خواندن ندارد، فهرستی از چند فایل صوتی بفرستید.",
+      "occasions": ["sick_visit"],
+      "budgets": ["economy"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "nuts",
+      "title": "آجیل تازه",
+      "tip": "کم‌نمک و تازه بگیرید؛ برای پذیرایی و مهمانی همیشه مناسب است.",
+      "occasions": ["hosting", "feast", "visit"],
+      "budgets": ["medium", "special"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "dessert",
+      "title": "دسر خانگی",
+      "tip": "یک دسر ساده در ظرف شیشه‌ای؛ هم پذیرایی است هم سوغات.",
+      "occasions": ["hosting", "visit", "feast", "ramadan"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "feast-sweets",
+      "title": "شیرینی مناسبتی",
+      "tip": "در جعبهٔ مرتب بگذارید و همان روز هدیه بدهید.",
+      "occasions": ["feast", "ramadan"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "gift-envelope",
+      "title": "هدیهٔ نقدی در پاکت",
+      "tip": "مقدار را خودتان تعیین کنید؛ پاکت دست‌نویس، هدیه را گرم‌تر می‌کند.",
+      "occasions": ["feast", "newlywed", "new_baby"],
+      "budgets": ["economy", "medium", "special"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "baby-clothes",
+      "title": "لباس نوزاد",
+      "tip": "یک سایز بزرگ‌تر بگیرید؛ لباس نوزادی معمولاً زود تنگ می‌شود.",
+      "occasions": ["new_baby"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "baby-essentials",
+      "title": "ملزومات مصرفی نوزاد",
+      "tip": "دستمال و پوشک و شامپو بچه؛ چیزهای مصرفی همیشه کم می‌آیند.",
+      "occasions": ["new_baby"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "baby-memory-book",
+      "title": "دفتر خاطرات نوزاد",
+      "tip": "دفتری برای نوشتن اولین‌ها؛ چند خط اول را خودتان بنویسید.",
+      "occasions": ["new_baby"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "kitchen-essentials",
+      "title": "لوازم آشپزخانهٔ ضروری",
+      "tip": "چیزی که در خانهٔ نو کم است، مثل قابلمهٔ کوچک یا تختهٔ برش.",
+      "occasions": ["newlywed"],
+      "budgets": ["medium", "special"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "towels-sheets",
+      "title": "حوله و ملحفه",
+      "tip": "دست‌مال و حولهٔ نخی؛ همیشه جای کمتری در خانه می‌گیرد و همیشه لازم است.",
+      "occasions": ["newlywed"],
+      "budgets": ["medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "new-home-plant",
+      "title": "گیاه برای خانهٔ نو",
+      "tip": "یک گیاه مقاوم با گلدان ساده؛ شروع تازه را یادآوری می‌کند.",
+      "occasions": ["newlywed"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "errand-help",
+      "title": "کمک در یک کار روزمره",
+      "tip": "یک کارت دست‌نویس: «یک روز خرید یا کار اداری با من». برای سالمند و خانوادهٔ تازه‌بچه‌دار بهترین هدیه است.",
+      "occasions": ["visit", "sick_visit", "new_baby"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "shared-walk",
+      "title": "پیاده‌روی یا چای مشترک",
+      "tip": "یک ساعت وقت گذاشتن؛ برای بعضی افراد از هر چیزی ارزشمندتر است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "printed-photo",
+      "title": "عکس مشترک چاپ‌شده",
+      "tip": "یکی از عکس‌های قدیمی‌تان را چاپ و قاب کنید.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "wall-calendar",
+      "title": "تقویم دیواری",
+      "tip": "تقویم با خانه‌های بزرگ برای نوشتن مناسبت‌ها.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "notebook",
+      "title": "دفتر یادداشت",
+      "tip": "دفتر جیبی با جلد ساده؛ برای یادداشت کارها و قرارها.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "pen",
+      "title": "خودکار خوب",
+      "tip": "یک خودکار خوش‌دست که هر روز استفاده شود.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "keychain",
+      "title": "جاکلیدی",
+      "tip": "کوچک و سبک؛ برای سوغات سفر هم مناسب است.",
+      "occasions": ["visit"],
+      "budgets": ["economy"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "kitchen-towels",
+      "title": "حولهٔ آشپزخانه",
+      "tip": "چند عددی بگیرید؛ همیشه در چرخش است و همیشه کم می‌آید.",
+      "occasions": ["visit", "hosting", "newlywed"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "spice-set",
+      "title": "ست ادویه",
+      "tip": "چند ادویهٔ پرکاربرد در ظرف‌های کوچک و برچسب‌دار.",
+      "occasions": ["hosting", "newlywed", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "honey",
+      "title": "عسل طبیعی",
+      "tip": "از فروشندهٔ مطمئن و در ظرف شیشه‌ای؛ برای صبحانه و پذیرایی.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "olive-oil",
+      "title": "روغن زیتون",
+      "tip": "یک بطری کوچک و تازه؛ در آشپزی روزمره به کار می‌آید.",
+      "occasions": ["visit", "hosting", "newlywed"],
+      "budgets": ["medium"],
+      "audiences": ["all"]
+    },
+    {
+      "id": "quran-cover",
+      "title": "جلد قرآن",
+      "tip": "اگر اندازهٔ قرآنش را می‌دانید، جلد پارچه‌ای یا چرمی ساده بگیرید.",
+      "occasions": ["feast", "visit", "ramadan"],
+      "budgets": ["medium", "special"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "quran-bookmark",
+      "title": "نشانگر قرآن",
+      "tip": "چند نشانگر پارچه‌ای دست‌ساز؛ کوچک اما هر روز دیده می‌شود.",
+      "occasions": ["visit", "feast", "ramadan"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "phone-stand",
+      "title": "پایهٔ موبایل",
+      "tip": "برای تماس تصویری و دیدن ویدئو در دست گرفتن گوشی لازم نیست.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "kids-lunchbox",
+      "title": "ظرف غذای کودک",
+      "tip": "با درپوش محکم و بخش‌های جدا؛ برای مدرسه مناسب است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["child"]
+    },
+    {
+      "id": "succulent",
+      "title": "ساکولنت کوچک",
+      "tip": "کم‌آب و مقاوم؛ حتی برای کسی که گیاه نگه نمی‌دارد هم دوام می‌آورد.",
+      "occasions": ["visit", "hosting", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "young"]
+    },
+    {
+      "id": "homemade-jam",
+      "title": "مربا یا ترشی خانگی",
+      "tip": "در شیشهٔ تمیز با برچسب تاریخ؛ دست‌ساز بودنش پیداست.",
+      "occasions": ["visit", "hosting", "feast", "ramadan"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    },
+    {
+      "id": "hand-cream",
+      "title": "کرم دست",
+      "tip": "یک کرم ساده و بی‌بو برای فصل سرد؛ برای سالمند هم مناسب است.",
+      "occasions": ["visit", "sick_visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder", "young"]
+    },
+    {
+      "id": "gloves",
+      "title": "دستکش گرم",
+      "tip": "جنس نخی و اندازهٔ راحت؛ در زمستان هر روز به کار می‌آید.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["elder", "all"]
+    },
+    {
+      "id": "reading-light",
+      "title": "چراغ مطالعهٔ کوچک",
+      "tip": "نور گرم و قابل تنظیم؛ برای مطالعهٔ شبانه راحت‌تر است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["young", "elder", "all"]
+    },
+    {
+      "id": "slippers",
+      "title": "دمپایی راحت",
+      "tip": "کف نرم و ضدلغزش؛ برای خانه مناسب سالمند است.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["elder"]
+    },
+    {
+      "id": "backpack",
+      "title": "کوله‌پشتی",
+      "tip": "سبک و با بند پهن؛ برای دانشجو و مسافر جوان.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["young"]
+    },
+    {
+      "id": "water-bottle",
+      "title": "قمقمه",
+      "tip": "یک قمقمهٔ سادهٔ قابل شست‌وشو؛ برای ورزش و دانشگاه.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy", "medium"],
+      "audiences": ["young"]
+    },
+    {
+      "id": "board-game",
+      "title": "بازی رومیزی",
+      "tip": "یک بازی گروهی که با یک دور چای تمام می‌شود؛ برای مهمانی هم خوب است.",
+      "occasions": ["visit", "hosting", "feast"],
+      "budgets": ["medium"],
+      "audiences": ["young", "all"]
+    },
+    {
+      "id": "kids-ball",
+      "title": "توپ کودکانه",
+      "tip": "سبک و نرم؛ برای حیاط و پارک.",
+      "occasions": ["visit", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["child"]
+    },
+    {
+      "id": "seed-packets",
+      "title": "بستهٔ بذر سبزی و گل",
+      "tip": "برای کسی که باغچه یا گلدان دارد؛ همراه با یک یادداشت کوتاه دربارهٔ کاشت.",
+      "occasions": ["visit", "hosting", "feast"],
+      "budgets": ["economy"],
+      "audiences": ["all", "elder"]
+    }
+  ]
+}

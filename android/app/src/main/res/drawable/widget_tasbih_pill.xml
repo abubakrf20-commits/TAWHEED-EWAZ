@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A pill behind one caption («ذکر ۲ از ۵»). White on purpose: RemoteViews
+     cannot tint a view's *foreground*, but it can set a background tint list,
+     so the colour arrives at runtime and the shape stays a resource. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFFFFFFF" />
+    <corners android:radius="9dp" />
+</shape>

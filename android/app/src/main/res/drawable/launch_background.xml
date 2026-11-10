@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The splash field on the window from process start to the first Flutter
+     frame (Android 7–11; on 12+ it is the LaunchTheme background under the
+     system splash window). Field only, no mark: the coin is drawn by the
+     Flutter splash and nothing before it, so the hand-over changes no colour
+     and moves nothing.
+
+     An XML GradientDrawable carries three stops, so the middle one is the
+     Flutter ramp read AT THE VERTICAL CENTRE (5F3E1E) — its endpoints are the
+     ramp's own endpoints, which keeps the seam between this window and the
+     first frame to a few points of colour inside the band. angle=270 points the
+     ramp down, i.e. startColor at the top. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="linear"
+        android:angle="270"
+        android:startColor="@color/splash_field_top"
+        android:centerColor="@color/splash_field_mid"
+        android:endColor="@color/splash_field_bottom"/>
+</shape>

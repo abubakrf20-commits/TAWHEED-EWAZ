@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The prayer card's live clock leaf, LATIN digits (the default).
+
+  Hosted inside the Glance composition through AndroidRemoteViews, so the
+  launcher's own TextClock ticks the clock: no widget update, no alarm and no
+  Doze grant can make it lag (brief P1 — the baked string could sit minutes
+  behind after Doze).
+
+  THE FORMATS ARE BAKED INTO THE LAYOUT, NOT SET AT RUNTIME. This is the fix
+  for «لا یمكن تحمیل التطبيق المصغّر» / "Problem loading widget" measured on
+  the POCO X7 Pro (HyperOS, Android 16, 2026-11-04): the launcher replaces
+  TextClock with its own HomeMIUIWidgetTextClock, and
+  RemoteViews.setString(id, "setFormat12Hour", ...) resolves the method with
+  java.lang.String. The real signature is setFormat12Hour(CharSequence), so
+  RemoteViews.getMethod threw ActionException inside RemoteViews.apply() and
+  AppWidgetHostView swapped in its error view. No reflection setter can be
+  made safe against a host-supplied subclass, so the 12/24 choice and the
+  fa/latin digit choice are now four INFLATE-TIME layouts and the composition
+  only sets colour, size and the click intent.
+
+  BOTH format attributes carry the same pattern on purpose: the app's own
+  12/24 setting must win over the system's, and setting the "other" one to
+  null through a reflection setter is exactly what used to crash. The 24-hour
+  variant is this file; widget_prayer_clock_12.xml is the 12-hour one.
+
+  The click intent is set on the TextClock view itself (setOnClickPendingIntent
+  from PrayerRemoteLeaves), so the clock still opens the app.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextClock
+        android:id="@+id/prayer_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="ساعت"
+        android:fontFamily="@font/calibri"
+        android:fontFeatureSettings="tnum"
+        android:format12Hour="HH:mm"
+        android:format24Hour="HH:mm"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textLocale="en_US"
+        android:textStyle="bold" />
+</FrameLayout>

@@ -1,0 +1,232 @@
+{
+  "version": 2,
+  "defaultPalette": "brown_gold",
+  "defaultPrayer": "emerald",
+  "defaultTasbih": "night_blue",
+  "opacitySteps": [
+    1.0,
+    0.85,
+    0.7,
+    0.55
+  ],
+  "phases": {
+    "night": "isha → fajr (next day)",
+    "dawn": "fajr → sunrise",
+    "morning": "sunrise → dhuhr",
+    "afternoon": "dhuhr → asr",
+    "sunset": "asr → maghrib",
+    "evening": "maghrib → isha"
+  },
+  "palettes": [
+    {
+      "id": "emerald",
+      "name": "زمردی",
+      "light": false,
+      "autoPhases": [
+        "morning",
+        "afternoon"
+      ],
+      "bg": "#0C6B4F",
+      "bgEnd": "#053326",
+      "text": "#FFFFFF",
+      "accent": "#EFCB7A",
+      "prayer": {
+        "muted": "#A8E0CC",
+        "accentLight": "#EFCB7A",
+        "nextFill": "#EFCB7A",
+        "onNext": "#04352A"
+      },
+      "tasbih": {
+        "muted": "#A8E0CC",
+        "accentStart": "#FFEFB8",
+        "accentEnd": "#D9A93C",
+        "accentLight": "#EFCB7A",
+        "outerRing": "#6FD9BC",
+        "badgeFill": "#EFCB7A",
+        "badgeText": "#04352A"
+      }
+    },
+    {
+      "id": "night_blue",
+      "name": "شب آبی",
+      "light": false,
+      "autoPhases": [
+        "evening",
+        "night"
+      ],
+      "bg": "#14306E",
+      "bgEnd": "#0C1D48",
+      "text": "#FFF3DA",
+      "accent": "#F3D58B",
+      "prayer": {
+        "muted": "#AFC4EE",
+        "accentLight": "#F3D58B",
+        "nextFill": "#F3D58B",
+        "onNext": "#0B1F49"
+      },
+      "tasbih": {
+        "muted": "#AFC4EE",
+        "accentStart": "#FFEFC0",
+        "accentEnd": "#D9A93C",
+        "accentLight": "#F3D58B",
+        "outerRing": "#7FA0E0",
+        "badgeFill": "#F3D58B",
+        "badgeText": "#0B1F49"
+      }
+    },
+    {
+      "id": "royal_blue",
+      "name": "آبی سلطنتی",
+      "light": false,
+      "autoPhases": [],
+      "bg": "#2166C9",
+      "bgEnd": "#0A3B8A",
+      "text": "#FFFFFF",
+      "accent": "#F3D58B",
+      "prayer": {
+        "muted": "#BBD5F5",
+        "accentLight": "#F3D58B",
+        "nextFill": "#F3D58B",
+        "onNext": "#072C68"
+      },
+      "tasbih": {
+        "muted": "#BBD5F5",
+        "accentStart": "#FFEFC0",
+        "accentEnd": "#D9A93C",
+        "accentLight": "#F3D58B",
+        "outerRing": "#7FB2F0",
+        "badgeFill": "#F3D58B",
+        "badgeText": "#072C68"
+      }
+    },
+    {
+      "id": "brown_gold",
+      "name": "قهوه‌ای طلایی",
+      "light": false,
+      "autoPhases": [],
+      "bg": "#7A4A2B",
+      "bgEnd": "#2E1509",
+      "text": "#FFF3E4",
+      "accent": "#F0C070",
+      "prayer": {
+        "muted": "#E6CBB4",
+        "accentLight": "#F0C070",
+        "nextFill": "#F0C070",
+        "onNext": "#2E1509"
+      },
+      "tasbih": {
+        "muted": "#E6CBB4",
+        "accentStart": "#FFE6BC",
+        "accentEnd": "#C99A4E",
+        "accentLight": "#F0C070",
+        "outerRing": "#D9A87C",
+        "badgeFill": "#F0C070",
+        "badgeText": "#2E1509"
+      }
+    },
+    {
+      "id": "sunset",
+      "name": "غروب",
+      "light": false,
+      "autoPhases": [
+        "sunset"
+      ],
+      "bg": "#A8440F",
+      "bgEnd": "#3D1450",
+      "text": "#FFF6EA",
+      "accent": "#FFD08A",
+      "prayer": {
+        "muted": "#F6CBB0",
+        "accentLight": "#FFD08A",
+        "nextFill": "#FFD08A",
+        "onNext": "#3B1206"
+      },
+      "tasbih": {
+        "muted": "#F6CBB0",
+        "accentStart": "#FFE9BE",
+        "accentEnd": "#D99B3F",
+        "accentLight": "#FFD08A",
+        "outerRing": "#FF9E6B",
+        "badgeFill": "#FFD08A",
+        "badgeText": "#3B1206"
+      }
+    },
+    {
+      "id": "dawn_purple",
+      "name": "بنفش سحر",
+      "light": false,
+      "autoPhases": [
+        "dawn"
+      ],
+      "bg": "#5B3AA8",
+      "bgEnd": "#221641",
+      "text": "#F6EEFF",
+      "accent": "#F3D58B",
+      "prayer": {
+        "muted": "#C9B8F0",
+        "accentLight": "#F3D58B",
+        "nextFill": "#F3D58B",
+        "onNext": "#221641"
+      },
+      "tasbih": {
+        "muted": "#C9B8F0",
+        "accentStart": "#FFEFC0",
+        "accentEnd": "#D9A93C",
+        "accentLight": "#F3D58B",
+        "outerRing": "#9F86E8",
+        "badgeFill": "#F3D58B",
+        "badgeText": "#221641"
+      }
+    },
+    {
+      "id": "graphite",
+      "name": "گرافیت",
+      "light": false,
+      "autoPhases": [],
+      "bg": "#2E3440",
+      "bgEnd": "#10131A",
+      "text": "#ECEFF4",
+      "accent": "#E8C277",
+      "prayer": {
+        "muted": "#B9C2D0",
+        "accentLight": "#E8C277",
+        "nextFill": "#E8C277",
+        "onNext": "#10131A"
+      },
+      "tasbih": {
+        "muted": "#B9C2D0",
+        "accentStart": "#FFEFC0",
+        "accentEnd": "#D9A93C",
+        "accentLight": "#E8C277",
+        "outerRing": "#8FA0B8",
+        "badgeFill": "#E8C277",
+        "badgeText": "#10131A"
+      }
+    },
+    {
+      "id": "cream_light",
+      "name": "روشن کرم",
+      "light": true,
+      "autoPhases": [],
+      "bg": "#FFF8E8",
+      "bgEnd": "#FBE3B0",
+      "text": "#3B2418",
+      "accent": "#9A5F0F",
+      "prayer": {
+        "muted": "#7A5230",
+        "accentLight": "#9A5F0F",
+        "nextFill": "#9A5F0F",
+        "onNext": "#FFF8E8"
+      },
+      "tasbih": {
+        "muted": "#7A5230",
+        "accentStart": "#C98A18",
+        "accentEnd": "#7A4A00",
+        "accentLight": "#9A5F0F",
+        "outerRing": "#C79A4A",
+        "badgeFill": "#9A5F0F",
+        "badgeText": "#FFF8E8"
+      }
+    }
+  ]
+}

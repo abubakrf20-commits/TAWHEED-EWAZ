@@ -1,0 +1,968 @@
+{
+    "version":  1,
+    "categories":  [
+                       {
+                           "id":  "yaqeen",
+                           "tracks":  [
+                                          {
+                                              "id":  "yaqeen-00",
+                                              "title":  "معرفت شناسی",
+                                              "file":  "yaqeen/01-marefat-shenasi.opus",
+                                              "sizeBytes":  6712688
+                                          },
+                                          {
+                                              "id":  "yaqeen-01",
+                                              "title":  "اثبات وجود خدا (امکان و وجوب)",
+                                              "file":  "yaqeen/02-esbat-vojude-khoda-emkan-vojub.opus",
+                                              "sizeBytes":  8514799
+                                          },
+                                          {
+                                              "id":  "yaqeen-02",
+                                              "title":  "اثبات وجود خدا (برهان نظم)",
+                                              "file":  "yaqeen/03-esbat-vojude-khoda-borhan-nazm.opus",
+                                              "sizeBytes":  7021989
+                                          },
+                                          {
+                                              "id":  "yaqeen-03",
+                                              "title":  "نقد برهان شر مساله ی شُرور در جهان",
+                                              "file":  "yaqeen/04-naghd-borhan-shar.opus",
+                                              "sizeBytes":  10126713
+                                          },
+                                          {
+                                              "id":  "yaqeen-04",
+                                              "title":  "پیدایش ادیان- نقد دیدگاه های نادرست",
+                                              "file":  "yaqeen/05-peydayesh-adyan-naghd-nadarost.opus",
+                                              "sizeBytes":  13498642
+                                          },
+                                          {
+                                              "id":  "yaqeen-05",
+                                              "title":  "کارکردهای ارزشمند دین در جامعه",
+                                              "file":  "yaqeen/06-karkardhaye-din-dar-jamee.opus",
+                                              "sizeBytes":  12035282
+                                          },
+                                          {
+                                              "id":  "yaqeen-06",
+                                              "title":  "اثبات صداقت رسول اکرم(ص)",
+                                              "file":  "yaqeen/07-esbat-sedaqat-rasoul.opus",
+                                              "sizeBytes":  6501185
+                                          },
+                                          {
+                                              "id":  "yaqeen-07",
+                                              "title":  "اثبات نبوّت رسول اکرم(ص)",
+                                              "file":  "yaqeen/08-esbat-nobovvat-rasoul.opus",
+                                              "sizeBytes":  9587891
+                                          },
+                                          {
+                                              "id":  "yaqeen-08",
+                                              "title":  "دفاع از ساحت پیامبر(ص)",
+                                              "file":  "yaqeen/09-defa-az-sahat-peyambar.opus",
+                                              "sizeBytes":  9098158
+                                          },
+                                          {
+                                              "id":  "yaqeen-09",
+                                              "title":  "اثبات الهی بودن قرآن - منشاء قرآن",
+                                              "file":  "yaqeen/10-esbat-elahi-boodan-quran-mansha.opus",
+                                              "sizeBytes":  6603530
+                                          },
+                                          {
+                                              "id":  "yaqeen-10",
+                                              "title":  "اثبات الهی بودن قرآن-اعجاز علمی",
+                                              "file":  "yaqeen/11-quran-aejaz-elmi.opus",
+                                              "sizeBytes":  6371201
+                                          },
+                                          {
+                                              "id":  "yaqeen-11",
+                                              "title":  "اثبات الهی بودن قرآن(تحدی)",
+                                              "file":  "yaqeen/12-quran-tahaddi.opus",
+                                              "sizeBytes":  7447843
+                                          },
+                                          {
+                                              "id":  "yaqeen-12",
+                                              "title":  "قرآن و علم",
+                                              "file":  "yaqeen/13-quran-va-elm.opus",
+                                              "sizeBytes":  7526868
+                                          },
+                                          {
+                                              "id":  "yaqeen-13",
+                                              "title":  "ادعای تناقض در قرآن",
+                                              "file":  "yaqeen/14-eddeaye-tanaghoz-dar-quran.opus",
+                                              "sizeBytes":  6582061
+                                          },
+                                          {
+                                              "id":  "yaqeen-14",
+                                              "title":  "دین و علم",
+                                              "file":  "yaqeen/15-din-va-elm.opus",
+                                              "sizeBytes":  7592061
+                                          },
+                                          {
+                                              "id":  "yaqeen-15",
+                                              "title":  "اسلام و حقوق بشر",
+                                              "file":  "yaqeen/16-eslam-va-hoghoogh-bashar.opus",
+                                              "sizeBytes":  7491451
+                                          },
+                                          {
+                                              "id":  "yaqeen-16",
+                                              "title":  "اسلام پذیری ایرانیان",
+                                              "file":  "yaqeen/17-eslam-paziri-iranian.opus",
+                                              "sizeBytes":  6667977
+                                          },
+                                          {
+                                              "id":  "yaqeen-17",
+                                              "title":  "اسلام و ملیت",
+                                              "file":  "yaqeen/18-eslam-va-melliyat.opus",
+                                              "sizeBytes":  6939190
+                                          },
+                                          {
+                                              "id":  "yaqeen-18",
+                                              "title":  "اسلام و خشونت",
+                                              "file":  "yaqeen/19-eslam-va-khoshonat.opus",
+                                              "sizeBytes":  15298272
+                                          },
+                                          {
+                                              "id":  "yaqeen-19",
+                                              "title":  "جبر و اختیار",
+                                              "file":  "yaqeen/20-jabr-va-ekhtiar.opus",
+                                              "sizeBytes":  6819695
+                                          },
+                                          {
+                                              "id":  "yaqeen-20",
+                                              "title":  "حقوق زن در اسلام",
+                                              "file":  "yaqeen/21-hoghoogh-zan-dar-eslam.opus",
+                                              "sizeBytes":  8283527
+                                          },
+                                          {
+                                              "id":  "yaqeen-21",
+                                              "title":  "آشنایی با مغالطات",
+                                              "file":  "yaqeen/22-ashnaee-ba-moghalatat.opus",
+                                              "sizeBytes":  7004099
+                                          },
+                                          {
+                                              "id":  "yaqeen-22",
+                                              "title":  "چگونگی بحث با مخالفان",
+                                              "file":  "yaqeen/23-chegonegi-bahs-ba-mokhalefan.opus",
+                                              "sizeBytes":  13691231
+                                          }
+                                      ]
+                       },
+                       {
+                           "id":  "anasheed",
+                           "tracks":  [
+                                          {
+                                              "id":  "anasheed-18",
+                                              "title":  "اخی سوف تبکی علیک العیون",
+                                              "file":  "anasheed/18-akhi-sawfa-taki-al-ayn.opus",
+                                              "sizeBytes":  818461,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-19",
+                                              "title":  "طالب العلم",
+                                              "file":  "anasheed/19-talib-al-elm.opus",
+                                              "sizeBytes":  794563,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-01",
+                                              "title":  "ابوبکر الصدیق",
+                                              "file":  "anasheed/01-abou-bakr-siddiq.opus",
+                                              "sizeBytes":  991666
+                                          },
+                                          {
+                                              "id":  "anasheed-02",
+                                              "title":  "ابوح بشوق",
+                                              "file":  "anasheed/02-abouh-bishooq.opus",
+                                              "sizeBytes":  284097
+                                          },
+                                          {
+                                              "id":  "anasheed-03",
+                                              "title":  "ال بیت",
+                                              "file":  "anasheed/03-al-bayt.opus",
+                                              "sizeBytes":  1263597
+                                          },
+                                          {
+                                              "id":  "anasheed-04",
+                                              "title":  "الیک و الا",
+                                              "file":  "anasheed/04-aleika-wal-lyya.opus",
+                                              "sizeBytes":  656571
+                                          },
+                                          {
+                                              "id":  "anasheed-05",
+                                              "title":  "انی ذکرتک",
+                                              "file":  "anasheed/05-inni-dhkur-tak.opus",
+                                              "sizeBytes":  705159
+                                          },
+                                          {
+                                              "id":  "anasheed-06",
+                                              "title":  "رب بالسبع المثانی",
+                                              "file":  "anasheed/06-rabbi-bi-sab-al-mathani.opus",
+                                              "sizeBytes":  854492
+                                          },
+                                          {
+                                              "id":  "anasheed-07",
+                                              "title":  "عثمان",
+                                              "file":  "anasheed/07-othman.opus",
+                                              "sizeBytes":  416527
+                                          },
+                                          {
+                                              "id":  "anasheed-08",
+                                              "title":  "يا خير الخلق",
+                                              "file":  "anasheed/08-ya-khayr-al-khalq.opus",
+                                              "sizeBytes":  1048305
+                                          },
+                                          {
+                                              "id":  "anasheed-09",
+                                              "title":  "یمه یا نبع الحنان",
+                                              "file":  "anasheed/09-yamha-ya-nab-al-hanan.opus",
+                                              "sizeBytes":  538552
+                                          },
+                                          {
+                                              "id":  "anasheed-20",
+                                              "title":  "جوان تا کی چنین",
+                                              "file":  "anasheed/20-javan-ta-key-cheynin.opus",
+                                              "sizeBytes":  971315,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-21",
+                                              "title":  "عطر قرآن عطر ایمان",
+                                              "file":  "anasheed/21-atre-quran-atre-iman.opus",
+                                              "sizeBytes":  1069394,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-22",
+                                              "title":  "غریبی غربت شام و یمن نیست",
+                                              "file":  "anasheed/22-ghorbati-qorbat-sham-va-yemen-nist.opus",
+                                              "sizeBytes":  1088647,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-23",
+                                              "title":  "گفتم منم اهل خطا",
+                                              "file":  "anasheed/23-goftam-manham-ehle-khata.opus",
+                                              "sizeBytes":  325743,
+                                              "new":  true
+                                          },
+                                          {
+                                              "id":  "anasheed-10",
+                                              "title":  "مومنین بپا خیزید",
+                                              "file":  "anasheed/10-momenin-bepa-khizid.opus",
+                                              "sizeBytes":  1542757
+                                          },
+                                          {
+                                              "id":  "anasheed-11",
+                                              "title":  "چرا ای بنده ی عاصی",
+                                              "file":  "anasheed/11-chera-ey-bandeye-asi.opus",
+                                              "sizeBytes":  1263468
+                                          },
+                                          {
+                                              "id":  "anasheed-12",
+                                              "title":  "دل غافل بکن توبه",
+                                              "file":  "anasheed/12-del-e-ghafel-bokon-tobbe.opus",
+                                              "sizeBytes":  1420994
+                                          },
+                                          {
+                                              "id":  "anasheed-13",
+                                              "title":  "سرود زیبای قرآن درمان دلها",
+                                              "file":  "anasheed/13-sorud-ziba-ye-quran-darman-e-delha.opus",
+                                              "sizeBytes":  931643
+                                          },
+                                          {
+                                              "id":  "anasheed-14",
+                                              "title":  "سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت",
+                                              "file":  "anasheed/14-sorud-quran-hoviyat-mosalaman.opus",
+                                              "sizeBytes":  1077883
+                                          },
+                                          {
+                                              "id":  "anasheed-16",
+                                              "title":  "مرا با خودت تا ثریا ببر",
+                                              "file":  "anasheed/16-mara-ba-khodat-ta-soraya-bebar.opus",
+                                              "sizeBytes":  873870
+                                          },
+                                          {
+                                              "id":  "anasheed-17",
+                                              "title":  "و من مگر چیستم ای خدا؟",
+                                              "file":  "anasheed/17-va-man-magar-chistam-ey-khoda.opus",
+                                              "sizeBytes":  597536
+                                          }
+                                      ],
+                           "speakers":  [
+                                            {
+                                                "id":  "arabi",
+                                                "title":  "عربی",
+                                                "tracks":  [
+                                                               {
+                                                                   "id":  "anasheed-18",
+                                                                   "title":  "اخی سوف تبکی علیک العیون",
+                                                                   "file":  "anasheed/18-akhi-sawfa-taki-al-ayn.opus",
+                                                                   "sizeBytes":  818461,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-19",
+                                                                   "title":  "طالب العلم",
+                                                                   "file":  "anasheed/19-talib-al-elm.opus",
+                                                                   "sizeBytes":  794563,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-01",
+                                                                   "title":  "ابوبکر الصدیق",
+                                                                   "file":  "anasheed/01-abou-bakr-siddiq.opus",
+                                                                   "sizeBytes":  991666
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-02",
+                                                                   "title":  "ابوح بشوق",
+                                                                   "file":  "anasheed/02-abouh-bishooq.opus",
+                                                                   "sizeBytes":  284097
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-03",
+                                                                   "title":  "ال بیت",
+                                                                   "file":  "anasheed/03-al-bayt.opus",
+                                                                   "sizeBytes":  1263597
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-04",
+                                                                   "title":  "الیک و الا",
+                                                                   "file":  "anasheed/04-aleika-wal-lyya.opus",
+                                                                   "sizeBytes":  656571
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-05",
+                                                                   "title":  "انی ذکرتک",
+                                                                   "file":  "anasheed/05-inni-dhkur-tak.opus",
+                                                                   "sizeBytes":  705159
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-06",
+                                                                   "title":  "رب بالسبع المثانی",
+                                                                   "file":  "anasheed/06-rabbi-bi-sab-al-mathani.opus",
+                                                                   "sizeBytes":  854492
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-07",
+                                                                   "title":  "عثمان",
+                                                                   "file":  "anasheed/07-othman.opus",
+                                                                   "sizeBytes":  416527
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-08",
+                                                                   "title":  "يا خير الخلق",
+                                                                   "file":  "anasheed/08-ya-khayr-al-khalq.opus",
+                                                                   "sizeBytes":  1048305
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-09",
+                                                                   "title":  "یمه یا نبع الحنان",
+                                                                   "file":  "anasheed/09-yamha-ya-nab-al-hanan.opus",
+                                                                   "sizeBytes":  538552
+                                                               }
+                                                           ]
+                                            },
+                                            {
+                                                "id":  "farsi",
+                                                "title":  "فارسی",
+                                                "tracks":  [
+                                                               {
+                                                                   "id":  "anasheed-20",
+                                                                   "title":  "جوان تا کی چنین",
+                                                                   "file":  "anasheed/20-javan-ta-key-cheynin.opus",
+                                                                   "sizeBytes":  971315,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-21",
+                                                                   "title":  "عطر قرآن عطر ایمان",
+                                                                   "file":  "anasheed/21-atre-quran-atre-iman.opus",
+                                                                   "sizeBytes":  1069394,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-22",
+                                                                   "title":  "غریبی غربت شام و یمن نیست",
+                                                                   "file":  "anasheed/22-ghorbati-qorbat-sham-va-yemen-nist.opus",
+                                                                   "sizeBytes":  1088647,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-23",
+                                                                   "title":  "گفتم منم اهل خطا",
+                                                                   "file":  "anasheed/23-goftam-manham-ehle-khata.opus",
+                                                                   "sizeBytes":  325743,
+                                                                   "new":  true
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-10",
+                                                                   "title":  "مومنین بپا خیزید",
+                                                                   "file":  "anasheed/10-momenin-bepa-khizid.opus",
+                                                                   "sizeBytes":  1542757
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-11",
+                                                                   "title":  "چرا ای بنده ی عاصی",
+                                                                   "file":  "anasheed/11-chera-ey-bandeye-asi.opus",
+                                                                   "sizeBytes":  1263468
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-12",
+                                                                   "title":  "دل غافل بکن توبه",
+                                                                   "file":  "anasheed/12-del-e-ghafel-bokon-tobbe.opus",
+                                                                   "sizeBytes":  1420994
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-13",
+                                                                   "title":  "سرود زیبای قرآن درمان دلها",
+                                                                   "file":  "anasheed/13-sorud-ziba-ye-quran-darman-e-delha.opus",
+                                                                   "sizeBytes":  931643
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-14",
+                                                                   "title":  "سرود «قرآن؛ هویت مسلمان»  ضیاءالرحمن صحت",
+                                                                   "file":  "anasheed/14-sorud-quran-hoviyat-mosalaman.opus",
+                                                                   "sizeBytes":  1077883
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-16",
+                                                                   "title":  "مرا با خودت تا ثریا ببر",
+                                                                   "file":  "anasheed/16-mara-ba-khodat-ta-soraya-bebar.opus",
+                                                                   "sizeBytes":  873870
+                                                               },
+                                                               {
+                                                                   "id":  "anasheed-17",
+                                                                   "title":  "و من مگر چیستم ای خدا؟",
+                                                                   "file":  "anasheed/17-va-man-magar-chistam-ey-khoda.opus",
+                                                                   "sizeBytes":  597536
+                                                               }
+                                                           ]
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "lectures",
+                           "tracks":  [
+                                          {
+                                              "id":  "lectures-00",
+                                              "title":  "احکام خدا شناسی و خدا پرستی",
+                                              "file":  "lectures/03-ahkam-khoda-shenasi-va-khoda-parasti.opus",
+                                              "sizeBytes":  7715552
+                                          },
+                                          {
+                                              "id":  "lectures-01",
+                                              "title":  "احکام سرفطر - عروسی - بد حسابی",
+                                              "file":  "lectures/04-ahkam-sar-e-fetr-aroosi-bad-hesebi.opus",
+                                              "sizeBytes":  7882301
+                                          },
+                                          {
+                                              "id":  "lectures-02",
+                                              "title":  "آخرین شر (دجال)",
+                                              "file":  "lectures/05-akharin-shar-dajjal.opus",
+                                              "sizeBytes":  7340841
+                                          },
+                                          {
+                                              "id":  "lectures-03",
+                                              "title":  "آزمون الهی و حقیقت صبر",
+                                              "file":  "lectures/06-azmoon-elahi-va-haghighat-sabr.opus",
+                                              "sizeBytes":  7651101
+                                          },
+                                          {
+                                              "id":  "lectures-04",
+                                              "title":  "اسلام و مسئولیت های شرعی",
+                                              "file":  "lectures/07-eslam-va-masouliyathaye-sharei.opus",
+                                              "sizeBytes":  5026529
+                                          },
+                                          {
+                                              "id":  "lectures-05",
+                                              "title":  "اصطلاحات حق و ایمان",
+                                              "file":  "lectures/08-estelahat-hagh-va-iman.opus",
+                                              "sizeBytes":  4824082
+                                          },
+                                          {
+                                              "id":  "lectures-06",
+                                              "title":  "اهمیت ماه مبارک رجب و دیگر ماه های حرام",
+                                              "file":  "lectures/09-ahammiyat-mah-mobarak-rajab-va-digar-mahhaye-haram.opus",
+                                              "sizeBytes":  8281747
+                                          },
+                                          {
+                                              "id":  "lectures-07",
+                                              "title":  "اهمیت نماز",
+                                              "file":  "lectures/10-ahammiyat-namaz.opus",
+                                              "sizeBytes":  5863266
+                                          },
+                                          {
+                                              "id":  "lectures-08",
+                                              "title":  "پایان یاجوج و ماجوج - هاروت و ماروت",
+                                              "file":  "lectures/11-payan-yajooj-va-majooj-haroot-va-maroot.opus",
+                                              "sizeBytes":  6452580
+                                          },
+                                          {
+                                              "id":  "lectures-09",
+                                              "title":  "تفاوت شرق اسلامی و غرب غیر اسلامی",
+                                              "file":  "lectures/12-tafavot-shargh-eslami-va-gharb-gheyre-eslami.opus",
+                                              "sizeBytes":  5952603
+                                          },
+                                          {
+                                              "id":  "lectures-10",
+                                              "title":  "تکالیف شرعی",
+                                              "file":  "lectures/13-takalif-sharei.opus",
+                                              "sizeBytes":  5218077
+                                          },
+                                          {
+                                              "id":  "lectures-11",
+                                              "title":  "توحید و یکتاپرستی",
+                                              "file":  "lectures/14-tawhid-va-yektaparasti.opus",
+                                              "sizeBytes":  7715551
+                                          },
+                                          {
+                                              "id":  "lectures-12",
+                                              "title":  "توفیق پذیرش",
+                                              "file":  "lectures/15-tawfiq-paziresh.opus",
+                                              "sizeBytes":  3354231
+                                          },
+                                          {
+                                              "id":  "lectures-13",
+                                              "title":  "چرا جوانان از اسلام فاصله گرفتند",
+                                              "file":  "lectures/02-chera-javanan-az-eslam-faseleh-gereftand.opus",
+                                              "sizeBytes":  6419069
+                                          },
+                                          {
+                                              "id":  "lectures-14",
+                                              "title":  "حالت روح وجسم انسان پس از مرگ",
+                                              "file":  "lectures/16-halat-rooh-va-jesm-ensan-pas-az-marg.opus",
+                                              "sizeBytes":  4138269
+                                          },
+                                          {
+                                              "id":  "lectures-15",
+                                              "title":  "حج در جوانی - اتحاد امت",
+                                              "file":  "lectures/17-haj-dar-javani-etahad-ommat.opus",
+                                              "sizeBytes":  7604435
+                                          },
+                                          {
+                                              "id":  "lectures-16",
+                                              "title":  "حقوق مرد و زن در اسلام",
+                                              "file":  "lectures/18-hoghoogh-mard-va-zan-dar-eslam.opus",
+                                              "sizeBytes":  9422847
+                                          },
+                                          {
+                                              "id":  "lectures-17",
+                                              "title":  "حقوق مردم و پایبندی به عدالت د",
+                                              "file":  "lectures/19-hoghoogh-mardom-va-paybandi-be-edalat.opus",
+                                              "sizeBytes":  7548715
+                                          },
+                                          {
+                                              "id":  "lectures-18",
+                                              "title":  "درجات کفر و ایمان و اهمیت نیت در عبادات",
+                                              "file":  "lectures/20-darajat-kofr-va-iman-va-ahammiyat-niyyat-dar-ebadat.opus",
+                                              "sizeBytes":  7333783
+                                          },
+                                          {
+                                              "id":  "lectures-19",
+                                              "title":  "دنیای سیاست در شرق و غرب",
+                                              "file":  "lectures/21-donyaye-siyasat-dar-shargh-va-gharb.opus",
+                                              "sizeBytes":  15844410
+                                          },
+                                          {
+                                              "id":  "lectures-20",
+                                              "title":  "ذو القرنین - یاجوج و ماجوج",
+                                              "file":  "lectures/22-zul-qarnain-yajooj-va-majooj.opus",
+                                              "sizeBytes":  7594548
+                                          },
+                                          {
+                                              "id":  "lectures-21",
+                                              "title":  "رابطه انسان با شیطان",
+                                              "file":  "lectures/23-rabeteh-ensan-ba-shaytan.opus",
+                                              "sizeBytes":  4485249
+                                          },
+                                          {
+                                              "id":  "lectures-22",
+                                              "title":  "روز حساب",
+                                              "file":  "lectures/24-rooz-e-hisab.opus",
+                                              "sizeBytes":  6548884
+                                          },
+                                          {
+                                              "id":  "lectures-23",
+                                              "title":  "سحر و جادوگری - مفهوم غیب",
+                                              "file":  "lectures/25-sehr-va-jadoogari-mofhoom-ghayb.opus",
+                                              "sizeBytes":  9711470
+                                          },
+                                          {
+                                              "id":  "lectures-24",
+                                              "title":  "سعادت ابدی",
+                                              "file":  "lectures/26-saadat-abadi.opus",
+                                              "sizeBytes":  1514351
+                                          },
+                                          {
+                                              "id":  "lectures-25",
+                                              "title":  "سیرت رسول الله - سوء قصدها",
+                                              "file":  "lectures/27-sirat-rasoul-allah-soo-ghasdha.opus",
+                                              "sizeBytes":  8121063
+                                          },
+                                          {
+                                              "id":  "lectures-26",
+                                              "title":  "شب اول قبر و عذاب قبر",
+                                              "file":  "lectures/28-shab-avval-qabr-va-azab-qabr.opus",
+                                              "sizeBytes":  5951662
+                                          },
+                                          {
+                                              "id":  "lectures-27",
+                                              "title":  "شبهات پیرامون قرآن - افراط",
+                                              "file":  "lectures/29-shobahat-piramoon-quran-efrat.opus",
+                                              "sizeBytes":  4391953
+                                          },
+                                          {
+                                              "id":  "lectures-28",
+                                              "title":  "شروط پذیرش اعمال خیر و",
+                                              "file":  "lectures/30-shoroot-paziresh-amal-kheir.opus",
+                                              "sizeBytes":  11240083
+                                          },
+                                          {
+                                              "id":  "lectures-29",
+                                              "title":  "عقیده و عمل در اسلام",
+                                              "file":  "lectures/31-aghideh-va-amal-dar-eslam.opus",
+                                              "sizeBytes":  5231799
+                                          },
+                                          {
+                                              "id":  "lectures-30",
+                                              "title":  "علل بی توجهی مردم به دین",
+                                              "file":  "lectures/01-olal-bi-tavajjohi-mardom-be-din.opus",
+                                              "sizeBytes":  5386713
+                                          },
+                                          {
+                                              "id":  "lectures-31",
+                                              "title":  "عیسی مسیح در آخر الزمان",
+                                              "file":  "lectures/32-isa-masih-dar-akhar-ozzaman.opus",
+                                              "sizeBytes":  7692088
+                                          },
+                                          {
+                                              "id":  "lectures-32",
+                                              "title":  "غیب و پیشگویی",
+                                              "file":  "lectures/33-ghayb-va-pishgoee.opus",
+                                              "sizeBytes":  5721033
+                                          },
+                                          {
+                                              "id":  "lectures-33",
+                                              "title":  "فلسفه تکالیف شرعی و ارزش سختی در عبادت",
+                                              "file":  "lectures/34-falsafeh-takalif-sharei-va-arzesh-sakhti-dar-ebadat.opus",
+                                              "sizeBytes":  6684035
+                                          },
+                                          {
+                                              "id":  "lectures-34",
+                                              "title":  "فلسفه چند همسری",
+                                              "file":  "lectures/35-falsafeh-chand-hamsari.opus",
+                                              "sizeBytes":  5639853
+                                          },
+                                          {
+                                              "id":  "lectures-35",
+                                              "title":  "مرتبه ی اسلام و فلسفه عبادت",
+                                              "file":  "lectures/36-martabeh-ye-eslam-va-falsafeh-ebadat.opus",
+                                              "sizeBytes":  8048727
+                                          },
+                                          {
+                                              "id":  "lectures-36",
+                                              "title":  "مساجد در طول تاریخ",
+                                              "file":  "lectures/37-masajed-dar-tool-e-tarikh.opus",
+                                              "sizeBytes":  7118623
+                                          },
+                                          {
+                                              "id":  "lectures-37",
+                                              "title":  "مسؤولیت والدین در تربیت دینی فرزندان",
+                                              "file":  "lectures/38-masouliyat-valedain-dar-tarbiat-dini-farzandan.opus",
+                                              "sizeBytes":  7590909
+                                          },
+                                          {
+                                              "id":  "lectures-38",
+                                              "title":  "نماز",
+                                              "file":  "lectures/39-namaz.opus",
+                                              "sizeBytes":  5155552
+                                          },
+                                          {
+                                              "id":  "lectures-39",
+                                              "title":  "نوروز و چهارشنبه سوری",
+                                              "file":  "lectures/40-norouz-va-chaharshanbe-soori.opus",
+                                              "sizeBytes":  5089715
+                                          },
+                                          {
+                                              "id":  "lectures-40",
+                                              "title":  "وظایف عملی اسلامی",
+                                              "file":  "lectures/41-vazayef-amali-eslami.opus",
+                                              "sizeBytes":  12864090
+                                          },
+                                          {
+                                              "id":  "misc-01",
+                                              "title":  "خدا بنده‌های خوب خودش را امتحان می‌کند!❤️ مولانا بهزاد فقهی",
+                                              "file":  "misc/01-tawheed-molana-behzad-faghi.opus",
+                                              "sizeBytes":  2872433,
+                                              "new":  true
+                                          }
+                                      ],
+                           "speakers":  [
+                                            {
+                                                "id":  "ziaei",
+                                                "title":  "شیخ ضیایی",
+                                                "tracks":  [
+                                                               {
+                                                                   "id":  "lectures-00",
+                                                                   "title":  "احکام خدا شناسی و خدا پرستی",
+                                                                   "file":  "lectures/03-ahkam-khoda-shenasi-va-khoda-parasti.opus",
+                                                                   "sizeBytes":  7715552
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-01",
+                                                                   "title":  "احکام سرفطر - عروسی - بد حسابی",
+                                                                   "file":  "lectures/04-ahkam-sar-e-fetr-aroosi-bad-hesebi.opus",
+                                                                   "sizeBytes":  7882301
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-02",
+                                                                   "title":  "آخرین شر (دجال)",
+                                                                   "file":  "lectures/05-akharin-shar-dajjal.opus",
+                                                                   "sizeBytes":  7340841
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-03",
+                                                                   "title":  "آزمون الهی و حقیقت صبر",
+                                                                   "file":  "lectures/06-azmoon-elahi-va-haghighat-sabr.opus",
+                                                                   "sizeBytes":  7651101
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-04",
+                                                                   "title":  "اسلام و مسئولیت های شرعی",
+                                                                   "file":  "lectures/07-eslam-va-masouliyathaye-sharei.opus",
+                                                                   "sizeBytes":  5026529
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-05",
+                                                                   "title":  "اصطلاحات حق و ایمان",
+                                                                   "file":  "lectures/08-estelahat-hagh-va-iman.opus",
+                                                                   "sizeBytes":  4824082
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-06",
+                                                                   "title":  "اهمیت ماه مبارک رجب و دیگر ماه های حرام",
+                                                                   "file":  "lectures/09-ahammiyat-mah-mobarak-rajab-va-digar-mahhaye-haram.opus",
+                                                                   "sizeBytes":  8281747
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-07",
+                                                                   "title":  "اهمیت نماز",
+                                                                   "file":  "lectures/10-ahammiyat-namaz.opus",
+                                                                   "sizeBytes":  5863266
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-08",
+                                                                   "title":  "پایان یاجوج و ماجوج - هاروت و ماروت",
+                                                                   "file":  "lectures/11-payan-yajooj-va-majooj-haroot-va-maroot.opus",
+                                                                   "sizeBytes":  6452580
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-09",
+                                                                   "title":  "تفاوت شرق اسلامی و غرب غیر اسلامی",
+                                                                   "file":  "lectures/12-tafavot-shargh-eslami-va-gharb-gheyre-eslami.opus",
+                                                                   "sizeBytes":  5952603
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-10",
+                                                                   "title":  "تکالیف شرعی",
+                                                                   "file":  "lectures/13-takalif-sharei.opus",
+                                                                   "sizeBytes":  5218077
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-11",
+                                                                   "title":  "توحید و یکتاپرستی",
+                                                                   "file":  "lectures/14-tawhid-va-yektaparasti.opus",
+                                                                   "sizeBytes":  7715551
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-12",
+                                                                   "title":  "توفیق پذیرش",
+                                                                   "file":  "lectures/15-tawfiq-paziresh.opus",
+                                                                   "sizeBytes":  3354231
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-13",
+                                                                   "title":  "چرا جوانان از اسلام فاصله گرفتند",
+                                                                   "file":  "lectures/02-chera-javanan-az-eslam-faseleh-gereftand.opus",
+                                                                   "sizeBytes":  6419069
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-14",
+                                                                   "title":  "حالت روح وجسم انسان پس از مرگ",
+                                                                   "file":  "lectures/16-halat-rooh-va-jesm-ensan-pas-az-marg.opus",
+                                                                   "sizeBytes":  4138269
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-15",
+                                                                   "title":  "حج در جوانی - اتحاد امت",
+                                                                   "file":  "lectures/17-haj-dar-javani-etahad-ommat.opus",
+                                                                   "sizeBytes":  7604435
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-16",
+                                                                   "title":  "حقوق مرد و زن در اسلام",
+                                                                   "file":  "lectures/18-hoghoogh-mard-va-zan-dar-eslam.opus",
+                                                                   "sizeBytes":  9422847
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-17",
+                                                                   "title":  "حقوق مردم و پایبندی به عدالت د",
+                                                                   "file":  "lectures/19-hoghoogh-mardom-va-paybandi-be-edalat.opus",
+                                                                   "sizeBytes":  7548715
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-18",
+                                                                   "title":  "درجات کفر و ایمان و اهمیت نیت در عبادات",
+                                                                   "file":  "lectures/20-darajat-kofr-va-iman-va-ahammiyat-niyyat-dar-ebadat.opus",
+                                                                   "sizeBytes":  7333783
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-19",
+                                                                   "title":  "دنیای سیاست در شرق و غرب",
+                                                                   "file":  "lectures/21-donyaye-siyasat-dar-shargh-va-gharb.opus",
+                                                                   "sizeBytes":  15844410
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-20",
+                                                                   "title":  "ذو القرنین - یاجوج و ماجوج",
+                                                                   "file":  "lectures/22-zul-qarnain-yajooj-va-majooj.opus",
+                                                                   "sizeBytes":  7594548
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-21",
+                                                                   "title":  "رابطه انسان با شیطان",
+                                                                   "file":  "lectures/23-rabeteh-ensan-ba-shaytan.opus",
+                                                                   "sizeBytes":  4485249
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-22",
+                                                                   "title":  "روز حساب",
+                                                                   "file":  "lectures/24-rooz-e-hisab.opus",
+                                                                   "sizeBytes":  6548884
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-23",
+                                                                   "title":  "سحر و جادوگری - مفهوم غیب",
+                                                                   "file":  "lectures/25-sehr-va-jadoogari-mofhoom-ghayb.opus",
+                                                                   "sizeBytes":  9711470
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-24",
+                                                                   "title":  "سعادت ابدی",
+                                                                   "file":  "lectures/26-saadat-abadi.opus",
+                                                                   "sizeBytes":  1514351
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-25",
+                                                                   "title":  "سیرت رسول الله - سوء قصدها",
+                                                                   "file":  "lectures/27-sirat-rasoul-allah-soo-ghasdha.opus",
+                                                                   "sizeBytes":  8121063
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-26",
+                                                                   "title":  "شب اول قبر و عذاب قبر",
+                                                                   "file":  "lectures/28-shab-avval-qabr-va-azab-qabr.opus",
+                                                                   "sizeBytes":  5951662
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-27",
+                                                                   "title":  "شبهات پیرامون قرآن - افراط",
+                                                                   "file":  "lectures/29-shobahat-piramoon-quran-efrat.opus",
+                                                                   "sizeBytes":  4391953
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-28",
+                                                                   "title":  "شروط پذیرش اعمال خیر و",
+                                                                   "file":  "lectures/30-shoroot-paziresh-amal-kheir.opus",
+                                                                   "sizeBytes":  11240083
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-29",
+                                                                   "title":  "عقیده و عمل در اسلام",
+                                                                   "file":  "lectures/31-aghideh-va-amal-dar-eslam.opus",
+                                                                   "sizeBytes":  5231799
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-30",
+                                                                   "title":  "علل بی توجهی مردم به دین",
+                                                                   "file":  "lectures/01-olal-bi-tavajjohi-mardom-be-din.opus",
+                                                                   "sizeBytes":  5386713
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-31",
+                                                                   "title":  "عیسی مسیح در آخر الزمان",
+                                                                   "file":  "lectures/32-isa-masih-dar-akhar-ozzaman.opus",
+                                                                   "sizeBytes":  7692088
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-32",
+                                                                   "title":  "غیب و پیشگویی",
+                                                                   "file":  "lectures/33-ghayb-va-pishgoee.opus",
+                                                                   "sizeBytes":  5721033
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-33",
+                                                                   "title":  "فلسفه تکالیف شرعی و ارزش سختی در عبادت",
+                                                                   "file":  "lectures/34-falsafeh-takalif-sharei-va-arzesh-sakhti-dar-ebadat.opus",
+                                                                   "sizeBytes":  6684035
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-34",
+                                                                   "title":  "فلسفه چند همسری",
+                                                                   "file":  "lectures/35-falsafeh-chand-hamsari.opus",
+                                                                   "sizeBytes":  5639853
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-35",
+                                                                   "title":  "مرتبه ی اسلام و فلسفه عبادت",
+                                                                   "file":  "lectures/36-martabeh-ye-eslam-va-falsafeh-ebadat.opus",
+                                                                   "sizeBytes":  8048727
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-36",
+                                                                   "title":  "مساجد در طول تاریخ",
+                                                                   "file":  "lectures/37-masajed-dar-tool-e-tarikh.opus",
+                                                                   "sizeBytes":  7118623
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-37",
+                                                                   "title":  "مسؤولیت والدین در تربیت دینی فرزندان",
+                                                                   "file":  "lectures/38-masouliyat-valedain-dar-tarbiat-dini-farzandan.opus",
+                                                                   "sizeBytes":  7590909
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-38",
+                                                                   "title":  "نماز",
+                                                                   "file":  "lectures/39-namaz.opus",
+                                                                   "sizeBytes":  5155552
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-39",
+                                                                   "title":  "نوروز و چهارشنبه سوری",
+                                                                   "file":  "lectures/40-norouz-va-chaharshanbe-soori.opus",
+                                                                   "sizeBytes":  5089715
+                                                               },
+                                                               {
+                                                                   "id":  "lectures-40",
+                                                                   "title":  "وظایف عملی اسلامی",
+                                                                   "file":  "lectures/41-vazayef-amali-eslami.opus",
+                                                                   "sizeBytes":  12864090
+                                                               }
+                                                           ]
+                                            },
+                                            {
+                                                "id":  "misc",
+                                                "title":  "متفرقه",
+                                                "tracks":  [
+                                                               {
+                                                                   "id":  "misc-01",
+                                                                   "title":  "خدا بنده‌های خوب خودش را امتحان می‌کند!❤️ مولانا بهزاد فقهی",
+                                                                   "file":  "misc/01-tawheed-molana-behzad-faghi.opus",
+                                                                   "sizeBytes":  2872433,
+                                                                   "new":  true
+                                                               }
+                                                           ]
+                                            }
+                                        ]
+                       }
+                   ]
+}

@@ -1,0 +1,138 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'release/**']
+  pull_request:
+    branches: [main, 'release/**']
+
+jobs:
+  test-and-analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.x'
+      - run: flutter pub get
+      - name: Dart format check
+        run: dart format --set-exit-if-changed lib test
+      - name: Generated code is up to date
+        run: dart run build_runner build --delete-conflicting-outputs --check
+      - run: flutter analyze || exit 1
+      - name: Test with coverage
+        run: flutter test --coverage || exit 1
+      - name: Coverage summary (instrumented line coverage)
+        run: |
+          python3 - <<'EOF'
+          lf = lh = 0
+          for line in open('coverage/lcov.info'):
+              if line.startswith('LF:'): lf += int(line[3:])
+              elif line.startswith('LH:'): lh += int(line[3:])
+          pct = 100 * lh / lf if lf else 0
+          print(f'line coverage: {lh}/{lf} = {pct:.1f}%')
+          EOF
+      - name: Quality gates (zero-debt, strict)
+        run: python3 tools/quality_check.py --strict
+      - name: Asset diet guard (no accidental giant bundled DBs)
+        run: |
+          python3 - <<'EOF'
+          import os
+          limit = 5 * 1024 * 1024
+          bad = []
+          for root, _, files in os.walk('assets'):
+              for f in files:
+                  if f.endswith(('.db', '.gz')):
+                      p = os.path.join(root, f)
+                      if os.path.getsize(p) > limit:
+                          bad.append(f'{p} ({os.path.getsize(p)//1024//1024}MB)')
+          if bad:
+              print('BUNDLED ASSETS OVER 5MB:\n' + '\n'.join(bad))
+              raise SystemExit(1)
+          print('asset diet OK')
+          EOF
+
+  build:
+    needs: test-and-analyze
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.x'
+      - run: flutter pub get
+
+      - name: Decode keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > ${{ github.workspace }}/release-key.jks
+
+      - name: Create key.properties
+        run: |
+          cat > ${{ github.workspace }}/key.properties << EOF
+          storePassword=${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          keyPassword=${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          keyAlias=${{ secrets.KEYSTORE_KEY_ALIAS }}
+          storeFile=${{ github.workspace }}/release-key.jks
+          EOF
+
+      - name: Build release APK
+        # No --split-per-abi: AGP 9.1.1 packages the arm64-v8a split without its
+        # manifest or resources (`aapt2 dump badging` cannot identify it, and
+        # `adb install` fails with INSTALL_PARSE_FAILED_UNEXPECTED_EXCEPTION), so
+        # shipping it handed arm64 users an uninstallable file. The universal APK
+        # already carries only armeabi-v7a + arm64-v8a via `ndk.abiFilters`.
+        run: flutter build apk --release
+        env:
+          # Ensure deterministic builds
+          FLUTTER_ROOT: ${{ env.FLUTTER_ROOT }}
+
+      - name: Build release AAB (Android App Bundle)
+        # APP_CHANNEL=play is mandatory for the Play artifact: Play and the
+        # self-hosted APK now share ONE frozen versionCode, so without this
+        # define the in-app update checker would classify a Play install as a
+        # direct build and offer it the raw APK URL (see docs/versioning.md).
+        run: flutter build appbundle --release --dart-define=APP_CHANNEL=play
+
+      - name: APK size budget (release/1.6.1 baseline 57MB)
+        run: |
+          size=$(stat -c%s build/app/outputs/flutter-apk/app-release.apk)
+          echo "APK size: $((size/1024/1024))MB"
+          if [ "$size" -gt 75497472 ]; then
+            echo "APK exceeds 72MB budget"
+            exit 1
+          fi
+
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk-split
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+
+      - name: Clean up keystore
+        if: always()
+        run: rm -f ${{ github.workspace }}/release-key.jks ${{ github.workspace }}/key.properties
+
+  # Optional: Deploy to Play Store (requires additional secrets)
+  # release:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+  #   steps:
+  #     - name: Download AAB
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: release-aab
+  #     - name: Upload to Play Console
+  #       env:
+  #         # These would be your Play Console secrets
+  #         RELEASE_NAME: ${{ secrets.PLAY_RELEASE_NAME }}
+  #         RELEASE_NOTES: ${{ secrets.PLAY_RELEASE_NOTES }}
+  #       run: |
+  #         echo "Would upload AAB to Play Console"
+# Note: Play Console upload requires additional setup and secrets not included here.

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بازبینی بقیهٔ بخش‌های «بیشتر» — توحید</title>
+<style>
+  :root{
+    --ink:#1d2320; --ink2:#3d4744; --muted:#6b7773;
+    --line:#e3e6e2; --card:#ffffff; --bg:#f6f7f4;
+    --gold:#b08d3f; --gold-soft:#f4ecda;
+    --green:#2e7d32; --green-soft:#eaf3ea;
+    --red:#b3261e; --red-soft:#fbeceb;
+    --blue:#1e5aa8; --blue-soft:#e9f0f9;
+    --amber:#8a6100; --amber-soft:#fdf3dd;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;
+    line-height:1.85; font-size:15px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,#1d2320,#2f3a35 55%,#3c4a42);
+    color:#f3efe4; border-radius:20px; padding:34px 30px;
+    box-shadow:0 10px 30px rgba(20,28,24,.18);
+  }
+  .hero .kicker{font-size:12px;letter-spacing:.14em;color:#cbb887;font-weight:700}
+  .hero h1{margin:8px 0 6px;font-size:27px;line-height:1.5}
+  .hero p{margin:0;color:#cfd6d0;font-size:14px;max-width:70ch}
+  .hero .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#a9b3ac}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .kpi b{display:block;font-size:23px;line-height:1.3;color:var(--ink)}
+  .kpi span{font-size:12px;color:var(--muted)}
+  h2{font-size:20px;margin:38px 0 6px;padding-right:12px;border-right:4px solid var(--gold)}
+  h2 small{font-weight:400;font-size:13px;color:var(--muted);margin-right:8px}
+  h3{font-size:16px;margin:26px 0 8px}
+  p.lead{color:var(--ink2);margin:6px 0 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:14px 0}
+  .fix{border-right:4px solid var(--red);background:var(--card);border-radius:12px;padding:16px 18px;margin:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .fix h4{margin:0 0 6px;font-size:15px}
+  .fix .where{font-family:Consolas,monospace;font-size:12px;color:var(--blue);direction:ltr;text-align:left;display:block;margin-bottom:8px}
+  .fix .row{display:grid;grid-template-columns:74px 1fr;gap:6px;font-size:13.5px;margin:4px 0}
+  .fix .row b{color:var(--muted);font-weight:600;font-size:12px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;font-size:13.5px;margin:12px 0;border:1px solid var(--line)}
+  th,td{padding:11px 12px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#eef0ec;font-size:12.5px;color:var(--ink2);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.sec{font-weight:700;white-space:nowrap}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--green-soft);color:var(--green)}
+  .t-fix{background:var(--red-soft);color:var(--red)}
+  .t-note{background:var(--amber-soft);color:var(--amber)}
+  .t-idea{background:var(--blue-soft);color:var(--blue)}
+  ul.clean{margin:8px 0;padding-right:20px}
+  ul.clean li{margin:5px 0}
+  .callout{border-radius:14px;padding:16px 18px;margin:16px 0;font-size:14px}
+  .c-warn{background:var(--amber-soft);border:1px solid #eadcae}
+  .c-info{background:var(--blue-soft);border:1px solid #cfe0f2}
+  .c-ok{background:var(--green-soft);border:1px solid #cfe3cf}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  code{font-family:Consolas,monospace;font-size:12.5px;background:#eef0ec;padding:1px 5px;border-radius:5px;direction:ltr;display:inline-block}
+  .num{font-variant-numeric:tabular-nums}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">بازبینی عمیق — بخش «بیشتر» › بقیهٔ گروه‌ها</div>
+  <h1>از حدیث و مطالعه تا کتابخانهٔ صوتی، ابزارها و تنظیمات: یک خانوادهٔ نقص، تکرارشده در هر بخش</h1>
+  <p>گروه «عبادات و مناسک» یک الگو را آشکار کرده بود؛ این گزارش نشان می‌دهد همان الگو در هر بخش باقی‌ماندهٔ «بیشتر» هم هست. هر یافته با کامیت بسته شده و تست خودش را دارد.</p>
+  <div class="meta">
+    <span>تاریخ: ۱۰ آبان ۱۴۰۵ / 2026-11-01</span>
+    <span>شاخه: release/1.8.0</span>
+    <span>کامیت‌ها: <code>30d50d0</code> · <code>ff21bea</code> · <code>ff1c8f0</code> · <code>c0d8831</code> · <code>fc433de</code></span>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><b class="num">۴</b><span>گروه بازبینی‌شده</span></div>
+  <div class="kpi"><b class="num">≈۴۱٬۰۰۰</b><span>خط کد در این چهار گروه</span></div>
+  <div class="kpi"><b class="num">۳۱</b><span>یافتهٔ بسته‌شده</span></div>
+  <div class="kpi"><b class="num">۵</b><span>کامیت</span></div>
+  <div class="kpi"><b class="num">۱٬۵۳۱</b><span>تست پاس در بخش‌های دست‌خورده</span></div>
+</div>
+
+<h2>خلاصه اجرایی <small>در یک نگاه</small></h2>
+<p class="lead">موتور این بخش‌ها سالم است: پایگاه‌دادهٔ فتوا، پارسر کتاب، ریاضیات هلال، دفتر هزینه‌ها و محاسبه‌گر زکات همه با دقت نوشته شده‌اند و تست دارند. آنچه خراب بود، رفتارِ <b>لبه‌ها</b> بود — و در هر چهار گروه، همان یک خانواده تکرار می‌شد.</p>
+
+<div class="card">
+  <h3 style="margin-top:0">پنج خانواده‌ی نقص که در همه‌ی بخش‌ها تکرار شده بود</h3>
+  <table>
+    <tr><th>#</th><th>خانواده</th><th>شکل بروز</th><th>نمونه در این چهار گروه</th></tr>
+    <tr><td class="num">۱</td><td class="sec">حالتی که پیش از تأیید نشان داده می‌شود</td><td>خواندن در جریان است، ولی صفحه مقدار پیش‌فرض یا خالی را قطعی نشان می‌دهد</td><td>هشت سوئیچ اعلان با <code>AppSettings()</code> کارخانه‌ای؛ «فاصله از اقامه» پیش از خواندن مقدار؛ وضعیت نشانک کتاب پیش از رسیدن پاسخ</td></tr>
+    <tr><td class="num">۲</td><td class="sec">کار سنگین داخل <code>build</code></td><td>محاسبه یا تبدیل در هر بازسازی تکرار می‌شود</td><td>تاشوی جست‌وجوی یادداشت‌ها برای هر یادداشت در هر فریم؛ تبدیل شمسی هر ردیف گزارش هزینه (۱۲×N)؛ سه‌بار <code>jsonDecode</code> در هر آیتم دارایی</td></tr>
+    <tr><td class="num">۳</td><td class="sec">شکستی که چیزی نمی‌گوید</td><td>خطای خواندن به‌صورت «خالی» یا «صفر» نمایش داده می‌شود</td><td>دفتر هزینه‌ها و فهرست کارها؛ فهرست فتوا و باب حدیث؛ جست‌وجوی یاقین؛ پشتیبان‌گیری محلی که «$count تنظیم بازگردانی شد» می‌گفت در حالی که فقط یک بلاب شمرده می‌شد</td></tr>
+    <tr><td class="num">۴</td><td class="sec">خطای نوشتن به‌جای خطای خواندن</td><td>ذخیره‌سازی ناموفق، ظاهرِ «سوئیچی که تکان نمی‌خورد» را دارد</td><td><code>settings_notifier._save</code> که بی‌صدا برمی‌گشت؛ ذخیرهٔ تراکنش هزینه؛ ذخیرهٔ کار در دیالوگ</td></tr>
+    <tr><td class="num">۵</td><td class="sec">کروم دست‌ساز که از بقیه جدا می‌افتد</td><td>هر صفحه نسخهٔ خودش را می‌نویسد و یکی دو قید را جا می‌اندازد</td><td>روزه و وضو بدون قید ارتفاع AppBar؛ «ماه» با نوار تاریخ بیرون از <code>TabBarView</code></td></tr>
+  </table>
+</div>
+
+<h2>۱. حدیث و مطالعه <small>کامیت <code>30d50d0</code></small></h2>
+<p class="lead">دو کتاب‌خوان و سه فهرست، همه با یک مشکل مشترک: وقتی خواندن شکست می‌خورد، صفحه می‌گفت «چیزی نیست».</p>
+
+<div class="fix">
+  <h4>کتاب‌خوان: جست‌وجو در هر کلید، کل کتاب را دوباره تا می‌زد</h4>
+  <span class="where">book_reader_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>هر کاراکتر تایپ‌شده، <code>normalizeForSearch</code> را روی <b>همهٔ</b> صفحات کتاب اجرا می‌کرد — یک کتاب چندصد صفحه‌ای، در هر کلید.</span></div>
+  <div class="row"><b>اصلاح</b><span>تاشو یک‌بار برای هر کتاب ساخته و کش می‌شود (<code>_foldedPagesFor</code>)، با دیبانس ۱۸۰ms و نگهبان «کوئری کهنه». کش با هر صفحه‌بندی مجدد باطل می‌شود.</span></div>
+</div>
+
+<div class="fix">
+  <h4>کتاب‌خوان: دکمهٔ نشانک پیش از دانستن وضعیت، فعال بود</h4>
+  <span class="where">book_reader_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>پاسخ خواندنِ وضعیت ممکن بود بعد از ورق زدن برسد و نشانک صفحهٔ <b>قبلی</b> را روی صفحهٔ جدید اعمال کند.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>_bookmarkKnown</code>؛ هر دو مسیر خواندن و نوشتن، شمارهٔ صفحه را در لحظهٔ شروع قفل می‌کنند و پاسخ دیرهنگام را رد می‌کنند. تا تأیید، دکمه غیرفعال است با tooltip «در حال خواندن وضعیت نشانک…».</span></div>
+</div>
+
+<div class="fix">
+  <h4>فتوا: جست‌وجو روی نیم‌فاصله می‌شکست، و صفحه‌بندی خطا را قورت می‌داد</h4>
+  <span class="where">fatwa_service.dart · fatwa_screen.dart · build_fatwa_db.py</span>
+  <div class="row"><b>نشانه</b><span>«مسح سر با آب باقی‌مانده» با نیم‌فاصله در متن و بدون آن در جست‌وجو پیدا نمی‌شد — هم در Dart و هم در اسکریپت ساخت پایگاه‌داده. و <code>_loadMore</code> هر خطایی را می‌بلعید، پس فهرست بی‌صدا کوتاه می‌ماند.</span></div>
+  <div class="row"><b>اصلاح</b><span>هر دو طرف با <code>REPLACE(..., char(8204), '')</code> مقایسه می‌شوند (و اسکریپت ساخت هم هم‌گام شد). خطای صفحه‌بندی حالا <code>AppLogger.error</code> می‌شود و فوتر دکمهٔ «بارگذاری بقیهٔ فتواها ناموفق بود — تلاش دوباره» نشان می‌دهد. <code>byIds</code> هم اضافه شد: یک کوئری <code>IN</code> ایندکس‌دار با تکه‌بندی ۵۰۰تایی، جای پرس‌وجوی تک‌تک.</span></div>
+  <div class="row"><b>تست</b><span>۳۴ تست؛ ردیف چهارم فیکسچر عمداً نیم‌فاصله دارد و سه تست جدید جست‌وجو را از دو طرف می‌سنجد.</span></div>
+</div>
+
+<div class="fix">
+  <h4>حدیث: «باب باز نشد» و «حدیثی یافت نشد» دو چیز متفاوتند</h4>
+  <span class="where">hadith_books_screen.dart · yaqeen_home_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>خطای خواندن باب، فهرست خالی و پیام «حدیثی یافت نشد» را تولید می‌کرد — یعنی به کاربر می‌گفت این باب خالی است، در حالی که باز نشده بود.</span></div>
+  <div class="row"><b>اصلاح</b><span>سه پرچم مستقل (<code>_searchFailed</code>، <code>_chapterFailed</code>، <code>_loadMoreFailed</code>) با پنل اختصاصی و تلاش دوباره؛ جست‌وجوی یاقین هم همین رفتار را گرفت.</span></div>
+</div>
+
+<h2>۲. کتابخانهٔ صوتی <small>کامیت <code>ff21bea</code></small></h2>
+<p class="lead">این بخش از نظر معماری تمیزترین بخش «بیشتر» است — منیفست، دانلود با Range و ادامهٔ پخش. مشکل در دو جایی بود که «ناقص» را «کامل» می‌گرفت.</p>
+
+<div class="fix">
+  <h4>فایل ناقص، دانلود کامل حساب می‌شد</h4>
+  <span class="where">audio_library_player.dart</span>
+  <div class="row"><b>نشانه</b><span>قطع شدن اتصال در میانه، فایل کوتاه‌شده را روی دیسک می‌گذاشت و <code>downloaded: true</code> ثبت می‌شد. پخش بعدی وسط قطع می‌شد و کاربر فکر می‌کرد فایل خراب است.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>downloadVerdict({received, declaredTotal, onDisk})</code> — سه حالت <code>complete</code>/<code>truncated</code>/<code>empty</code>، با آستانهٔ ۱KB برای «خالی». فایل ناقص ذخیره نمی‌شود و پیام «دانلود کامل نشد؛ فایل ناقص بود و ذخیره نشد» می‌آید. ۷ تست جدید.</span></div>
+</div>
+
+<div class="fix">
+  <h4>«لغو» به‌عنوان «خطا» گزارش می‌شد</h4>
+  <span class="where">audio_library_player.dart</span>
+  <div class="row"><b>نشانه</b><span>کاربر دانلود را لغو می‌کرد و کارت با پیام خطای قرمز می‌ماند. همچنین دانلود دوبارهٔ فایلی که از قبل روی دیسک بود، از صفر شروع می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>نشانهٔ نسل دانلود (<code>_downloadGeneration</code>) لغو را از خطا جدا می‌کند؛ فایل <code>.part</code> پاک و کارت با <code>error: null</code> برمی‌گردد. <code>_isOnDisk</code> پیش از شروع، دانلود تکراری را کوتاه می‌کند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>ادامهٔ پخش روی ثانیه‌های آخر، فایل را «تمام‌شده» می‌کرد</h4>
+  <span class="where">audio_library_player.dart</span>
+  <div class="row"><b>نشانه</b><span>اگر کاربر در پنج ثانیهٔ آخر بست، دفعهٔ بعد درس از انتها باز می‌شد و به نظر می‌رسید تمام شده.</span></div>
+  <div class="row"><b>اصلاح</b><span>نگهبان <code>nearEnd</code>: اگر مدت معلوم باشد و موقعیت در پنج ثانیهٔ آخر، موقعیت ذخیره‌شده پاک می‌شود و از ابتدا پخش می‌شود.</span></div>
+</div>
+
+<div class="fix">
+  <h4>منیفست ناقص، کتابخانهٔ خالی را نمایش می‌داد</h4>
+  <span class="where">audio_library_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>پاسخ ناقص سرور (دسته‌های خالی) همان «کتابخانه خالی است» را می‌داد که یک کتابخانهٔ واقعاً خالی.</span></div>
+  <div class="row"><b>اصلاح</b><span>دسته‌های خالی حالا خطا هستند با پیام «فهرست کتابخانه خالی بود؛ سرور پاسخ ناقص داد» و تلاش دوباره. شمارندهٔ گوینده از <code>newCountForSpeaker</code> استفاده می‌کند و شمارهٔ درس در نتیجهٔ جست‌وجو از ایندکس واقعی می‌آید، نه ۱ ثابت.</span></div>
+</div>
+
+<h2>۳. ابزارها و پیشرفت <small>کامیت‌های <code>ff1c8f0</code> · <code>c0d8831</code></small></h2>
+<p class="lead">دفتر هزینه‌ها، کارها و اهداف: پرکاربردترین بخش‌های برنامه، و بیشترین جاهایی که «خطای خواندن» به‌شکل «دفتر خالی» ظاهر می‌شد.</p>
+
+<div class="fix">
+  <h4>هزینه‌ها و کارها: خواندن ناموفق، «دفتر خالی» را نشان می‌داد</h4>
+  <span class="where">expense_provider.dart · task_provider.dart</span>
+  <div class="row"><b>نشانه</b><span><code>expensesLoadedProvider</code> فقط یک <code>bool</code> بود، پس سه حالت (در حال خواندن / آماده / ناموفق) در دو حالت فشرده می‌شد و خطا همیشه «خالی» می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>هر دو به <code>enum …LoadStatus { loading, ready, failed }</code> تبدیل شدند، با <code>reload()</code>. صفحه‌ها پنل «دفتر هزینه‌ها باز نشد» / «کارها باز نشدند» با جملهٔ «تراکنش‌های شما پاک نشده‌اند؛ فقط خواندنشان ناموفق بود» و دکمهٔ تلاش دوباره گرفتند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>ذخیرهٔ ناموفق هزینه، بی‌صدا گم می‌شد</h4>
+  <span class="where">expense_provider.dart · expenses_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>تراکنش در حافظه می‌ماند، در دیسک نمی‌نشست، و هیچ نشانه‌ای نبود؛ با بستن برنامه از بین می‌رفت.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>expenseSaveFailedProvider</code> و بنر «ذخیره‌سازی ناموفق بود؛ این تغییرات ممکن است با بستن برنامه از دست بروند».</span></div>
+</div>
+
+<div class="fix">
+  <h4>کار: ذخیرهٔ ناموفق، دیالوگ را با پیام موفقیت می‌بست</h4>
+  <span class="where">tasks_dialog.dart · tasks_weekly_stats.dart</span>
+  <div class="row"><b>نشانه</b><span>در حالت «کار جدید»، شکست ذخیره هیچ پیامی نداشت و دیالوگ بسته می‌شد. آمار هفته هم پس از خطا می‌گفت «این هفته هنوز کاری تیک نخورده».</span></div>
+  <div class="row"><b>اصلاح</b><span>پیام «ذخیرهٔ کار ناموفق بود؛ دوباره تلاش کنید» و باز ماندن دیالوگ؛ آمار هفته می‌گوید «آمار این هفته خوانده نشد».</span></div>
+</div>
+
+<div class="fix">
+  <h4>هدف: نمودار پیشرفت، حالت خطا نداشت</h4>
+  <span class="where">goal_detail_screen.dart · goal_dates.dart · goal_streak.dart · task_recurrence.dart</span>
+  <div class="row"><b>نشانه</b><span><code>_progressChart</code> مقدار را با <code>?? []</code> می‌گرفت، پس خطا و «هیچ پیشرفتی» یکی می‌شدند. جدا از آن، اختلاف روزها با <code>difference().inDays</code> حساب می‌شد که در تغییر ساعت تابستانی یک روز کم می‌آورد.</span></div>
+  <div class="row"><b>اصلاح</b><span>سه حالت جدا برای نمودار (در حال خواندن / خطا با <code>invalidate</code> / خالی). <code>goalDaysBetween</code> هر دو سر را به <code>DateTime.utc</code> می‌برد؛ <code>currentStreak</code> هم بازنویسی شد تا پنجرهٔ هفتگی/ماهانه/دوره‌ای را درست ببندد. یک تست DST.</span></div>
+</div>
+
+<div class="fix">
+  <h4>اعداد پول: گرد شدن دوباره و بریده شدن اعشار</h4>
+  <span class="where">number_format.dart · expense_report_screen.dart · expense_report_pdf.dart · pdf_report_util.dart</span>
+  <div class="row"><b>نشانه</b><span><code>formatPlain</code> برای هر مقدار اعشاری، <code>toStringAsFixed(0)</code> برمی‌گرداند — یعنی هم گرد می‌کرد و هم جداکنندهٔ هزارگان را می‌انداخت. گزارش PDF هم هر ردیف را جداگانه <code>round()</code> می‌کرد، پس جمع ستون با جمع نمایش‌داده‌شده یکی نبود.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>formatPlain</code> اعشار را نگه می‌دارد و گروه‌بندی می‌کند؛ <code>enMoney</code> جای <code>enDigits(x.round())</code> را گرفت. تبدیل شمسی گزارش هم از <code>12×N</code> به یک پاس تبدیل شد و کارت‌های خلاصه واحد پول را می‌گویند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>یادداشت‌ها و دارایی‌ها: کار تکراری در هر فریم</h4>
+  <span class="where">worship_notes_screen.dart · assets_screen.dart · personal_info_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>فیلتر یادداشت‌ها متن <b>هر</b> یادداشت را در <b>هر</b> بازسازی دوباره تا می‌زد؛ کارت دارایی سه‌بار <code>jsonDecode</code> می‌کرد؛ و <code>_initLockState</code> بدون نگهبان <code>mounted</code> بود.</span></div>
+  <div class="row"><b>اصلاح</b><span>کش تاشو با کلید <code>(title, content)</code>، یک‌بار decode در هر ساخت کارت، و نگهبان <code>mounted</code> روی قفل صفحهٔ اطلاعات شخصی.</span></div>
+</div>
+
+<h2>۴. تنظیمات و بیشتر <small>کامیت <code>fc433de</code></small></h2>
+<p class="lead">حساس‌ترین بخش: جایی که یک مقدار اشتباه روی صفحه، مستقیماً روی عبادت کاربر اثر می‌گذارد.</p>
+
+<div class="fix">
+  <h4>صفحهٔ اعلان‌ها هشت سوئیچ را با مقدار کارخانه‌ای نشان می‌داد</h4>
+  <span class="where">notification_settings_screen.dart</span>
+  <div class="row"><b>نشانه</b><span>در حین خواندن ردیف تنظیمات، صفحه با <code>const AppSettings()</code> ساخته می‌شد: کاربری که همهٔ اعلان‌ها را روشن کرده بود، یک لحظه همه را خاموش می‌دید — و اگر در همان فریم تپ می‌کرد، مقدار غلط ذخیره می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>سه حالت صریح: اسکلت بی‌سوئیچ (هیچ چیز قابل تپ نیست)، صفحهٔ کامل، و پنل «تنظیمات اعلان‌ها باز نشد» با تلاش دوباره.</span></div>
+</div>
+
+<div class="fix">
+  <h4>ذخیرهٔ ناموفق تنظیمات، «سوئیچی که تکان نمی‌خورد» بود</h4>
+  <span class="where">settings_notifier.dart · settings_widgets.dart</span>
+  <div class="row"><b>نشانه</b><span><code>_save</code> حالت را خوش‌بینانه جلو می‌برد و در خطا بی‌صدا برمی‌گرداند — بدون هیچ توضیحی. از دید کاربر، سوئیچ کار نمی‌کرد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>settingsSaveFailedProvider</code> و بنر «آخرین تغییر ذخیره نشد و به مقدار قبلی برگشت» روی هر سه سطح تنظیمات (اصلی، ابزارک‌ها، اعلان‌ها). بازنشانی و ورود از فایل هم دیگر پیام موفقیت پیش از تأیید نمی‌دهند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>بازگردانی پشتیبان: فایل‌ها پیش از تراکنش نوشته می‌شدند</h4>
+  <span class="where">backup_service.dart</span>
+  <div class="row"><b>نشانه</b><span>فایل‌های اذان شخصی و <code>app_data</code> قبل از تراکنش پایگاه‌داده روی دیسک می‌نشستند؛ اگر تراکنش شکست می‌خورد، یک وضعیت نیمه‌اعمال‌شده می‌ماند — فایل‌های جدید با جدول‌های قدیمی.</span></div>
+  <div class="row"><b>اصلاح</b><span>هر دو در پوشهٔ موقت <b>staging</b> نوشته می‌شوند و تنها پس از commit با <code>_promoteStagedTree</code> جای اصلی را می‌گیرند؛ در خطا، موقت پاک می‌شود.</span></div>
+</div>
+
+<div class="fix">
+  <h4>پشتیبان محلی می‌گفت «۱ تنظیم بازگردانی شد» در حالی که فقط یک بلاب بود</h4>
+  <span class="where">local_backup_section.dart</span>
+  <div class="row"><b>نشانه</b><span>شمارنده فقط <code>_driftSettings</code> را می‌شمرد و کلیدهای prefs را نادیده می‌گرفت؛ و خطای نوشتن هر کلید فقط لاگ می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span>شمارش واقعی هر دو مسیر، و پیام شکست صریح به‌جای «با موفقیت».</span></div>
+</div>
+
+<div class="fix">
+  <h4>«فاصله از اقامه» پیش از خواندن مقدار، قابل انتخاب بود</h4>
+  <span class="where">settings_widgets.dart · notification_settings_screen.dart</span>
+  <div class="row"><b>نشانه</b><span><code>SelectTile</code> هیچ حالتی برای «مقدار هنوز نرسیده» نداشت، پس مقدار پیش‌فرض به‌عنوان انتخاب فعلی نشان داده می‌شد.</span></div>
+  <div class="row"><b>اصلاح</b><span><code>SelectTile</code> حالا <code>selected</code> اختیاری و حالت غیرفعال با برچسب «در حال خواندن…» دارد؛ انتخاب کاربر پیش از تأیید ذخیره، در خطا برمی‌گردد.</span></div>
+</div>
+
+<div class="fix">
+  <h4>پرش به ردیفِ تنظیمات، وقتی صفحه با اسکلت شروع می‌شد گم می‌شد</h4>
+  <span class="where">settings_flash.dart</span>
+  <div class="row"><b>نشانه</b><span><code>_materializeAnchor</code> اگر کنترلر هنوز کلاینت نداشت، برمی‌گشت — یعنی دقیقاً در حالتی که صفحه با اسکلت باز شده بود.</span></div>
+  <div class="row"><b>اصلاح</b><span>انتظار برای اتصال اسکرول‌ویو (تا ۴۰ فریم) پیش از پیمایش؛ ۴۴۶ تست تنظیمات پاس.</span></div>
+</div>
+
+<h2>۵. وضعیت تست و گیت <small>در پایان این چهار گروه</small></h2>
+
+<table>
+  <tr><th>بخش</th><th>تست‌های پاس</th><th>یادداشت</th></tr>
+  <tr><td class="sec">حدیث و مطالعه</td><td class="num">۲۱۱</td><td>شامل ۳۴ تست فتوا با فیکسچر نیم‌فاصله</td></tr>
+  <tr><td class="sec">کتابخانهٔ صوتی</td><td class="num">۱۱۷ + ۷</td><td>۷ تست جدید برای <code>downloadVerdict</code></td></tr>
+  <tr><td class="sec">ابزارها و پیشرفت</td><td class="num">۹۳۸</td><td>شامل ۲۰ تست جدید DST و وضعیت بارگذاری</td></tr>
+  <tr><td class="sec">تنظیمات و بیشتر</td><td class="num">۴۴۶</td><td>شامل تست پرش به ردیف و پشتیبان‌گیری</td></tr>
+</table>
+
+<div class="callout c-warn">
+  <b>دو نکتهٔ صادقانه دربارهٔ تست‌ها:</b>
+  <ul class="clean" style="margin:8px 0 0">
+    <li>سه تست <code>test/android/</code> روی <code>TasbihNativeViews.kt</code> و <code>widget_tasbih_native.xml</code> می‌افتند — هر دو فایل همین حالا تغییر کامیت‌نشدهٔ سشن موازی دارند. دست نزدم.</li>
+    <li>تست <code>attachment_storage_test</code> به‌تنهایی پاس می‌شود؛ شکست <code>tearDownAll</code> در اجرای گروهی، رقابت پوشهٔ موقت است نه تغییر کد.</li>
+  </ul>
+</div>
+
+<div class="callout c-info">
+  <b>گیت کیفیت:</b> در پایان این چهار گروه، هفت بررسی از هشت روی صفر. تنها breached، یک <code>]!</code> در <code>lib/features/personal/care_engine/care_reminders.dart</code> است — فایلی <b>کامیت‌نشده</b> که سشن موازی نوشته و طبق قاعدهٔ مخزن نباید ویرایشش کنم. با کامیت شدن آن کار، گیت خودش سبز می‌شود.
+</div>
+
+<div class="callout c-ok">
+  <b>به‌روزرسانی:</b> ریشهٔ خانوادهٔ ۳ بسته شد. پنل خطا در ۴۵ فایل و ۵۴ نقطه دستی نوشته می‌شد و روی هشت ویژگی واگرا شده بود — از جمله سه برچسب برای یک کنش و پنل‌های بی‌کلید که فقط با تطبیق متن فارسی قابل تست بودند. حالا یک کامپوننت (<code>FailureView</code>) با سه چیدمان مالک آن است. دور دوم جایی را که دور اول از قلم افتاده بود هم پوشاند: پنج صفحهٔ کتابخانهٔ حدیث که خودِ استثنا را در بدنه چاپ می‌کردند، و چند صفحه که شکست را با «خالی» نمایش می‌دادند. جزئیات و اعداد در گزارش <code>failure_surface_report.html</code>.
+</div>
+
+<h2>۶. آنچه در این دور عمداً انجام نشد</h2>
+<ul class="clean">
+  <li><b>بازنویسی <code>AsyncScreen&lt;T&gt;</code> روی ۱۰۵ صفحه.</b> زیرساختش هست (<code>lib/shared/widgets/async_screen.dart</code>) ولی فقط ۶ بخش از آن استفاده می‌کنند. مهاجرت کامل یک تغییر بزرگ و پرریسک است و پیشنهاد می‌شود جدا و با تست گلدن انجام شود — ولی حالا کم‌ریسک‌تر است، چون همهٔ شاخه‌های خطا به یک پنل می‌رسند.</li>
+  <li><b>یکسان‌سازی الگوی «خطای نوشتن».</b> سه الگوی متفاوت در مخزن هست (<code>bool</code> برمی‌گرداند / پرچم پراوایدر / بنر). همه به بنر رسیدند ولی کد مشترک نشد.</li>
+  <li><b>ورق زدن خودکار تقویم قمری در تنظیمات.</b> تصمیم محصول است، نه نقص.</li>
+</ul>
+
+<div class="callout c-ok">
+  <b>جمع‌بندی:</b> ۳۱ یافته در چهار گروه بسته شد، با ۵ کامیت و ۱٬۵۳۱ تست پاس. کارهای بخش «عبادات و مناسک» — <code>SectionPage</code>، جست‌وجوی بخش، و بازبینی زکات و روزه — در گزارش <code>worship_audit_report.html</code> آمده‌اند.
+</div>
+
+<footer>
+  بازبینی بقیهٔ «بیشتر» — توحید · شاخه‌ی release/1.8.0 · کامیت‌های <code>30d50d0</code> · <code>ff21bea</code> · <code>ff1c8f0</code> · <code>c0d8831</code> · <code>fc433de</code><br>
+  تحلیل ایستا: بدون ایراد · گیت کیفیت: ۷/۸ صفر (یک مورد در فایل کامیت‌نشدهٔ سشن موازی)
+</footer>
+
+</div>
+</body>
+</html>

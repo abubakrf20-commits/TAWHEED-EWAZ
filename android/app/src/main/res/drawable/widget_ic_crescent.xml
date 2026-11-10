@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Approved design row 1: the crescent before the weekday (tinted at render). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12.3,2.5C9.8,2.9 7.5,4.2 5.9,6.2 3.4,9.3 3,13.7 5.1,17.2c2.4,4 7.3,5.7 11.7,4.2 1.1,-0.4 2.1,-0.9 3,-1.6 -4.2,0.3 -8.3,-1.8 -10.4,-5.6C7.4,10.6 7.8,6.2 10.2,3c0.7,-0.2 1.4,-0.4 2.1,-0.5z" />
+</vector>

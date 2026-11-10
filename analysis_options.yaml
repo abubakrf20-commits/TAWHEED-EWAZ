@@ -1,0 +1,80 @@
+# Tawheed — Strict Analysis Configuration
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    missing_return: error
+    dead_code: warning
+    unused_import: warning
+    unused_local_variable: warning
+    unnecessary_this: warning
+    # Treat missing @override as a warning to catch API misuse
+    annotate_overrides: warning
+    # Context used across an async gap can throw once the route is popped —
+    # promote it from a silent `info` (which CI ignores) to a build-breaking
+    # error so it can never come back.
+    use_build_context_synchronously: error
+    # Enforce strict raw types
+    strict_raw_type: warning
+    # Enforce type annotations
+    always_specify_types: ignore
+
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "qcf_quran_lite-0.0.5/example/**"
+    # Vendored third-party sources (WOFF2 + pure-Dart Brotli decoders);
+    # kept verbatim from upstream, so their style lints are not our concern.
+    - "lib/third_party/**"
+    # Design reference package (standalone demo from the 2026 redesign);
+    # kept as-is for documentation, never compiled or shipped.
+    - "desine/**"
+
+linter:
+  rules:
+    # Style
+    - avoid_print
+    - prefer_single_quotes
+    - unnecessary_lambdas
+    - unnecessary_string_interpolations
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_locals
+    - sized_box_for_whitespace
+    - use_key_in_widget_constructors
+    - prefer_const_constructors_in_immutables
+
+    # Safety
+    - avoid_unnecessary_containers
+    - avoid_relative_lib_imports
+    - cancel_subscriptions
+    - close_sinks
+    - no_adjacent_strings_in_list
+    - avoid_redundant_argument_values
+    - use_super_parameters
+
+    # Readability
+    - always_declare_return_types
+    - annotate_overrides
+    - avoid_empty_else
+    - avoid_init_to_null
+    - avoid_return_types_on_setters
+    - avoid_void_async
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - sort_child_properties_last
+    - use_build_context_synchronously
+
+    # Modern Dart
+    - collection_methods_unrelated_type
+    - no_literal_bool_comparisons
+    - no_self_assignments
+    - unnecessary_breaks
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_string_escapes
+    - unnecessary_to_list_in_spreads
+    - prefer_final_in_for_each
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_contains
+    - prefer_adjacent_string_concatenation
+    - prefer_interpolation_to_compose_strings

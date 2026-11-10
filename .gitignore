@@ -1,0 +1,164 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+.windsurf/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Local machine paths (not for version control)
+android/local.properties
+
+# Windows reserved names
+nul
+
+# Build output
+/out/
+
+# Keystore and signing (secret - do NOT commit)
+key.properties
+android/key.properties
+android/app/release-key.jks
+
+# Reference repositories (not part of the app)
+/quran/
+/books/
+/hadith-json-main/
+/tools/mdb_libs/
+/TAFSEER/
+/TAWHEED-EWAZ/
+/tools/node_modules/
+.mimocode/
+.kilo/
+
+# Firebase config (placeholder local file - replace with real values at build time)
+android/app/google-services.json
+
+# Stray SQLite databases not referenced by pubspec.yaml or app code
+assets/anwar.db
+assets/noor.db
+assets/rastin.db
+
+# Flutter build output
+/out/
+*.log
+
+# Large stray SQL dump (187MB) � not referenced by the app
+quran.sql
+
+# Quran Foundation API credentials (secret - do NOT commit)
+api quran.txt
+assets/env/quran_api.env
+
+# Freebuff worktrees (temporary reference copies)
+.freebuff/
+my-quran-app/
+
+# Reference mushaf sources (not part of the app)
+/tools/mushaf_source/
+/hafs/
+
+# Server-hosted mushaf pages (built by tools/build_kfqc_pages.py — kept out of
+# git like /quran/). Only the small ayah_boxes.json is bundled in assets/quran/.
+/assets/quran/mushaf/
+
+# Content upload staging (mushaf pages, zips, nginx config) — built outputs
+# hosted on GitHub, not part of the app repo
+/tools/server_upload/
+
+android/build/
+
+# One-time comparison databases
+tools/_cmp/
+
+# Original APK (data extracted, no longer needed)
+islampp-v2.0.apk
+
+# On-demand content databases — downloaded at runtime from the content host
+# (TAWHEED-EWAZ repo), never bundled (see pubspec flutter.assets) and never
+# committed here. Local copies stay on disk for tooling; git ignores them.
+assets/hadith.db
+assets/hadeeth_enc.db
+assets/books_data/book_*.json.gz
+assets/books_data/maalim.db.gz
+
+# SQLite sidecar files from opening hadith.db locally in WAL mode
+assets/hadith.db-shm
+assets/hadith.db-wal
+
+# Reference/source documents kept in _archive/ (tracked there); local copies
+# at the repo root stay on disk for tooling (tools/sharh_to_sqlite.py reads
+# the root docx files) but must never be committed twice.
+/HadeethEnc.com_fa*.xlsx
+/hesn.docx
+/sharh-reyaz-al-salehin-*.docx
+
+# One-off analysis artifacts (archived copies live in _archive/)
+/qcf4_comparison.html
+/mapping-release-*.txt
+
+# Unreferenced staging files (design mockups / font candidates)
+/assets/12.png
+/assets/IMG_*.png
+/assets/fonts/Elgharib-NoonEnds.ttf
+
+android/.kotlin/
+
+# Flutter golden test failure diffs
+test/**/failures/
+
+# Firebase service account key (secret — download from console →
+# Project settings → Service accounts → Generate new private key)
+tools/firebase-adminsdk.json
+
+# Firebase CLI local cache
+.firebase/
+
+# Local push history kept by tools/fcm_server.mjs
+tools/.fcm_history.json
+
+# Local-only artifacts: adb screenshots, design passes, stray captures
+/.design-shots/
+/.workbuddy-ai/
+/cache.db
+/ui.xml
+/%TEMP%/

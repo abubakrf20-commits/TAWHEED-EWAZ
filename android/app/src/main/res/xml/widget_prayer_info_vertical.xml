@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The dedicated VERTICAL prayer card's provider (pre-Android 12 fallback).
+     A second, independently placeable provider so the horizontal and vertical
+     prayer widgets can live on the home screen at the same time.
+
+     No OS polling (updatePeriodMillis=0): like the horizontal provider, the
+     clock and countdown are self-ticking RemoteViews leaves and the exact
+     boundary alarms drive every repaint.
+
+     `minHeight` is 260 dp. On API 31+ the v31 provider's `targetCellHeight="4"`
+     governs the default placement and shows the REAL full vertical card (all
+     five prayers + clock + date; the full tier needs ~282 dp at the 10 dp row
+     gap). Below API 31 this 260 dp floor lands on the compact tier (rows +
+     countdown only), which the user can resize up to the full tier. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="260dp"
+    android:minResizeWidth="120dp"
+    android:minResizeHeight="80dp"
+    android:maxResizeWidth="500dp"
+    android:maxResizeHeight="500dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_placeholder_prayer"
+    android:label="توحید — اوقات نماز (عمودی)"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

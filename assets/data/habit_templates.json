@@ -1,0 +1,23 @@
+{
+  "_note": "پیشنهادی و قابل ویرایش — هیچ‌کدام حکم شرعی نیستند. reviewed=false یعنی هنوز بازبینی انسانی نشده‌اند. عادت‌ها فقط عنوان و ستارهٔ پیشنهادی‌اند؛ محتوای قرآنی/تربیتی در این فایل نیست.",
+  "version": 1,
+  "habits": [
+    {"key": "brush_teeth", "titleFa": "مسواک زدن", "iconKey": "brush", "defaultStars": 1, "categoryKey": "self_care", "reviewed": true},
+    {"key": "study", "titleFa": "درس خواندن", "iconKey": "book", "defaultStars": 2, "categoryKey": "learning", "reviewed": true},
+    {"key": "help_home", "titleFa": "کمک در خانه", "iconKey": "home", "defaultStars": 2, "categoryKey": "family", "reviewed": true},
+    {"key": "tidy_room", "titleFa": "مرتب کردن اتاق", "iconKey": "broom", "defaultStars": 1, "categoryKey": "self_care", "reviewed": true},
+    {"key": "quran_five_minutes", "titleFa": "قرآن ۵ دقیقه", "iconKey": "quran", "defaultStars": 2, "categoryKey": "worship", "reviewed": true, "note": "فقط مدت خواندن ثبت می‌شود؛ متن قرآن در این ابزار ذخیره نمی‌شود."},
+    {"key": "salam_kindness", "titleFa": "سلام و مهربانی", "iconKey": "heart", "defaultStars": 1, "categoryKey": "manners", "reviewed": true},
+    {"key": "small_charity", "titleFa": "صدقهٔ کوچک", "iconKey": "gift", "defaultStars": 2, "categoryKey": "manners", "reviewed": true},
+    {"key": "pack_school_bag", "titleFa": "آماده کردن کیف مدرسه", "iconKey": "bag", "defaultStars": 1, "categoryKey": "responsibility", "reviewed": true},
+    {"key": "sleep_on_time", "titleFa": "به‌موقع خوابیدن", "iconKey": "moon", "defaultStars": 1, "categoryKey": "self_care", "reviewed": true}
+  ],
+  "rewards": [
+    {"key": "ice_cream", "titleFa": "بستنی", "iconKey": "icecream", "costStars": 10, "reviewed": false},
+    {"key": "game_30", "titleFa": "بازی ۳۰ دقیقه", "iconKey": "gamepad", "costStars": 15, "reviewed": false},
+    {"key": "park_weekend", "titleFa": "پارک آخر هفته", "iconKey": "park", "costStars": 25, "reviewed": false},
+    {"key": "new_book", "titleFa": "کتاب جدید", "iconKey": "book", "costStars": 40, "reviewed": false},
+    {"key": "movie_night", "titleFa": "فیلم خانواده", "iconKey": "movie", "costStars": 30, "reviewed": false},
+    {"key": "stay_up_late", "titleFa": "یک شب دیرتر بیدار ماندن", "iconKey": "moon", "costStars": 35, "reviewed": false}
+  ]
+}

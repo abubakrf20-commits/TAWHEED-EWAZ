@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گزارش آمادگی نشر — توحید ۱.۸.۰</title>
+<style>
+  :root{
+    --ink:#1d2320; --ink2:#3d4744; --muted:#6b7773;
+    --line:#e3e6e2; --card:#ffffff; --bg:#f6f7f4;
+    --gold:#b08d3f; --gold-soft:#f4ecda;
+    --green:#2e7d32; --green-soft:#eaf3ea;
+    --red:#b3261e; --red-soft:#fbeceb;
+    --blue:#1e5aa8; --blue-soft:#e9f0f9;
+    --amber:#8a6100; --amber-soft:#fdf3dd;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;
+    line-height:1.85; font-size:15px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,#1d2320,#2f3a35 55%,#3c4a42);
+    color:#f3efe4; border-radius:20px; padding:34px 30px;
+    box-shadow:0 10px 30px rgba(20,28,24,.18);
+  }
+  .hero .kicker{font-size:12px;letter-spacing:.14em;color:#cbb887;font-weight:700}
+  .hero h1{margin:8px 0 6px;font-size:27px;line-height:1.5}
+  .hero p{margin:0;color:#cfd6d0;font-size:14px;max-width:70ch}
+  .hero .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#a9b3ac}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .kpi b{display:block;font-size:23px;line-height:1.3;color:var(--ink)}
+  .kpi span{font-size:12px;color:var(--muted)}
+  h2{font-size:20px;margin:38px 0 6px;padding-right:12px;border-right:4px solid var(--gold)}
+  h2 small{font-weight:400;font-size:13px;color:var(--muted);margin-right:8px}
+  h3{font-size:16px;margin:26px 0 8px}
+  p.lead{color:var(--ink2);margin:6px 0 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:14px 0}
+  .fix{border-right:4px solid var(--red);background:var(--card);border-radius:12px;padding:16px 18px;margin:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .fix h4{margin:0 0 6px;font-size:15px}
+  .fix .where{font-family:Consolas,monospace;font-size:12px;color:var(--blue);direction:ltr;text-align:left;display:block;margin-bottom:8px}
+  .fix .row{display:grid;grid-template-columns:78px 1fr;gap:6px;font-size:13.5px;margin:4px 0}
+  .fix .row b{color:var(--muted);font-weight:600;font-size:12px}
+  .idea{border-right:4px solid var(--blue);background:var(--card);border-radius:12px;padding:16px 18px;margin:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .idea h4{margin:0 0 6px;font-size:15px}
+  .idea .where{font-family:Consolas,monospace;font-size:12px;color:var(--blue);direction:ltr;text-align:left;display:block;margin-bottom:8px}
+  .idea .row{display:grid;grid-template-columns:78px 1fr;gap:6px;font-size:13.5px;margin:4px 0}
+  .idea .row b{color:var(--muted);font-weight:600;font-size:12px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;font-size:13.5px;margin:12px 0;border:1px solid var(--line)}
+  th,td{padding:11px 12px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#eef0ec;font-size:12.5px;color:var(--ink2);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.sec{font-weight:700;white-space:nowrap}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--green-soft);color:var(--green)}
+  .t-fix{background:var(--red-soft);color:var(--red)}
+  .t-note{background:var(--amber-soft);color:var(--amber)}
+  .t-idea{background:var(--blue-soft);color:var(--blue)}
+  ul.clean{margin:8px 0;padding-right:20px}
+  ul.clean li{margin:5px 0}
+  .callout{border-radius:14px;padding:16px 18px;margin:16px 0;font-size:14px}
+  .c-warn{background:var(--amber-soft);border:1px solid #eadcae}
+  .c-info{background:var(--blue-soft);border:1px solid #cfe0f2}
+  .c-ok{background:var(--green-soft);border:1px solid #cfe3cf}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  code{font-family:Consolas,monospace;font-size:12.5px;background:#eef0ec;padding:1px 5px;border-radius:5px;direction:ltr;display:inline-block}
+  .num{font-variant-numeric:tabular-nums}
+  .bar{height:9px;background:#e7eae5;border-radius:99px;overflow:hidden;margin:6px 0 2px}
+  .bar i{display:block;height:100%;background:var(--green);border-radius:99px}
+  .bar.amber i{background:var(--gold)}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">گزارش دوره — مهاجرت‌ها، بررسی پنج سطح، آمادگی نشر</div>
+  <h1>آنچه ساخته شد، آنچه پیدا شد، و آنچه مانده</h1>
+  <p>این گزارش سه چیز را جواب می‌دهد: مهاجرت‌های سه دور گذشته واقعاً چه چیزی را برای کاربر عوض کردند؛ بررسی تب‌های قرآن، تسبیح، تقویم و ارزیابی چه پیدا کرد؛ و برنامه با چه نسبتی از کار آماده است و چه چیزی پیش از نشر مانده. هر عددی که در این گزارش آمده اندازه‌گیری شده، نه تخمین.</p>
+  <div class="meta">
+    <span>شاخهٔ کاری: <code>personal2/stage1-kids-teacher</code></span>
+    <span>نسخه: <code>1.8.0+10017</code></span>
+    <span>۲۶ کامیت در این دوره</span>
+    <span>۵٬۱۲۴ تست — ۵٬۱۱۶ سبز</span>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><b class="num">۶۷</b><span>نقطهٔ پنل خطای مشترک (از ۶۴)</span></div>
+  <div class="kpi"><b class="num">۸۳/۸۴</b><span>فایلِ نوار روی کامپوننت</span></div>
+  <div class="kpi"><b class="num">۹۹٫۸٪</b><span>تست‌های سبز</span></div>
+  <div class="kpi"><b class="num">۹</b><span>کارِ بسته‌شده در این دور</span></div>
+  <div class="kpi"><b class="num">۸</b><span>تستِ قرمز، همه بیرون از این کار</span></div>
+</div>
+
+<h2>۱. مهاجرت‌ها چه چیزی را برای کاربر عوض کردند <small>و چه چیزی را عوض نکردند</small></h2>
+
+<p class="lead">سه دور مهاجرت انجام شد و هر سه یک هدف داشتند: <b>حذف کدی که تصمیم را دوباره می‌گرفت</b>. هیچ‌کدام قابلیت تازه‌ای اضافه نکرد. پس اثرشان یا در «چه چیزی می‌شود» است یا در «چه چیزی نمی‌شود» — و تفکیک این دو مهم است، چون یکی از آن‌ها به کاربر می‌رسد و دیگری به تیم.</p>
+
+<table>
+  <thead><tr><th>مهاجرت</th><th>چه چیزی برای کاربر عوض شد</th><th>چه چیزی برای تیم عوض شد</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">پنل خطای مشترک<br><span style="font-weight:400;color:var(--muted);font-size:12px">۶۷ نقطه</span></td>
+      <td><b>این مشخص‌ترین تغییر قابل‌دیدن است.</b> پیش از این، ۵۲ فایل پنل خطای خودشان را داشتند و ۱۷ تای‌شان یک جملهٔ ثابت رندر می‌کردند: «بارگذاری ممکن نشد.» بدون دلیل، بدون راه جلو. امروز همان نقطه‌ها یک پنل با شناسه، دلیل و «تلاش دوباره» دارند.</td>
+      <td>شکل خطا دیگر سلیقهٔ نویسندهٔ هر صفحه نیست؛ دو گیت کیفیت جلوی پنل تک‌جمله‌ای و استثنای درون‌یابی‌شده را می‌گیرند.</td>
+    </tr>
+    <tr>
+      <td class="sec">نوار صفحه‌های push‌شده<br><span style="font-weight:400;color:var(--muted);font-size:12px">۸۳ فایل</span></td>
+      <td><b>یک تغییر ظاهری، و باید صریح گفته شود:</b> عنوانِ نوار در ۵۴ صفحه کوچک‌تر و روشن‌تر شد (از ۲۲/<code>w700</code> به ۱۶/<code>w500</code>). این عمدی است — آن ۵۴ صفحه اندازه تعیین نکرده بودند، یعنی تصمیم نبودند — ولی تغییر هست و کاربر آن را می‌بیند.</td>
+      <td>شش تصمیمِ تکراری به یک کامپوننت رفت. نوارهایی که پینِ <code>elevation</code> نداشتند و با اسکرول یک نوارِ رنگی می‌گرفتند، دیگر نمی‌توانند بگیرند.</td>
+    </tr>
+    <tr>
+      <td class="sec">کارت‌های تب خانه<br><span style="font-weight:400;color:var(--muted);font-size:12px">۵ کارت</span></td>
+      <td><b>مهم‌ترین تغییر برای اعتماد.</b> پیش از این کارت خلاصهٔ روز، «۰ از ۵» و «۰ از ۷» نشان می‌داد پیش از آنکه چیزی خوانده باشد — یعنی صبحِ کاربر «هیچ نکرده‌ای» خوانده می‌شد. امروز تا خواندن تمام نشود «—» است.</td>
+      <td>«وضعیت پیش از اثبات» به یک الگوی تکرارشدنی تبدیل شد: <code>int?</code> به‌جای <code>int</code>، و پنل فقط برای منبعی که واقعاً شکست خورده.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout c-warn">
+  <b>آنچه این مهاجرت‌ها عوض نکردند — و مهم است گفته شود:</b> سرعت باز شدن صفحه‌ها، مصرف باتری، اندازهٔ اپ، و هیچ‌کدام از قابلیت‌ها. اگر کاربری بپرسد «چه چیز تازه‌ای دارید؟» جواب «هیچ» است. ارزش این کار در دو جای دیگر است: <b>وقتی چیزی خراب می‌شود</b> (که حالا توضیح دارد و راه جلو)، و <b>وقتی چیزی اضافه می‌شود</b> (که دیگر لازم نیست شش تصمیم را از نو بنویسد).
+</div>
+
+<h2>۲. قرآن <small>بالغ‌ترین تب، و یک گرهٔ ساختاری</small></h2>
+
+<p class="lead">۲۸٬۵۱۹ خط در این قابلیت. هستهٔ آن <code>quran_mushaf_view.dart</code> است: <b>۳٬۲۳۱ خط، ۸۲ متد، و یک <code>State</code></b> که یازده نگرانی بی‌ربط را با هم نگه می‌دارد — پیمایش صفحه، فیزیک ورق خوردن، پخش تلاوت، پخش ترجمه، یادداشت آیه، اشتراک‌گذاری، تنظیمات خواندن، پس‌زمینهٔ کاغذ، رنگ تلاوت، قفل چرخش، و بیدارنگه‌داشتن صفحه.</p>
+
+<h3>آنچه خوب است (و باید حفظ شود)</h3>
+
+<table>
+  <thead><tr><th>موضوع</th><th>وضعیت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">عملکرد</td><td><span class="tag t-ok">مهندسی‌شده</span> <code>PageView.builder</code> با <code>RepaintBoundary</code> برای هر صفحه، پنجرهٔ پیش‌واکشی، کشِ مقیاسِ هر گروه فونت، کلید رندرِ حافظه‌ای (memo) که فقط وقتی آیهٔ هایلایت‌شده روی همان صفحه است آن را می‌شکند، و سقف ۲۱ صفحه برای کشِ آیه‌ها.</td></tr>
+    <tr><td class="sec">شکست صفحه</td><td><span class="tag t-ok">درست</span> <code>_PageLoadErrorCard</code>: آیکن، عنوان، توضیح، و <b>دو کنش</b> — «تلاش دوباره» و «دانلود مصحف». این از پنل عمومی بهتر است، چون پنل عمومی کنش دوم را مدل نمی‌کند.</td></tr>
+    <tr><td class="sec">نوار خواندن</td><td><span class="tag t-ok">درست</span> ۴۶dp، دو خوشه: فهرست و جست‌وجو در یک سر، نشانک/چرخش/بیشتر در سر دیگر. هرچه قبلاً نام قاری را به «ماهر ال…» می‌برید به پخش‌کننده و منوی بیشتر منتقل شده.</td></tr>
+    <tr><td class="sec">حالت غوطه‌وری</td><td><span class="tag t-ok">درست</span> نوار پایین در حالت غوطه‌ور پنهان می‌شود و <code>SafeArea</code> بالای صفحه به خود صفحه می‌رسد، نه به پس‌زمینهٔ محیطی.</td></tr>
+  </tbody>
+</table>
+
+<div class="fix">
+  <h4>یک <code>State</code> که یازده کار می‌کند</h4>
+  <span class="where">lib/features/quran/mushaf/quran_mushaf_view.dart — 3231 lines, 82 methods, build() = 201 lines</span>
+  <div class="row"><b>چه</b><span>همهٔ نگرانی‌ها در یک کلاس‌اند. بخش «سازنده» به فایل جدا منتقل شده (<code>_quran_mushaf_view_build.dart</code>) ولی خودِ وضعیت نه.</span></div>
+  <div class="row"><b>چرا مهم</b><span>هر تغییر در پخش صوت، در همان فایلی است که ورق خوردن صفحه را می‌سازد. تست نوشتن برای یکی، همیشه خطر شکستن دیگری را دارد — و همین است که این تب ۵ تست قرمز دارد.</span></div>
+  <div class="row"><b>هزینه</b><span>جداکردن سه نگرانی (صوت / ورق / کروم) در سه <code>Mixin</code> یا سه کلاسِ همکار: یک روز کاری، بدون تغییر رفتار. پیشنهاد می‌شود <b>بعد از نشر</b>، نه پیش از آن.</span></div>
+</div>
+
+<div class="fix">
+  <h4>کارت خطا رنگ‌هایش را از پالت نمی‌گیرد</h4>
+  <span class="where">quran_mushaf_overlays.dart:15-20 — four hardcoded colours</span>
+  <div class="row"><b>چه</b><span><code>0xFFE8DFCE</code>، <code>0xFF26221C</code>، <code>0xFFC9BFAE</code>، <code>0xFF6B6257</code> — مستقیم در کد.</span></div>
+  <div class="row"><b>چرا مهم</b><span>کاغذ مصحف رنگ‌پذیر است (پس‌زمینهٔ انتخابی کاربر) و این کارت روی هر کاغذی با همان چهار رنگ می‌نشیند. تنها جایی در این تب است که با تغییر پالت همراه نمی‌شود.</span></div>
+  <div class="row"><b>هزینه</b><span>~۱۰ خط: گرفتن همان <code>onDark</code> که <code>_buildPage</code> از قبل محاسبه می‌کند و پاس دادنش به کارت.</span></div>
+</div>
+
+<div class="idea">
+  <h4>پیشنهاد قابلیتی: نشانکِ آیه در نوار خواندن نیست</h4>
+  <span class="where">_ReaderHeader: bookmark action exists — but only for the page</span>
+  <div class="row"><b>ایده</b><span>نشانک فعلی «صفحه» را نشان می‌کند. کاربری که یک آیهٔ خاص را نگه می‌دارد، انتظار دارد نشانک روی همان آیه بنشیند. کنش «نشانکِ این آیه» در شیت آیه هست، ولی در نوار بالایی فقط صفحه نشانک می‌شود — دو معنی برای یک آیکن.</span></div>
+</div>
+
+<h2>۳. تسبیح و اذکار <small>بهترین کیفیت کد، و یک تناقض رنگی</small></h2>
+
+<p class="lead">۱۱٬۷۱۶ خط. شمارنده ۱٬۶۵۶ خط است ولی در ۱۵ ویجت کوچک شکسته شده — این تفکیک درست است. نوشتن‌ها دسته‌بندی می‌شوند: هر ضربه در صف می‌ماند و هر ۱۸۰ms یک‌جا نوشته می‌شود، و در <code>paused</code> و <code>deactivate</code> فوراً فلاش می‌شود تا ضربه‌ها گم نشوند.</p>
+
+<table>
+  <thead><tr><th>موضوع</th><th>وضعیت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">شکست خواندن</td><td><span class="tag t-ok">درست</span> هر دو زیرتب <code>AsyncScreen</code> با «تلاش دوباره» دارند. شمارنده هرگز روی دادهٔ نرسیده عدد نشان نمی‌دهد.</td></tr>
+    <tr><td class="sec">عملکرد نوشتن</td><td><span class="tag t-ok">درست</span> دستهٔ ۱۸۰ms، فلاش در پس‌زمینه‌شدن، و توضیح صریح اینکه چرا <code>mounted</code> و نه <code>context</code> — چون <code>State.context</code> پس از نابودی <em>throw</em> می‌کند.</td></tr>
+    <tr><td class="sec">رسم حلقه</td><td><span class="tag t-ok">درست</span> <code>_BeadRingPainter.shouldRepaint</code> هر شش ورودی را مقایسه می‌کند. حافظهٔ رسم بیهوده پاک نمی‌شود.</td></tr>
+  </tbody>
+</table>
+
+<div class="fix">
+  <h4>یک رنگ، دو معنی — و دو رنگ برای یک تب</h4>
+  <span class="where">tasbih_counter_widget.dart:499 · 539 · 645 · 667 · 1203</span>
+  <div class="row"><b>چه</b><span>هویت تب <code>SectionHues.tasbih</code> است: کهربایی <code>#BA7517</code>. ولی چیپِ ذکرِ <b>فعال</b> با <code>AppPalette.emerald</code> (<code>#1F7A63</code>) پر می‌شود. همان سبز، در حلقه و نشانِ تکمیل، معنیِ «انجام شد» دارد.</span></div>
+  <div class="row"><b>چرا بد</b><span>دو مشکل در یکی: (۱) روی یک صفحه، یک رنگ هم «انتخاب‌شده» است هم «تمام‌شده»؛ (۲) <code>#1F7A63</code> دقیقاً همان <code>SectionHues.quran</code> است — یعنی چیپِ فعالِ تبِ تسبیح، رنگِ هویتِ تبِ قرآن را می‌پوشد.</span></div>
+  <div class="row"><b>اصلاح</b><span>چیپِ فعال کهربایی شود (پر یا حاشیهٔ پررنگ) و سبز فقط برای «انجام شد» بماند. ~۶ خط، فقط در همان بلوک چیپ.</span></div>
+</div>
+
+<div class="fix">
+  <h4>هر دقیقه یک خواندن از حافظه، برای همیشه</h4>
+  <span class="where">azkar_tasbih_tab.dart:44-57</span>
+  <div class="row"><b>چه</b><span><code>Timer.periodic(Duration(minutes: 1))</code> که در هر تیک <code>isTasbihDailyResetOverdue()</code> را صدا می‌زند — یک خواندن از <code>shared_preferences</code>، هر دقیقه، تا وقتی تب زنده است (و با <code>IndexedStack</code> همیشه زنده است).</span></div>
+  <div class="row"><b>چرا بد</b><span>برای تشخیص یک رویداد در شبانه‌روز، ۱٬۴۴۰ بررسی انجام می‌شود. تایمر یک‌شات تا «نزدیک‌ترین مهلت» همان کار را با یک بیدارشدن انجام می‌دهد.</span></div>
+  <div class="row"><b>هزینه</b><span>~۱۵ خط: محاسبهٔ فاصله تا مهلت بعدی و <code>Timer(duration, …)</code> به‌جای <code>periodic</code>. رفتار یکسان، هزینهٔ یک‌هزارم.</span></div>
+</div>
+
+<div class="idea">
+  <h4>پیشنهاد: هدف روزانه به نتیجه وصل شود، نه به عدد</h4>
+  <div class="row"><b>ایده</b><span>کارت «هدف روزانه» یک عدد نشان می‌دهد. در تبی که «ذکر» است، همان عدد می‌تواند به «امروز ۳ ذکر از ۵ ذکرت را کامل کردی» تبدیل شود — چون شمارنده‌ها از قبل «کامل شد» را می‌دانند و چیپ‌ها تیک می‌گیرند. اطلاعات هست؛ نمایشش عددی مانده.</span></div>
+</div>
+
+<h2>۴. تقویم <small>تمیزترین ساختار، و یک شکاف قابلیتی بزرگ</small></h2>
+
+<p class="lead">۲٬۵۴۳ خط، بزرگ‌ترین فایل ۷۲۲ خط. یک نقطهٔ تبدیل واحد (<code>_selectionFor</code>) که سربرگ، خلاصهٔ روز و دفتر روز همه از آن می‌خوانند؛ کشِ کلید‌دار برای رویدادهای ماه و مناسبت بعدی؛ و <code>ValueListenableBuilder</code> روی انتخاب، تا یک ضربهٔ روز سه بلوک را دوباره بسازد نه کل صفحه را.</p>
+
+<div class="fix">
+  <h4>تقویمِ یک اپِ نماز، وقتِ نماز ندارد</h4>
+  <span class="where">lib/features/tools/calendar/ — zero references to prayer times</span>
+  <div class="row"><b>چه</b><span>سربرگ سه تقویم را نشان می‌دهد، رویدادهای ماه، مناسبت بعدی، خلاصهٔ روز، و دفتر روز. <b>هیچ‌جا وقت‌های پنج نماز نیست.</b> در کل این قابلیت یک ارجاع به نماز وجود ندارد.</span></div>
+  <div class="row"><b>چرا مهم</b><span>این تنها تبی است که کاربر برای «آن روز چه بود؟» باز می‌کند — و پرسش بعدی‌اش همیشه «نمازهایش چه وقت بود؟» است. اپ ستون فقراتش وقت نماز است، ولی تقویمش از آن خبر ندارد.</span></div>
+  <div class="row"><b>هزینه</b><span>بلوکِ «اوقات شرعی این روز» زیر خلاصهٔ روز: همان <code>prayerTimesProvider</code> برای تاریخ انتخاب‌شده (که از قبل محاسبهٔ تاریخ را می‌پذیرد)، پنج ردیف، و برای روزهای گذشته یک علامت «ثبت شده / ثبت نشده» از <code>prayerTrackerProvider</code>. ~۱۲۰ خط. <b>بزرگ‌ترین بازده به ازای خط در این گزارش.</b></span></div>
+</div>
+
+<div class="fix">
+  <h4>تنها کنش صفحه، با اسکرول از دست می‌رود</h4>
+  <span class="where">calendar_screen.dart:332-348</span>
+  <div class="row"><b>چه</b><span><code>SectionShell.list</code> استفاده شده و سربرگ روی <code>ListView</code> سوار است — کامنت خودِ کد می‌گوید «با اسکرول می‌رود». کنشِ «مبدل تاریخ» داخل همان سربرگ است.</span></div>
+  <div class="row"><b>چرا بد</b><span>کاربر برای دیدن دفتر روز و رویدادهای ماه پایین می‌رود؛ همان‌جاست که ممکن است بخواهد تاریخ تبدیل کند، و دکمه رفته است.</span></div>
+  <div class="row"><b>هزینه</b><span>دو راه: کنش را به یک ردیف ثابت پایین منتقل کنیم، یا مبدل را از کنشِ سربرگ به یک کارتِ درون‌صفحه تبدیل کنیم. ~۲۰ خط.</span></div>
+</div>
+
+<div class="idea">
+  <h4>پیشنهاد: دفتر روز و ارزیابی به هم وصل شوند</h4>
+  <div class="row"><b>ایده</b><span>دفتر روز از قبل با <code>evaluationProvider</code> حرف می‌زند. اگر خلاصهٔ روز یک خط از امتیاز همان روز را هم نشان دهد («۴۲ از ۶۰»)، تقویم به آرشیوِ عبادت تبدیل می‌شود، نه فقط تقویم.</span></div>
+</div>
+
+<h2>۵. ارزیابی <small>درست‌ترین گراف، و ۱۲۰ خط کدِ مرده</small></h2>
+
+<p class="lead">۴٬۶۶۹ خط. محاسبه در ۹۵ خطِ <code>EvaluationCalculator</code> است و یک جدولِ آستانهٔ واحد (<code>ratingForFraction</code>) که هم کارت‌ها و هم گزارش اشتراک از آن می‌خوانند — یعنی کارت و اشتراک نمی‌توانند دربارهٔ یک ماه اختلاف داشته باشند.</p>
+
+<table>
+  <thead><tr><th>موضوع</th><th>وضعیت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">گراف واکنشی</td><td><span class="tag t-ok">درست</span> <code>build()</code> ناظرِ <code>prayerTrackerProvider</code>، <code>azkarVersionProvider</code>، <code>tasbihProvider</code>، <code>settingsProvider</code> و <code>periodProvider</code> است. یعنی تیک‌زدن یک نماز، امتیاز را زنده به‌روز می‌کند. الگوی «اول await، بعد watch» هم با دلیل مستند شده (خطای «disposed during loading» در Riverpod 3).</td></tr>
+    <tr><td class="sec">شکست خواندن</td><td><span class="tag t-ok">درست</span> <code>FailureView</code> با متنِ صادق. متنِ قبلی «اتصال و حافظه را بررسی کنید» بود برای خواندنی که به شبکه دست نمی‌زند؛ همین‌جا نوشته شده چرا غلط بود.</td></tr>
+    <tr><td class="sec">امتیازدهی</td><td><span class="tag t-ok">درست</span> سقفِ ۵ امتیاز برای هر آیتم طاعات، ضریبِ کاربر، و آستانه‌های ملایم: عالی / خوب / قابل قبول / نیاز به تلاش بیشتر.</td></tr>
+  </tbody>
+</table>
+
+<div class="fix">
+  <h4>هفت متدِ یادداشت که هیچ‌کس صدا نمی‌زند</h4>
+  <span class="where">evaluation_provider.dart:731-847 — addNote, updateNote, deleteNote, toggleNoteDone, toggleNotePin, setNoteColor, editNote</span>
+  <div class="row"><b>چه</b><span>~۱۲۰ خط CRUD یادداشت داخلِ پراوایدر ارزیابی، روی همان <code>NoteDao</code> و همان جدولی که <code>features/notes</code> از آن استفاده می‌کند. <code>EvaluationState.notes</code> هم در هر <code>build()</code> از دیتابیس خوانده می‌شود و <b>هیچ ویجتی آن را رندر نمی‌کند</b>.</span></div>
+  <div class="row"><b>چرا مهم</b><span>دو مسیر نوشتن به یک جدول. مسیر دوم امروز بی‌استفاده است، پس اختلافی نمی‌سازد — ولی هر کس فردا به آن دست بزند، یک کشِ دوم می‌سازد که با <code>notesProvider</code> هماهنگ نمی‌شود. این بقایای مهاجرتِ یادداشت‌ها است، نه طراحی.</span></div>
+  <div class="row"><b>هزینه</b><span>حذف ۷ متد + فیلد <code>notes</code> + بارگذاری‌اش: ~۱۳۰ خط حذف، صفر تغییر رفتار (چون مصرف‌کننده‌ای ندارد). تست‌های worship (۷۶) و checklist (۳) باید سبز بمانند.</span></div>
+</div>
+
+<div class="fix">
+  <h4>دو فایل، ۲٬۹۷۵ خط، دو <code>build</code> بزرگ</h4>
+  <span class="where">evaluation_stats_widget.dart (1934, State = 892 lines) · evaluation_provider.dart (1041, build() = 411 lines)</span>
+  <div class="row"><b>چه</b><span>ویجت آمار یک <code>State</code> ۸۹۲ خطی دارد که سه نمای روزانه/هفتگی/ماهانه را با هم می‌سازد؛ و <code>build()</code> پراوایدر ۴۱۱ خط است.</span></div>
+  <div class="row"><b>هزینه</b><span>شکستن ویجت به سه فایل (روزانه/هفتگی/ماهانه) مکانیکی است و کم‌ریسک. شکستن <code>build()</code> پراوایدر پرریسک است و باید با تست همراه شود. اولی پیش از نشر، دومی بعد از آن.</span></div>
+</div>
+
+<div class="idea">
+  <h4>پیشنهاد: امتیاز باید بگوید از چه ساخته شده</h4>
+  <div class="row"><b>ایده</b><span>کاربر می‌تواند آیتم‌ها را در تنظیمات حذف کند، آیتم پیش‌فرض را پنهان کند، و ایام حیض دارد — هر سه مخرج را عوض می‌کنند. امتیاز نشان داده می‌شود ولی <b>مخرجش توضیح داده نمی‌شود</b>. یک خطِ افشا زیر کارت («از ۱۱ آیتم فعال؛ ۲ آیتم را در تنظیمات حذف کرده‌اید») بیشترین سؤالِ تکراری را می‌بندد.</span></div>
+</div>
+
+<h2>۶. تب خانه — پیشنهادهای دیزاین <small>بدون یافتهٔ نقص</small></h2>
+
+<p class="lead">پس از اصلاح پنج کارت، خانه از نظر درستی داده مشکل بازِ شناخته‌شده‌ای ندارد. آنچه مانده دیزاین است، و یک مشکل دارد: <b>سلسله‌مراتب ندارد</b>. ده بلوک با فاصلهٔ ۸ پیکسل پشت سر هم، همه با وزن بصری یکسان.</p>
+
+<table>
+  <thead><tr><th>#</th><th>پیشنهاد</th><th>چرا</th><th>هزینه</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">۱</td>
+      <td>سه باندِ نام‌دار: «امروز» / «عبادت» / «یادآوری» با <code>SectionHeader</code></td>
+      <td>در کلِ خانه <code>SectionHeader</code> <b>صفر</b> بار استفاده شده، در حالی که بقیهٔ اپ از آن استفاده می‌کنند. چشم بعد از هیرو نقطهٔ ورود ندارد.</td>
+      <td>~۳۰ خط</td>
+    </tr>
+    <tr>
+      <td class="sec">۲</td>
+      <td><code>QuickActions</code> از آخر به بعد از هیرو</td>
+      <td>تنها بلوکی است که «کاری می‌کند» و آخرین بلوکِ صفحه است — بعد از هشت کارت خواندنی.</td>
+      <td>جابه‌جایی</td>
+    </tr>
+    <tr>
+      <td class="sec">۳</td>
+      <td>کارت‌های «امروز» را ادغام کنیم</td>
+      <td><code>PrayerTimesCard</code> و <code>RawatibCard</code> هر دو دربارهٔ نمازِ امروزند و دو کارت جدا با دو سربرگ‌اند.</td>
+      <td>~۸۰ خط</td>
+    </tr>
+    <tr>
+      <td class="sec">۴</td>
+      <td>در حالت <code>lite</code> فقط سه بلوک اول</td>
+      <td>حالت سبک امروز فقط هیرو را ساده می‌کند؛ طول صفحه یکی است. سبک‌سازیِ واقعی یعنی کوتاه‌کردن صفحه.</td>
+      <td>~۱۵ خط</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>۷. نسبت پیشرفت <small>یک عدد نیست، پنج نسبت است</small></h2>
+
+<p class="lead">گفتن «۸۰٪ آماده است» بی‌معنی است. آنچه معنی دارد این است که هر محور جدا اندازه گرفته شود — چون یکی از آن‌ها ۱۰۰٪ است و دیگری ۷۰٪.</p>
+
+<table>
+  <thead><tr><th>محور</th><th>نسبت</th><th>معنی</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">خانوادهٔ «خطایی که چیزی نمی‌گوید»</td>
+      <td><b>۱۰۰٪</b><div class="bar"><i style="width:100%"></i></div></td>
+      <td>هر دو گیتش صفرند. ساختِ تازه نمی‌تواند پنل تک‌جمله‌ای یا استثنای درون‌یابی‌شده بسازد.</td>
+    </tr>
+    <tr>
+      <td class="sec">خانوادهٔ نوار</td>
+      <td><b>۹۹٪</b><div class="bar"><i style="width:99%"></i></div></td>
+      <td>۸۳ از ۸۴ فایل. تنها یکی مانده و مال سشن دیگری است.</td>
+    </tr>
+    <tr>
+      <td class="sec">تست‌ها</td>
+      <td><b>۹۹٫۸٪</b><div class="bar"><i style="width:99.8%"></i></div></td>
+      <td>۵٬۱۲۴ تست، ۸ قرمز — و هر ۸ در فایل‌های سشن موازی، نه در این کار.</td>
+    </tr>
+    <tr>
+      <td class="sec">گیت‌های کیفیت</td>
+      <td><b>۷۰٪</b><div class="bar amber"><i style="width:70%"></i></div></td>
+      <td>۷ از ۱۰ صفر. سه مورد باقی، هر سه با شمارهٔ خط مشخص و هر سه در فایل‌های دیگری.</td>
+    </tr>
+    <tr>
+      <td class="sec">خطای نوشتن</td>
+      <td><b>۱۰۰٪</b><div class="bar"><i style="width:100%"></i></div></td>
+      <td>۹ نوشتنِ بی‌صدا بسته شد؛ هر کدام حالا یا وضعیت را برمی‌گرداند یا می‌گوید چه ذخیره نشد، با «تلاش دوباره».</td>
+    </tr>
+    <tr>
+      <td class="sec">تب‌ها</td>
+      <td><b>۵/۵ بررسی‌شده</b><div class="bar"><i style="width:100%"></i></div></td>
+      <td>خانه، قرآن، تسبیح، تقویم، ارزیابی. «بیشتر» (۳۰ کاشی) بررسی نشده است.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>۸. فهرست کار <small>هر ردیف یا بسته شد، یا دلیل بازماندنش نوشته شده</small></h2>
+
+<p class="lead">این همان جدول بند قبل است، بعد از اجرا. ستون آخر مهم‌ترین ستون است: هیچ ردیفی «نیمه‌کاره» نمانده — یا کامل بسته شد، یا با دلیل کنار گذاشته شد.</p>
+
+<table>
+  <thead><tr><th>#</th><th>کار</th><th>نتیجه</th><th>شاهد</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">۱</td><td><b>نوشتن‌های بی‌صدا</b></td><td><span class="tag t-ok">بسته شد</span></td><td>۹ نقطه، همه با پیام + «تلاش دوباره»</td></tr>
+    <tr><td class="sec">۲</td><td><b>وقت نماز در تقویم</b></td><td><span class="tag t-ok">بسته شد</span></td><td>۲۴۰ خط تازه، ۸ تست، ۶ گلدن بازتولید شد</td></tr>
+    <tr><td class="sec">۳</td><td><b>رنگ چیپ تسبیح</b></td><td><span class="tag t-ok">بسته شد</span></td><td>۲۲۰ تست اذکار سبز</td></tr>
+    <tr><td class="sec">۴</td><td><b>تایمر دقیقه‌ای تسبیح</b></td><td><span class="tag t-ok">بسته شد</span></td><td><code>Timer.periodic</code> صفر شد؛ ۸ تست نگهبان</td></tr>
+    <tr><td class="sec">۵</td><td><b>کدِ مردهٔ یادداشت</b></td><td><span class="tag t-ok">بسته شد</span></td><td>۱۲۴ خط + یک فایل تکراری + ۸۸ خط تست حذف شد</td></tr>
+    <tr><td class="sec">۶</td><td><b>کنشِ گم‌شوندهٔ تقویم</b></td><td><span class="tag t-ok">بسته شد</span></td><td>چیپ «مبدل تاریخ» در کارت روز</td></tr>
+    <tr><td class="sec">۷</td><td><b>سلسله‌مراتب خانه</b></td><td><span class="tag t-ok">بسته شد</span> <span class="tag t-note">با دو انصراف</span></td><td>سه باند؛ «دسترسی سریع» و حالت سبک دست‌نخورده</td></tr>
+    <tr><td class="sec">۸</td><td><b>افشای مخرج امتیاز</b></td><td><span class="tag t-ok">بسته شد</span></td><td>ماه دیگر بر روزهای نگذشته تقسیم نمی‌شود</td></tr>
+    <tr><td class="sec">۹</td><td><b>لبه‌های قرآن</b></td><td><span class="tag t-fix">۱ از ۳</span></td><td>کارت خطا از پالت صفحه می‌خواند؛ دو مورد به بازنویسی صفحه‌گردانی خورد</td></tr>
+  </tbody>
+</table>
+
+<h2>۹. آمادگی نشر</h2>
+
+<div class="callout c-warn">
+  <b>حکم: کدِ این دوره سبز است؛ درخت کاری هنوز نه.</b> همهٔ ۹ کار بالا بسته شد و هر دستهٔ تستی که به آن‌ها مربوط است سبز است. آنچه مانده مالِ این دوره نیست: سه گیت کیفیت، ۸ تست قرمز، و بازنویسی صفحه‌گردانی مصحف که هم‌زمان در سشن موازی در جریان است.
+</div>
+
+<table>
+  <thead><tr><th>شرط</th><th>وضعیت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">تحلیل ایستا در فایل‌های این دوره</td><td><span class="tag t-ok">صفر ایراد</span></td></tr>
+    <tr><td class="sec">گیت‌های کیفیت</td><td><span class="tag t-fix">۷/۱۰</span> سه مورد، هر سه بیرون از این کار</td></tr>
+    <tr><td class="sec">تست‌ها</td><td><span class="tag t-ok">۵٬۱۲۴ تست</span> ۸ قرمز، همه نام‌برده و همه بیرون از این کار</td></tr>
+    <tr><td class="sec">گلدن‌های این دوره</td><td><span class="tag t-ok">سبز</span> تقویم، خانه، کارت امتیاز</td></tr>
+    <tr><td class="sec">نسخه</td><td><code>1.8.0+10017</code></td></tr>
+  </tbody>
+</table>
+
+<h3 style="font-size:15px;margin:18px 0 4px">۸ تست قرمز، با نام</h3>
+<table>
+  <thead><tr><th>تست</th><th>علت</th><th>مالِ</th></tr></thead>
+  <tbody>
+    <tr><td><code>mushaf_page_turn_test</code> · <code>mushaf_page_turn_effects_test</code> · <code>quran_mushaf_widget_test</code> · <code>mushaf_reader_prefs_test</code> (۲ مورد)</td><td>حذف/تغییر نام نمادهای <code>MushafPageTurn</code> در بازنویسی صفحه‌گردانی</td><td>سشن موازی</td></tr>
+    <tr><td><code>type_scale_guard_test</code></td><td><code>fontSize: 20</code> و <code>22</code> بیرون از مقیاس، در <code>child_mode_screen</code> و <code>parent_lock</code></td><td>سشن موازی</td></tr>
+    <tr><td><code>sheet_contract_test</code></td><td>شیتی با شعاع بیرون از تم</td><td>سشن موازی</td></tr>
+    <tr><td><code>account_screen_test</code> — پشتیبان رمزدار</td><td>مسیر پشتیبان‌گیری رمزدار</td><td>سشن موازی</td></tr>
+  </tbody>
+</table>
+
+<h2>۱۰. اجرا <small>۹ کاری که در این دور بسته شد، با شاهدِ اندازه‌گیری</small></h2>
+
+<div class="fix">
+  <span class="where">lib/shared/widgets/app_snack_bar.dart + ۹ نقطه</span>
+  <b>۱. نوشتنِ بی‌صدا.</b> <code>AppSnackBar.error</code> یک پارامتر <code>onRetry</code> گرفت (و مدت نمایش از ۳ به ۶ ثانیه رفت، چون یک پیام با دکمه باید خوانده شود، نه دیده). بعد هر نقطهٔ نوشتن که شکستش را قورت می‌داد بسته شد: حذف مدرک، حذف بیمه‌نامه، حذف دارایی، تیک یادآور، مراحل مناسک، تنظیمات فقهی و حلولِ زکات، تنظیمات پومودورو، و ترمیم پس از بازگردانی. هر کدام یا وضعیت را برمی‌گرداند یا می‌گوید چه چیزی ذخیره نشد.
+  <div class="row"><b>نکتهٔ روشی:</b> شمارش اولم غلط بود. طبقه‌بند اولیه فقط <code>SnackBar</code> را می‌دید و <code>AppSnackBar</code> را نه؛ دو موردِ اول که باز کردم همین حالا پیام نشان می‌دادند. با الگوی درست دوباره شمرده شد: ۱۴ در ردهٔ نوشتن، ۹ واقعاً بی‌صدا. همین باعث شد کامپوننت <code>WriteFailure</code> را که تازه ساخته بودم پاک کنم — یک پاسخِ دوم به سؤالی که پاسخ داشت.</div>
+</div>
+
+<div class="fix">
+  <span class="where">lib/features/tools/calendar/presentation/widgets/calendar_prayer_times.dart</span>
+  <b>۲. وقت نماز در تقویم.</b> کارتی زیر کارتِ روز: پنج نماز و طلوع، با وقتِ همان روزی که در جدول انتخاب شده، و برای امروز و روزهای گذشته نشانهٔ ثبت (خوانده شد / قضا / خوانده نشد / ثبت نشده). یک provider روزانه نتیجه را نگه می‌دارد، چون <code>_resolveZone</code> در هر فراخوانی پایگاه دادهٔ منطقهٔ زمانی را از نو می‌سازد — روی هر لمسِ روز قابل تکرار نبود.
+  <div class="row"><b>باگِ ضمنی که پیدا شد:</b> <code>prayerTimesForDate</code> از <code>_applyElevationCorrection</code> رد می‌شد، و آن تابع <code>_effectiveParams</code> و <code>_elevationAdjustments</code> را می‌نویسد — یعنی حالتِ <em>امروز</em> را. ارتفاعِ افق برای هر تاریخ جدا حل می‌شود، پس باز کردن تقویم روی یک روزِ دور، بی‌صدا محاسباتِ ویجت و اعلان‌ها را به آن روز می‌برد. مسیر خواندن به یک فرمِ خالص جدا شد (<code>_correctedForElevation</code>) و یک تستِ نگهبان روی همین تفکیک گذاشته شد.</div>
+</div>
+
+<div class="fix">
+  <span class="where">lib/features/worship/presentation/providers/evaluation_provider.dart</span>
+  <b>۳. ۱۲۴ خط کدِ مرده.</b> هفت متدِ یادداشت که هیچ‌جا صدا زده نمی‌شدند حذف شدند، همراه با <code>EvaluationState.notes</code>، فیلدِ لودر، و فایلِ <code>evaluation_notes_ops.dart</code> که کپیِ بایت‌به‌بایتِ منطقِ <code>notesProvider</code> بود. ۸۸ خط تست هم که فقط همین متدها را می‌پوشاند.
+  <div class="row"><b>هزینهٔ پنهانی که هم رفت:</b> لودر ارزیابی در هر بارگذاری یک <code>getAllNotes()</code> کامل می‌زد — خواندنِ کل جدولِ یادداشت‌ها، برای فیلدی که هیچ صفحه‌ای نمی‌خواند.</div>
+</div>
+
+<div class="idea">
+  <span class="where">lib/features/worship/presentation/widgets/evaluation_stats_widget.dart</span>
+  <b>۴. مخرجِ امتیاز.</b> دو تغییر: (الف) زیر حلقه یک خط آمد که می‌گوید سقفِ روز از چه ساخته می‌شود — «۴۰ طاعت + ۵ نماز + ۶ اذکار + ۴ تسبیح»؛ (ب) امتیازِ ماه دیگر بر ۳۰ روز تقسیم نمی‌شود. قبلاً در روز نهم حلقه ۴٪ نشان می‌داد و چیپِ کنارش «خوب» — دو مخرج برای یک ماه. حالا هر دو از روزهای گذشته می‌خوانند.
+</div>
+
+<div class="fix">
+  <span class="where">lib/features/home/presentation/screens/home_tab.dart</span>
+  <b>۵. سلسله‌مراتب خانه.</b> سه باند: «امروز»، «عبادت»، «یادآوری». هیچ کارتی جابه‌جا نشد و هیچ کارتی حذف نشد — ترتیبِ قبلی دست‌نخورده است، فقط حالا مرزها دیده می‌شوند.
+  <div class="row"><b>دو انصراف، با دلیل:</b> «دسترسی سریع» را جابه‌جا نکردم؛ کامنت خودش می‌گوید «به درخواست کاربر به پایین خانه برگشت». و حالت سبک را کوتاه نکردم؛ تعریفش در کد «برای visuals سنگین» است (میدان ستاره، درخشش)، نه «محتوای کمتر» — کوتاه کردنِ صفحه با آن، معنیِ حالت را عوض می‌کرد.</div>
+  <div class="row"><b>یک اشتباهِ طراحی که در گلدن دیدم:</b> اول باندها را با <code>SectionHeader</code> کشیدم. هر کارتِ این باندها خودش با یک <code>SectionHeader</code> باز می‌شود، پس دو نوارِ طلاییِ یکسان ۲۰ پیکسل فاصله گرفتند و باند شبیه عنوانِ کارتِ بعدی شد. با یک برچسبِ کم‌رنگ و یک خطِ مویی جایگزین شد.</div>
+</div>
+
+<div class="fix">
+  <span class="where">lib/features/quran/mushaf/quran_mushaf_overlays.dart</span>
+  <b>۶. کارتِ خطای صفحهٔ مصحف.</b> چهار رنگِ ثابت داشت — که دو تایش همان ثابت‌های جوهرِ صفحه بود، دوباره تایپ‌شده، و دو تای دیگر جفتِ محوی که هیچ‌کس نمی‌شناخت. حالا جوهر و کاغذ را از صفحه می‌گیرد و محو را از آن دو می‌سازد. فونتِ اپ و مقیاسِ متن هم اضافه شد؛ این تنها کارتِ مصحف بود که با بزرگ‌کردنِ فونت بزرگ نمی‌شد.
+</div>
+
+<div class="fix">
+  <span class="where">lib/features/adhkar/tasbih/…</span>
+  <b>۷ و ۸. تسبیح.</b> چیپِ فعال رنگِ هویتِ خودش را می‌گیرد (قبلاً رنگِ هویتِ تبِ دیگر را داشت، و همان رنگ دو معنی داشت)، و تایمرِ دقیقه‌ای با یک تایمرِ یک‌شات جایگزین شد که روی مرزِ ریست نشانه می‌رود و با برگشتِ اپ به foreground دوباره نشانه‌گیری می‌کند — ۱٬۴۴۰ بررسی در روز، برای یک رویداد.
+</div>
+
+<div class="callout c-info">
+  <b>دو یافتهٔ جانبی، هر دو ثبت‌شده:</b> (۱) گلدنِ <code>home_hero_day.png</code> در <code>HEAD</code> با کدِ <code>HEAD</code> نمی‌خواند — ۱٫۵۸٪ اختلاف، همه در کمان و شمارش معکوس. تصویرِ فعلی را دیدم: سالم است، پس بازتولید شد. (۲) <code>mushaf_page_turn.dart:826</code> که در گزارش قبلی به‌عنوان «ثبت نشدنِ شکستِ صفحه» نام برده بودم، دیگر وجود ندارد؛ آن فایل هم‌زمان در سشن موازی بازنویسی می‌شود، پس دست نزدم.
+</div>
+
+<div class="callout c-ok">
+  <b>کاری که پیش از نشر باید انجام شود:</b> (۱) سشن موازی کارش را کامیت کند و سه گیت و هشت تست را ببندد — تا آن نرسیده، <code>--strict</code> سبز نمی‌شود؛ (۲) بازنویسیِ <code>QuranMushafViewState</code> (۳٬۲۳۱ خط) به نسخهٔ بعد. هیچ‌کدام مانعِ فنیِ بزرگی نیست، ولی هیچ‌کدام هم مالِ این دوره نیست.
+</div>
+
+<div class="fix">
+  <span class="where">کامیت <code>3163304</code> · <code>flutter build appbundle</code> · <code>flutter build apk</code></span>
+  <b>۹. کامیت و بیلدِ ریلیس.</b> کارِ این دور در یک کامیت نشست — ۴۵ فایل، <code>+۱۴۸۷/−۳۹۹</code> — و از همان درخت، هر دو آرتیفکتِ ریلیس ساخته شد.
+  <div class="row"><b>عددهای بیلد، خوانده‌شده از خودِ فایل‌ها نه از لاگ:</b> <code>app-release.aab</code> ۸۵٫۵ مگابایت · <code>app-release.apk</code> ۴۶٫۲ مگابایت · <code>versionName=1.8.0</code> · <code>versionCode=2000015020</code> · <code>targetSdk=36</code> · <code>native-code: arm64-v8a, armeabi-v7a</code>. هر دو با گواهیِ <code>CN=Tawheed</code> امضا شده‌اند (SHA-256: <code>D9:9C:B5:52…</code>) — یکسان با <code>release-key.jks</code>، پس نصبِ روی نسخهٔ منتشرشده رد نمی‌شود.</div>
+  <div class="row"><b>یک تذکر که باید نوشته شود:</b> این دو فایل بیلدِ <em>درختِ کاری</em> هستند، نه بیلدِ فقط-کامیتِ <code>3163304</code> — ۲۴ فایلِ تغییریافته و ۵ فایلِ نو در <code>lib/</code> هنوز از سشن موازی کامیت نشده‌اند (کتابخانه، <code>mushaf_page_turn</code>، انتخاب صدا، personal2). کامپایل می‌شوند و در بیلد هستند؛ ولی آرتیفکتی که دقیقاً به یک کامیت برگردد، بعد از کامیتِ آن سشن ساخته می‌شود.</div>
+</div>
+
+<footer>
+  گزارش دوره — توحید · شاخهٔ <code>personal2/stage1-kids-teacher</code> · نسخهٔ <code>1.8.0+10017</code><br>
+  کامیت‌های این دور: <code>02e247b</code> · <code>62f9c82</code> · <code>76a4f24</code> · <code>1bb159f</code> · <code>b543ce5</code> · <code>9565d72</code> · <code>52d8432</code> · <code>345e121</code> · <code>3163304</code><br>
+  بیلدِ ریلیس: <code>app-release.aab</code> ۸۵٫۵ مگابایت · <code>app-release.apk</code> ۴۶٫۲ مگابایت · <code>1.8.0 (2000015020)</code> · امضا با <code>release-key.jks</code><br>
+  اندازه‌گیری‌ها: <code>flutter analyze</code> روی فایل‌های این دور · <code>tools/quality_check.py --strict</code> (۳ نقض، هر سه بیرون از این کار) · <code>flutter test</code> کامل: ۵٬۱۲۴ تست، ۸ قرمز
+</footer>
+
+</div>
+</body>
+</html>

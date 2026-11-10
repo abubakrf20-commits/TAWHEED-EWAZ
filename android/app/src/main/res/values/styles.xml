@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting.
+         The splash look is FIXED (see values/colors.xml): this window is the
+         same vertical ramp the Flutter splash paints and it carries NO mark —
+         the coin belongs to the first frame alone, so the hand-over changes no
+         colour, draws no second logo, and moves nothing. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/splash_field_bottom</item>
+        <!-- The top of the field is near-black brown, so the status icons stay light. -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- PHASE-1 FIX: was @drawable/launch_gradient (gold) while the night
+             variant used ?android:colorBackground — in light mode a gold flash
+             could appear behind the Flutter UI on window resizes. Both variants
+             now resolve to the themed background color. -->
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+
+    <!-- Home-screen widget text: a soft dark halo keeps glyphs legible when a
+         light wallpaper shows through the 55% opacity backgrounds (the palette
+         contrast floors are checked against ideal backdrops; this covers the
+         real ones). Applied to every text view in the widget layouts. -->
+    <style name="WidgetShadowText">
+        <item name="android:shadowColor">#66000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+</resources>

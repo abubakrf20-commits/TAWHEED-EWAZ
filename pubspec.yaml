@@ -1,0 +1,237 @@
+name: tawheeed
+description: اپلیکیشن جامع اذکار، اوراد اسلامی و اوقات شرعی
+version: 1.9.0+10021
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^3.3.2
+  riverpod_annotation: ^4.0.3
+  go_router: ^17.3.0
+
+  # Local Storage
+  shared_preferences: ^2.5.0
+  flutter_secure_storage: ^10.3.1
+  drift: 2.34.0
+  sqlite3: 3.3.4
+  sqlite3_flutter_libs: ^0.6.0
+
+  # Flutter internationalization
+  flutter_localizations:
+    sdk: flutter
+
+  # Notifications
+  flutter_local_notifications: ^22.0.1
+  timezone: ^0.11.1
+
+  # Charts
+  fl_chart: ^0.70.2
+
+  # Prayer Times
+  adhan: ^2.0.0
+
+  # Location
+  geolocator: ^14.0.3
+  geocoding: ^5.0.0
+
+  # Qibla Compass
+  flutter_compass: ^0.8.1
+
+  # Map location picker (prayer settings)
+  flutter_map: ^8.3.1
+  latlong2: ^0.10.1
+
+  # Utilities
+  shamsi_date: ^1.0.1
+  wakelock_plus: 1.6.1 # pinned: 1.7 needs AGP9 built-in Kotlin, blocked by audioplayers_android
+  crypto: ^3.0.3
+  # Quran / Networking
+  http: ^1.2.1
+  path_provider: ^2.1.5
+  archive: ^4.0.9
+  path: ^1.9.0
+
+  # Hadith search (الدرر السنية)
+  dorar_hadith: ^0.5.0
+  dorar_hadith_flutter: ^0.5.0
+
+  # Audio
+  audioplayers: ^6.1.0
+
+  # Background Scheduling is implemented with native AndroidX WorkManager.
+
+  # About / Share
+  share_plus: ^13.2.0
+  file_picker: ^13.1.0
+  url_launcher: ^6.2.1
+  package_info_plus: ^10.2.0
+  pdf: ^3.13.0
+  open_filex: ^4.7.0
+
+  # In-app browser (هوش مصنوعی شرعی قاف)
+  webview_flutter: ^4.10.0
+
+  sentry_flutter: 9.25.0 # pinned: 9.27 needs AGP9 built-in Kotlin, blocked by audioplayers_android
+
+  # Precise index-based scrolling (پرش بین احادیث ریاض الصالحین)
+  scrollable_positioned_list: ^0.3.8
+  encrypt: ^5.0.3
+  audio_session: ^0.2.4
+  audio_service: ^0.18.18 # lock-screen recitation controls (QuranMediaSession)
+  google_sign_in: ^7.2.0
+  googleapis: ^17.0.0
+  extension_google_sign_in_as_googleapis_auth: ^3.0.0
+
+  # Firebase — suggestions/moderation (suggestions are stored in Firestore)
+  firebase_core: ^4.15.0
+  cloud_firestore: ^6.0.0
+  firebase_auth: ^6.7.0
+  firebase_messaging: ^16.7.0
+  firebase_storage: ^13.6.0
+  # Audit unit 8: App Check attestation (Play Integrity on release) so the
+  # anonymous suggestion write can be gated server-side (see firestore.rules).
+  firebase_app_check: ^0.4.8
+  meta: ^1.18.0
+  record: 7.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  # Test seam: fake GeocodingPlatformFactory for the onboarding city step.
+  geocoding_platform_interface: ^5.0.0
+  path_provider_platform_interface: ^2.1.2
+  build_runner: ^2.5.0
+  riverpod_generator: ^4.0.4
+  drift_dev: 2.34.0
+  flutter_launcher_icons: ^0.14.4
+  image: ^4.10.1
+  flutter_local_notifications_platform_interface: ^12.2.0
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Calibri
+      fonts:
+        - asset: assets/fonts/calibri.ttf
+          weight: 400
+        - asset: assets/fonts/calibri.ttf
+          weight: 700
+    - family: Vazirmatn
+      fonts:
+        - asset: assets/fonts/Vazirmatn-Regular.ttf
+        - asset: assets/fonts/Vazirmatn-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Vazirmatn-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Vazirmatn-Bold.ttf
+          weight: 700
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
+          weight: 700
+    # Purchased Persian face (TKT-Tika, TypoKhat — masomeh mosleh). The Bold cut
+    # beside the regular is a derived outline (boolean-union dilation, unit 52),
+    # not a second purchase: the vendor ships one 400 face and has no weight axis.
+    # Its OS/2 fsType is 0 (no embedding restriction). 500 stays regular by design
+    # — only 700 asks for the cut, so the app's medium-weight text is untouched.
+    - family: TKT-Tika
+      fonts:
+        - asset: "assets/fonts/TKT-Tika regular.otf"
+          weight: 400
+        - asset: "assets/fonts/TKT-Tika bold.otf"
+          weight: 700
+    # Free Persian face «حریر» (harir.otf), same recipe: a derived Bold cut at 700,
+    # 500 stays regular. Its file carries NO license metadata and fsType 8
+    # (Preview & Print Embedding), so this face stays an opt-in choice inside the
+    # app; the legal record lives in AGENTS.md.
+    - family: Harir
+      fonts:
+        - asset: assets/fonts/harir.otf
+          weight: 400
+        - asset: assets/fonts/harir-bold.otf
+          weight: 700
+    # Calligraphic surah-name glyph font (surah N → U+E000+N). Used for the
+    # surah_header banner in the QCF4 mushaf. Bundled because headers render
+    # while offline (unlike the runtime-downloaded QCF4 fonts).
+    # The four faces the user dropped into assets/fonts (2026-11-06):
+    # Parastoo (پرستو, SIL OFL), Sakkal Majalla (مائوس ایرانی/سکّال مجله),
+    # Sultan K Medium (سلطان میدیوم) and Tabliq (تبلیغ, bold cut only —
+    # registered at both weights so body text still renders).
+    - family: Parastoo
+      fonts:
+        - asset: assets/fonts/Parastoo.ttf
+          weight: 400
+        - asset: assets/fonts/Parastoo.ttf
+          weight: 700
+    - family: Sakkal Majalla
+      fonts:
+        - asset: assets/fonts/SakkalMajalla.ttf
+          weight: 400
+        - asset: assets/fonts/SakkalMajalla.ttf
+          weight: 700
+    - family: Sultan Medium
+      fonts:
+        - asset: "assets/fonts/Sultan K Medium.ttf"
+          weight: 400
+        - asset: "assets/fonts/Sultan K Medium.ttf"
+          weight: 700
+    - family: Tabliq
+      fonts:
+        - asset: assets/fonts/Tabliq-Bold.ttf
+          weight: 400
+        - asset: assets/fonts/Tabliq-Bold.ttf
+          weight: 700
+    - family: SurahNameV4
+      fonts:
+        - asset: assets/fonts/qcf4/surah-name-v4.ttf
+    # Ornamental mushaf band font from the QUL mushaf (IcoMoon-built,
+    # family "quran-common"): the surah-header ornament U+E000 — a floral
+    # band with a name cartouche and two ring medallions — plus juz titles
+    # and margin markers. Bundled so the mushaf header renders offline.
+    - family: QuranCommon
+      fonts:
+        - asset: assets/fonts/quran-common.ttf
+  assets:
+    - assets/azkar_content.json
+    - assets/widget_palettes.json
+    - assets/logo2.png
+    - assets/changelog.md
+    - assets/icon_foreground.png
+    - assets/content/
+    # Editable JSON templates (care engine, habit/reward templates, tajweed
+    # tags, grade scale). This entry was missing, so every
+    # `rootBundle.loadString('assets/data/…')` failed at runtime and the care
+    # engine silently fell back to `CareTemplates.empty` — its own
+    # catch-and-log hid the failure. Declaring the directory fixes the
+    # existing templates and serves the personal-tools set 2 assets.
+    - assets/data/
+    # Never bundle quran_api.env: release builds must use the server proxy.
+    - assets/env/quran_api.env.example
+    - assets/persian_translation.json
+    - assets/hesn.db
+    # hadith.db and the library books are downloaded on demand (see
+    # ContentDownloadService) — only the small books index stays bundled.
+    - assets/books_data/books_index.json
+    # hadith.db, hadeeth_enc.db and the library books are downloaded on
+    # demand (see ContentDownloadService) — only small indexes stay bundled.
+    # The adhan MP3s ship only as android/app/src/main/res/raw/ — the copies
+    # here were byte-identical duplicates (2.3 MB). Dart previews resolve the
+    # res/raw file through the native `bundledAzanPath` bridge.
+    - assets/sounds/
+    - assets/quran/surah_header.png
+    - assets/quran/quran_data.json
+    - assets/mokhtasar.db
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/logo2.png"
+  adaptive_icon_background: "#C48A27"
+  adaptive_icon_foreground: "assets/icon_foreground.png"
+  min_sdk_android: 21

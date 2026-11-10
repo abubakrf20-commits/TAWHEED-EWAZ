@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The tasbih card, hand-built out of framework views - approved Design 1.
+
+  Why this is not a Glance composition
+  =============================================
+  A counter has to repaint on every bead. On this project's test device (POCO
+  X7 Pro, Android 16, HyperOS V816) a Glance widget composes exactly ONCE per
+  process: GlanceAppWidget.update() on an already-open session re-applies the
+  session's cached tree and never re-runs provideGlance. Measured with a
+  compose log inside provideContent: four taps, four paint calls, one
+  composition, and the card sat on the first tap's number until the process
+  was killed. That is the "clicks do not work" report, and no amount of tuning
+  inside the composition could reach it.
+
+  A hand-written RemoteViews has no session to go stale: a tap is
+  partiallyUpdateAppWidget with only the setters that changed, which the
+  launcher merges into the view it already has - no re-inflation, no
+  composition, a few hundred bytes across the binder instead of ~1 MB of
+  bitmaps.
+
+  FULLY RESPONSIVE (brief 2026-11-04)
+  ===================================
+  «اگر کوچکش کنم عناصر هم به تبعیت کوچک شوند»: there is deliberately NO fixed
+  dp size, padding or margin left in this file. Everything is wrap_content or
+  0 dp with a weight, and TasbihNativeViews.bindMetrics() sets every padding,
+  every text size, every icon bitmap and the ring bitmap from ONE `scale`
+  derived from AppWidgetManager.getAppWidgetOptions(). The id list below is
+  the contract: every id is bound by bindMetrics (full render) or bindState
+  (full + tap render).
+
+  Sizes are owned by BITMAPS and by setViewPadding (raw pixels), NOT by
+  setViewLayoutWidth/Height. On this launcher setViewLayoutWidth(id, dp, 0)
+  landed as PIXELS - a 119 dp ring box rendered as 117 px (36 dp), which was
+  the «دایره خیلی کوچک» report. A bitmap's intrinsic size and setViewPadding
+  cannot be re-interpreted by a host.
+
+  THE ORDER (brief 2026-11-07, «_v2»)
+  ==================================
+  «سبحان الله بالا باشد و ذکر ۱ از ۸ پایینش باشد، و از ۱۰۰ زیر دایره باشد نه
+  روی دایره». The card reads, top to bottom:
+
+    1. the dhikr name            (tasbih_dhikr)
+    2. the «ذکر N از M» pill     (tasbih_pill_row / tasbih_pill_position)
+    3. the ring, count inside    (tasbih_ring_area / tasbih_ring / tasbih_count)
+    4. the «از N» badge BELOW the ring (tasbih_badge_row / tasbih_badge)
+    5. prev / reset / next       (tasbih_controls)
+
+  That is a STRUCTURAL change from v1, where the pill sat above the dhikr and
+  the badge was a child of the ring's centre group (drawn ON the circle). A
+  launcher recycles the inflated tree when the layout id is unchanged and then
+  drops the setters for ids it does not have, so the resource id changes with
+  the structure: this file is `_v2` and TasbihNativeViews points at it.
+
+  The «امروز N» pill is GONE (brief: «امروز 10 حذف کنید»). The fixed bands
+  around the ring were trimmed (pad 6, gap 5, chip 33, dhikr 12.5 at scale 1)
+  so the ring stays the card's one focal point.
+
+  The ring area is ONE square box whose bitmap and its centred count group
+  share a FrameLayout, so the number is concentric with the ring at every
+  size. The completed-lap tick lives in the badge text, which now hangs under
+  the circle instead of sitting inside it.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tasbih_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <ImageView
+        android:id="@+id/tasbih_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/tasbih_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- 1. The dhikr name — the card's title line. -->
+        <TextView
+            android:id="@+id/tasbih_dhikr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textStyle="bold" />
+
+        <!-- 2. «ذکر N از M» — directly UNDER the name (v2; it used to be the
+             card's top line). -->
+        <LinearLayout
+            android:id="@+id/tasbih_pill_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tasbih_pill_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_tasbih_pill"
+                android:fontFamily="@font/calibri"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <!-- 3. The ring. -->
+        <FrameLayout
+            android:id="@+id/tasbih_ring_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/tasbih_ring_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/tasbih_ring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitXY" />
+
+                <!-- CONCENTRICITY (device-measured 2026-11-04): this group MUST
+                     be wrap_content WITH layout_gravity="center". As a
+                     match_parent child of a wrap_content FrameLayout, the host
+                     re-measured it against the ring-area width and, with the
+                     root's RTL direction, placed the number to the RIGHT of the
+                     ring. A wrap_content group has no ambiguous second measure
+                     pass: its own centre is the FrameLayout's centre, which is
+                     the bitmap's centre.
+
+                     v2: the group holds the COUNT only — the badge moved out to
+                     its own row under the circle, so nothing pushes the number
+                     off the ring's true centre. -->
+                <LinearLayout
+                    android:id="@+id/tasbih_ring_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tasbih_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/calibri"
+                        android:fontFeatureSettings="tnum"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- 4. «از N» — BELOW the circle (brief: «از ۱۰۰ زیر دایره باشد نه روی
+             دایره»). Its own row, so the ring keeps its full square and the
+             badge can never overlap the arc. -->
+        <LinearLayout
+            android:id="@+id/tasbih_badge_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tasbih_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_tasbih_badge"
+                android:fontFamily="@font/calibri"
+                android:fontFeatureSettings="tnum"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <!-- 5. prev / reset / next. -->
+        <LinearLayout
+            android:id="@+id/tasbih_controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/tasbih_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/tasbih_prev_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/widget_tasbih_chip">
+
+                    <ImageView
+                        android:id="@+id/tasbih_prev_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="prev dhikr" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/tasbih_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/tasbih_reset_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/widget_tasbih_chip">
+
+                    <ImageView
+                        android:id="@+id/tasbih_reset_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="reset counter" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/tasbih_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/tasbih_next_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/widget_tasbih_chip">
+
+                    <ImageView
+                        android:id="@+id/tasbih_next_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="next dhikr" />
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

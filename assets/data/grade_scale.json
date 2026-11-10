@@ -1,0 +1,10 @@
+{
+  "_note": "مقیاس نمرهٔ درس — برچسب و رنگ قابل ویرایش، عدد فقط برای میانگین استفاده می‌شود. reviewed=false یعنی هنوز بازبینی انسانی نشده و هیچ حکم شرعی/فقهی در این مقیاس نیست.",
+  "version": 1,
+  "grades": [
+    {"key": "excellent", "titleFa": "عالی", "value": 4, "reviewed": false},
+    {"key": "good", "titleFa": "خوب", "value": 3, "reviewed": false},
+    {"key": "average", "titleFa": "متوسط", "value": 2, "reviewed": false},
+    {"key": "needs_practice", "titleFa": "نیاز به تمرین", "value": 1, "reviewed": false}
+  ]
+}

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>یک پنل خطا برای سی‌وچهار جا — توحید</title>
+<style>
+  :root{
+    --ink:#1d2320; --ink2:#3d4744; --muted:#6b7773;
+    --line:#e3e6e2; --card:#ffffff; --bg:#f6f7f4;
+    --gold:#b08d3f; --gold-soft:#f4ecda;
+    --green:#2e7d32; --green-soft:#eaf3ea;
+    --red:#b3261e; --red-soft:#fbeceb;
+    --blue:#1e5aa8; --blue-soft:#e9f0f9;
+    --amber:#8a6100; --amber-soft:#fdf3dd;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;
+    line-height:1.85; font-size:15px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,#1d2320,#2f3a35 55%,#3c4a42);
+    color:#f3efe4; border-radius:20px; padding:34px 30px;
+    box-shadow:0 10px 30px rgba(20,28,24,.18);
+  }
+  .hero .kicker{font-size:12px;letter-spacing:.14em;color:#cbb887;font-weight:700}
+  .hero h1{margin:8px 0 6px;font-size:27px;line-height:1.5}
+  .hero p{margin:0;color:#cfd6d0;font-size:14px;max-width:70ch}
+  .hero .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#a9b3ac}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .kpi b{display:block;font-size:23px;line-height:1.3;color:var(--ink)}
+  .kpi span{font-size:12px;color:var(--muted)}
+  h2{font-size:20px;margin:38px 0 6px;padding-right:12px;border-right:4px solid var(--gold)}
+  h2 small{font-weight:400;font-size:13px;color:var(--muted);margin-right:8px}
+  h3{font-size:16px;margin:26px 0 8px}
+  p.lead{color:var(--ink2);margin:6px 0 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:14px 0}
+  .fix{border-right:4px solid var(--red);background:var(--card);border-radius:12px;padding:16px 18px;margin:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .fix h4{margin:0 0 6px;font-size:15px}
+  .fix .where{font-family:Consolas,monospace;font-size:12px;color:var(--blue);direction:ltr;text-align:left;display:block;margin-bottom:8px}
+  .fix .row{display:grid;grid-template-columns:74px 1fr;gap:6px;font-size:13.5px;margin:4px 0}
+  .fix .row b{color:var(--muted);font-weight:600;font-size:12px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;font-size:13.5px;margin:12px 0;border:1px solid var(--line)}
+  th,td{padding:11px 12px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#eef0ec;font-size:12.5px;color:var(--ink2);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.sec{font-weight:700;white-space:nowrap}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--green-soft);color:var(--green)}
+  .t-fix{background:var(--red-soft);color:var(--red)}
+  .t-note{background:var(--amber-soft);color:var(--amber)}
+  .t-idea{background:var(--blue-soft);color:var(--blue)}
+  ul.clean{margin:8px 0;padding-right:20px}
+  ul.clean li{margin:5px 0}
+  .callout{border-radius:14px;padding:16px 18px;margin:16px 0;font-size:14px}
+  .c-warn{background:var(--amber-soft);border:1px solid #eadcae}
+  .c-info{background:var(--blue-soft);border:1px solid #cfe0f2}
+  .c-ok{background:var(--green-soft);border:1px solid #cfe3cf}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  code{font-family:Consolas,monospace;font-size:12.5px;background:#eef0ec;padding:1px 5px;border-radius:5px;direction:ltr;display:inline-block}
+  .num{font-variant-numeric:tabular-nums}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">کار ساختاری — خانوادهٔ نقص ۳: «خطایی که چیزی نمی‌گوید»</div>
+  <h1>پنلی که شصت‌وچهار بار دستی نوشته شده بود، حالا یک بار نوشته می‌شود</h1>
+  <p>گزارش پیشین این خانواده را «خطایی که چیزی نمی‌گوید» نامید و درمانش را به آینده موکول کرد. این گزارش آن آینده است: یک کامپوننت، سه چیدمان، و مهاجرت تمام پنجاه‌ودو فایلی که پنل خطای خودشان را داشتند — در سه دور. دور دوم هر جایی بود که دور اول از قلم افتاده بود؛ دور سوم خودِ الگو را در گیت کیفیت بست تا دور چهارمی نباشد. بعد از بسته‌شدن آن خانواده، دو کارِ باقی‌مانده هم انجام شد: مهاجرت دسته‌ای نوارِ صفحه‌های push‌شده (۸۳ فایل، در دو نسل)، و بررسی بلوک‌به‌بلوکِ تب خانه — که همان خانواده را یک لایه پایین‌تر پیدا کرد: کارتی که عددی را نشان می‌داد که برنامه هنوز نخوانده بود. بند ۱۱ برای هر چیزی که مانده، اندازهٔ واقعی و هزینهٔ بستن را می‌دهد.</p>
+  <div class="meta">
+    <span>شاخه: release/1.8.0</span>
+    <span>۲۶ کامیت</span>
+    <span>۱۹ تست کامپوننت</span>
+    <span>۳٬۹۳۳ تست سبز پس از مهاجرت</span>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><b class="num">۶۴</b><span>نقطهٔ استفاده از پنل مشترک</span></div>
+  <div class="kpi"><b class="num">۵۲</b><span>فایلی که پنل دستی داشتند</span></div>
+  <div class="kpi"><b class="num">۹۳</b><span>نقطهٔ استفاده از <code>SectionAppBar</code> در ۸۳ فایل</span></div>
+  <div class="kpi"><b class="num">۱</b><span>نوار دستیِ باقی‌مانده — در diffِ سشن موازی</span></div>
+  <div class="kpi"><b class="num">۲</b><span>گیت تازه که جلوی پنل بعدی را می‌گیرد</span></div>
+  <div class="kpi"><b class="num">۷/۱۰</b><span>گیت کیفیت صفر</span></div>
+</div>
+
+<h2>۱. یافته: هشت ردیف، و فقط یکی‌شان تصمیم محتوایی بود <small>چرا این یک نقص ساختاری است</small></h2>
+
+<p class="lead">سه صفحه را که هر سه پنل خطای «درست» داشتند کنار هم گذاشتم. هیچ‌کدام اشتباه نبود؛ هیچ‌کدام هم یکی نبود:</p>
+
+<table>
+  <thead>
+    <tr><th>ویژگی</th><th>روزه (شمارندهٔ رمضان)</th><th>کارها</th><th>مطالعهٔ آزاد</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="sec">چیدمان</td><td>کارت رنگ‌گرفته</td><td>ستون وسط‌چین</td><td>ستون وسط‌چین</td></tr>
+    <tr><td class="sec">اندازهٔ آیکون</td><td class="num">۲۰</td><td class="num">۴۴</td><td class="num">۴۸</td></tr>
+    <tr><td class="sec">وزن عنوان</td><td>w700</td><td>w700</td><td>w600</td></tr>
+    <tr><td class="sec">رنگ عنوان</td><td>textPrimary</td><td>textPrimary</td><td>danger</td></tr>
+    <tr><td class="sec">رنگ توضیح</td><td>textSecondary</td><td>textMuted</td><td>textSecondary</td></tr>
+    <tr><td class="sec">نوع دکمه</td><td>tonal</td><td>tonal</td><td>filled + icon</td></tr>
+    <tr><td class="sec">برچسب</td><td>تلاش دوباره</td><td>تلاش دوباره</td><td>تلاش مجدد</td></tr>
+    <tr><td class="sec">قابل یافتن با کلید</td><td><span class="tag t-ok">بله</span></td><td><span class="tag t-fix">نه</span></td><td><span class="tag t-fix">نه</span></td></tr>
+  </tbody>
+</table>
+
+<p class="lead">فقط ردیف اول تصمیم محتوایی است: یک خطای «درون‌بخشی» باید سرِ جای همان محتوایی بنشیند که غایب است، و یک خطای «تمام‌صفحه» باید وسط بنشیند. بقیهٔ هفت ردیف یک جواب واحد است که هفت بار تایپ شده.</p>
+
+<p class="lead">و ردیف آخر توضیح می‌دهد چرا این واگرایی زنده ماند: پنلی که کلید پایدار ندارد فقط با تطبیق متن فارسی قابل تست است، پس کسی تستش نکرد، پس بی‌صدا پس رفت. این دقیقاً همان چیزی است که گزارش پیشین «خانوادهٔ ۳» نامید — و یک مسئلهٔ ساخت است، نه مسئلهٔ دقت.</p>
+
+<h2>۲. کامپوننت: چه چیزی را اجباری کرد و چه چیزی را آزاد گذاشت</h2>
+
+<div class="card">
+  <p class="lead" style="margin-top:0"><code>lib/core/design_system/components/failure_view.dart</code></p>
+  <div class="fix">
+    <h4>اجباری: <code>id</code> و <code>title</code></h4>
+    <span class="where">FailureView({required id, required title, …})</span>
+    <div class="row"><b>id</b><span>به <code>ValueKey('failure_$id')</code> تبدیل می‌شود، پس تست با <code>find.byKey</code> می‌نویسد و با هر بازنویسی متن دوام می‌آورد.</span></div>
+    <div class="row"><b>title</b><span>باید نام همان چیزی را ببرد که شکست خورد. «خطا» عنوان نیست؛ «کارها باز نشدند» هست. سؤال بعدی خواننده همیشه «چه چیزی؟» است و کامپوننت نمی‌تواند از طرف او جواب بدهد.</span></div>
+  </div>
+  <div class="fix">
+    <h4>آزاد: سه چیدمان، یک معنا</h4>
+    <span class="where">enum FailureLayout { card, page, inline }</span>
+    <div class="row"><b>card</b><span>خطای درون‌بخشی. رنگ‌گرفته، راست‌چین، هم‌اندازهٔ محتوایی که جای آن نشسته — تا خواننده ببیند چه چیزی غایب است، نه اینکه تعجب کند چرا صفحه خالی است.</span></div>
+    <div class="row"><b>page</b><span>صفحه‌ای که چیز دیگری ندارد. وسط‌چین، بزرگ‌تر، و <b>قابل اسکرول</b> — صفحهٔ خطایی که خودش سرریز می‌کند تنها صفحه‌ای است که خواننده راه خروج ندارد.</span></div>
+    <div class="row"><b>inline</b><span>یک ردیف، برای پای فهرستی که بالایش محتوای واقعی دارد.</span></div>
+  </div>
+  <div class="fix">
+    <h4>آزاد: مرکب و گلیف</h4>
+    <span class="where">FailureInk? ink · IconData icon</span>
+    <div class="row"><b>ink</b><span>سه سطح مصحف کاغذ می‌کشند، نه میدان محیطی: پالت خودشان را دارند و عمداً رنگ خطا ندارند چون کاغذ «کروم معنایی» نیست. همین سه صفحه دلیل وجود این کامپوننت بودند؛ اگر بیرون می‌ماندند، نقص اصلی در جای اصلی بازتولید می‌شد.</span></div>
+    <div class="row"><b>icon</b><span>جست‌وجویی که به سرور نرسید و خواندنی که محلی شکست دو رویداد مختلف‌اند، و <code>cloud_off</code> در برابر <code>error_outline</code> بدون کلمه می‌گوید کدام. این یک پیچ معناست، نه ظاهر — اندازه‌هایی که با آن اشتباه می‌شد ثابت‌اند.</span></div>
+  </div>
+  <div class="fix">
+    <h4>آزاد: <code>retrying</code></h4>
+    <span class="where">bool retrying = false</span>
+    <div class="row"><b>چرا</b><span>سه صفحه خودشان جوابی برای «تلاش در جریان» اختراع کرده بودند و دو تایشان دکمه را زنده گذاشته بودند — یعنی خواننده می‌توانست درخواست را روی خواندنی صف کند که هنوز شکستش تمام نشده. حالا دکمه غیرفعال و جایگزین اسپینر می‌شود، در کل برنامه.</span></div>
+  </div>
+  <div class="fix">
+    <h4>غیرقابل‌تغییر: برچسب</h4>
+    <span class="where">static const String retryLabel = 'تلاش دوباره'</span>
+    <div class="row"><b>چرا</b><span>سه برچسب برای یک کنش، سه نظر نیست؛ سه نسخه است. امروز <code>grep "تلاش مجدد" lib/</code> فقط کامنت‌های توضیحی برمی‌گرداند.</span></div>
+  </div>
+</div>
+
+<h2>۳. آنچه مهاجرت پیدا کرد که خودِ پنل نبود <small>متن‌هایی که به خواننده دروغ می‌گفتند</small></h2>
+
+<p class="lead">هنگام جای‌گذاری پنل، هر صفحه باید می‌گفت چه چیزی شکست خورده — و همین باعث شد چند جملهٔ غلط پیدا شود. اینها یافتهٔ اصلی‌اند، نه حاشیه:</p>
+
+<div class="grid2">
+  <div class="fix">
+    <h4>«اتصال و حافظهٔ دستگاه را بررسی کنید»</h4>
+    <span class="where">evaluation_stats_widget.dart · lazy_content.dart</span>
+    <div class="row"><b>واقعیت</b><span>هر دو از دادهٔ محلی می‌خوانند — ارزیابی از جدول‌های Drift، و <code>LazyContent</code> از JSON بسته‌بندی‌شده در خود برنامه. هیچ سوکتی باز نمی‌شود.</span></div>
+    <div class="row"><b>اثر</b><span>خواننده را می‌فرستاد وای‌فای را چک کند، در حالی که ثبت‌های عبادتش سرِ جایشان سالم نشسته بود.</span></div>
+  </div>
+  <div class="fix">
+    <h4>«خطا در بارگذاری کتاب: $e»</h4>
+    <span class="where">book_reader_screen.dart</span>
+    <div class="row"><b>واقعیت</b><span>استثنا به‌عنوان متن بدنه چاپ می‌شد. اسم یک جدول دیتابیس، و هیچ کاری که خواننده بتواند بکند.</span></div>
+    <div class="row"><b>اثر</b><span>حالا <code>error:</code> است — فقط در بیلد دیباگ دیده می‌شود — و یک تست تضمین می‌کند به‌عنوان <code>Text</code> برنگردد.</span></div>
+  </div>
+  <div class="fix">
+    <h4>«خطا در بارگذاری» به‌عنوان عنوان</h4>
+    <span class="where">study_screen.dart · hadith_books_screen.dart · hadeeth_enc_screen.dart</span>
+    <div class="row"><b>واقعیت</b><span>عنوانی که موضوع ندارد. در <code>hadeeth_enc</code> بدتر: رشتهٔ خام خطا جای عنوان بود.</span></div>
+    <div class="row"><b>اثر</b><span>و <code>Colors.red.shade300</code> برای آیکون و عنوان — همان سالمون در روز و شب.</span></div>
+  </div>
+  <div class="fix">
+    <h4>سه نسخه از نوار بالای خودِ یک صفحه</h4>
+    <span class="where">study_screen.dart</span>
+    <div class="row"><b>واقعیت</b><span>نسخهٔ سوم دو پین <code>elevation</code> را نداشت — همان واگرایی <code>SectionPage</code>، این بار داخل یک فایل.</span></div>
+    <div class="row"><b>اثر</b><span>و نسخهٔ <b>loading</b> اصلاً نوار بالا نداشت: خواننده روی یک اسپینر برهنه می‌ماند، بی‌عنوان و بی‌راه بازگشت.</span></div>
+  </div>
+</div>
+
+<h2>۴. «شکست» و «خالی» — تمایزی که مکرراً فرو می‌ریخت</h2>
+
+<p class="lead">در پنج صفحه، یک پنل هم‌زمان دو چیز متفاوت می‌گفت. این خطرناک‌ترین شکل خانوادهٔ ۳ است، چون جملهٔ غلط دربارهٔ دادهٔ خواننده است، نه دربارهٔ شبکه:</p>
+
+<table>
+  <thead><tr><th>صفحه</th><th>چه می‌گفت</th><th>چه شد</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">مدیریت فضا</td><td>«خواندن حجم داده‌ها ممکن نشد.» برای هر دو حالتِ شکست و خالی، با یک «تلاش دوباره» که خوانندهٔ بدون داده تا ابد می‌زد.</td><td><code>FailureView</code> برای شکست، <code>AppEmptyState</code> برای خالی — دو جمله، دو کنش.</td></tr>
+    <tr><td class="sec">ادعیه (حصن المسلم)</td><td>«هنوز علاقه‌مندی‌ای ثبت نشده» و «محتوای حصن المسلم در دسترس نیست» یک جمله و یک دکمه داشتند.</td><td>خالیِ علاقه‌مندی‌ها بدون دکمه؛ محتوای نیامده با پنل و توضیح که متن همراه برنامه است.</td></tr>
+    <tr><td class="sec">کتابخانهٔ صوتی</td><td>فهرست خالی سرور همان دکمهٔ «تلاش دوباره» شکست شبکه را داشت.</td><td>خالی با کنشِ نام‌دار «دریافت دوبارهٔ فهرست».</td></tr>
+    <tr><td class="sec">جزئیات حدیث (درر)</td><td>شکستِ خواندن با <code>AppEmptyState</code> و آیکون ابر نمایش داده می‌شد.</td><td><code>FailureView</code> — چون «چیزی نیست» و «نتوانستیم بیاوریم» دو ادعای متفاوت‌اند.</td></tr>
+    <tr><td class="sec">پیشرفت هدف</td><td>شاخهٔ «این هدف پیدا نشد» متن خاکستریِ برهنه بود، بی‌آیکون و بی‌کنش — و همان جمله برای خواندنِ شکست‌خورده هم استفاده می‌شد.</td><td>شکست → پنل با «تلاش دوباره»؛ هدفِ حذف‌شده → <code>AppEmptyState</code>. دو حالت، دو جمله.</td></tr>
+    <tr><td class="sec">جزئیات علم (آموزش)</td><td>شناسه‌ای که در مجموعهٔ محتوا نیست، نوار بالا با عنوان «خطا» و یک خط خاکستری می‌گرفت.</td><td>هیچ‌چیز شکست نخورده؛ خالیِ نام‌دار با عنوان «علم».</td></tr>
+    <tr><td class="sec">نشانک‌های کتاب</td><td>«بارگذاری نشانک‌ها ممکن نشد» با آیکون <code>cloud_off</code> — برای خواندنِ پایگاه‌دادهٔ محلی، که به شبکه کاری ندارد.</td><td>پنل با آیکون عمومی و همان تمایز شکست/خالی برای «نشانکی ثبت نشده».</td></tr>
+    <tr><td class="sec">پیشنهادهای من</td><td>شکستِ خواندن با <code>_emptyState</code> نمایش داده می‌شد: خواننده‌ای که پیشنهاد فرستاده بود، جملهٔ «هنوز پیشنهادی نفرستاده‌اید» را می‌خواند.</td><td>پنل با تلاش دوباره؛ خالی فقط وقتی واقعاً خالی است.</td></tr>
+    <tr><td class="sec">جست‌وجوی درر</td><td>خودِ استثنا به‌عنوان <em>پیام</em> خالیِ صفحه می‌رفت: «$e» در اندازهٔ ۱۶.</td><td>پنل با آیکون ابر؛ استثنا فقط در بیلد دیباگ.</td></tr>
+  </tbody>
+</table>
+
+<h2>۵. وضعیت تست‌ها</h2>
+
+<table>
+  <thead><tr><th>محدوده</th><th>تعداد</th><th>نتیجه</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">کامپوننت پنل</td><td class="num">۱۲</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">test/core (شامل مرز خطا و AsyncScreen)</td><td class="num">۲۴۲</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">نماز (presentation + domain + services)</td><td class="num">۴۳۰</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">کارها + اهداف</td><td class="num">۲۰۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">کتاب‌ها</td><td class="num">۱۱۴</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">حدیث + حدیث دانش‌نامه</td><td class="num">۱۱۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">عبادت (ارزیابی و آمار)</td><td class="num">۷۶</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">حج + ویجت‌های مشترک</td><td class="num">۷۴</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">ختم + یقین</td><td class="num">۵۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">آموزش</td><td class="num">۵۰</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">هزینه‌ها</td><td class="num">۳۸</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">ترغیب</td><td class="num">۳۰</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">پومودورو</td><td class="num">۲۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">تقویم (یادداشت روز)</td><td class="num">۱۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">تنظیمات (ویجت‌ها و شیت پشتیبان)</td><td class="num">۱۵</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">ادعیه</td><td class="num">۱۷</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">درر (جزئیات)</td><td class="num">۳۸</td><td><span class="tag t-ok">سبز</span></td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:26px">دور دوم — بیست نقطهٔ دیگر</h3>
+<table>
+  <thead><tr><th>محدوده</th><th>تعداد</th><th>نتیجه</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">اهداف + ابزارها + اطلاعات من + اعلان‌ها + پیشنهادها</td><td class="num">۱۴۶۷</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">کتاب‌ها + آموزش + خانه + معالم + ریاض + ترغیب + یقین + درر</td><td class="num">۴۵۰</td><td><span class="tag t-ok">سبز</span> (پس از رفع دو تست)</td></tr>
+    <tr><td class="sec">تنظیمات + عبادت + قرآن + مشترک</td><td class="num">۱۲۰۵</td><td><span class="tag t-ok">سبز</span> جز ۶ تستِ چرخش مصحفِ سشن موازی</td></tr>
+    <tr><td class="sec">کارت اوقات شرعی (تست اختصاصی)</td><td class="num">۱۶</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">شیت ذکر تسبیح</td><td class="num">۴</td><td><span class="tag t-ok">سبز</span></td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:26px">دور سوم — دفتر کودک و ابزارها</h3>
+<table>
+  <thead><tr><th>محدوده</th><th>تعداد</th><th>نتیجه</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">personal2 (دفتر کودک + منطق معلم)</td><td class="num">۱۰۰</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">ارث + زکات + یادآورها</td><td class="num">۸۸۷</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">نماز + کتاب‌ها + مشترک</td><td class="num">۸۷۴</td><td><span class="tag t-ok">سبز</span></td></tr>
+    <tr><td class="sec">قرآن (بدون فایل چرخش صفحه)</td><td class="num">۲۹۹</td><td><span class="tag t-ok">سبز</span> جز ۳ تستِ چرخش صفحه</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-info">
+  <b>یک اجرای پیوستهٔ کل مجموعه:</b> ۲٬۷۸۵ سبز و ۱۳ قرمز، پیش از آن‌که اجرا به سقف زمانی برسد. هر ۱۳ قرمز در کارِ همان سشن موازی است: ۷ تستِ چرخش صفحه و پالت مصحف (پیش‌فرض <code>MushafPageTurn</code> از <code>bookFlip</code> به <code>plain</code> تغییر کرده و تست هنوز انتظار قدیمی را دارد) و ۶ گلدنِ صفحهٔ خانه (آرک). هیچ‌کدام از این دور نیست و هیچ‌کدام را «رفع» نکردم.
+</div>
+
+<h2>۶. چیزهایی که باید صریح گفته شود</h2>
+
+<div class="callout c-warn">
+  <b>۱. یک تست فتوا از قبل شکسته است و از این کار نیست.</b> <code>fatwa_service_test › random returns a valid entry</code> انتظار شناسه در <code>[1,2,3]</code> دارد و <code>4</code> می‌گیرد. پوشهٔ <code>assets/data/</code> که سشن موازی اضافه کرده ردیف چهارم را آورده است. این تغییر به سرویس فتوا دست نزده؛ بقیهٔ تست‌های فتوا سبزند.
+</div>
+
+<div class="callout c-warn">
+  <b>۲. تست‌های چرخش صفحهٔ مصحف بارگذاری نمی‌شوند —</b> <code>mushaf_page_turn.dart</code> و <code>mushaf_page_turn_settings.dart</code> در درخت کاری توسط سشن موازی ویرایش شده‌اند و <code>MushafPageTurn.scroll</code> وجود ندارد. سهم این کار از آن پوشه یک تغییر یک‌کلمه‌ای برچسب در فایل دیگری است؛ تست شیت قاری در همان پوشه سبز است.
+</div>
+
+<div class="callout c-warn">
+  <b>۳. گیت کیفیت ۷/۱۰ صفر است، نه ۱۰/۱۰.</b> سه یافتهٔ غیرصفر مانده و هر سه در فایل‌های untracked سشن موازی‌اند: یک <code>]!</code> در <code>care_reminders.dart:296</code>، یک <code>catch</code> بی‌لاگ در <code>teacher/parent_report_screen.dart</code> و یک پراوایدرِ اعلام‌شده در <code>teacher/class_management_screen.dart</code>. دو گیت تازه (۹ و ۱۰) صفرند — یعنی هیچ پنل تک‌جمله‌ای و هیچ استثنای چاپ‌شده در متن رابط باقی نمانده. برای این‌که <code>--strict</code> با کار نیمه‌تمامِ آن سشن قرمز نشود، پنج صفحهٔ معلم با تاریخ و دلیل در <code>BARE_FAILURE_ALLOWED</code> استثنا شده‌اند؛ لحظه‌ای که آن‌ها کامیت شوند باید حذف شوند.
+</div>
+
+<div class="callout c-warn">
+  <b>۴. شش گلدنِ صفحهٔ خانه قرمزند و علتش آرک است، نه پنل.</b> تصویر تفاضل یک <em>حلقه</em> است. <code>arc_layout.dart</code> در درخت کاری توسط سشن موازی از <code>-math.pi</code> به <code>math.pi</code> تغییر کرده؛ همان تغییر جهتِ کمان، رندر حلقه را جابه‌جا می‌کند. کارت اوقات شرعی در این گلدن‌ها در حالت خطا نیست، پس سهمی از این تفاضل ندارد.
+</div>
+
+<div class="callout c-warn">
+  <b>۵. مجموعهٔ <code>dhikr_views_test</code> و چند تست خانه الان کامپایل نمی‌شوند —</b> ویوهای مجموعهٔ اذکار پارامترهای اجباری تازه (<code>onCompleteCurrent</code>/<code>onCompleteAll</code>) گرفته‌اند و تستشان هنوز به‌روز نشده است. این ویرایش همان لحظه در جریان است. برای بازکردن قفلِ کامپایل، یک متد خصوصی <code>_restoreCursor</code> که در همان ریفکتور صدا زده شده بود ولی تعریف نشده بود، با همان رفتار قبلی (کلمپ + پرش از آیتم تمام‌شده) بازگردانده شد؛ در کامیت‌ها نیست تا کار آن سشن دست‌نخورده بماند.
+</div>
+
+<div class="callout c-info">
+  <b>یک پس‌رفت که هنگام کار گرفته شد و ارزش ثبت دارد:</b> ویرایش مکانیکی روی <code>calendar_day_journal</code> شاخهٔ <code>else if (entries.isEmpty)</code> را هم بلعید، پس روز خالی هیچ چیز رندر نمی‌کرد. مجموعهٔ تست گرفتش — چون روز خالی تست خودش را دارد. این تمام استدلال برای داشتن آن تست است.
+</div>
+
+<h2>۷. آنچه در این دور عمداً انجام نشد</h2>
+<ul class="clean">
+  <li><b>مهاجرت <code>AsyncScreen&lt;T&gt;</code> روی ۱۰۵ صفحه.</b> زیرساختش هست و ۶ بخش از آن استفاده می‌کنند؛ ولی <code>AsyncScreen</code> یک لایهٔ بالاتر است (وضعیت <code>AsyncValue</code>) و پنل یک لایهٔ پایین‌تر (شکلِ نمایش). این دور لایهٔ پایین را یکی کرد؛ حالا مهاجرت لایهٔ بالا کم‌ریسک‌تر است، چون همهٔ شاخه‌های خطا به یک پنل می‌رسند.</li>
+  <li><b>یکسان‌سازی الگوی «خطای نوشتن».</b> سه الگو مانده (<code>bool</code> برگشتی / پرچم پراوایدر / بنر). همه به بنر می‌رسند ولی کد مشترک نشد. این دور فقط الگوی «خطای خواندن» را یکی کرد.</li>
+  <li><b>بارگذارِ صفحهٔ مصحف.</b> تنها پنلی که دست‌نخورده ماند و دلیل دارد: کاغذِ خودش را با مرکب خودش می‌کشد و کنش دوم («دانلود مصحف») دارد که پنل مدل نمی‌کند. برچسبش قبلاً به همان «تلاش دوباره» رسیده بود.</li>
+  <li><b>هشتاد نوار دیگر.</b> نوار <code>ketabkhaneh_screen</code> در همین دور بسته شد (بخش ۹)، و مهاجرت دسته‌ای بعد از آن ۳۸ فایل دیگر را برد. چهل‌ودو فایل مانده، هر کدام با یک تصمیم محتوایی که ترانسفورمر نمی‌توانست جوابش را بدهد (بخش ۹).</li>
+  <li><b>تب خانه، بلوک‌به‌بلوک.</b> در همین دور شروع شد: دوازده بلوکش بررسی و پنج کارتش اصلاح شد (بخش ۱۰). یک موردش (<code>adhkar_category_page</code>) در diffِ کامیت‌نشدهٔ سشن موازی است و دست‌نخورده ماند.</li>
+</ul>
+
+<h2>۸. دور سوم: پنلی که دیگر نمی‌تواند دوباره ساخته شود <small>دو گیت، و آنچه پیدا کردند</small></h2>
+
+<p>مهاجرت ۳۴ پنل، مسئلهٔ امروز را حل کرد و مسئلهٔ فردا را نه. هر صفحهٔ تازه‌ای می‌توانست دقیقاً همان سه خط را از نو بنویسد، و هفت صفحهٔ «دفتر کودک» — که بعد از وجودِ کامپوننت نوشته شدند — همین کار را کرده بودند. پس این دور به‌جای شمردنِ نمونه‌ها، خودِ الگو را در گیت کیفیت بست.</p>
+
+<table>
+  <thead><tr><th>گیت</th><th>چه چیزی را می‌گیرد</th><th>یافته</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">۹. سطح شکستِ تک‌جمله‌ای</td>
+      <td><code>error: (e, _) =&gt; Text('…')</code> و <code>Center(child: Text('…ممکن نشد'))</code> — شاخهٔ خطایی که یک رشتهٔ ثابت رندر می‌کند و راهی جلو نمی‌گذارد</td>
+      <td><span class="tag t-ok">۱۷ → ۰</span></td>
+    </tr>
+    <tr>
+      <td class="sec">۱۰. استثنا در متن رابط</td>
+      <td>رشته‌ای که شیءِ پرتاب‌شده را درون‌یابی می‌کند — در <code>Text</code>، در اسنک‌بار، یا در فیلدی که صفحه یک خط بعد رندر می‌کند</td>
+      <td><span class="tag t-ok">۱۳ → ۰</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>گیت ۱۰ عمداً روی «مقصد» کلید می‌زند نه روی توکن: پیام <code>AppLogger.e('tag', '…: $e')</code> همان رشته است ولی هرگز به خواننده نمی‌رسد، و اگر با جست‌وجوی <code>$e</code> نوشته می‌شد ۱۷۹ یافته می‌داد که ۱۶۶ تای آن بی‌گناه بود. یک گیت پرسروصدا که همه به آن نگاه نکنند، از نبودِ گیت بدتر است.</p>
+
+<h3 style="margin-top:26px">آنچه گیت‌ها پیدا کردند</h3>
+
+<table>
+  <thead><tr><th>خانواده</th><th>جا</th><th>نمونه</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">صفحه‌های دفتر کودک</td><td class="num">۷</td><td>خانه، عادت‌ها، گزارش، جایزه‌ها، تأییدها، حالت کودک، تنظیمات کودک — همه با «بارگذاری ممکن نشد.» بدون کلید و بدون تلاش دوباره</td></tr>
+    <tr><td class="sec">خواندن‌های هر فرزند</td><td class="num">۳</td><td>یک «—» تنها به‌جای شکست: عادت‌های امروز، گزارش هفته، فروشگاه ستاره‌ها</td></tr>
+    <tr><td class="sec">ابزارها</td><td class="num">۵</td><td>ارث: اشتراک متن، ساخت تصویر، ساخت PDF، محاسبه؛ زکات: PDF گزارش</td></tr>
+    <tr><td class="sec">قبله، کتاب، صوت</td><td class="num">۴</td><td>حل معادلهٔ قبله، خواندن متن کتاب، دانلود صفحات مصحف، پخش صوت قرآن</td></tr>
+    <tr><td class="sec">یادآور و انتخاب صدا</td><td class="num">۲</td><td>انتخاب فایل صوتی در ویرایشگر یادآور و در شیت انتخاب صدا</td></tr>
+    <tr><td class="sec">صفحه‌های معلم</td><td class="num">۷</td><td><span class="tag t-note">استثنا</span> فایل‌های untracked سشن موازی؛ ویرایششان یعنی کامیت‌کردن کار نیمه‌تمام دیگری</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-info">
+  <b>سه اصلاح در درخت کاری ماند، نه در کامیت.</b> <code>book_reader_screen.dart</code>، <code>reminder_editor_screen.dart</code> و <code>sound_picker_sheet.dart</code> همین حالا در دیفِ سشن موازی‌اند (۱۹۱ و ۲۶۱ خط حذف، و یک فایل کاملاً تازه). جمله‌های اصلاح‌شده در آن‌ها نوشته شده و با کامیتِ آن سشن می‌روند؛ جدا کردنشان یعنی کامیت‌کردن کار او. گیت هر سه را صفر می‌بیند، چون درخت کاری را می‌خواند.
+</div>
+
+<div class="callout c-ok">
+  <b>آنچه این دور عوض کرد:</b> تا دیروز «پنل درست» یک عادت بود که باید در بازبینی یادآوری می‌شد؛ از امروز یک شرط است که ساخت اجرا نمی‌شود. کامپوننت شکل را اجباری کرده بود، گیت وجودش را.
+</div>
+
+<h2>۹. خانوادهٔ دیگری که همان شکل را داشت <small>نوار صفحه‌های push‌شده</small></h2>
+
+<p>بند «نوار <code>ketabkhaneh</code>» در گزارش قبلی به <code>SectionShell</code> ارجاع می‌داد. آن ارجاع غلط بود و وقتی به فایل نگاه کردم معلوم شد چرا: <code>SectionShell</code> مال صفحهٔ تب است — بی‌فلش بازگشت، با عنوانِ رشته‌ای. کتابخانه صفحه‌ای است که روی پشته push می‌شود، فلش بازگشت دارد و در حالت جستجو یک <code>TextField</code> جای عنوان می‌نشیند. هیچ‌کدام از این دو در <code>SectionShell</code> مدل نشده‌اند، پس جای درستش آن نبود.</p>
+
+<p>در عوض، شکل سومِ نوار هیچ مالکی نداشت. <code>grep</code> روی <code>scrolledUnderElevation: 0</code> هشتاد‌وچهار فایل داد که همین شش تصمیم را دستی نوشته‌اند:</p>
+
+<table>
+  <thead><tr><th>تصمیم</th><th>چرا اصلاً تصمیم است</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">پس‌زمینهٔ شفاف</td><td>مسیر از قبل داخل <code>AmbientBackground</code> است؛ رنگ اسکافولد تم تیره و مات است</td></tr>
+    <tr><td class="sec">هر دو elevation صفر</td><td>Material 3 نوارِ زیر-اسکرول را با رنگ سطح رنگ می‌کند؛ روی گرادیان این یک نوارِ دیدنی است که هاله را دو تکه می‌کند</td></tr>
+    <tr><td class="sec">عنوان وسط‌چین</td><td>—</td></tr>
+    <tr><td class="sec">مرکب عنوان و فلش از پالت</td><td>وگرنه فلش و عنوان دو رنگ می‌شوند</td></tr>
+    <tr><td class="sec">سبک عنوان: ۱۶، w500، فونت برنامه</td><td>همان چیزی که <code>SectionPage</code> دارد</td></tr>
+    <tr><td class="sec">ترتیب actions</td><td>این یکی واقعاً محتوایی است — تنها ردیفی که باید آزاد بماند</td></tr>
+  </tbody>
+</table>
+
+<p>واگرایی هم اندازه‌گیری شد: عنوان‌های w500 و w700، نوارهایی که یکی از دو پین elevation را نداشتند (و نوارِ خود را فقط وقتی محتوا زیرشان اسکرول می‌شد نشان می‌دادند — دقیقاً حالتی که اسکرین‌شاتِ در حالت سکون هرگز نمی‌بیند)، و <code>study_screen</code> که سه نسخه در یک فایل داشت.</p>
+
+<div class="callout c-ok">
+  <b><code>SectionAppBar</code></b> — یک <code>PreferredSizeWidget</code> با هفت تست که همان شش تصمیم را می‌گیرد و دو پیچ محتوایی نگه می‌دارد: <code>titleWidget</code> (حالت جستجوی کتابخانه) و <code>bottom</code> (نواری که باید در <code>preferredSize</code> شمرده شود). در چهار نقطه به کار رفت: هر دو نوارِ کتابخانه (نوار خطا نسخهٔ دوم در همان فایل بود)، کتابخانهٔ صوتی، و هر دو نوارِ جزئیات علم.
+</div>
+
+<h3 style="margin-top:26px">مهاجرت انجام شد — ۴۲ از ۸۴</h3>
+
+<p>مهاجرت با یک ترانسفورمر محافظه‌کار انجام شد، نه با ویرایش دستی. اسکریپت فقط بلوکی را بازنویسی می‌کرد که <em>دقیقاً</em> شش صفتِ شناخته‌شده را داشت و عنوانش یک <code>Text</code> با مرکب پالت بود؛ هر چیز دیگری را رد می‌کرد و دلیلش را می‌نوشت. نتیجهٔ سنجش روی ۷۳ فایل: <b>۶۵ بلوک کامل</b> و <b>۱۳ بلوک ناقص</b>.</p>
+
+<table>
+  <thead><tr><th>وضعیت</th><th>تعداد فایل</th><th>یادداشت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">مهاجرت‌شده</td><td><b>۴۲</b></td><td>۴ در <code>b64c4ba</code>، ۳۸ در <code>02e247b</code></td></tr>
+    <tr><td>باقی‌مانده</td><td><b>۴۲</b></td><td>هر کدام دلیلی دارد که ترانسفورمر نمی‌توانست جوابش را بدهد</td></tr>
+  </tbody>
+</table>
+
+<p>دلیل‌های باقی‌ماندن، همان‌هایی که در گزارش اسکریپت آمد:</p>
+
+<table>
+  <thead><tr><th>دلیل</th><th>یعنی چه</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">عنوان یک <code>Text</code> نیست</td><td>یک <code>TextField</code>، یک ردیف چیپ، یک تاریخ — این‌ها <code>titleWidget</code> می‌خواهند، نه عنوان رشته‌ای</td></tr>
+    <tr><td class="sec"><code>leading</code> دارد</td><td>دکمهٔ بستن یا فلش بازگشتِ سفارشی — تصمیم محتوایی است، نه سبک</td></tr>
+    <tr><td class="sec">عنوان یک عبارت است</td><td><code>'${x}'</code> به‌جای رشتهٔ ثابت</td></tr>
+    <tr><td class="sec">آرگومان تجزیه نشد</td><td>بلوکی که تطبیق‌دهندهٔ آکولاد رد کرد</td></tr>
+  </tbody>
+</table>
+
+<p>دو چیز در این مهاجرت عوض شد که عمدی بود. اول: دو تا از عنوان‌ها <code>w700</code> بودند و سی‌وشش تای دیگر <code>w500</code> — یک عنوانِ صفحه یک وزن دارد، و <code>SectionAppBar</code> مالک آن است. دوم: ترانسفورمر هجده خط <code>final t = TimeThemeKit.of(context).palette;</code> را بی‌خواننده گذاشت و دو import بی‌مصرف. آن‌ها حذف شدند، چون یک متغیر محلیِ بی‌استفاده همان چیزی است که نفر بعدی را قانع می‌کند <code>t</code> هنوز در دسترس است و واگرایی را برمی‌گرداند.</p>
+
+<div class="callout">
+  <b>چرا نصفه ماند و این نصفه‌بودن درست است:</b> بلوک‌های باقی‌مانده هر کدام یک <em>تصمیم محتوایی</em> دارند، نه یک سبک تکراری. جایگزین‌کردنشان با یک regex یعنی یا <code>titleWidget</code> را حدس بزنم یا <code>leading</code> را دور بریزم — و هر دو، همان نقصی است که این کامپوننت برای بستنش ساخته شد.
+</div>
+
+<h2>۱۰. تب خانه — همان خانواده، یک لایه پایین‌تر <small>کارتی که به سؤالی جواب می‌داد که هیچ‌کس نخوانده بود</small></h2>
+
+<p>کارِ تب «بیشتر» تمام شد و نوبت خانه رسید. خانه دوازده بلوک دارد: هدر، هیرو (ساعت، تقویم سه‌گانه، کمان، شمارش معکوس، چیپ مکان)، بنر باتری، کارت اوقات شرعی، رواتب، تایم‌لاین اعمال، خلاصهٔ امروز، طاعات روزانه، یادآوری‌ها، آداب جمعه، دسترسی سریع، و بنر حیض. هر کدام جدا بررسی شد.</p>
+
+<p>آنچه پیدا شد همان خانوادهٔ سه نبود — «خطایی که چیزی نمی‌گوید» — بلکه یک درجه پایین‌ترش: <b>موفقیتی که چیزی می‌گوید که درست نیست</b>. کارت‌ها عددی را نشان می‌دادند که برنامه هنوز نخوانده بود.</p>
+
+<table>
+  <thead><tr><th>کارت</th><th>آنچه نشان می‌داد</th><th>حقیقت</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">خلاصهٔ امروز</td><td>«۰/۵»، «۰/۷»، «۰/۰» و «—» در یک ردیف</td><td>سه منبع async؛ تا وقتی حل نشده‌اند هیچ‌کدام صفر نیستند. کارت روی فریم اولش با خودش تناقض داشت — و کامنت خودش سه خط پایین‌تر می‌گفت «Unknown is not zero»</td></tr>
+    <tr><td class="sec">اوقات شرعی</td><td>«۰/۵» در هدر</td><td><code>fardStatuses</code> تا حل‌شدن تراکر یک نقشهٔ خالی است، و نقشهٔ خالی از «چیزی ثبت نشده» قابل تشخیص نیست</td></tr>
+    <tr><td class="sec">رواتب</td><td>«۰/۶» در هدر</td><td>همان، با <code>sunnahStatuses</code></td></tr>
+    <tr><td class="sec">طاعات روزانه</td><td>ردیف دست‌ساز «جمله + دکمه»</td><td>صادق بود، ولی نهمین شکلِ همان پنل، و بی‌کلید — پس هیچ تستی نمی‌توانست بدون تطبیق متن فارسی ادعایش کند</td></tr>
+    <tr><td class="sec">یادآوری‌ها</td><td>همهٔ ردیف‌ها تیک‌نخورده</td><td>بدترینشان. <code>_initPrefs</code> خطا را می‌گرفت، لاگ می‌کرد، و <code>_initDone = true</code> می‌گذاشت — پس کارت با <code>_doneIds</code> خالی رندر می‌شد و تیک‌های صبحِ کاربر به «امروز هیچ کاری نکرده‌ای» ترجمه می‌شد. لاگ‌کردنِ یک شکست، از سرِ آن شکست درآمدن نیست</td></tr>
+    <tr><td class="sec">هیرو</td><td>«در حال محاسبهٔ اوقات شرعی…»</td><td><code>prayerClockProvider</code> هم در حالت بارگذاری و هم بعد از شکست <code>null</code> می‌دهد، پس این جمله در هر دو حالت کشیده می‌شد — و در حالت شکست هیچ پایانی نداشت، درحالی‌که کارت دویست‌پیکسل پایین‌تر می‌گفت «در دسترس نیست». یک صفحه، دو جواب، و جواب غلط روی</td></tr>
+  </tbody>
+</table>
+
+<p>هر پنج مورد اصلاح شد. چهار حلقهٔ خلاصه حالا تا حل‌شدن منبعشان «—» می‌خوانند، و اگر منبعی <em>شکست</em> بخورد (نه اینکه هنوز در حال بارگذاری باشد) یک پنل inline مشترک نامش را می‌برد و دکمهٔ تلاش می‌دهد که فقط همان منبعِ شکست‌خورده را باطل می‌کند. یادآوری‌ها یک <code>_initFailed</code> گرفت و پنلی که می‌گوید تیک‌ها پاک نشده‌اند. هیرو یک <code>failed</code> گرفت و جمله‌اش را عوض می‌کند.</p>
+
+<p>در هیرو دکمهٔ تلاش عمداً تکرار نشد: کارت اوقات شرعی همین حالا یکی دارد، و دو دکمه برای یک خواندن همان چیزی است که خواننده یاد می‌گیرد به هیچ‌کدام اعتماد نکند.</p>
+
+<h3 style="margin-top:26px">آنچه در خانه دست نخورد</h3>
+
+<table>
+  <thead><tr><th>مورد</th><th>چرا</th></tr></thead>
+  <tbody>
+    <tr><td class="sec"><code>adhkar_category_page</code> — تنها <code>Scaffold</code>+<code>AppBar</code> دست‌سازِ خانه</td><td>در diffِ کامیت‌نشدهٔ سشن موازی است (منطق <code>DhikrSessionController</code>). ویرایشش یعنی یا hunk آن‌ها را هم stage کنم یا با conflict روبه‌رو شوم</td></tr>
+    <tr><td class="sec">شش گلدنِ قرمزِ خانه</td><td>از تغییر <code>arc_layout.dart</code> در همان سشن می‌آید (<code>math.pi → -math.pi</code> در سه <code>addArc</code>/<code>arcTo</code>). گلدن‌ها تراکر را mock می‌کنند، پس تغییرات این دور در آن‌ها دیده نمی‌شود؛ ۱۶ سبز و ۶ قرمز، همان شش تای قبلی</td></tr>
+    <tr><td class="sec"><code>quick_actions</code> — دو کاشی پیش‌فرض قبل از رسیدن تنظیمات</td><td>یک فریم است و اسکلت‌گذاری‌اش از خودِ پرش بدتر است. در گزارش ثبت شد، اصلاح نشد</td></tr>
+    <tr><td class="sec"><code>actions_timeline</code> بدون برنامهٔ نماز</td><td>عمدی و مستند است: <code>azkarFallbackIndices</code> جای می‌گیرد و در کامنت توضیح داده شده</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-ok">
+  <b>تست‌های خانه:</b> ۴۴ تست در پنج ویجتِ تغییریافته سبز — <code>worship_today</code> ۳، <code>daily_summary</code> ۵، <code>rawatib</code> ۷، <code>reminders</code> ۱۲، <code>prayer_times</code> ۱۶، به‌علاوهٔ یک تست تازه در <code>hero_card</code> که هم متن تازه را می‌خواهد و هم <em>نبودِ</em> متن قدیمی را (اگر فقط اولی را بخواهد، روی صفحه‌ای که هر دو را رندر کند هم سبز می‌شود). بقیهٔ ویجت‌های خانه هم سبز: <code>hero_card</code> ۱۴، <code>actions_timeline</code> ۱۰، <code>hayz_note_guard</code> ۱۴، <code>friday_adab</code> ۱۱، <code>period_hayz</code> ۴، <code>quick_actions</code> ۲، <code>home_refresh_wiring</code> ۱.
+</div>
+
+<h3 style="margin-top:26px">اجرای تست بعد از مهاجرت نوار — دسته‌بندی‌شده</h3>
+
+<p>هر دسته یک فراخوانی جدا، چون اجرای دایرکتوری‌های بزرگ با هم به سقف زمان می‌خورد و شکستِ یک دایرکتوری بقیه را با خودش می‌برد:</p>
+
+<table>
+  <thead><tr><th>دسته</th><th>سبز</th><th>قرمز</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">adhkar · announcements · checklist · dorar_hadith · dua_from_quran · expenses</td><td><b>۳۴۶</b></td><td>۰</td></tr>
+    <tr><td class="sec">fatwa · goals · hadith · hadeeth_enc · khatm · maalim · notes</td><td><b>۳۹۷</b></td><td>۰</td></tr>
+    <tr><td class="sec">personal_info · reminders · riyad · personal2</td><td><b>۲۱۶</b></td><td>۱ — <code>layout_no_overflow_test.dart</code>، فایل untracked سشن موازی که <code>TimeTheme</code> را صدا می‌زند (نام درست <code>TimeThemeKit</code> است). هرگز کامپایل نشده.</td></tr>
+    <tr><td class="sec">search · suggestions · taraghib · tasks · yaqeen</td><td><b>۱۸۰</b></td><td>۰</td></tr>
+    <tr><td class="sec">tools</td><td><b>۱۱۸۶</b></td><td>۰ — با دو گلدنِ بازتولیدشدهٔ مبدل تاریخ (پایین)</td></tr>
+    <tr><td class="sec">quran</td><td><b>۳۸۴</b></td><td>۵ — همه در <code>mushaf_page_turn_effects_test.dart</code>، که به نمادهایی ارجاع می‌دهد که سشن موازی حذف کرده (<code>kBookFlipStrips</code>، <code>kScrollStrips</code>، <code>mushafTurnSlide</code>)</td></tr>
+    <tr><td class="sec">design_system · sections · settings · prayer · home (ویجت‌ها)</td><td><b>۱۲۲۴</b></td><td>۰</td></tr>
+    <tr><td class="sec">home goldens</td><td><b>۱۶</b></td><td>۶ — همان شش گلدنِ قرمزِ <code>arc_layout</code>، نه چیزی از این دور</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-warn">
+  <b>گلدنِ مبدل تاریخ، و چیزی که لو داد.</b> پس از مهاجرت، دو گلدنِ <code>converter_page_day</code> و <code>converter_page_night</code> قرمز شدند (۰٫۹۳٪، ۱۹۹۹ پیکسل). ماسکِ تفاضل نشان داد کل تفاوت در یک ردیف است: عنوانِ نوار. هیچ چیز زیر نوار جابه‌جا نشده بود. علتش اندازه‌گیری‌شدنی بود: از ۹۲ نوارِ پیش از مهاجرت، <b>۵۴</b> تای‌شان اندازه‌ای تعیین نکرده بودند (یعنی ۲۲ پیش‌فرض) و <code>w700</code> گذاشته بودند، و فقط <b>۱۲</b> تا ۱۶/<code>w500</code> بودند. کامپوننت ۱۶/<code>w500</code> را انتخاب کرد — یعنی اقلیت. ولی آن ۵۴ تا تصمیم نبودند: هرکس شش تصمیم را کپی می‌کرد و اندازه نمی‌گذاشت، همین را می‌گرفت. آن ۱۲ تا تنها نوارهایی بودند که کسی واقعاً تنظیمشان کرده بود. پس هر ۸۳ فایل روی ۱۶/<code>w500</code> یکسان شد و گلدن‌ها با <code>--update-goldens</code> بازتولید شدند — ولی این یک تغییرِ ظاهریِ عمدی است، نه یک گلدنِ کهنه: عنوانِ صفحه‌های push‌شده کوچک‌تر و روشن‌تر شد. اگر عنوانِ درشت‌تر خواسته شود، جای تغییر یک عدد است در <code>section_app_bar.dart</code>.
+</div>
+
+<div class="callout">
+  <b>مانع محیطی که ارزش ثبت دارد:</b> وسط این دور درایو <code>C:</code> به صفر بایت آزاد رسید و کامپایلر با <code>The Dart compiler exited unexpectedly</code> مرد — که شبیه شکست تست است و نیست. پاک‌کردن پنج پوشهٔ <code>%TEMP%\flutter_tools.*</code> ۲۹۱ مگابایت آزاد کرد: کافی برای کامپایلِ تک‌فایل، نه برای دستهٔ دایرکتوری. درس: وقتی این خطا با <code>ENOSPC</code> همراه است، مسئله تست نیست.
+</div>
+
+<h2>۱۱. برنامهٔ یک‌به‌یک برای آنچه مانده <small>و اندازهٔ واقعی هر بند</small></h2>
+
+<p class="lead">بند ۷ پنج چیز را «انجام‌نشده» گذاشت. پیش از نوشتن برنامه، اندازهٔ هر پنج را گرفتم — و دو بند از آنچه آنجا نوشته بودم کوچک‌تر بودند و یکی بزرگ‌تر. این تفاوت خودش یافته است: «مهاجرت <code>AsyncScreen</code> روی ۱۰۵ صفحه» در واقع ۸ نقطهٔ استفاده است، و «یکسان‌سازی الگوی خطای نوشتن» در واقع ۱۶ جای مشخص است که کاربر دکمه‌ای زده و کسی چیزی به او نگفته.</p>
+
+<table>
+  <thead><tr><th>بند بند ۷</th><th>اندازهٔ واقعی</th><th>حکم</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">۱. مهاجرت <code>AsyncScreen&lt;T&gt;</code></td>
+      <td><b>۸</b> نقطه در ۶ فایل. ۲۵ فایل دستی <code>.when</code> می‌نویسند، ولی <b>۱۹</b> تای‌شان در شاخهٔ خطا از قبل پنل دارند. ۲ مورد باقی نشانِ تزئینی‌اند.</td>
+      <td><span class="tag t-ok">بسته</span> نقصی نمانده؛ مهاجرت فقط شکل را یکسان می‌کند</td>
+    </tr>
+    <tr>
+      <td class="sec">۲. الگوی «خطای نوشتن»</td>
+      <td><b>۸۹</b> <code>catch</code> در لایهٔ رابط که فقط لاگ می‌کنند؛ <b>۱۶</b> تای آن «نوشتنی است که کاربر خواسته»</td>
+      <td><span class="tag t-fix">باز</span> ۱۵ مورد واقعی، هر کدام سه خط</td>
+    </tr>
+    <tr>
+      <td class="sec">۳. بارگذارِ صفحهٔ مصحف</td>
+      <td>مهلت ۴۵ ثانیه + سه تلاش + <code>fallback</code> به تصویر — یعنی بی‌نهایت نیست. <b>۲</b> نقص باریک مانده.</td>
+      <td><span class="tag t-note">باز</span> کوچک‌تر از آنچه در بند ۷ نوشتم</td>
+    </tr>
+    <tr>
+      <td class="sec">۴. نوارها</td>
+      <td><b>۹۳</b> نقطهٔ استفاده در <b>۸۳</b> فایل؛ <b>۱</b> نوار دستی مانده؛ <b>۶</b> استثنای طراحی</td>
+      <td><span class="tag t-ok">بسته</span> به‌جز مرز مالکیت</td>
+    </tr>
+    <tr>
+      <td class="sec">۵. تب خانه</td>
+      <td><b>۵</b> کارت اصلاح شد؛ <b>۱</b> فایل دست‌نخورده در diffِ دیگری</td>
+      <td><span class="tag t-ok">بسته</span> به‌جز همان یک فایل</td>
+    </tr>
+    <tr>
+      <td class="sec">۶. گیت‌های کیفیت</td>
+      <td><b>۳</b> قرمز، هر سه در فایل‌های سشن موازی</td>
+      <td><span class="tag t-note">بیرون از دسترس</span> نوشتنشان یعنی کامیت‌کردن کار نیمهٔ دیگری</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>بند ۱ — مهاجرت <code>AsyncScreen</code>: توصیه می‌کنم انجام نشود</h3>
+
+<p>عدد ۱۰۵ از یک جست‌وجوی خام آمده بود، نه از شمردن. وقتی <code>.when(</code> را در لایهٔ نمایش شمردم: ۲۵ فایل، ۲۶ شاخهٔ <code>error:</code>، و ۱۹ فایل از آن‌ها از قبل <code>FailureView</code> یا <code>AppErrorDisplay</code> رندر می‌کنند. آن دو فایلی که پنل ندارند <code>tasks_tile.dart:433</code> و <code>tasks_dialog.dart:788</code> هستند و هر دو یک نشانِ زنجیرهٔ انجام‌کار را می‌کشند:</p>
+
+<pre style="direction:ltr;text-align:left;background:#eef0ec;padding:12px 14px;border-radius:10px;font-family:Consolas,monospace;font-size:12.5px;overflow:auto">loading: () =&gt; const SizedBox.shrink(),
+error: (_, __) =&gt; const SizedBox.shrink(),</pre>
+
+<p>این درست است، نه نقص. نشانِ زنجیره‌ای که خوانده نشده باید غایب باشد؛ پنلِ خطا روی یک نشانِ ۶ پیکسلی، خودش نقص تازه است. پس آنچه می‌ماند ۱۹ فایلِ سالم است که فقط شکل دیگری از همان چیز را می‌نویسند. مهاجرتشان یک انتزاع می‌آورد و در عوض ۱۹ ریسک رگرسیون، با <b>صفر</b> تغییر قابل‌دیدن برای کاربر. تنها فایل‌هایی که واقعاً سود می‌بردند پنج صفحهٔ معلم‌اند — و آن‌ها untracked هستند.</p>
+
+<div class="callout c-info">
+  <b>هزینهٔ بستن، اگر روزی خواسته شود:</b> ۱۹ فایل × (جای‌گزینی <code>.when</code> با <code>AsyncScreen</code> و حذف پنل اختصاصی) — یک بعدازظهر، صفر تغییر در رفتار. <b>چه چیزی را باز می‌کند:</b> هیچ. به همین دلیل در برنامه نیست.
+</div>
+
+<h3>بند ۲ — ۱۶ جا که کاربر دکمه زد و کسی چیزی نگفت</h3>
+
+<p>این بند بزرگ‌تر از آن بود که در بند ۷ نوشته بودم. ۳۶۹ <code>catch</code> در لایهٔ نمایش هست؛ ۱۷۹ تای آن فقط لاگ می‌کند؛ ۸۹ تای آن در فایل‌های <code>screens/</code> و <code>widgets/</code> است. آن ۸۹ را سه دسته‌اند و فقط یکی‌شان نقص است:</p>
+
+<table>
+  <thead><tr><th>دسته</th><th>تعداد</th><th>حکم</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">الف — به‌تصمیم «بهترین تلاش»</td><td class="num">۳</td><td>سکوت درست است و دلیلش در کد نوشته شده (مثل <code>account_screen:967</code>: لغو اعلان‌ها پیش از پاک‌سازی، که اگر مانع شود خودِ کاری را که کاربر خواسته نمی‌گذارد انجام شود). فقط کامنت لازم دارد.</td></tr>
+    <tr><td class="sec">ب — نتیجهٔ جزئی</td><td class="num">۷۰</td><td>یک منبع از چند منبع شکسته و بقیه رندر شده‌اند (<code>search_screen</code>: جست‌وجوی قرآن شکست، دعا و حدیث آمدند). پنل کامل غلط است؛ یک پانویس لازم است.</td></tr>
+    <tr><td class="sec">ج — نوشتنی که کاربر خواست</td><td class="num">۱۶</td><td><b>نقص.</b> دکمه زده شده، نوشتن شکسته، و کاربر هیچ نشنیده. یک موردش خواندن است (<code>zakat_screen:380</code>)؛ ۱۵ مورد نوشتن است.</td></tr>
+  </tbody>
+</table>
+
+<p>آن ۱۵ مورد، به ترتیب اهمیت:</p>
+
+<div class="fix">
+  <h4>پیشنهاد کاربر گم می‌شود، بی‌آنکه بداند</h4>
+  <span class="where">suggestions_screen.dart:142 submit() · :175 submitWithGoogle()</span>
+  <div class="row"><b>چه</b><span>کلِ قابلیت یک نوشتن است. اگر شکست بخورد، فرم بسته می‌شود، پیام کاربر جایی نرفته، و هیچ پیامی نشان داده نمی‌شود.</span></div>
+  <div class="row"><b>چرا بد</b><span>بدترین ترکیب: کاربر فکر می‌کند فرستاده. این تنها موردی در این فهرست است که دادهٔ تولیدشدهٔ کاربر را بی‌بازگشت از بین می‌برد.</span></div>
+</div>
+
+<div class="fix">
+  <h4>حذف شکست می‌خورد و ردیف سر جایش می‌ماند</h4>
+  <span class="where">documents_screen.dart:117 _delete() · insurance_screen.dart:250 _delete() · assets_screen.dart:227 _confirmDelete()</span>
+  <div class="row"><b>چه</b><span>سه صفحهٔ صندوق شخصی. کاربر «حذف» را تأیید می‌کند، نوشتن شکست می‌خورد، ردیف می‌ماند و هیچ پیامی نیست.</span></div>
+  <div class="row"><b>چرا بد</b><span>کاربر نتیجه می‌گیرد حذف کار نمی‌کند — یا بدتر، فکر می‌کند حذف شده. هر دو برداشت غلط است و دومی خطرناک‌تر.</span></div>
+</div>
+
+<div class="fix">
+  <h4>تیکی که بی‌صدا برمی‌گردد</h4>
+  <span class="where">reminders_card.dart:195 _toggle() · ritual_steps_view.dart:127 _toggle()</span>
+  <div class="row"><b>چه</b><span>کارت یادآور تب خانه و مراحل حج. تیک زده می‌شود، نوشتن شکست می‌خورد، وضعیت به حالت قبل برمی‌گردد.</span></div>
+  <div class="row"><b>چرا بد</b><span>همان خانواده‌ای که در بند ۱۰ پیدا شد، یک لایه پایین‌تر: کارت خواندن را اصلاح کردیم، نوشتن هنوز ساکت است.</span></div>
+</div>
+
+<div class="fix">
+  <h4>هفت مورد کم‌اهمیت‌تر</h4>
+  <span class="where">zakat_screen.dart:390 · :485 · pomodoro_screen.dart:241 · :284 · :410 · :456 · restore_flow.dart:195 · account_screen.dart:380</span>
+  <div class="row"><b>چه</b><span>ذخیرهٔ تنظیمات فقهی و آغاز حول زکات؛ ذخیرهٔ وضعیت، پاک‌کردن، بیدارنگه‌داشتن و لغو اعلان پومودورو؛ تعمیر پس از بازیابی؛ پاک‌کردن نسخه‌های پشتیبان درایو.</span></div>
+  <div class="row"><b>چرا</b><span>همه نوشتن‌هایی هستند که کاربر با یک دکمه شروع کرده، ولی پیامدشان کوتاه‌مدت است و کاربر خودش تکرار می‌کند. پایین‌ترین اولویت.</span></div>
+</div>
+
+<div class="callout c-info">
+  <b>هزینهٔ بستن:</b> یک کمک‌تابع مشترک (<code>WriteFailure.show(context, id: …, onRetry: …)</code>) که اسنک‌بار با «تلاش دوباره» می‌دهد — حدود ۲۰ خط، یک بار. بعد ۱۵ فراخوانی، هر کدام سه خط، چون <code>FailureView</code> و اسنک‌بار هر دو از قبل وجود دارند. برای دستهٔ «ب» یک ویجت کوچک تازه لازم است (<code>PartialFailureFooter</code>، ~۲۵ خط) و ۷۰ نقطهٔ فراخوانی که اکثرشان یک خط‌اند. دستهٔ «الف» فقط کامنت.
+  <br><b>چه چیزی را باز می‌کند:</b> بستن کامل خانوادهٔ «خطایی که چیزی نمی‌گوید» — نه فقط برای خواندن، که برای نوشتن.
+</div>
+
+<h3>بند ۳ — بارگذارِ مصحف: دو نقص باریک، نه یکی بزرگ</h3>
+
+<p>در بند ۷ نوشتم «تنها پنلی که دست‌نخورده ماند و دلیل دارد». دلیلش هنوز هست، ولی وقتی زنجیره را خواندم معلوم شد وضعیت بی‌نهایت نیست: <code>Qcf4FontLoader.ensure</code> برای هر تلاش ۴۵ ثانیه مهلت دارد، چند بار تکرار می‌کند، و مجموعهٔ <code>_failed</code> چسبنده است؛ شکست به <code>onFallback</code> می‌رسد و والد تصویر را رندر می‌کند. پس «در حال آماده‌سازی صفحه…» پایان دارد. دو چیز باقی می‌ماند:</p>
+
+<table>
+  <thead><tr><th>نقص</th><th>جا</th><th>اندازه</th><th>هزینه</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="sec">شاخهٔ پایانیِ خواندن صفحه ساکت است</td>
+      <td><code>quran_mushaf_view.dart:826</code></td>
+      <td>پس از سه تلاش، فقط <code>AppLogger.warning</code> و <code>_loadingPages.remove</code>. هیچ‌جا ثبت نمی‌شود که این صفحه شکست خورده، پس شیت ترجمه بی‌آنکه بگوید به دادهٔ همراه برنامه برمی‌گردد (<code>_offlinePageVerses</code>).</td>
+      <td>یک <code>Set&lt;int&gt; _failedPages</code> و یک یادداشت درون‌خطی در شیت — ~۱۵ خط</td>
+    </tr>
+    <tr>
+      <td class="sec">اسپینر بی‌انصراف</td>
+      <td><code>qcf4_page_viewer.dart:517</code></td>
+      <td><code>_busy</code> یک اسپینر نامعین با متن است، بدون مهلتِ نمایش و بدون راه خروج. با ۴۵ ثانیه × تکرارها، روی شبکهٔ سرد می‌تواند دقایقی بماند.</td>
+      <td>پس از ۱۰ ثانیه، «تلاش دوباره» و «انصراف» کنار متن — ~۲۰ خط</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>هیچ‌کدام فوری نیست و هیچ‌کدام در فایل‌های سشن موازی نیست، پس قابل انجام است. ولی صادقانه: این دو، «نقصِ ساختاری» نیستند؛ دو لبهٔ ناهموارند.</p>
+
+<h3>بند ۴ — شش استثنای نوار، با دلیل هر کدام</h3>
+
+<table>
+  <thead><tr><th>فایل</th><th>دلیل</th><th>هزینهٔ بستن</th></tr></thead>
+  <tbody>
+    <tr><td class="sec"><code>admin_web/admin_web_app.dart</code></td><td>سطح مدیریت، بیرون از اپ</td><td>—</td></tr>
+    <tr><td class="sec"><code>onboarding_screen.dart</code></td><td>نوارِ جریان ریشه، بدون فلش بازگشت و بدون تب</td><td>—</td></tr>
+    <tr><td class="sec"><code>photo_gallery_screen.dart</code></td><td>نمایشگر تمام‌صفحه؛ نوار باید محو شود</td><td>—</td></tr>
+    <tr><td class="sec"><code>maalim_chapter_screen.dart</code><br><code>riyad_chapter_screen.dart</code><br><code>taraghib_chapter_screen.dart</code></td><td>رنگ بخش را صریح پاس می‌دهند؛ <code>SectionAppBar</code> این را مدل نمی‌کند</td><td>یک پارامتر اختیاری <code>accent</code> در کامپوننت (~۵ خط) + سه فراخوانی. تنها استثنایی که بستنش ارزش دارد.</td></tr>
+  </tbody>
+</table>
+
+<p>و یک نوار دستی که مالِ این دور نیست: <code>reminder_editor_screen.dart</code> — در diffِ کامیت‌نشدهٔ سشن موازی. با کامیتِ آن سشن می‌رود.</p>
+
+<h3>بند ۵ و ۶ — آنچه با دست‌زدن بدتر می‌شود</h3>
+
+<p>سه گیت قرمز و شش گلدن قرمز، همه در فایل‌هایی هستند که سشن موازی همین حالا ویرایش می‌کند:</p>
+
+<table>
+  <thead><tr><th>گیت</th><th>جا</th><th>اصلاح</th></tr></thead>
+  <tbody>
+    <tr><td class="sec">catch بی‌لاگ</td><td><code>parent_report_screen.dart:411</code></td><td>یک خط: <code>AppLogger</code> یا <code>rethrow</code></td></tr>
+    <tr><td class="sec"><code>]!</code></td><td><code>care_reminders.dart:296</code></td><td>یک خط: <code>firstOrNull</code> یا <code>as int?</code></td></tr>
+    <tr><td class="sec">پراوایدر در فایل صفحه</td><td><code>class_management_screen.dart:563</code></td><td>جابه‌جایی به <code>providers/</code></td></tr>
+    <tr><td class="sec">شش گلدن</td><td><code>arc_layout.dart</code> — تغییر ±<code>math.pi</code></td><td>بازتولید گلدن‌ها <b>بعد از</b> تثبیت آن تغییر</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-warn">
+  <b>چرا از این‌جا اصلاح نمی‌شوند:</b> هر چهار مورد در فایل‌هایی هستند که یا untracked‌اند یا در diffِ کامیت‌نشدهٔ سشن دیگر. اصلاح‌شان از این‌جا یعنی <code>git add</code> کردن کار نیمه‌تمامِ کس دیگری. کاری که باید کرد، تحویل‌دادنِ همین چهار خطِ بالا به آن سشن است — نه ویرایش کردنشان.
+</div>
+
+<div class="callout c-ok">
+  <b>«مهاجرت کامل» امروز یعنی چه:</b> خانوادهٔ «خطایی که چیزی نمی‌گوید» بسته است — دو گیتش صفرند و ساختِ تازه نمی‌تواند پنل تک‌جمله‌ای بسازد. خانوادهٔ نوار بسته است — یک کامپوننت، ۹۳ نقطه، یک استثنای قابل‌بستن. تب خانه بسته است. آنچه مانده «مهاجرت» نیست: ۱۵ نوشتنِ بی‌صدا، ۷۰ نتیجهٔ جزئی، دو لبهٔ مصحف، و یک مرز مالکیت. سه مورد اول کارِ یک روز است و به همین ترتیب اولویت دارد؛ مورد چهارم با تحویل‌دادن حل می‌شود، نه با کد.
+</div>
+
+<footer>
+  یک پنل خطا برای شصت‌وچهار جا — توحید · شاخهٔ <code>release/1.8.0</code><br>
+  کامیت‌ها: <code>1836045</code> · <code>3972aa5</code> · <code>2b38c2a</code> · <code>0abd827</code> · <code>fccc787</code> · <code>1e2321c</code> · <code>465d5d1</code> · <code>c342eae</code> · <code>fdf0684</code> · <code>59e44fb</code> · <code>92d47bd</code> · <code>35cc3e8</code> · <code>63db894</code> · <code>658df33</code> · <code>32c78c1</code> · <code>b64c4ba</code> · <code>2f92ce7</code> · <code>3bca13f</code> · <code>4afaf8d</code> · <code>02e247b</code> · <code>62f9c82</code> · <code>76a4f24</code> · <code>1bb159f</code> · <code>52d8432</code> · <code>345e121</code><br>
+  تحلیل ایستا: بدون ایراد در فایل‌های این دور · گیت کیفیت: ۷/۱۰ صفر · دو گیت تازه صفر (سه مورد مانده، همه در فایل‌های untracked سشن موازی)
+</footer>
+
+</div>
+</body>
+</html>

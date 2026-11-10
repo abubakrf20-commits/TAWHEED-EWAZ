@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No OS polling (spec: updatePeriodMillis=0).
+
+     Freshness now comes from three places, none of which polls:
+       * the clock and the countdown are self-ticking RemoteViews leaves
+         (`widget_live_clock.xml` / `widget_live_countdown.xml`) — they stay
+         exact with the app dead, in Doze, and in battery saver;
+       * exact boundary alarms at every adhan, iqamah, sunrise and midnight
+         flip the phase, the dates and the «next prayer» wash;
+       * a 15-minute WorkManager backstop and a 6-hour alarm watchdog re-render
+         if everything else was dropped.
+
+     `initialLayout` is a STATIC placeholder on purpose: pointing it at a
+     custom view made the launcher inflate our ticker inside its own process
+     before the app had ever rendered (see widget_placeholder_prayer.xml).
+
+     `minHeight` is 160 dp, not 120 dp: 160 is the first height the full card
+     (five prayer boxes + the three-date strip) actually fits in, so the
+     default placement now shows the real card instead of silently landing on
+     the compact one and forcing the user to resize before they can see the
+     five times. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="160dp"
+    android:minResizeWidth="120dp"
+    android:minResizeHeight="80dp"
+    android:maxResizeWidth="500dp"
+    android:maxResizeHeight="500dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_placeholder_prayer"
+    android:label="توحید — اوقات نماز"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:configure=".widget.PrayerWidgetConfigureActivity" />

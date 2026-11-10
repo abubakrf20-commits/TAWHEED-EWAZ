@@ -1,0 +1,154 @@
+// Reads assets/widget_palettes.json and emits one rounded-gradient
+// background drawable per palette per opacity step:
+//   res/drawable/widget_<id>_bg.xml          (100%)
+//   res/drawable/widget_<id>_bg_o85.xml      (85%)
+//   res/drawable/widget_<id>_bg_o70.xml      (70%)
+//   res/drawable/widget_<id>_bg_o55.xml      (55%)
+// The corner radius is read from WidgetTheme.CORNER_RADIUS_DP — the one
+// constant the native runtime gradient and the settings preview also mirror —
+// so a baked skin can never disagree with them. Generated files carry the
+// palette's colors as the layout-default skin; the widgets re-color themselves
+// at render time from WidgetTheme, so these drawables only decide what a
+// freshly placed widget shows before its first render.
+// Run: dart run tool/widget_palette_generator.dart
+import 'dart:convert';
+import 'dart:io';
+
+final _alphaByStep = <double, String>{1.0: '', 0.85: 'D9', 0.7: 'B3', 0.55: '8C'};
+
+void main(List<String> args) {
+  final root = Directory.current.path;
+  final jsonFile = File('$root/assets/widget_palettes.json');
+  final config = jsonDecode(jsonFile.readAsStringSync()) as Map<String, dynamic>;
+  final palettes = (config['palettes'] as List).cast<Map<String, dynamic>>();
+  final steps = (config['opacitySteps'] as List).cast<num>().map((e) => e.toDouble()).toList();
+
+  final radius = _cornerRadius(root);
+  if (radius == null) {
+    stderr.writeln('CORNER_RADIUS_DP not found in WidgetTheme.kt — '
+        'the skin drawables must bake the radius the native render paints');
+    exitCode = 1;
+    return;
+  }
+
+  final drawableDir = Directory(
+      '$root/android/app/src/main/res/drawable');
+  if (!drawableDir.existsSync()) {
+    stderr.writeln('drawable dir missing: ${drawableDir.path}');
+    exitCode = 1;
+    return;
+  }
+
+  var written = 0;
+  for (final palette in palettes) {
+    final id = palette['id'] as String;
+    if (palette['auto'] == true) continue; // no own colors to bake
+    final bg = _hex(palette['bg'] as String);
+    final bgEnd = _hex(palette['bgEnd'] as String);
+    for (final step in steps) {
+      final alpha = _alphaByStep[step];
+      if (alpha == null) {
+        stderr.writeln('no alpha baked for step $step — extend _alphaByStep');
+        exitCode = 1;
+        return;
+      }
+      final suffix = step == 1.0 ? '' : '_o${(step * 100).round()}';
+      final file = File('${drawableDir.path}/widget_${id}_bg$suffix.xml');
+      file.writeAsStringSync(_drawable(alpha + bg, alpha + bgEnd, radius));
+      written++;
+    }
+
+    // The per-widget tokens the 2026-11 brief added: solid fills the
+    // compositions reference as ImageProvider backgrounds (shape drawables,
+    // so the corners survive below API 31 where GlanceModifier.cornerRadius
+    // does nothing).
+    final prayer = palette['prayer'] as Map<String, dynamic>?;
+    final nextFill = prayer?['nextFill'] as String?;
+    if (nextFill != null) {
+      File('${drawableDir.path}/widget_prayer_next_$id.xml').writeAsStringSync(
+          _solid(_hex(nextFill), 22));
+      written++;
+    }
+    final tasbih = palette['tasbih'] as Map<String, dynamic>?;
+    final badgeFill = tasbih?['badgeFill'] as String?;
+    if (badgeFill != null) {
+      File('${drawableDir.path}/widget_tasbih_badge_$id.xml')
+          .writeAsStringSync(_solid(_hex(badgeFill), 10));
+      written++;
+    }
+  }
+
+  // Shared, palette-independent neutral fills: white@alpha on dark presets,
+  // black@alpha on light ones. The runtime resolves the family per palette's
+  // `light` flag (WidgetTheme.neutralFill).
+  const whiteSteps = {8: 0x14, 12: 0x1F, 14: 0x24, 16: 0x29};
+  const blackSteps = {6: 0x0F, 8: 0x14, 12: 0x1F, 16: 0x29};
+  for (final entry in whiteSteps.entries) {
+    // The map already stores ALPHA BYTES (0x14 = 8% of 255); white@N is that
+    // byte in front of an opaque white RGB.
+    final color =
+        '${entry.value.toRadixString(16).padLeft(2, '0').toUpperCase()}FFFFFF';
+    File('${drawableDir.path}/widget_capsule_w${entry.key}.xml')
+        .writeAsStringSync(_solid(color, 22));
+    File('${drawableDir.path}/widget_circle_w${entry.key}.xml')
+        .writeAsStringSync(_oval(color));
+    File('${drawableDir.path}/widget_pill_w${entry.key}.xml')
+        .writeAsStringSync(_solid(color, 17));
+    written += 3;
+  }
+  for (final entry in blackSteps.entries) {
+    final color =
+        '${entry.value.toRadixString(16).padLeft(2, '0').toUpperCase()}000000';
+    File('${drawableDir.path}/widget_capsule_b${entry.key}.xml')
+        .writeAsStringSync(_solid(color, 22));
+    File('${drawableDir.path}/widget_circle_b${entry.key}.xml')
+        .writeAsStringSync(_oval(color));
+    File('${drawableDir.path}/widget_pill_b${entry.key}.xml')
+        .writeAsStringSync(_solid(color, 17));
+    written += 3;
+  }
+  stdout.writeln('wrote $written palette drawables to ${drawableDir.path}');
+}
+
+String _solid(String argb, int radiusDp) => '''<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated by tool/widget_palette_generator.dart from assets/widget_palettes.json — do not edit by hand. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#$argb" />
+    <corners android:radius="${radiusDp}dp" />
+</shape>
+''';
+
+String _oval(String argb) => '''<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated by tool/widget_palette_generator.dart from assets/widget_palettes.json — do not edit by hand. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#$argb" />
+</shape>
+''';
+
+String _hex(String raw) => raw.replaceFirst('#', '').toUpperCase();
+
+/// The corner radius lives in one place: `WidgetTheme.CORNER_RADIUS_DP`, which
+/// the native runtime gradient paints and the Flutter preview mirrors. Reading
+/// it here means a baked skin cannot drift from either.
+String? _cornerRadius(String root) {
+  final themeFile = File('$root/android/app/src/main/kotlin/com/islamic/'
+      'tawheeed/widget/WidgetTheme.kt');
+  if (!themeFile.existsSync()) return null;
+  final match = RegExp(r'CORNER_RADIUS_DP\s*=\s*(\d+)')
+      .firstMatch(themeFile.readAsStringSync());
+  return match?.group(1);
+}
+
+String _drawable(String start, String end, String radius) => '''<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated by tool/widget_palette_generator.dart from assets/widget_palettes.json — do not edit by hand. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#$start"
+        android:endColor="#$end" />
+    <corners android:radius="${radius}dp" />
+</shape>
+''';

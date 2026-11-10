@@ -1,0 +1,148 @@
+{
+  "version": 2,
+  "categories": [
+    {
+      "id": "yaqeen",
+      "tracks": [
+        {
+          "id": "yaqeen-01",
+          "title": "معرفت شناسی",
+          "file": "yaqeen/1. معرفت شناسی.opus",
+          "sizeBytes": 6712688
+        },
+        {
+          "id": "yaqeen-02",
+          "title": "اثبات وجود خدا (امکان و وجوب)",
+          "file": "yaqeen/2. اثبات وجود خدا (امکان و وجوب).opus",
+          "sizeBytes": 8514799
+        },
+        {
+          "id": "yaqeen-03",
+          "title": "اثبات وجود خدا (برهان نظم)",
+          "file": "yaqeen/3. اثبات وجود خدا (برهان نظم).opus",
+          "sizeBytes": 7021989
+        },
+        {
+          "id": "yaqeen-04",
+          "title": "نقد برهان شر مساله ی شُرور در جهان",
+          "file": "yaqeen/4_نقد برهان شر مساله ی شُرور در جهان.opus",
+          "sizeBytes": 10126713
+        },
+        {
+          "id": "yaqeen-05",
+          "title": "پیدایش ادیان- نقد دیدگاه های نادرست",
+          "file": "yaqeen/5_پیدایش ادیان- نقد دیدگاه های نادرست.opus",
+          "sizeBytes": 13498642
+        },
+        {
+          "id": "yaqeen-06",
+          "title": "کارکردهای ارزشمند دین در جامعه",
+          "file": "yaqeen/6. کارکردهای ارزشمند دین در جامعه.opus",
+          "sizeBytes": 12035282
+        },
+        {
+          "id": "yaqeen-07",
+          "title": "اثبات صداقت رسول اکرم(ص)",
+          "file": "yaqeen/7. اثبات صداقت رسول اکرم(ص).opus",
+          "sizeBytes": 6501185
+        },
+        {
+          "id": "yaqeen-08",
+          "title": "اثبات نبوّت رسول اکرم(ص)",
+          "file": "yaqeen/8. اثبات نبوّت رسول اکرم(ص).opus",
+          "sizeBytes": 9587891
+        },
+        {
+          "id": "yaqeen-09",
+          "title": "دفاع از ساحت پیامبر(ص)",
+          "file": "yaqeen/9. دفاع از ساحت پیامبر(ص).opus",
+          "sizeBytes": 9098158
+        },
+        {
+          "id": "yaqeen-10",
+          "title": "اثبات الهی بودن قرآن - منشاء قرآن",
+          "file": "yaqeen/10. اثبات الهی بودن قرآن - منشاء قرآن.opus",
+          "sizeBytes": 6603530
+        },
+        {
+          "id": "yaqeen-11",
+          "title": "اثبات الهی بودن قرآن-اعجاز علمی",
+          "file": "yaqeen/11. اثبات الهی بودن قرآن-اعجاز علمی.opus",
+          "sizeBytes": 6371201
+        },
+        {
+          "id": "yaqeen-12",
+          "title": "اثبات الهی بودن قرآن(تحدی)",
+          "file": "yaqeen/12. اثبات الهی بودن قرآن(تحدی).opus",
+          "sizeBytes": 7447843
+        },
+        {
+          "id": "yaqeen-13",
+          "title": "قرآن و علم",
+          "file": "yaqeen/13. قرآن و علم.opus",
+          "sizeBytes": 7526868
+        },
+        {
+          "id": "yaqeen-14",
+          "title": "ادعای تناقض در قرآن",
+          "file": "yaqeen/14. ادعای تناقض در قرآن.opus",
+          "sizeBytes": 6582061
+        },
+        {
+          "id": "yaqeen-15",
+          "title": "دین و علم",
+          "file": "yaqeen/15. دین و علم.opus",
+          "sizeBytes": 7592061
+        },
+        {
+          "id": "yaqeen-16",
+          "title": "اسلام و حقوق بشر",
+          "file": "yaqeen/16. اسلام و حقوق بشر.opus",
+          "sizeBytes": 7491451
+        },
+        {
+          "id": "yaqeen-17",
+          "title": "اسلام پذیری ایرانیان",
+          "file": "yaqeen/17. اسلام پذیری ایرانیان.opus",
+          "sizeBytes": 6667977
+        },
+        {
+          "id": "yaqeen-18",
+          "title": "اسلام و ملیت",
+          "file": "yaqeen/18. اسلام و ملیت.opus",
+          "sizeBytes": 6939190
+        },
+        {
+          "id": "yaqeen-19",
+          "title": "اسلام و خشونت",
+          "file": "yaqeen/19. اسلام و خشونت.opus",
+          "sizeBytes": 15298272
+        },
+        {
+          "id": "yaqeen-20",
+          "title": "جبر و اختیار",
+          "file": "yaqeen/20. جبر و اختیار.opus",
+          "sizeBytes": 6819695
+        },
+        {
+          "id": "yaqeen-21",
+          "title": "حقوق زن در اسلام",
+          "file": "yaqeen/21. حقوق زن در اسلام.opus",
+          "sizeBytes": 8283527
+        },
+        {
+          "id": "yaqeen-22",
+          "title": "آشنایی با مغالطات",
+          "file": "yaqeen/22. آشنایی با مغالطات.opus",
+          "sizeBytes": 7004099
+        },
+        {
+          "id": "yaqeen-23",
+          "title": "چگونگی بحث با مخالفان",
+          "file": "yaqeen/23. چگونگی بحث با مخالفان.opus",
+          "sizeBytes": 13691231
+        }
+      ]
+    }
+  ]
+}

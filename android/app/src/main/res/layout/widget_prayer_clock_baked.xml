@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The prayer card's BAKED clock — the fallback leaf for a host that refused
+  the live TextClock (`WidgetPrefs.KEY_LIVE_LEAVES` = false).
+
+  It is charged into `prayer_clock_slot` exactly like widget_prayer_clock.xml,
+  so the card's layout, metrics and click target are identical; only the value
+  stops ticking on its own. In that mode `PrayerWidget.scheduleMinuteTick`
+  carries the tick (the exact one-shot plus the repeating backstop), which is
+  why the fallback must stay reachable: a host that cannot inflate a TextClock
+  must still get a clock, even a minute-at-a-time one.
+
+  No `format12Hour`/`format24Hour`/`textLocale` here on purpose: the string is
+  built by `PrayerRemoteLeaves.bakedClockText` from the app's own 12/24 setting,
+  so this TextView never consults the launcher's locale.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/prayer_clock_baked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="ساعت"
+        android:fontFamily="@font/calibri"
+        android:fontFeatureSettings="tnum"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textStyle="bold" />
+</FrameLayout>

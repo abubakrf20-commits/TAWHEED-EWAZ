@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "note": "مبنای واحدهای محلی در هر منطقه فرق دارد.",
+  "localNote": "مبنای پیش‌فرض (قابل ویرایش)",
+  "categories": [
+    {
+      "id": "length",
+      "label": "طول",
+      "base": "متر",
+      "units": [
+        {"id": "mm", "label": "میلی‌متر", "factor": 0.001},
+        {"id": "cm", "label": "سانتی‌متر", "factor": 0.01},
+        {"id": "m", "label": "متر", "factor": 1},
+        {"id": "km", "label": "کیلومتر", "factor": 1000},
+        {"id": "in", "label": "اینچ", "factor": 0.0254},
+        {"id": "ft", "label": "فوت", "factor": 0.3048},
+        {"id": "yd", "label": "یارد", "factor": 0.9144},
+        {"id": "mi", "label": "مایل", "factor": 1609.344}
+      ]
+    },
+    {
+      "id": "mass",
+      "label": "وزن",
+      "base": "کیلوگرم",
+      "units": [
+        {"id": "mg", "label": "میلی‌گرم", "factor": 0.000001},
+        {"id": "g", "label": "گرم", "factor": 0.001},
+        {"id": "kg", "label": "کیلوگرم", "factor": 1},
+        {"id": "t", "label": "تُن", "factor": 1000},
+        {"id": "lb", "label": "پوند", "factor": 0.45359237},
+        {"id": "oz", "label": "اونس", "factor": 0.028349523125}
+      ]
+    },
+    {
+      "id": "area",
+      "label": "مساحت",
+      "base": "متر مربع",
+      "units": [
+        {"id": "cm2", "label": "سانتی‌متر مربع", "factor": 0.0001},
+        {"id": "m2", "label": "متر مربع", "factor": 1},
+        {"id": "km2", "label": "کیلومتر مربع", "factor": 1000000},
+        {"id": "ha", "label": "هکتار", "factor": 10000},
+        {"id": "ft2", "label": "فوت مربع", "factor": 0.09290304},
+        {"id": "ac", "label": "ایکر", "factor": 4046.8564224}
+      ]
+    },
+    {
+      "id": "volume",
+      "label": "حجم",
+      "base": "لیتر",
+      "units": [
+        {"id": "ml", "label": "میلی‌لیتر", "factor": 0.001},
+        {"id": "l", "label": "لیتر", "factor": 1},
+        {"id": "m3", "label": "متر مکعب", "factor": 1000},
+        {"id": "gal_us", "label": "گالن (آمریکا)", "factor": 3.785411784},
+        {"id": "gal_uk", "label": "گالن (انگلیس)", "factor": 4.54609},
+        {"id": "cup", "label": "پیمانه", "factor": 0.2365882365}
+      ]
+    },
+    {
+      "id": "temperature",
+      "label": "دما",
+      "base": "سانتی‌گراد",
+      "temperature": true,
+      "units": [
+        {"id": "c", "label": "سانتی‌گراد"},
+        {"id": "f", "label": "فارنهایت"},
+        {"id": "k", "label": "کلوین"}
+      ]
+    },
+    {
+      "id": "speed",
+      "label": "سرعت",
+      "base": "متر بر ثانیه",
+      "units": [
+        {"id": "mps", "label": "متر بر ثانیه", "factor": 1},
+        {"id": "kmh", "label": "کیلومتر بر ساعت", "factor": 0.2777777777777778},
+        {"id": "mph", "label": "مایل بر ساعت", "factor": 0.44704},
+        {"id": "knot", "label": "گره (نات)", "factor": 0.5144444444444445}
+      ]
+    },
+    {
+      "id": "local",
+      "label": "محلی ★",
+      "base": "گرم",
+      "local": true,
+      "units": [
+        {"id": "g", "label": "گرم", "factor": 1},
+        {"id": "kg_local", "label": "کیلوگرم", "factor": 1000},
+        {"id": "man_tabriz", "label": "من (تبریز)", "factor": 3000, "verified": false},
+        {"id": "sir", "label": "سیر", "factor": 75, "verified": false},
+        {"id": "mesghal", "label": "مثقال", "factor": 4.608, "verified": false},
+        {"id": "nokhod", "label": "نخود", "factor": 0.192, "verified": false},
+        {"id": "kharvar", "label": "خروار", "factor": 300000, "verified": false}
+      ]
+    }
+  ]
+}

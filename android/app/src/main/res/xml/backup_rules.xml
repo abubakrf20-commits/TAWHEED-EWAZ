@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Automatic OS backup (Android ≤ 11; API 31+ uses data_extraction_rules)
+         — keeps the SQLite database (app.sqlite holds ALL stats: notes,
+         tasbih, evaluation, khatm, reading, prayers, fasting, tasks,
+         expenses, ...) and app preferences safe across reinstalls.
+         Large regenerable content is excluded so the backup stays under the
+         25MB platform quota and never silently fails. custom_azans/ IS kept
+         (user-created, small, not re-downloadable).
+
+         Android backup paths are exact matches, NOT globs: `app.sqlite.corrupt`
+         never matched the real `app.sqlite.corrupt.<timestamp>` files, so
+         every forensic copy (a full copy of the user's data) was uploaded to
+         the cloud. Those now live in the excluded `database_diagnostics/`
+         directory instead.
+
+         FlutterSecureStorage.xml holds the vault AES key. It is sealed by the
+         Android Keystore, which is device-bound: the ciphertext is useless on
+         any other device, and keeping it in the cloud only widens the blast
+         radius of a stolen backup. Excluded.
+
+         com.google.firebase.auth.api.Store.[DEFAULT].xml is Firebase Auth's
+         credential store: firebase-auth 24.2.0
+         com/google/firebase/auth/internal/zzce names it via
+         String.format("com.google.firebase.auth.api.Store.%s", appName) and
+         persists FIREBASE_USER plus the GET_TOKEN_RESPONSE keys — i.e. a
+         refresh token for the signed-in account. Excluded from cloud backup
+         AND device transfer; the user simply signs in again on the new
+         device. Do not widen this back to the whole sharedpref domain. -->
+    <include domain="sharedpref" path="."/>
+    <exclude domain="sharedpref" path="FlutterSecureStorage.xml"/>
+    <exclude domain="sharedpref" path="com.google.firebase.auth.api.Store.[DEFAULT].xml"/>
+    <include domain="database" path="."/>
+    <include domain="file" path="."/>
+    <exclude domain="file" path="backups"/>
+    <!-- Portable-backup staging: a second full copy of everything, already
+         covered by the database include above. -->
+    <exclude domain="file" path="app_data"/>
+    <exclude domain="file" path="database_diagnostics"/>
+    <!-- On-device diagnostics log: support material, not user data. It can
+         name cities and carry error traces, so it stays off the cloud copy. -->
+    <exclude domain="file" path="tawheed_log.txt"/>
+    <exclude domain="file" path="trayheed_log.txt"/>
+    <exclude domain="file" path="quran_content"/>
+    <exclude domain="file" path="quran_audio"/>
+    <exclude domain="file" path="quran_audio_cache"/>
+    <!-- Regenerable search index, not user data. -->
+    <exclude domain="file" path="quran_search.db"/>
+    <exclude domain="file" path="hadith.db"/>
+    <exclude domain="file" path="mokhtasar.db"/>
+    <exclude domain="file" path="app.sqlite.backup"/>
+    <exclude domain="file" path="app.sqlite.backup.1"/>
+    <exclude domain="file" path="app.sqlite.backup.2"/>
+    <!-- Half-written restore target; only meaningful within one launch. -->
+    <exclude domain="file" path="app.sqlite.restore.tmp"/>
+</full-backup-content>

@@ -1,0 +1,16 @@
+{
+  "_note": "برچسب‌های تجوید — فقط نام و رنگ؛ هیچ تعریف یا حکمی در این فایل نیست و هیچ متن قرآنی ذخیره نمی‌شود. reviewed=false یعنی هنوز بازبینی انسانی نشده‌اند و مربی می‌تواند ویرایش یا غیرفعال کند.",
+  "version": 1,
+  "tags": [
+    {"key": "madd", "titleFa": "مد", "reviewed": false},
+    {"key": "ghunnah", "titleFa": "غنه", "reviewed": false},
+    {"key": "ikhfa", "titleFa": "اخفا", "reviewed": false},
+    {"key": "idgham", "titleFa": "ادغام", "reviewed": false},
+    {"key": "qalqalah", "titleFa": "قلقله", "reviewed": false},
+    {"key": "makharij", "titleFa": "مخارج حروف", "reviewed": false},
+    {"key": "sifat", "titleFa": "صفات حروف", "reviewed": false},
+    {"key": "waqf_ibtida", "titleFa": "وقف و ابتدا", "reviewed": false},
+    {"key": "fluency", "titleFa": "روانی", "reviewed": false},
+    {"key": "harakat", "titleFa": "حرکات", "reviewed": false}
+  ]
+}

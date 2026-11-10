@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No OS polling (spec: updatePeriodMillis=0): the widget re-renders on
+     taps (goAsync pipeline), app snapshots, and system broadcasts. This v31
+     copy is the one Android 12+ actually reads — the 1800000 it carried
+     until 2026-10-17 was an unsynced copy of 42abe9b (294c785 set the base
+     file to 0). -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="190dp"
+    android:minHeight="190dp"
+    android:minResizeWidth="120dp"
+    android:minResizeHeight="120dp"
+    android:maxResizeWidth="400dp"
+    android:maxResizeHeight="400dp"
+    android:targetCellWidth="3"
+    android:targetCellHeight="3"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_placeholder_tasbih"
+    android:label="توحید — تسبیح"
+    android:description="@string/widget_tasbih_info_desc"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"/>

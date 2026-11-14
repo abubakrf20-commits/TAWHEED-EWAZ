@@ -29,7 +29,8 @@ https://abubakrf20-commits.github.io/TAWHEED-EWAZ/store/README.md
 | versionName | `1.9.0` |
 | versionCode | `2000015041` (`SHIPPED_VERSION_CODE` در `android/app/build.gradle.kts`) |
 | کوچک‌ترین اندروید | طبق `android/app/build.gradle.kts` (`minSdk`) |
-| امضا | کلید `release-key.jks` (فقط روی رایانهٔ خودتان) |
+| امضا | کلید `release-key.jks`، نام مستعار `upload` (فقط روی رایانهٔ خودتان) |
+| اثر انگشت گواهی آپلود (SHA-256) | `D9:9C:B5:52:C4:24:57:4A:AC:7F:76:59:8D:D9:71:81:9A:07:2D:D9:8B:12:B2:0F:FA:0C:3E:13:58:D7:8F:1B` |
 | دستهٔ Play | سبک زندگی (Lifestyle) |
 | سن هدف | ۱۳+ (باغ کودکان قابلیت خانوادگی است) |
 | تبلیغات / خرید درون‌برنامه‌ای | ندارد |

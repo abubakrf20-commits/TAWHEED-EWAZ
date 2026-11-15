@@ -13,6 +13,7 @@ https://abubakrf20-commits.github.io/TAWHEED-EWAZ/store/README.md
 | مسیر در همین پوشه | چیست |
 | --- | --- |
 | `account-deletion.html` | صفحهٔ «حذف حساب کاربری» برای فرم Play؛ همین آدرس در کنسول و در `data-safety-answers.md` ثبت شده است |
+| `PLAY_CHECKLIST.md` | چک‌لیست کامل انتشار در Google Play: آپلودها، فیلدهای کنسول، ایمنی داده، ترتیب کار |
 | `listing-fa.md` | متن‌های آمادهٔ صفحهٔ فروشگاه: نام، توضیح کوتاه/بلند، «تازه‌ها»، کلیدواژه‌ها |
 | `data-safety-answers.md` | پاسخ‌های فرم «ایمنی داده» با آدرس عمومی صفحهٔ حذف حساب |
 | `assets/icon-512.png` | آیکون ۵۱۲×۵۱۲ (۳۲ بیت با شفافیت) — فیلد «App icon» |

@@ -1,10 +1,11 @@
 {
-  "revision": 2000015042,
+  "revision": 2000015041,
   "versionCode": 2000015041,
   "versionName": "1.9.0",
   "notes": "• هوش مصنوعی شرعی قاف: کیبورد دیگر بلافاصله بسته نمی‌شود و تایپ در کادر پیام ماندگار است\n• مرورگر درون‌برنامه‌ای: هیچ پیوندی بی‌صدا برنامهٔ دیگری را باز نمی‌کند؛ مقصد اول نشان داده می‌شود\n• ماشین حساب: دکمهٔ درصد داخل عبارت کار می‌کند («12+5%» = ۱۲٫۶)\n• معنی درصد نسبت به عملگر تعیین می‌شود: درصدی از عدد چپ در جمع و تفریق، تقسیم بر ۱۰۰ در ضرب و تقسیم\n• حذف پیاده‌سازی تکراری تبدیل واحد؛ نسخهٔ فعال همان «تبدیل واحد» است\n• پاک کردن دادهٔ سایت‌ها حالا کش واقعی HTTP را هم پاک می‌کند\n• تایم‌لاین اعمال: تایل آیکون بزرگ‌تر و فاصلهٔ آیکون تا نام بیشتر",
   "apkUrl": "https://raw.githubusercontent.com/abubakrf20-commits/TAWHEED-EWAZ/main/releases/app-release.apk",
-  "apkSha256": "bf5a4326bf5965a56616b1ae36f6a6e4282a1eb7c247806a84dab629e766a1b3",
+  "apkSha256": "82ecaa559ae3ac49830876112d128b1a786f01a05237af5804c6ba37f13f49b0",
   "playUrl": "https://play.google.com/store/apps/details?id=com.islamic.tawheeed",
-  "mandatory": false
+  "mandatory": false,
+  "revisionRule": "revision equals SHIPPED_VERSION_CODE; build the self-hosted APK AND the Play AAB with --dart-define=APP_REVISION=<that code> so an installed build never ranks below this manifest"
 }
